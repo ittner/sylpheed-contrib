@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: sylpheed\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-14 16:42+0900\n"
-"PO-Revision-Date: 2010-01-23 04:45-0200\n"
+"PO-Revision-Date: 2010-01-23 06:52-0200\n"
 "Last-Translator: Alexandre Erwin Ittner <alexandre@ittner.com.br>\n"
 "Language-Team: Portuguese/Brazil <(none)>\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr "Lendo as configurações de cada conta...\n"
 #: libsylph/imap.c:531
 #, c-format
 msgid "IMAP4 connection to %s has been disconnected. Reconnecting...\n"
-msgstr "A conexão IMAP4 com %s terminou. Reconectando...\n"
+msgstr "A conexão IMAP4 com %s foi finalizada. Reconectando...\n"
 
 #: libsylph/imap.c:588 libsylph/imap.c:594
 msgid "IMAP4 server disables LOGIN.\n"
@@ -2212,7 +2212,7 @@ msgstr "Destino:"
 
 #: src/export.c:361 src/import.c:355
 msgid "UNIX mbox"
-msgstr "Caixa postal UNIX"
+msgstr "Caixa postal UNIX (mbox)"
 
 #: src/export.c:364
 msgid "eml (number + .eml)"
@@ -2229,7 +2229,7 @@ msgstr "Selecionar..."
 
 #: src/export.c:419
 msgid "Specify source folder and destination folder."
-msgstr "Especificque a pasta de origem e o diretório de destino."
+msgstr "Especifique a pasta de origem e o diretório de destino."
 
 #: src/export.c:445
 msgid "Select destination file"
@@ -2614,7 +2614,7 @@ msgstr "Pasta de destino:"
 
 #: src/import.c:358
 msgid "eml (folder)"
-msgstr "eml (pasta)"
+msgstr "Pasta com arquivos \".eml\""
 
 #: src/import.c:407
 msgid "Specify source folder including eml files and destination folder."
@@ -4340,7 +4340,7 @@ msgstr "Servidor SMTP (envio)"
 
 #: src/prefs_account_dialog.c:780 src/prefs_account_dialog.c:1168
 msgid "User ID"
-msgstr "Usuario"
+msgstr "Usuário"
 
 #: src/prefs_account_dialog.c:786 src/prefs_account_dialog.c:1177
 msgid "Password"
@@ -4710,7 +4710,7 @@ msgstr ""
 " Finalize com:\n"
 "   | para substituir o corpo da mensagem ou seleção com a saída do comando\n"
 "   > para inserir a saída do comando sem substituir texto antigo\n"
-"   & para executar comandos asincronamente\n"
+"   & para executar comandos assincronamente\n"
 " Use:\n"
 "   %f para o nome do arquivo da mensagem\n"
 "   %F para a lista de nomes de arquivo das mensagens selecionadas\n"
@@ -5058,7 +5058,7 @@ msgstr "Mensagem"
 
 #: src/prefs_common_dialog.c:1643
 msgid "Color label"
-msgstr "Etiqueta colorida"
+msgstr "Etiquetas"
 
 #: src/prefs_common_dialog.c:1653
 msgid "Default character encoding"
@@ -5328,7 +5328,7 @@ msgstr "Fechar diálogo de recepção quando terminar"
 
 #: src/prefs_common_dialog.c:2506
 msgid "Add address to destination when double-clicked"
-msgstr "Adicionar endereço para o destino quando clicado duas vezes"
+msgstr "Adicionar endereço para o destinatário com duplo-clique"
 
 #: src/prefs_common_dialog.c:2508
 msgid "On exit"
@@ -6481,7 +6481,7 @@ msgstr "%1$d em %2$d coincidem"
 #: src/quick_search.c:313
 #, c-format
 msgid "No messages matched"
-msgstr "Nenhuma mensagem confere"
+msgstr "Nenhuma mensagem encontrada"
 
 #: src/rfc2015.c:144
 msgid "Cannot find user ID for this key."
