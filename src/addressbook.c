@@ -116,9 +116,6 @@ static GdkPixbuf *jpilotpix;
 static GdkPixbuf *categorypix;
 static GdkPixbuf *ldappix;
 
-/* Message buffer */
-static gchar addressbook_msgbuf[ADDRESSBOOK_MSGBUF_SIZE];
-
 /* Address list selection */
 static GList *_addressListSelection_ = NULL;
 
@@ -940,26 +937,23 @@ static void addressbook_ds_show_message(AddressDataSource *ds)
 {
 	gint retVal;
 	gchar *name;
-
-	*addressbook_msgbuf = '\0';
+	gchar msgbuf[ADDRESSBOOK_MSGBUF_SIZE] = "";
 
 	if (ds) {
 		name = addrindex_ds_get_name(ds);
+		if (ds->type == ADDR_IF_BOOK && name &&
+		    !strcmp(name, ADDR_DS_AUTOREG))
+			name = _("Auto-registered address");
 		retVal = addrindex_ds_get_status_code(ds);
 		if (retVal == MGU_SUCCESS) {
-			if (ds) {
-				g_snprintf(addressbook_msgbuf, sizeof(addressbook_msgbuf), "%s", name);
-			}
+			g_snprintf(msgbuf, sizeof(msgbuf), "%s", name);
 		} else {
-			if (ds == NULL) {
-				g_snprintf(addressbook_msgbuf, sizeof(addressbook_msgbuf), "%s", mgu_error2string(retVal));
-			} else {
-				g_snprintf(addressbook_msgbuf, sizeof(addressbook_msgbuf), "%s: %s", name, mgu_error2string(retVal));
-			}
+			g_snprintf(msgbuf, sizeof(msgbuf), "%s: %s",
+				   name, mgu_error2string(retVal));
 		}
 	}
 
-	addressbook_status_show(addressbook_msgbuf);
+	addressbook_status_show(msgbuf);
 }
 
 /*
@@ -1267,6 +1261,9 @@ static void addressbook_menuitem_set_sensitive(void)
 		} else
 #endif
 			canLookup = TRUE;
+		if (ads->subType == ADDR_BOOK && pobj->name &&
+		    !strcmp(pobj->name, ADDR_DS_AUTOREG))
+			canEditTree = FALSE;
 	} else if (pobj->type == ADDR_ITEM_FOLDER) {
 		ds = addressbook_find_datasource(&iter);
 		if (ds) {
@@ -2900,9 +2897,11 @@ void addressbook_read_file(void)
 		/* Conversion required */
 		debug_print("Converting...\n");
 		if (addressbook_convert(addrIndex)) {
+			addrindex_create_extra_books(addrIndex);
 			_addressIndex_ = addrIndex;
 		}
 	} else if (addrIndex->retVal == MGU_SUCCESS) {
+		addrindex_create_extra_books(addrIndex);
 		_addressIndex_ = addrIndex;
 	} else {
 		gchar msg[1024];
@@ -3049,6 +3048,7 @@ static gboolean addressbook_add_object(GtkTreeIter *iter, GtkTreeIter *new_iter,
 	AddressObject *pobj;
 	AddressObjectType otype;
 	AddressTypeControlItem *atci = NULL;
+	const gchar *name;
 
 	g_return_val_if_fail(iter != NULL, FALSE);
 	g_return_val_if_fail(obj  != NULL, FALSE);
@@ -3069,9 +3069,14 @@ static gboolean addressbook_add_object(GtkTreeIter *iter, GtkTreeIter *new_iter,
 	if (atci && atci->showInTree) {
 		/* Add object to tree */
 		debug_print("addressbook_add_object: obj: %s\n", obj->name);
+		if (otype == ADDR_BOOK && obj->name &&
+		    !strcmp(obj->name, ADDR_DS_AUTOREG))
+			name = _("Auto-registered address");
+		else
+			name = obj->name;
 		gtk_tree_store_append(GTK_TREE_STORE(model), &added, iter);
 		gtk_tree_store_set(GTK_TREE_STORE(model), &added,
-				   COL_FOLDER_NAME, obj->name,
+				   COL_FOLDER_NAME, name,
 				   COL_OBJ, obj,
 				   COL_PIXBUF, atci->icon_pixbuf,
 				   COL_PIXBUF_OPEN, atci->icon_open_pixbuf,
@@ -3368,15 +3373,16 @@ gint addressbook_obj_name_compare(gconstpointer a, gconstpointer b)
 
 #if 0
 static void addressbook_book_show_message( AddressBookFile *abf ) {
-	*addressbook_msgbuf = '\0';
-	if( abf ) {
-		if( abf->retVal == MGU_SUCCESS ) {
-			sprintf( addressbook_msgbuf, "%s", abf->name );
+	gchar msgbuf[ADDRESSBOOK_MSGBUF_SIZE] = "";
+
+	if (abf) {
+		if (abf->retVal == MGU_SUCCESS) {
+			g_snprintf(msgbuf, sizeof(msgbuf), "%s", abf->name);
 		} else {
-			sprintf( addressbook_msgbuf, "%s: %s", abf->name, mgu_error2string( abf->retVal ) );
+			g_snprintf(msgbuf, sizeof(msgbuf), "%s: %s", abf->name, mgu_error2string(abf->retVal));
 		}
 	}
-	addressbook_status_show( addressbook_msgbuf );
+	addressbook_status_show(msgbuf);
 }
 #endif
 
@@ -3432,16 +3438,16 @@ static void addressbook_new_vcard_cb(gpointer data, guint action, GtkWidget *wid
 
 #if 0
 static void addressbook_vcard_show_message( VCardFile *vcf ) {
-	*addressbook_msgbuf = '\0';
-	if( vcf ) {
-		if( vcf->retVal == MGU_SUCCESS ) {
-			sprintf( addressbook_msgbuf, "%s", vcf->name );
-		}
-		else {
-			sprintf( addressbook_msgbuf, "%s: %s", vcf->name, mgu_error2string( vcf->retVal ) );
+	gchar msgbuf[ADDRESSBOOK_MSGBUF_SIZE] = "";
+
+	if (vcf) {
+		if (vcf->retVal == MGU_SUCCESS) {
+			g_snprintf(msgbuf, sizeof(msgbuf), "%s", vcf->name);
+		} else {
+			g_snprintf(msgbuf, sizeof(msgbuf), "%s: %s", vcf->name, mgu_error2string(vcf->retVal));
 		}
 	}
-	addressbook_status_show( addressbook_msgbuf );
+	addressbook_status_show(msgbuf);
 }
 #endif
 
@@ -3477,16 +3483,16 @@ static void addressbook_new_jpilot_cb(gpointer data, guint action, GtkWidget *wi
 
 #if 0
 static void addressbook_jpilot_show_message( JPilotFile *jpf ) {
-	*addressbook_msgbuf = '\0';
-	if( jpf ) {
-		if( jpf->retVal == MGU_SUCCESS ) {
-			sprintf( addressbook_msgbuf, "%s", jpf->name );
-		}
-		else {
-			sprintf( addressbook_msgbuf, "%s: %s", jpf->name, mgu_error2string( jpf->retVal ) );
+	gchar msgbuf[ADDRESSBOOK_MSGBUF_SIZE] = "";
+
+	if (jpf) {
+		if (jpf->retVal == MGU_SUCCESS) {
+			g_snprintf(msgbuf, sizeof(msgbuf), "%s", jpf->name);
+		} else {
+			g_snprintf(msgbuf, sizeof(msgbuf), "%s: %s", jpf->name, mgu_error2string(jpf->retVal));
 		}
 	}
-	addressbook_status_show( addressbook_msgbuf );
+	addressbook_status_show(msgbuf);
 }
 #endif
 #endif /* USE_JPILOT */
@@ -3523,19 +3529,20 @@ static void addressbook_new_ldap_cb(gpointer data, guint action, GtkWidget *widg
 
 static void addressbook_ldap_show_message(SyldapServer *svr)
 {
-	*addressbook_msgbuf = '\0';
+	gchar msgbuf[ADDRESSBOOK_MSGBUF_SIZE] = "";
+
 	if (svr) {
 		if (svr->busyFlag) {
-			sprintf(addressbook_msgbuf, "%s: %s", svr->name, ADDRESSBOOK_LDAP_BUSYMSG);
+			g_snprintf(msgbuf, sizeof(msgbuf), "%s: %s", svr->name, ADDRESSBOOK_LDAP_BUSYMSG);
 		} else {
 			if (svr->retVal == MGU_SUCCESS) {
-				sprintf(addressbook_msgbuf, "%s", svr->name);
+				g_snprintf(msgbuf, sizeof(msgbuf), "%s", svr->name);
 			} else {
-				sprintf(addressbook_msgbuf, "%s: %s", svr->name, mgu_error2string(svr->retVal));
+				g_snprintf(msgbuf, sizeof(msgbuf), "%s: %s", svr->name, mgu_error2string(svr->retVal));
 			}
 		}
 	}
-	addressbook_status_show(addressbook_msgbuf);
+	addressbook_status_show(msgbuf);
 }
 
 static void ldapsearch_callback(SyldapServer *sls)
@@ -4001,9 +4008,21 @@ void addrbookctl_build_ifselect(void)
  */
 gboolean addressbook_add_contact(const gchar *name, const gchar *address, const gchar *remarks)
 {
-	debug_print("addressbook_add_contact: name/address: %s - %s\n", name, address);
+	debug_print("addressbook_add_contact: name/address: %s <%s>\n", name ? name : "", address);
 	if (addressadd_selection(_addressIndex_, name, address, remarks)) {
 		debug_print("addressbook_add_contact - added\n");
+		addressbook_refresh();
+	}
+	return TRUE;
+}
+
+/*
+ * This function is used by the automatic address registration.
+ */
+gboolean addressbook_add_contact_autoreg(const gchar *name, const gchar *address, const gchar *remarks)
+{
+	debug_print("addressbook_add_contact_autoreg: name/address: %s <%s>\n", name ? name : "", address);
+	if (addressadd_autoreg(_addressIndex_, name, address, remarks)) {
 		addressbook_refresh();
 	}
 	return TRUE;
