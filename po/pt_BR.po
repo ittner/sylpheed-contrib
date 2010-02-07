@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: sylpheed\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-05 16:26+0900\n"
-"PO-Revision-Date: 2010-01-27 15:41-0200\n"
+"PO-Revision-Date: 2010-02-07 02:50-0200\n"
 "Last-Translator: Alexandre Erwin Ittner <alexandre@ittner.com.br>\n"
 "Language-Team: Portuguese/Brazil <(none)>\n"
 "MIME-Version: 1.0\n"
@@ -6799,87 +6799,73 @@ msgid ""
 msgstr "O caminho \"%s\" já possui um diretório de preferências. Indique outro local."
 
 #: src/setup.c:455
-#, fuzzy
 msgid "Cancel mail account setup?"
-msgstr "Editar contas"
+msgstr "Cancelar configuração das contas?"
 
 #: src/setup.c:473 src/setup.c:481
-#, fuzzy
 msgid "Input value is not valid."
-msgstr "Nome do menu não definido."
+msgstr "O valor digitado não é válido."
 
 #: src/setup.c:509 src/setup.c:517 src/setup.c:553 src/setup.c:561
 #: src/setup.c:783 src/setup.c:861
-#, fuzzy
 msgid "POP3 server:"
-msgstr "Servidor LDAP"
+msgstr "Servidor POP3:"
 
 #: src/setup.c:525 src/setup.c:533 src/setup.c:569 src/setup.c:577
-#, fuzzy
 msgid "IMAP4 server:"
-msgstr "Servidor LDAP"
+msgstr "Servidor IMAP4:"
 
 #: src/setup.c:631 src/setup.c:667
-#, fuzzy
 msgid "New account setup"
-msgstr "Editar contas"
+msgstr "Configurar nova conta"
 
 #: src/setup.c:686
-#, fuzzy
 msgid "This dialog will make initial setup of new mail account."
-msgstr "Este diálogo configurará sua caixa-postal inicial"
+msgstr "Este diálogo configurará sua nova conta de email."
 
 #: src/setup.c:709
-#, fuzzy
 msgid "Select account type:"
-msgstr "Apagar conta"
+msgstr "Selecione o tipo de conta:"
 
 #: src/setup.c:730
-#, fuzzy
 msgid "Input your name and mail address:"
-msgstr "Selecionar chave através de seu endereço de e-mail"
+msgstr "Digite seu nome e endereço de email:"
 
 #: src/setup.c:739 src/setup.c:849
-#, fuzzy
 msgid "Display name:"
-msgstr "Exibir Nome"
+msgstr "Nome de exibição:"
 
 #: src/setup.c:743 src/setup.c:853
-#, fuzzy
 msgid "E-mail address:"
-msgstr "Endereço de e-mail"
+msgstr "Endereço de email:"
 
 #: src/setup.c:759
 msgid "This name will be seen at the side of recipients (e.g. John Doe)"
-msgstr ""
+msgstr "Este nome será visto pelos destinatários (ex. Fulano de Tal)"
 
 #: src/setup.c:770
 msgid "Input user ID and mail server:"
-msgstr ""
+msgstr "Digite o nome de usuário e o servidor de email:"
 
 #: src/setup.c:779 src/setup.c:857
-#, fuzzy
 msgid "User ID:"
-msgstr "Usuário"
+msgstr "Nome de Usuário:"
 
 #: src/setup.c:788 src/setup.c:865
-#, fuzzy
 msgid "SMTP server:"
-msgstr "Servidor SMTP (envio)"
+msgstr "Servidor SMTP:"
 
 #: src/setup.c:812 src/setup.c:822
-#, fuzzy
 msgid "Use SSL"
-msgstr "SSL"
+msgstr "Usar SSL"
 
 #: src/setup.c:819
-#, fuzzy
 msgid "Use SMTP authentication"
-msgstr "Autenticação"
+msgstr "Usar autenticação SMTP"
 
 #: src/setup.c:834
 msgid "Your new mail accout has been set up with the following setting."
-msgstr ""
+msgstr "Sua nova conta foi configurada com as opções a seguir."
 
 #: src/setup.c:837
 msgid ""
@@ -6887,6 +6873,9 @@ msgid ""
 "'Configuration - Preferences for current account' or\n"
 "'Configuration - Edit accounts' in the main menu."
 msgstr ""
+"Se você deseja modificar as configurações, selecione\n"
+"\"Configurações -- Preferências para a conta atual\" ou\n"
+"\"Configurações --Editar contas\" no menu principal."
 
 #: src/sigstatus.c:116
 msgid "Signature check result"
