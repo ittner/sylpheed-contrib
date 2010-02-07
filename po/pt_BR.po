@@ -10,14 +10,14 @@
 # Debian-BR <debian-l10n-portuguese@lists.debian.org>
 # Gustavo Noronha Silva <kov@debian.org>
 # Ricardo Nabinger Sanchez <rnsanchez@gmail.com>, 2010.
-#
-#
+# 
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: sylpheed\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-05 16:26+0900\n"
-"PO-Revision-Date: 2010-02-07 02:50-0200\n"
+"PO-Revision-Date: 2010-02-07 04:00-0200\n"
 "Last-Translator: Alexandre Erwin Ittner <alexandre@ittner.com.br>\n"
 "Language-Team: Portuguese/Brazil <(none)>\n"
 "MIME-Version: 1.0\n"
@@ -52,12 +52,12 @@ msgstr "Não foi possível iniciar sessão TLS.\n"
 
 #: libsylph/imap.c:865
 msgid "(retrieving FLAGS...)"
-msgstr "(obtendo FLAGS...)"
+msgstr "(recebendo FLAGS...)"
 
 #: libsylph/imap.c:1256
 #, c-format
 msgid "Getting message %u"
-msgstr "Obtendo mensagem %u"
+msgstr "Recebendo mensagem %u"
 
 #: libsylph/imap.c:1378
 #, c-format
@@ -118,7 +118,7 @@ msgstr "Não foi possível criar \"%s\"\n"
 #: libsylph/imap.c:2323
 #, c-format
 msgid "Can't create '%s' under INBOX\n"
-msgstr "não foi possível criar \"%s\" sob a Caixa de Entrada\n"
+msgstr "não foi possível criar \"%s\" sob a Caixa de entrada\n"
 
 #: libsylph/imap.c:2385
 msgid "can't create mailbox: LIST failed\n"
@@ -140,7 +140,7 @@ msgstr "Não foi possível apagar a caixa de correio\n"
 #: libsylph/imap.c:2643
 #, c-format
 msgid "Getting message headers (%d / %d)"
-msgstr "Buscando cabeçalhos das mensagens (%d / %d)"
+msgstr "Recebendo cabeçalhos das mensagens (%d / %d)"
 
 #: libsylph/imap.c:2695
 msgid "error occurred while getting envelope.\n"
@@ -235,7 +235,7 @@ msgstr "Não é possível gravar no arquivo temporário\n"
 #: libsylph/mbox.c:81
 #, c-format
 msgid "Getting messages from %s into %s...\n"
-msgstr "Obtendo mensagens de %s até %s...\n"
+msgstr "Recebendo mensagens de %s até %s...\n"
 
 #: libsylph/mbox.c:93
 msgid "can't read mbox file.\n"
@@ -365,7 +365,7 @@ msgstr "o artigo %d já está no cachê.\n"
 #: libsylph/news.c:410
 #, c-format
 msgid "getting article %d...\n"
-msgstr "obtendo artigo %d...\n"
+msgstr "Recebendo artigo %d...\n"
 
 #: libsylph/news.c:414
 #, c-format
@@ -398,7 +398,7 @@ msgstr "não há novos artigos.\n"
 #: libsylph/news.c:832
 #, c-format
 msgid "getting xover %d - %d in %s...\n"
-msgstr "obtendo xover %d - %d en %s...\n"
+msgstr "Recebendo xover %d - %d en %s...\n"
 
 #: libsylph/news.c:836
 msgid "can't get xover\n"
@@ -1361,7 +1361,7 @@ msgstr "/_Editar/Quebrar _linhas longas"
 
 #: src/compose.c:602
 msgid "/_Edit/Aut_o wrapping"
-msgstr "/_Editar/_Quebra linhas automaticamente"
+msgstr "/_Editar/_Quebrar linhas automaticamente"
 
 #: src/compose.c:603 src/mainwindow.c:589 src/messageview.c:166
 #: src/summaryview.c:463
@@ -2254,7 +2254,7 @@ msgstr "Selecione uma pasta"
 
 #: src/foldersel.c:396 src/folderview.c:1224 src/prefs_folder_item.c:235
 msgid "Inbox"
-msgstr "Caixa de Entrada"
+msgstr "Caixa de entrada"
 
 #: src/foldersel.c:400 src/folderview.c:1230 src/prefs_folder_item.c:236
 msgid "Sent"
@@ -2392,7 +2392,7 @@ msgstr "Revisando pasta %s ..."
 
 #: src/folderview.c:937
 msgid "Rebuild folder tree"
-msgstr "/_Atualizar árvore de pastas"
+msgstr "Atualizar árvore de pastas"
 
 #: src/folderview.c:938
 msgid "The folder tree will be rebuilt. Continue?"
@@ -2786,7 +2786,7 @@ msgstr "Autenticando via POP3"
 
 #: src/inc.c:504
 msgid "Retrieving new messages"
-msgstr "Obtendo novas mensagens"
+msgstr "Recebendo novas mensagens"
 
 #: src/inc.c:547
 msgid "Standby"
@@ -2847,7 +2847,7 @@ msgstr "Houve alguns erros ao obter as mensagens"
 #: src/inc.c:830
 #, c-format
 msgid "getting new messages of account %s...\n"
-msgstr "obtendo novas mensagens da conta %s...\n"
+msgstr "Recebendo novas mensagens da conta %s...\n"
 
 #: src/inc.c:834
 #, c-format
@@ -2881,19 +2881,19 @@ msgstr "Recebendo mensagens de %s..."
 
 #: src/inc.c:944
 msgid "Getting the number of new messages (STAT)..."
-msgstr "Obtendo o número de novas mensagens (STAT)..."
+msgstr "Recebendo o número de novas mensagens (STAT)..."
 
 #: src/inc.c:948
 msgid "Getting the number of new messages (LAST)..."
-msgstr "Obtendo o número de novas mensagens (LAST)..."
+msgstr "Recebendo o número de novas mensagens (LAST)..."
 
 #: src/inc.c:952
 msgid "Getting the number of new messages (UIDL)..."
-msgstr "Obtendo o número de novas mensagens (UIDL)..."
+msgstr "Recebendo o número de novas mensagens (UIDL)..."
 
 #: src/inc.c:956
 msgid "Getting the size of messages (LIST)..."
-msgstr "Obtendo o número de novas mensagens (LIST)..."
+msgstr "Recebendo o número de novas mensagens (LIST)..."
 
 #: src/inc.c:966
 #, c-format
@@ -3553,15 +3553,15 @@ msgstr "/_Mensagem/_Responder para"
 
 #: src/mainwindow.c:796 src/messageview.c:268
 msgid "/_Message/Repl_y to/_all"
-msgstr "/Mensagem/Responder para/_todos"
+msgstr "/Mensagem/Responder _para/_todos"
 
 #: src/mainwindow.c:797 src/messageview.c:270
 msgid "/_Message/Repl_y to/_sender"
-msgstr "/_Mensagem/Responder para/_quem enviou"
+msgstr "/_Mensagem/Responder _para/_remetente"
 
 #: src/mainwindow.c:798 src/messageview.c:272
 msgid "/_Message/Repl_y to/mailing _list"
-msgstr "/Mensagem/Responder para/_lista"
+msgstr "/Mensagem/Responder _para/_lista"
 
 #: src/mainwindow.c:801 src/messageview.c:275
 msgid "/_Message/_Forward"
@@ -3713,7 +3713,7 @@ msgstr "/_Configuração/---"
 
 #: src/mainwindow.c:874
 msgid "/_Configuration/_Preferences for current account..."
-msgstr "/_Configuração/Preferências da conta _atual..."
+msgstr "/_Configuração/Preferências para a conta _atual..."
 
 #: src/mainwindow.c:876
 msgid "/_Configuration/Create _new account..."
@@ -5326,19 +5326,19 @@ msgstr "Ao sair"
 
 #: src/prefs_common_dialog.c:2539
 msgid "Confirm on exit"
-msgstr "Confirmar ao sair"
+msgstr "Solicitar confirmação antes de sair"
 
 #: src/prefs_common_dialog.c:2546
 msgid "Empty trash on exit"
-msgstr "Esvaziar lixeira ao sair"
+msgstr "Esvaziar a lixeira ao sair"
 
 #: src/prefs_common_dialog.c:2548
 msgid "Ask before emptying"
-msgstr "Pergunte antes de esvaziar"
+msgstr "Perguntar antes de esvaziar"
 
 #: src/prefs_common_dialog.c:2552
 msgid "Warn if there are queued messages"
-msgstr "Avise se existirem mensagens na caixa de saída"
+msgstr "Avisar se houver mensagens na caixa de saída"
 
 #: src/prefs_common_dialog.c:2607
 #, c-format
@@ -5879,7 +5879,7 @@ msgstr "Marcada"
 
 #: src/prefs_filter_edit.c:509
 msgid "Has color label"
-msgstr "Possui cor de identificação"
+msgstr "Possui etiqueta"
 
 #: src/prefs_filter_edit.c:510
 msgid "Has attachment"
@@ -6231,7 +6231,7 @@ msgstr "Responder à Mensagem"
 
 #: src/prefs_toolbar.c:59
 msgid "Reply all"
-msgstr "Responder todas"
+msgstr "Responder para todos"
 
 #: src/prefs_toolbar.c:60
 msgid "Reply to all"
@@ -6542,11 +6542,11 @@ msgstr ""
 #: src/rpop3.c:690
 #, c-format
 msgid "Retrieving message headers (%d / %d) ..."
-msgstr "Buscando cabeçalhos das mensagens (%d / %d) ..."
+msgstr "Recebendo cabeçalhos das mensagens (%d / %d) ..."
 
 #: src/rpop3.c:853
 msgid "Getting the number of messages..."
-msgstr "Obtendo o número de novas mensagens..."
+msgstr "Recebendo o número de novas mensagens..."
 
 #: src/rpop3.c:862 src/rpop3.c:875
 msgid "No message"
@@ -6772,8 +6772,7 @@ msgid ""
 "If you want to add a mailbox at another location afterward, please select "
 "'File - Mailbox - Add mailbox...' in the menu."
 msgstr ""
-"Se você deseja adicionar uma caixa-postal em outro local, use \"Arquivo - "
-"Caixa-postal -Adicionar caixa-postal...\" no menu."
+"Se você deseja adicionar uma caixa-postal em outro local, selecione a opção \"Arquivo - Caixa-postal - Adicionar caixa-postal...\" no menu principal."
 
 #: src/setup.c:231 src/setup.c:455
 msgid "Cancel"
@@ -6800,7 +6799,7 @@ msgstr "O caminho \"%s\" já possui um diretório de preferências. Indique outr
 
 #: src/setup.c:455
 msgid "Cancel mail account setup?"
-msgstr "Cancelar configuração das contas?"
+msgstr "Você deseja cancelar a cancelar configuração desta conta?"
 
 #: src/setup.c:473 src/setup.c:481
 msgid "Input value is not valid."
@@ -6833,7 +6832,7 @@ msgstr "Digite seu nome e endereço de email:"
 
 #: src/setup.c:739 src/setup.c:849
 msgid "Display name:"
-msgstr "Nome de exibição:"
+msgstr "Nome:"
 
 #: src/setup.c:743 src/setup.c:853
 msgid "E-mail address:"
@@ -7136,7 +7135,7 @@ msgstr "/_Marcar/Marcar _todas como lidas"
 
 #: src/summaryview.c:442
 msgid "/Color la_bel"
-msgstr "/Cor de _identificação"
+msgstr "/Et_iqueta"
 
 #: src/summaryview.c:446
 msgid "/Set as _junk mail"
