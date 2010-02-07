@@ -1,3 +1,36 @@
+2010-02-05
+
+	* src/setup.c: confirm on cancel. Modified messages.
+
+2010-02-05
+
+	* src/setup.c: check the input values for address, ID and server.
+
+2010-02-05
+
+	* src/mainwindow.c: new_account_cb(): don't update UI when cancelled.
+
+2010-02-05
+
+	* src/setup.c: modified messages.
+
+2010-02-05
+
+	* src/main.c
+	  src/setup.[ch]
+	  src/mainwindow.c: implemented new account setup wizard.
+
+2010-02-04
+
+	* src/mimeview.c
+	  src/rfc2015.c: fixed crash when checking signature while GnuPG is
+	  not available.
+
+2010-02-02
+
+	* src/addr_compl.c: address_completion_complete_address_in_entry():
+	  don't open completion menu if entry equals to the completed address.
+
 2010-01-29
 
 	* version 3.0.0beta7
