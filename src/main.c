@@ -50,6 +50,11 @@
 #  include <gpgme.h>
 #endif
 
+#if HAVE_LIBNOTIFY
+#  include <libnotify/notify.h>
+#endif
+
+
 #include "main.h"
 #include "mainwindow.h"
 #include "folderview.h"
@@ -225,7 +230,9 @@ int main(int argc, char *argv[])
 		lock_socket_remove();
 		return 0;
 	}
-
+#if HAVE_LIBNOTIFY
+	notify_init("sylpheed");
+#endif
 #if USE_THREADS
 	gdk_threads_enter();
 #endif
@@ -253,7 +260,6 @@ int main(int argc, char *argv[])
 #if USE_SSL
 	ssl_set_verify_func(ssl_manager_verify_cert);
 #endif
-
 	CHDIR_EXIT_IF_FAIL(get_home_dir(), 1);
 
 	prefs_common_read_config();
@@ -363,6 +369,9 @@ int main(int argc, char *argv[])
 	gtk_main();
 #if USE_THREADS
 	gdk_threads_leave();
+#endif
+#if HAVE_LIBNOTIFY
+	notify_uninit();
 #endif
 
 	return 0;
