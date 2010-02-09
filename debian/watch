@@ -1,0 +1,4 @@
+# Site		Directory		Pattern			Version	Script
+version=3
+opts="uversionmangle=s/rc\./rc0./" \
+http://sylpheed.sraoss.jp/sylpheed/v(.+)/sylpheed-(.+)\.tar\.gz debian uupdate

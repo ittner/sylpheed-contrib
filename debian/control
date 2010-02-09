@@ -1,0 +1,72 @@
+Source: sylpheed
+Section: mail
+Priority: optional
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Ricardo Mones <mones@debian.org>
+Uploaders: Paul Mangan <claws@thewildbeast.co.uk>, Gustavo Noronha Silva <kov@debian.org>
+Build-Depends: debhelper (>= 7), quilt, libcompfaceg1-dev, libglib2.0-dev, 
+ libgtk2.0-dev, libpng12-dev, libgpgme11-dev (>= 1.0.0), libssl-dev, 
+ libpisock-dev, libldap2-dev, flex | flex-old, bison, gettext, 
+ libreadline5-dev, libgtkspell-dev (>= 2.0), libonig-dev,
+ libenchant-dev
+Standards-Version: 3.8.2
+Homepage: http://sylpheed.sraoss.jp/
+
+Package: sylpheed
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: sylpheed-i18n, metamail, xfonts-100dpi | 
+ xfonts-75dpi | xfonts-100dpi-transcoded | xfonts-75dpi-transcoded, aspell-en | 
+ aspell-dictionary, ca-certificates, curl
+Suggests: jpilot, sylpheed-doc (>= 20020420-3), claws-mail-tools, bogofilter, 
+ bsfilter
+Provides: mail-reader, news-reader
+Conflicts: sylpheed-doc (<= 20020420-2)
+Description: Light weight e-mail client with GTK+
+ Sylpheed is an e-mail client which aims for:
+  * Quick response 
+  * Graceful, and sophisticated interface 
+  * Easy configuration, intuitive operation 
+  * Abundant features 
+ The appearance and interface are similar to some popular e-mail clients for
+ Windows, such as Outlook Express or so.
+ The interface is also designed to emulate the mailers on Emacsen, and almost
+ all commands are accessible with the keyboard.
+
+Package: sylpheed-dbg
+Architecture: any
+Priority: extra
+Section: debug
+Depends: ${misc:Depends}, sylpheed (= ${binary:Version})
+Recommends: gdb
+Description: Debugging symbols for sylpheed, a GTK+ e-mail client
+ This package contains debug symbols useful for debugging sylpheed
+ with gdb or any compatible debugger.
+ .
+ It is also required if you intend to provide detailed backtraces for
+ helping the maintainer and/or upstream to fix some bug.
+
+Package: sylpheed-i18n
+Architecture: all
+Depends: ${misc:Depends}, sylpheed (>= ${binary:Version})
+Replaces: sylpheed (<< 0.9.12-2)
+Conflicts: sylpheed (<< 0.9.12-2)
+Description: Locale data for Sylpheed (i18n support)
+ This package provides support for non-English interfaces in the Sylpheed
+ mail client.
+ Current supported locales are:
+  bg (Bulgarian)          cs (Czech)
+  da (Danish)             de (German)                   
+  el (Greek)              es (Spanish)
+  et (Estonian)           fr (French)
+  gl (Galician)           hr (Croatian)
+  hu (Hungarian)          it (Italian)
+  ja (Japanese)           ko (Korean)
+  lt (Lithuanian)         nl (Dutch)                    
+  pl (Polish)             pt_BR (Brazilian Portuguese)
+  ro (Romanian)           ru (Russian)
+  sk (Slovak)             sl (Slovenian)
+  sr (Serbian)            sv (Swedish)
+  tr (Turkish)            uk (Ukrainian)
+  vi (Vietnamese)         zh_CN (Chinese)
+  zh_TW.Big5 (Taiwanese)

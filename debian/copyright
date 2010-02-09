@@ -1,0 +1,18 @@
+Format-Specification: http://dep.debian.net/deps/dep5/
+Name: sylpheed
+Source: http://sylpheed.good-day.net/
+Maintainer: Ricardo Mones <mones@debian.org>
+
+Files: *
+Copyright: 1999-2009, Hiroyuki Yamamoto <hiro-y@kcn.ne.jp>
+License: GPL-2+ with OpenSSL exemption
+ Specific permission is granted for the GPLed code in this distribution to
+ be linked to OpenSSL without invoking GPL clause 2(b).
+
+Files: debian/*
+Copyright: 2000-2001, Takuo KITAME <kitame@northeye.org> 
+           2001-2004, Gustavo Noronha Silva <kov@debian.org>
+	   2004-2009, Ricardo Mones <mones@debian.org>
+License: GPL-2+
+ The full text of the GPL is available in
+ /usr/share/common-licenses/GPL-2 on Debian systems.

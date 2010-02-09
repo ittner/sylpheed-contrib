@@ -1,0 +1,10 @@
+--- sylpheed-2.4.8/src/syldap.c~	2007-12-17 18:59:46.000000000 -0700
++++ sylpheed-2.4.8/src/syldap.c	2008-01-30 23:29:58.000000000 -0700
+@@ -32,6 +32,7 @@
+ #include <gtk/gtkmain.h>
+ #include <sys/time.h>
+ #include <string.h>
++#define LDAP_DEPRECATED 1
+ #include <ldap.h>
+ #include <lber.h>
+ #include <pthread.h>

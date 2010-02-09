@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+
+%:
+	dh --with quilt $@
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		--enable-gpgme \
+		--enable-ssl \
+		--enable-jpilot \
+		--enable-ldap \
+		--enable-jconv \
+		--enable-ipv6 \
+		--disable-gtkspell \
+		--enable-oniguruma \
+		--with-manualdir=/usr/share/doc/sylpheed-doc/manual \
+		--with-faqdir=/usr/share/doc/sylpheed-doc/FAQ
+
+override_dh_strip:
+	dh_strip --dbg-package=sylpheed-dbg
+

@@ -1,0 +1,21 @@
+diff -urN sylpheed-2.3.0beta1.orig/libsylph/prefs_common.c sylpheed-2.3.0beta1/libsylph/prefs_common.c
+--- sylpheed-2.3.0beta1.orig/libsylph/prefs_common.c	2006-09-26 11:12:56.000000000 +0200
++++ sylpheed-2.3.0beta1/libsylph/prefs_common.c	2006-10-01 22:05:05.000000000 +0200
+@@ -266,7 +266,7 @@
+ #ifdef G_OS_WIN32
+ 	{"mime_open_command", "notepad '%s'", &prefs_common.mime_open_cmd,
+ #else
+-	{"mime_open_command", "gedit '%s'", &prefs_common.mime_open_cmd,
++	{"mime_open_command", "sensible-editor '%s'", &prefs_common.mime_open_cmd,
+ #endif
+ 	 P_STRING},
+ 	{"mime_command", NULL, &prefs_common.mime_cmd, P_STRING},
+@@ -368,7 +368,7 @@
+ #ifdef G_OS_WIN32
+ 	{"ext_editor_command", "notepad '%s'", &prefs_common.ext_editor_cmd,
+ #else
+-	{"ext_editor_command", "gedit %s", &prefs_common.ext_editor_cmd,
++	{"ext_editor_command", "sensible-editor %s", &prefs_common.ext_editor_cmd,
+ #endif
+ 	 P_STRING},
+ 

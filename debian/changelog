@@ -1,0 +1,1499 @@
+sylpheed (2.7.1-1ubuntu1) karmic; urgency=low
+
+  * debian/rules: Pass --disable-gtkspell to workaround a crasher with 
+    enchant 1.5.0 (See bug #413994). Thanks Erik de Castro Lopo.
+  * debian/control: Add curl to recommends to add support for update check.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Sat, 03 Oct 2009 19:50:17 +0200
+
+sylpheed (2.7.1-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/rules, debian/sylpheed*
+  - Repackaged using debhelper sequencer
+  * debian/control
+  - Build-Depends: added quilt for patching, removed cdbs
+  - Bumped Standards-Version to 3.8.2, compat level 7
+  * debian/copyright
+  - Simplified accordingly current DEP5 (allows removal of old 
+    lintian override for OpenSSL exception)
+  * debian/sylpheed.lintian-overrides
+  - Silence warnings for the new private shared libraries which
+    are not designed to be in a development package but for
+    being used by the host binary and (future) plugins
+  * debian/README.Debian
+  - Add a note about managing the new "auto update check" option
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 13 Aug 2009 22:23:19 +0200
+
+sylpheed (2.6.0-3) unstable; urgency=low
+
+  * debian/control
+  - Added ca-certificates to recomends. This prevents asking for
+    acepting server certificates indefinitely, reported in ML:
+    http://www.tmtm.org/cgi-bin/w3ml/sylpheed/msg/32944
+  - Make package lintian clean: updated Standards-Version (no
+    other changes required), added misc:Depends to all packages,
+    set -dbg package section to debug
+  * debian/copyright
+  - Update year to current
+
+ -- Ricardo Mones <mones@debian.org>  Fri, 01 May 2009 17:34:21 +0200
+
+sylpheed (2.6.0-2) unstable; urgency=low
+
+  * Upload to unstable (Closes: #326073, #499306, #507977)
+  * debian/control
+  - Improve debugging package description
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 01 Mar 2009 19:09:52 +0100
+
+sylpheed (2.6.0-1) experimental; urgency=low
+
+  * New upstream release
+  * debian/control
+  - Suggest a couple of bayesian filters (Closes: #507977)
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 25 Dec 2008 02:12:19 +0100
+
+sylpheed (2.6.0~rc0-1) experimental; urgency=low
+
+  * New upstream release (development)
+  * debian/get-version.sh, debian/watch
+  - Reflect upstream usage for first rc tarball's names
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 07 Dec 2008 12:31:24 +0100
+
+sylpheed (2.6.0~beta2-1) experimental; urgency=low
+
+  * New upstream release (development)
+  * debian/README.Debian
+  - Reorganised a bit and added explanation and references for 
+    encoding issues when using a external editor (Closes: #326073)
+  * debian/control
+  - Suggest claws-mail-tools instead recommending (Closes: #499306)
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 17 Nov 2008 14:00:51 +0100
+
+sylpheed (2.6.0~beta1-1) experimental; urgency=low
+
+  * New upstream release (development)
+  * debian/control
+  - Add Build-Depends for new Enchant support, removed for aspell
+  * debian/patches/01configure_aspell_lib.diff, 
+    debian/patches/01configure_in_aspell_check.diff
+  - Removed as they're no longer needed
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 30 Sep 2008 12:59:10 +0200
+
+sylpheed (2.5.0-2) unstable; urgency=low
+
+  * debian/control
+  - Added new sylpheed-dbg package for helping debugging
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 24 Jul 2008 08:50:28 +0200
+
+sylpheed (2.5.0-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/get-version.sh
+  - Remove version tweaking
+  * debian/control
+  - Update Standards-Versions (no further changes required)
+  * debian/copyright
+  - Fix typo
+  - debian/rules
+  - Add lintian override for 'possible-gpl-code-linked-with-openssl'
+    because copyright notice is not detected by lintian
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 18 Jun 2008 09:45:00 +0200
+
+sylpheed (2.5.0~rc2-1) unstable; urgency=high
+
+  * New upstream release
+  * debian/control, patches/01configure_aspell_lib.diff
+  - Force aspell lib (gtkspell removed support) (Closes: #483334)
+  * patches/01condfigure_in_aspell_check.diff
+  - A real fix for checking for aspell (to be sent upstream)
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 08 Jun 2008 22:52:10 +0200
+
+sylpheed (2.5.0~rc0-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control
+  - Added Homepage field with current homepage
+  * debian/get-version.sh
+  - Temporary tweak to get the real upstream version
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 22 May 2008 18:41:02 +0300
+
+sylpheed (2.5.0~beta3-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/copyright
+  - Fixed a couple of typos
+
+ -- Ricardo Mones <mones@debian.org>  Fri, 25 Apr 2008 10:58:56 +0200
+
+sylpheed (2.5.0~beta2-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/copyright
+  - Switched to machine parseable copyright format
+  * debian/README.Debian
+  - Updated non-alternative names and libonig usage status
+  * debian/rules
+  - Fixed desktop file location (thanks lintian!)
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 15 Apr 2008 15:31:39 +0200
+
+sylpheed (2.5.0~beta1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ricardo Mones <mones@debian.org>  Fri, 29 Feb 2008 10:12:09 +0100
+
+sylpheed (2.4.8-2) unstable; urgency=low
+
+  * debian/patches/06ldap_deprecated.diff
+  - Allow deprecated LDAP API calls (Closes: #463366)
+    patch by Dann Frazier <dannf@debian.org>
+
+ -- Ricardo Mones <mones@debian.org>  Mon, 18 Feb 2008 01:37:57 +0100
+
+sylpheed (2.4.8-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control
+  - Update Standards-Version to 3.7.3
+  * debian/rules
+  - Remove empty directory (thanks lintian!)
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 25 Dec 2007 21:04:11 +0100
+
+sylpheed (2.4.7-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 04 Oct 2007 13:24:37 +0200
+
+sylpheed (2.4.6-2) unstable; urgency=low
+
+  * debian/menu
+  - Fixed new menu system subsection name (Closes: #444892)
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 03 Oct 2007 01:22:11 +0200
+
+sylpheed (2.4.6-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 19 Sep 2007 12:36:55 +0200
+
+sylpheed (2.4.5-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/watch
+  - Fixed URL (based on patch by Hideki Yamane) (Closes: #440321)
+  * debian/menu
+  - Fixed section name according new menu structure; added longtitle
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 01 Sep 2007 01:54:06 +0200
+
+sylpheed (2.4.4-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 21 Jul 2007 11:05:18 +0200
+
+sylpheed (2.4.3-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control
+  - changed s-c-scripts recommend to c-m-tools (s-c will be removed)
+  - changed deprecated Source-Version usage
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 30 Jun 2007 23:47:55 +0200
+
+sylpheed (2.4.2-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ricardo Mones <mones@debian.org>  Fri, 18 May 2007 16:37:59 +0200
+
+sylpheed (2.4.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 02 May 2007 15:36:06 +0200
+
+sylpheed (2.4.0-2) unstable; urgency=low
+
+  * debian/control, debian/rules
+  - Built with oniguruma support (Closes: #420145)
+
+ -- Ricardo Mones <mones@debian.org>  Wed, 02 May 2007 11:11:14 +0200
+
+sylpheed (2.4.0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ricardo Mones <mones@debian.org>  Fri, 27 Apr 2007 19:40:06 +0200
+
+sylpheed (2.4.0~beta8-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Ricardo Mones <mones@debian.org>  Sun, 15 Apr 2007 11:47:09 +0200
+
+sylpheed (2.4.0~beta5-1) experimental; urgency=low
+
+  * New upstream development release (Closes: #403714)
+  - 2.3.0 fixed the link with the Jpilot database (Closes: #394384)
+  * debian/rules
+  - define FAQ directory name correctly (Closes: #404963)
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 22 Mar 2007 20:55:54 +0100
+
+sylpheed (2.3.0~beta5-1) unstable; urgency=low
+
+  * New upstream development release
+
+ -- Ricardo Mones <mones@debian.org>  Fri, 10 Nov 2006 11:49:00 +0100
+
+sylpheed (2.3.0~beta4-1) unstable; urgency=low
+
+  * New upstream development release
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 31 Oct 2006 07:03:10 +0100
+
+sylpheed (2.3.0~beta3-1) unstable; urgency=low
+
+  * New upstream development release
+  * debian/get-version.sh
+  - fix pipe to deal with tildes in version numbers
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 17 Oct 2006 23:21:00 +0200
+
+sylpheed (2.3.0~beta2-1) unstable; urgency=low
+
+  * New upstream development release
+  * debian/get-version.sh
+  - increased tarball version
+
+ -- Ricardo Mones <mones@debian.org>  Tue, 10 Oct 2006 21:32:48 +0200
+
+sylpheed (2.3.0~beta1-1) unstable; urgency=low
+
+  * New upstream development release
+  * debian/control
+  - removed versioned depends on -i18n and fix the binNMU-ability of the
+    whole package (Closes: #390459)
+  * patches/02*.diff, patches/03*.diff, patches/05*.diff
+  - regenerated patches for being applied cleanly
+  * get-version.sh
+  - temporarily tweak the script because changelog version is not current
+    tarball version
+
+ -- Ricardo Mones <mones@debian.org>  Mon,  2 Oct 2006 00:54:52 +0200
+
+sylpheed (2.2.9-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ricardo Mones <mones@debian.org>  Fri, 22 Sep 2006 10:54:23 +0200
+
+sylpheed (2.2.7-1) unstable; urgency=low
+
+  * New upstream release
+  - Fixes crash when switching folders (Closes: #375531)
+
+ -- Ricardo Mones <mones@debian.org>  Tue,  1 Aug 2006 06:51:43 +0200
+
+sylpheed (2.2.6-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/sylpheed.docs.in
+  - Updated document list with some missing ones
+  * debian/sylpheed.1
+  - Updated command line options in manpage
+
+ -- Ricardo Mones <mones@debian.org>  Sat, 10 Jun 2006 21:06:08 +0200
+
+sylpheed (2.2.5-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control
+  - Updated Standards-Version
+
+ -- Ricardo Mones <mones@debian.org>  Thu,  1 Jun 2006 07:36:12 +0200
+
+sylpheed (2.2.4-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control
+  - Changed maintainer email address
+
+ -- Ricardo Mones <mones@debian.org>  Thu, 30 Mar 2006 10:52:00 +0200
+
+sylpheed (2.2.3-1) unstable; urgency=low
+
+  * New upstream release (Closes: #356824)
+  * 04adress_book.diff, 05sensible_editor.diff
+  - Regenerated
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Wed, 15 Mar 2006 07:29:13 +0100
+
+sylpheed (2.2.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Sat, 11 Mar 2006 13:20:19 +0100
+
+sylpheed (2.2.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/README.Debian
+  - Removed obsolete note (thanks Hiroyuki Yamamoto for noticing)
+  * debian/control
+  - Removed libgdk-pixbuf-dev from build depends (Closes: #354036)
+  * debian/rules
+  - invoke create-docs with the right shell (Closes: #331209)
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Wed,  1 Mar 2006 15:31:41 +0100
+
+sylpheed (2.2.0-1) unstable; urgency=low
+
+  * New upstream release (Closes: #327855).
+  * debian/control
+  - Added Vietnamese translation to the -i18n description.
+  - Removed unnecesary ${shlibs:Depends} in -i18n.
+  * debian/patches/05sensible_editor.diff
+  - Patch for sensible-editor added.
+  * debian/watch
+  - Updated version and URL, simpler regex.
+  * debian/compat, debian/control
+  - Updated level and version. Wrap long dependence lines.
+  * debian/sylpheed.1
+  - Fixed unescaped hyphens.
+  * Big thanks to Guillem Jover <guillem@debian.org> for reviewing.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Wed, 15 Feb 2006 15:39:07 +0100
+
+sylpheed (2.1.9-1) experimental; urgency=low
+
+  * New upstream release (development series).
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Fri, 16 Dec 2005 14:40:20 +0100
+
+sylpheed (2.0.4-2) unstable; urgency=low
+
+  * debian/control
+  - Use libreadline5-dev for building this one too.
+  - Fixed circular dependency with i18n package (Closes: #341861)
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Fri, 16 Dec 2005 13:56:12 +0100
+
+sylpheed (2.1.7-1) experimental; urgency=low
+
+  * New upstream release (development series).
+  * debian/control
+  - Use libreadline5-dev for building.
+  * debian/control, debian/rules
+  - Enabled building with GTKSpell (new upstream feature).
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Sat, 19 Nov 2005 14:11:44 +0100
+
+sylpheed (2.1.6-1) experimental; urgency=low
+
+  * New upstream release (development series).
+  * patches/02manual.diff, patches/03free_browsers_and_x_terminal_emulator.diff
+  - Regenerated.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Sun, 13 Nov 2005 21:15:06 +0100
+
+sylpheed (2.0.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Sun, 13 Nov 2005 14:39:42 +0100
+
+sylpheed (2.0.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Thu, 29 Sep 2005 15:44:50 +0200
+
+sylpheed (2.1.2-1) experimental; urgency=low
+
+  * New upstream release (development series).
+  * debian/patches/03free_browsers_and_x_terminal_emulator.diff
+  * Regenerated because of new libsylph separation.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Mon, 19 Sep 2005 17:56:21 +0200
+
+sylpheed (2.0.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/watch
+  - Updated for 2.0 series location.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Thu,  8 Sep 2005 16:47:12 +0200
+
+sylpheed (2.1.1-1) experimental; urgency=low
+
+  * New upstream release (development series).
+  * debian/patches/00configure.diff
+  - Regenerated.
+  * sylpheed.1
+  - Fixed invalid character (thanks lintian ;-)
+  * debian/control
+  - Updated stardards version.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Tue, 23 Aug 2005 13:22:14 +0200
+
+sylpheed (2.0.0-1) unstable; urgency=low
+
+  * New upstream release. First for unstable.
+  * debian/patches/01verticalbar_automatic.diff
+  - Removed per upstream request (hides config option).
+  * debian/control
+  - Added new lt translation to long description of -i18n package.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Fri, 29 Jul 2005 12:18:36 +0200
+
+sylpheed (1.9.12-1) experimental; urgency=low
+
+  * New upstream release.
+  * debian/patches/00configure.diff
+  - Regenerated patch.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Fri,  3 Jun 2005 08:20:36 +0200
+
+sylpheed (1.9.9-1) experimental; urgency=low
+
+  * New upstream release.
+  * debian/patches/01verticalbar_automatic.diff
+  - Regenerated patch.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Sun, 24 Apr 2005 18:18:34 +0000
+
+sylpheed (1.9.6-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Tue, 15 Mar 2005 15:51:04 +0100
+
+sylpheed (1.9.5-1) experimental; urgency=low
+
+  * New upstream release.
+  * debian/control
+  - Switched from libgpgme-dev to libgpgme11-dev.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Thu, 10 Mar 2005 10:50:46 +0000
+
+sylpheed (1.9.2-1) experimental; urgency=low
+
+  * New upstream release.
+  * debian/control
+  - Removed imlib from Build-Depends as is no longer used.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Thu, 10 Feb 2005 17:50:30 +0100
+
+sylpheed (1.9.1-1) experimental; urgency=low
+
+  * First packaging for experimental of the GTK2 version.
+  * debian/rules
+  - Remove previous fix.
+  * debian/control
+  - Set Build-Depends for GTK+2
+  * debian/patches/*.diff
+  - Regenerated all for this version.
+  * debian/watch
+  - Upstream now in v1.9 directory on server.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Wed,  9 Feb 2005 11:34:32 +0000
+
+sylpheed (1.0.0release-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/patches/00configure.diff
+  - Cleaned up.
+  * debian/rules
+  - Temporary fix for VERSION variable.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Mon,  3 Jan 2005 10:22:39 +0000
+
+sylpheed (1.0.0rc-1) unstable; urgency=low
+
+  * New upstream release
+  - (Closes: #284180)
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Wed, 22 Dec 2004 17:50:11 +0100
+
+sylpheed (1.0.0beta4-1) unstable; urgency=low
+
+  * New upstream release
+  * patches/03free_browsers_and_x_terminal_emulator.diff
+  - Regenerated again.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Wed,  8 Dec 2004 23:01:41 +0100
+
+sylpheed (1.0.0beta3-1) unstable; urgency=low
+
+  * New upstream release
+  * patches/03free_browsers_and_x_terminal_emulator.diff
+  - Regenerated properly.
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Wed, 17 Nov 2004 15:53:46 +0100
+
+sylpheed (1.0.0beta2-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Mon,  8 Nov 2004 16:35:18 +0100
+
+sylpheed (1.0.0beta1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Fri, 29 Oct 2004 13:39:10 +0200
+
+sylpheed (0.9.99-1) unstable; urgency=low
+
+  * New upstream release
+  - (Closes: #248160, #260432, #192140)
+  * debian/watch
+  - Added
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Wed, 13 Oct 2004 22:53:19 +0200
+
+sylpheed (0.9.12-3) unstable; urgency=low
+
+  * debian/control
+  - Fixed sylpheed-i18n description (Closes: #266759)
+  * debian/create-docs.sh
+  - Require proper shell (fixes FTBFS if /bin/sh is a POSIX shell)
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Thu, 19 Aug 2004 18:08:20 +0200
+
+sylpheed (0.9.12-2) unstable; urgency=low
+
+  * debian/control
+  * debian/rules
+  - Locale split (new sylpheed-i18n package).
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Mon,  9 Aug 2004 15:58:21 +0200
+
+sylpheed (0.9.12-1) unstable; urgency=low
+
+  * New upstream release
+  - Print menu option restored (Closes: #254719)
+  * debian/control
+  - Recomends metamail
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Thu, 17 Jun 2004 18:54:10 +0200
+
+sylpheed (0.9.11-1) unstable; urgency=low
+
+  * New upstream release
+    - CRAM-MD5 for SMTP already supported (Closes: #162254)
+  * debian/menu
+    - removed forgotten "vanilla" reference (Closes: #246759)
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Sat, 29 May 2004 20:44:39 +0200
+
+sylpheed (0.9.10-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control:
+  - standards version: 3.6.1
+  - recommends: sylpheed-claws-scripts
+  - new maintainer, added uploaders: Paul and Gustavo
+  * debian/menu:
+  - fixed quoting
+  * debian/rules
+  - removed add-ons dependencies
+  - removed "vanilla" references
+  * debian/patches/00*
+  - removed "vanilla" references
+  * debian/add-ons/:
+  - removed (scripts are a separate package now)
+  * debian/sylpheed.post*:
+  - disabled update-alternatives stuff
+  * debian/README.Debian:
+  - rewritten tools info
+  - added rationale for disabling alternatives stuff
+
+ -- Ricardo Mones <mones@aic.uniovi.es>  Wed, 21 Apr 2004 13:56:07 +0200
+
+sylpheed (0.9.7-2) unstable; urgency=low
+
+  * debian/rules:
+  - calls the script using /bin/sh directly, to solve the FTBFS
+    problems
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Tue, 11 Nov 2003 23:44:01 -0200
+
+sylpheed (0.9.7-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Tue, 11 Nov 2003 22:22:12 -0200
+
+sylpheed (0.9.6-1) unstable; urgency=low
+
+  * New upstream release
+  - will probably work alright with fonts on startup (Closes: #211368)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Mon, 22 Sep 2003 01:37:09 -0300
+
+sylpheed (0.9.5-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Wed, 10 Sep 2003 04:11:51 -0300
+
+sylpheed (0.9.4-2) unstable; urgency=low
+
+  * debian/rules:
+  - fix the way 'uudecode' is called to avoid breaking
+    the build
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sat,  9 Aug 2003 14:44:32 -0300
+
+sylpheed (0.9.4-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/sylpheed.prerm -> debian/sylpheed.postrm:
+  - renamed to make update-alternatives stuff work
+  - only remove alternative when removing or purging
+    on postrm (Closes: #201983)
+  * debian/add-ons/tools.tar.uu:
+  - updated from sylpheed-claws 0.9.4claws
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Wed,  6 Aug 2003 05:21:56 -0300
+
+sylpheed (0.9.3-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/sylpheed-debian.xpm:
+  - switched to sylpheed's new icon, without the 24 color
+    limitation in place
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sun, 13 Jul 2003 01:48:27 -0300
+
+sylpheed (0.9.2-2) unstable; urgency=low
+
+  * The "Hey, pay more attention, please!" release
+  * debian/rules:
+  - added missing --enable stuff on DEB_CONFIGURE_EXTRA_FLAGS
+    (Closes: #198679, #198591)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Tue, 24 Jun 2003 23:02:26 -0300
+
+sylpheed (0.9.2-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control:
+  - added | flex-old build-dep
+  - Build-Depends on sharutils, to use uudecode on rules
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sat, 21 Jun 2003 02:21:45 -0300
+
+sylpheed (0.9.0-3) unstable; urgency=low
+
+  * debian/rules:
+  - adopting Common Debian Build System
+  * debian/control:
+  - Build-Depends on cdbs, not on devhelp
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Mon, 26 May 2003 12:07:54 -0300
+
+sylpheed (0.9.0-2) unstable; urgency=low
+
+  * debian/control:
+  - some |'s on the Build-Deps to make backporting easier
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Mon, 19 May 2003 00:21:49 -0300
+
+sylpheed (0.9.0-1) unstable; urgency=low
+
+  * New upstream release
+  - it seems like the loooong CC is not a problem anymore
+    (Closes: #182003)
+  - IMAP has gone through a lot of work, so I believe this should
+    be fixed. Also, this version is supposed to fix the 'io blocking'
+    thingy. (Closes: #164101)
+  - I cannot reproduce mark-losing on this version, please reopen
+    if you still have problems. (Closes: #167793)
+  - IMAP folders with & work with no problems (Closes: #167081)
+    the ones ending on / depend on server implementation, so
+    not a bug on Sylpheed (Closes: #173995)
+  - does not segfault with fr_FR@euro (Closes: #174224)
+  * debian/control:
+  - changed Depends to libpng12-dev and removed libsasl-dev, it
+    should be grabed by libldap2-dev
+  * debian/rules:
+  - removed the ancient --enable-jconv
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sat, 17 May 2003 15:31:17 -0300
+
+sylpheed (0.8.11-2) unstable; urgency=low
+
+  * patches/03free_browsers_and_x_terminal_emulator:
+  - modified to have sensible-browser as default command (Closes: #187329)
+  * debian/control:
+  - Standards-Version 3.5.9
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Tue,  8 Apr 2003 04:50:38 -0300
+
+sylpheed (0.8.11-1) unstable; urgency=low
+
+  * New upstream release
+  * patches/05manuals_po_fr:
+  - removed, we should not even patch potfiles (duh)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Tue, 25 Mar 2003 22:20:04 -0300
+
+sylpheed (0.8.10-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sat,  8 Feb 2003 20:47:57 -0200
+
+sylpheed (0.8.9-2) unstable; urgency=low
+
+  * debian/control:
+  - removed libjconv-dev from B-Deps, thanks to 
+    Nicolas Boos <nicolas.boos@wanadoo.fr> for reminding me.
+  * patches/05manuals_po_fr:
+  - added to fix problems with translations reported by Nicolas,
+    too.
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Thu, 23 Jan 2003 14:37:27 -0200
+
+sylpheed (0.8.9-1) unstable; urgency=low
+
+  * New upstream release
+  * tools/*:
+  - updated from sylpheed-claws 0.8.8claws111
+  * Help is being handled correctly for some time now
+    (Closes: #177197)
+  * Reply to list is already there for some time, too
+    (Closes: #144735)
+  * debian/control:
+  - Build-Depends on libreadline4-dev
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sat, 18 Jan 2003 01:20:39 -0200
+
+sylpheed (0.8.8-2) unstable; urgency=low
+
+  * debian/control:
+  - Build-Depends on libgpgme-dev (>= 0.3.10)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Mon, 30 Dec 2002 22:03:07 -0200
+
+sylpheed (0.8.8-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sun, 29 Dec 2002 23:26:38 -0200
+
+sylpheed (0.8.7-1) unstable; urgency=low
+
+  * New upstream release
+  * patches/03free_browsers_and_x_terminal_emulator:
+  - modified a bit, the authors added lots of changes like
+    mine
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sat, 21 Dec 2002 23:40:06 -0200
+
+sylpheed (0.8.6-2) unstable; urgency=low
+
+  * debian/control:
+  - accepted patch from Nicolas Boos <nicolas.boos@wanadoo.fr> to
+    help him backporting... this removes xlib6g-dev's Build-Deps
+    (Closes: #170149)
+  - reworded the long description a bit
+  - upgraded to Standards-Version 3.5.8
+  * debian/rules:
+  - supports nostrip DEB_BUILD_OPTIONS
+  * tools/*:
+  - updated directory, from sylpheed-claws 0.8.2claws82
+  * debian/sylpheed-debian.xpm:
+  - resized and reduced the number of colors
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Tue, 10 Dec 2002 01:45:35 -0200
+
+sylpheed (0.8.6-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Fri, 22 Nov 2002 00:32:28 -0200
+
+sylpheed (0.8.5-2) unstable; urgency=low
+
+  * debian/control:
+  - added Depends on metamail (Closes: #168156)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Tue, 12 Nov 2002 01:45:37 -0200
+
+sylpheed (0.8.5-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Fri, 11 Oct 2002 23:12:49 -0300
+
+sylpheed (0.8.3-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control:
+  - Conflicts on incompatible version of sylpheed-doc package.
+    This, plus the changes to sylpheed-doc's control and
+    sylpheed-claws' control files to have sane conflicts do
+    (Closes: #160684)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Wed, 18 Sep 2002 01:14:22 -0300
+
+sylpheed (0.8.2-2) unstable; urgency=low
+
+  * debian/sylpheed.prerm:
+  - remove alternative symlink when prerm is called with
+    'remove', too (Closes: #159707)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Thu,  5 Sep 2002 11:12:44 -0300
+
+sylpheed (0.8.2-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control:
+  - Build-Depends on libpng2-dev (Closes: #158403)
+  * tools:
+  - updated from sylpheed-claws 0.8.1claws120
+  * debian/rules:
+  - installs all pngs (Closes: #156504)
+  * patches/00configure:
+  - changed patch to sylpheed.desktop, to use the png icon
+  * debian/sylpheed.xpm:
+  - removed
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Wed, 28 Aug 2002 11:12:19 -0300
+
+sylpheed (0.8.1-2) unstable; urgency=low
+
+  * Rebuild for libpisock8
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Fri, 16 Aug 2002 12:09:51 -0300
+
+sylpheed (0.8.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Fri, 26 Jul 2002 03:16:44 -0300
+
+sylpheed (0.8.0-3) unstable; urgency=low
+
+  * debian/postinst,prerm:
+  - remove them, I forgot the /usr/doc transition would be finished
+    in sarge
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Wed, 24 Jul 2002 04:48:52 -0300
+
+sylpheed (0.8.0-2) unstable; urgency=low
+
+  * debian/copyright:
+  - changed to match current status, as requested by upstream.
+  * debian/sylpheed.{postinst,prerm}
+  - link/remove manually (what happened to debhelper?)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Wed, 24 Jul 2002 03:05:30 -0300
+
+sylpheed (0.8.0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Mon, 15 Jul 2002 12:16:42 -0300
+
+sylpheed (0.7.8-3) unstable; urgency=low
+
+  * rebuild with new libpisock (5) (Closes: #151752)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Mon,  8 Jul 2002 22:00:55 -0300
+
+sylpheed (0.7.8-2) unstable; urgency=low
+
+  * patches/04address_book:
+  - fixes a little bug in address book... now it lets you
+    write a name, press tab to complete it and click the
+    'to:' and 'cc:' buttons without selecting the name in
+    the list with the mouse (sent upstream)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Thu, 20 Jun 2002 14:19:26 -0300
+
+sylpheed (0.7.8-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sat, 15 Jun 2002 19:07:46 -0300
+
+sylpheed (0.7.7-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/sylpheed.1:
+  - accepted patch from Guido Guenther <agx@debian.org>, thanks!
+    (Closes: #149109)
+  * tools/:
+  - updated from sylpheed-claws-0.7.6claws34 (cvs)
+  * patches/02manual
+  - removed the defs changes because I fixed sylpheed-doc
+  * debian/control:
+  - added versioned suggests to sylpheed-doc because of the
+    above entry
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sun,  9 Jun 2002 21:26:32 -0300
+
+sylpheed (0.7.6-3) unstable; urgency=low
+
+  * patches/03free_browsers_and_x_terminal_emulator:
+  - fixes galeon -new-{window,tab} to --new-{window,tab}
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sat, 25 May 2002 04:25:53 -0300
+
+sylpheed (0.7.6-2) unstable; urgency=low
+
+  * pos/pt_BR.po:
+  - updated pt_BR translation
+  * patches/03free_browsers_and_x_terminal_emulator:
+  - changes all ocurrences of 'netscape' to 'mozilla'
+    and all 'kterm's to 'x-terminal-emulator', also
+    removes opera and adds galeon to the default list
+    of browsers
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Mon, 13 May 2002 22:03:16 -0300
+
+sylpheed (0.7.6-1) unstable; urgency=low
+
+  * New upstream version
+  * debian/control:
+  - no more sylpheed-doc, it is moving to its own source package
+  - removed Build-Depends on shareutils
+  * scripts/install-docs.sh:
+  - removed
+  * debian/*doc-base*:
+  - removed
+  * COPYING.new:
+  - no longer needed
+  * debian/rules:
+  - removed building of sylpheed-doc
+  * patches/02manual:
+  - fixed to include new manuals and to fix manual and faq paths
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Mon, 13 May 2002 02:37:06 -0300
+
+sylpheed (0.7.5-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Tue,  7 May 2002 21:39:02 +0000
+
+sylpheed (0.7.4-4) unstable; urgency=high
+
+  * moved into main
+  * debian/control:
+  - changed Section to 'mail'
+  - added Recommends on aspell-dictionary
+  * debian/copyright:
+  - documents the license changes made by the author to let sylpheed
+    link with libssl (let's sylpheed go in main)
+  * debian/COPYING.new:
+  - new copyright file for sylpheed, sent by the author to the lists
+    in the announcement mail
+  * urgency set to high as this is only licensing changes, fundamentaly,
+    and it is good that this package be in main when woody is released
+    (there're no RC  bugs found after almost a month of testing)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Thu, 11 Apr 2002 22:49:07 -0300
+
+sylpheed (0.7.4-3) unstable; urgency=low
+
+  * debian/control:
+  - adds Build-Depends on sharutils, we're using uudecode
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Mon, 18 Mar 2002 14:11:13 -0300
+
+sylpheed (0.7.4-2) unstable; urgency=low
+
+  * The "Documentation for All" release
+  * patches/02manual:
+  - modified sylpheed a lot to have new entries for the new
+    languages added to the sylpheed-doc package both the manual
+    and the FAQ, also to display a note 'apt-get install sylpheed-doc'
+    in case one of the docs is not found
+  * scripts/install-docs.sh:
+  - does the hard work of extracting and modifying the names of
+    the directories of the manuals and FAQs
+  * debian/copyright:
+  - tells where did we get docs from
+  * upstream/manual*tar.gz, upstream/faq*tar.gz:
+  - added updated and translated manuals and faqs from the
+    SylpheedDoc Project, the 'ja' manual and it faq tarballs were 
+    produced from the htmls found on sylpheed-claws. The ja
+    htmls were regenerated to have the right names (user_guide.html)
+  * debian/sylpheed-doc.doc-base-sylpheed-*:
+  - updated en, ja, created fr and es
+  * debian/sylpheed-doc.doc-base-sylpheed-faq-*:
+  - created en, fr, es, it
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Mon, 18 Mar 2002 01:13:10 -0300
+
+sylpheed (0.7.4-1) unstable; urgency=low
+
+  * New upstream version
+  * This version brings the latest updated potfile for pt_BR
+    (Closes: #135436)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sun, 10 Mar 2002 23:21:44 -0300
+
+sylpheed (0.7.3-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Thu,  7 Mar 2002 17:48:18 -0300
+
+sylpheed (0.7.2-3) unstable; urgency=low
+
+  * patches/03draft_attachment:
+  - got from cvs: fixes problems with attachments on draft folder
+    (reediting) (Closes: #107553)
+  * cvs: 2002-02-20
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Wed, 20 Feb 2002 18:13:40 -0300
+
+sylpheed (0.7.2-2) unstable; urgency=low
+
+  * Recompile with libgpgme6
+  * debian/rules:
+  - added code to update pos from cvs testing -d pos/
+  * pos/*:
+  - potfiles updated from cvs
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sun, 17 Feb 2002 18:13:30 -0300
+
+sylpheed (0.7.2-1) unstable; urgency=low
+
+  * New upstream release
+  * patches/{04imap_path_separator,05null_when_selection_is_0,06utils_return_if_0}
+  - droped, these fixes are on the newest release
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sun, 17 Feb 2002 01:32:40 -0300
+
+sylpheed (0.7.1-3) unstable; urgency=low
+
+  * fixes from cvs:
+  - patches/04imap_path_separator
+  - patches/05null_when_selection_is_0
+  - patches/06utils_return_if_0
+  * cvs: 2002-02-13
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Wed, 13 Feb 2002 18:14:17 -0200
+
+sylpheed (0.7.1-2) unstable; urgency=low
+
+  * patches/03decryption_fix:
+  - fixes a problem when decrypting a message, from
+    cvs
+  * cvs: 2002-02-12
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Tue, 12 Feb 2002 16:31:33 -0200
+
+sylpheed (0.7.1-1) unstable; urgency=low
+
+  * New upstream release
+  * new build system which enables me to apply several
+    different small patches to the upstream source code
+  * patches/00potfiles:
+  - updated es and pt_BR potfiles
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Mon, 11 Feb 2002 20:50:44 -0200
+
+sylpheed (0.7.0-8) unstable; urgency=low
+
+  * The "Path of Now and Forever" release
+    First version in which you are able to install sylpheed
+    and claws (0.7.0claws52-2 at least) together
+  * configure.in:
+  - changed PACKAGE to sylpheed-vanilla, first move on making
+    sylpheed and sylpheed-claws instalable together
+  - changed manualdir to /usr/share/doc/sylpheed-doc (this was
+    done on configure before)
+  * sylpheed.desktop:
+  - modified xpm to sylpheed-vanilla.xpm
+  - modified exec to sylpheed-vanilla
+  * debian/rules:
+  - installs sylpheed, sylpheed.1, sylpheed.desktop and sylpheed.xpm
+    as sylpheed-vanilla, etc
+  * debian/menu:
+  - installed to point to the new sylpheed-vanilla executable
+  * debian/postinst,postrm:
+  - creates the 'sylpheed' alternative
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Wed,  6 Feb 2002 23:04:50 -0200
+
+sylpheed (0.7.0-7) unstable; urgency=low
+
+  * src/compose.c:
+  - removed default X-Face, it doesn't seem to make everyone
+    happy... I'll readd it if I find a better solution, but
+    it is gone by now.
+  * debian/README.Debian:
+  - modified to reflect above entry
+  * po/*:
+  - updated from cvs
+  * cvs: 2002-02-06
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Wed,  6 Feb 2002 21:04:07 -0200
+
+sylpheed (0.7.0-6) unstable; urgency=low
+
+  * debian/rules:
+  - call dpkg-architecture to set DEB_BUILD_ARCH and DEB_BUILD_GNU_SYSTEM
+    so that fakeroot debian/rules binary works
+  * debian/control:
+  - Build-Depends on debhelper >> 2.0.0, helps backports
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Fri,  1 Feb 2002 15:11:13 -0200
+
+sylpheed (0.7.0-5) unstable; urgency=low
+
+  * src/compose.c:
+  - added default X-Face (Debian swirl)
+    thanks to Chris Hessmann <news@hessmann.de> for the X-Face
+    and to David B Harris <eelf@sympatico.ca> for the idea
+  * src/folderview.c:
+  - modified policy of vertical scrollbar to AUTOMATIC
+  * tools/*:
+  - added tools/ directory from sylpheed-claws, some of those
+    tools may be useful for sylpheed users
+  * debian/README.Debian:
+  - speaks about those changes above
+  * src/about.c:
+  - updated from cvs (spelling fixes only)
+  * src/foldersel.c:
+  - updated from cvs (translatable strings, special folders to top)
+  * src/procmsg.c:
+  - updated from cvs (fixes a bug with sizeof which could cause
+    crashes on Alpha)
+  * src/compose.c:
+  - modified some parts from cvs (fixes crash on wrapping long URL)
+  - Ctrl-enter works for sending message
+  * src/textview.c:
+  - modified some parts from cvs (fixes segfault on font loading)
+  * src/importldif.c:
+  - updated from cvs (fixes segfault when closing dialog with window
+    manager)
+  * debian/control:
+  - removed Build-Depends on libpspell-dev (not needed on sylpheed,
+    only on claws)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Thu, 31 Jan 2002 23:43:28 -0200
+
+sylpheed (0.7.0-4) unstable; urgency=low
+
+  * the "That's what you get for working on your packages
+    when you're not in home" release
+  * recompilation with libgpgme5 (Closes: #129614)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Thu, 17 Jan 2002 11:03:57 -0200
+
+sylpheed (0.7.0-3) unstable; urgency=low
+
+  * debian/control:
+  - added "or" Recommends on xfonts-* to avoid segfaults on startup
+  (Closes: #129342) - I won't depend as lintian told me that policy
+  forbids this
+  * po/es.po:
+  - updated translation, thanks to Ricardo Mones Lastra 
+  <mones@aic.uniovi.es>
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Wed, 16 Jan 2002 09:18:11 -0200
+
+sylpheed (0.7.0-2) unstable; urgency=low
+
+  * po/fr.po updated, thanks to Melvin Hadasht <melvin.hadasht@free.fr>
+  * po/pt_BR.po: updated and sent upstream
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Mon,  7 Jan 2002 14:59:56 -0200
+
+sylpheed (0.7.0-1) unstable; urgency=low
+
+  * New upstream release
+  * src/ldif.c:
+  - withdrew my modifications for upstream had a better fix
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Mon,  7 Jan 2002 13:03:18 -0200
+
+sylpheed (0.6.6-5) unstable; urgency=low
+
+  * rebuilt with the new libgpgme5
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Tue,  1 Jan 2002 05:25:46 -0200
+
+sylpheed (0.6.6-4) unstable; urgency=low
+
+  * src/ldif.c@128: changed gchar to signed char to workaround
+  assumption on some archs that a char is unsigned (Closes: #127010)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sun, 30 Dec 2001 19:58:17 -0200
+
+sylpheed (0.6.6-3) unstable; urgency=low
+
+  * debian/control: remove build-dependency on libltdl3-dev
+  (Closes: #125677)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Wed, 19 Dec 2001 00:17:58 -0200
+
+sylpheed (0.6.6-2) unstable; urgency=low
+
+  * debian/control: fixed small spelling mistakes (Closes: #125408)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Tue, 18 Dec 2001 02:06:07 -0200
+
+sylpheed (0.6.6-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sat, 15 Dec 2001 14:48:23 -0200
+
+sylpheed (0.6.5-2) unstable; urgency=low
+
+  * configure: changed instalation of the manual from /usr/share/sylpheed
+    to /usr/share/doc/sylpheed-doc, a new package. This change and
+    some modifications done to the doc-base files make the entries appear
+    on dhelp/dwww, etc. (Closes: #119680).
+  * debian/control: added the sylpheed-doc package
+  * debian/rules: filled the binary-indep rule and some cleanup
+  * debian/control: fixed a little typo (thanks to Yoshito Komatsu 
+    <ykomatsu@debian.org>)
+  * sylpheed.desktop: applied patch from Yoshito Komatsu that
+    (Closes: #112214)
+  * debian/control: make sylpheed-doc conflict with previous versions
+    of sylpheed and version 0.6.5claws1-2 and smaller of sylpheed-claws
+    as they had documentation.
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sat, 17 Nov 2001 19:35:23 -0200
+
+sylpheed (0.6.5-1) unstable; urgency=low
+
+  * New upstream release
+  * Updated pt_BR.po, sent upstream.
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Wed,  7 Nov 2001 18:36:51 -0200
+
+sylpheed (0.6.4-2) unstable; urgency=low
+
+  * debian/rules: changed DH_COMPAT to 3, changed build dir from
+    debian/tmp to debian/sylpheed
+  * debian/rules: fixed some problems on the configure target, it
+    was not touching configure-stamp, making ./configure run twice
+    causing config.h to be regenerated and the whole program to be
+    recompiled with a wrong LOCALEDIR definition (Closes: #116918)
+    (Closes: #117035)
+  * Added Suggests: on jpilot
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Thu,  1 Nov 2001 23:48:30 -0200
+
+sylpheed (0.6.4-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/rules: Added configure target
+  * debian/rules: enables ssl, ldap, jpilot
+  * debian/control: added build-deps to acheive the needs of
+    the above
+  * debian/control: added versioned build-deps on gpgme
+    (Closes: #115532)
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sun, 21 Oct 2001 20:55:20 -0200
+
+sylpheed (0.6.3-1) unstable; urgency=low
+
+  * Adopting package, set Maintainer field to me (Closes: #114639)
+  * Added debian/sylpheed-debian.xpm, conforming to Debian standards
+    for inclusion on the Debian menu system.
+  * Edited debian/menu to add hints, change the name of the entry
+    sylpheed->Sylpheed and add the icon mentioned above.
+  * Added the manuals in english and japanese to doc-base. Maybe I
+    should do a sylpheed-doc package? I'll think about that.
+  * Removed INSTALL and INSTALL.jp from debian/docs.
+  * Changed the way debian revision is handled in package version.
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Wed, 10 Oct 2001 19:27:54 -0300
+
+sylpheed (0.6.3-0.1) unstable; urgency=low
+
+  * New upstream release
+  * last Takuo KITAME package.
+  * change Maintainer to Debian QA Team <packages@qa.debian.org>
+
+ -- Takuo KITAME <kitame@northeye.org>  Tue,  9 Oct 2001 12:10:51 +0900
+
+sylpheed (0.6.2-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Mon, 17 Sep 2001 06:49:42 +0900
+
+sylpheed (0.6.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Mon,  3 Sep 2001 02:24:16 +0900
+
+sylpheed (0.6.0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Thu, 30 Aug 2001 19:46:27 +0900
+
+sylpheed (0.5.3-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Mon, 20 Aug 2001 02:54:04 +0900
+
+sylpheed (0.5.0-1) unstable; urgency=low
+
+  * New upstream release
+  * applied patch of Bug#102470 (closes: Bug#102470)
+
+ -- Takuo KITAME <kitame@northeye.org>  Fri,  6 Jul 2001 17:15:32 +0900
+
+sylpheed (0.4.99-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Sun, 17 Jun 2001 13:18:52 +0900
+
+sylpheed (0.4.66-2) unstable; urgency=low
+
+  * --enable-jconv (closes: Bug#94183)
+  * --enable-gpgme and move to non-US (closes: Bug#96686)
+
+ -- Takuo KITAME <kitame@northeye.org>  Wed,  9 May 2001 23:06:09 +0900
+
+sylpheed (0.4.66-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Wed,  9 May 2001 02:09:55 +0900
+
+sylpheed (0.4.65-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Wed,  2 May 2001 17:01:21 +0900
+
+sylpheed (0.4.64-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Wed, 18 Apr 2001 12:34:43 +0900
+
+sylpheed (0.4.63-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Wed, 11 Apr 2001 20:00:12 +0900
+
+sylpheed (0.4.62-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Tue, 13 Mar 2001 00:56:58 +0900
+
+sylpheed (0.4.61-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Sat,  3 Feb 2001 04:02:48 +0900
+
+sylpheed (0.4.60-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Tue, 30 Jan 2001 12:46:46 +0900
+
+sylpheed (0.4.52-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Tue, 16 Jan 2001 18:08:24 +0900
+
+sylpheed (0.4.51-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Wed,  3 Jan 2001 17:29:26 +0900
+
+sylpheed (0.4.9-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Mon, 18 Dec 2000 10:54:04 +0900
+
+sylpheed (0.4.8-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Fri,  8 Dec 2000 00:36:30 +0900
+
+sylpheed (0.4.7-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Mon,  4 Dec 2000 01:43:18 +0900
+
+sylpheed (0.4.6-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Tue, 28 Nov 2000 01:00:55 +0900
+
+sylpheed (0.4.5-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Thu, 23 Nov 2000 07:34:37 +0900
+
+sylpheed (0.4.4-2) unstable; urgency=low
+
+  * Added desktop entry
+
+ -- Takuo KITAME <kitame@northeye.org>  Thu, 16 Nov 2000 13:59:18 +0900
+
+sylpheed (0.4.4-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Tue,  7 Nov 2000 19:13:14 +0900
+
+sylpheed (0.4.3-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Thu,  2 Nov 2000 01:34:37 +0900
+
+sylpheed (0.4.2-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Takuo KITAME <kitame@northeye.org>  Mon, 16 Oct 2000 06:46:38 +0900
+
+sylpheed (0.4.1-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Takuo KITAME <kitame@northeye.org>  Sat, 30 Sep 2000 16:31:27 +0900
+
+

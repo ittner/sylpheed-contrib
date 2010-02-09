@@ -1,0 +1,5 @@
+usr/bin
+usr/lib
+usr/share/applications
+sylpheed*.png usr/share/pixmaps/
+debian/sylpheed-debian.xpm usr/share/pixmaps/

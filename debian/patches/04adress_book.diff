@@ -1,0 +1,21 @@
+diff -urN sylpheed-2.2.3.orig/src/addressbook.c sylpheed-2.2.3/src/addressbook.c
+--- sylpheed-2.2.3.orig/src/addressbook.c	2006-03-10 04:17:27.000000000 +0100
++++ sylpheed-2.2.3/src/addressbook.c	2006-03-15 07:23:14.000000000 +0100
+@@ -974,6 +974,17 @@
+ 			return;
+ 	}
+ 
++	/*
++	 * nothing selected, but maybe there's something on the text entry
++	 */
++	if (node == NULL) {
++		gchar *addr;
++		addr = gtk_entry_get_text ( GTK_ENTRY( addrbook.entry ) );
++		if ( addr )
++			compose_entry_append( addrbook.target_compose, addr,
++					     (ComposeEntryType)data );
++	}
++
+ 	while( node ) {
+ 		AddressObject *obj = node->data;
+ 		Compose *compose = addrbook.target_compose;

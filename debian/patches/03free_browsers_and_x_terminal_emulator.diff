@@ -1,0 +1,49 @@
+diff -urN sylpheed-2.3.0beta1.orig/libsylph/defs.h sylpheed-2.3.0beta1/libsylph/defs.h
+--- sylpheed-2.3.0beta1.orig/libsylph/defs.h	2006-09-22 04:58:56.000000000 +0200
++++ sylpheed-2.3.0beta1/libsylph/defs.h	2006-10-01 22:01:04.000000000 +0200
+@@ -92,12 +92,12 @@
+ /* #define DEFAULT_INC_PATH	"/usr/bin/imget" */
+ /* #define DEFAULT_INC_PROGRAM	"imget" */
+ #define DEFAULT_SENDMAIL_CMD	"/usr/sbin/sendmail -t -i"
+-#define DEFAULT_BROWSER_CMD	"mozilla-firefox -remote 'openURL(%s,new-window)'"
++#define DEFAULT_BROWSER_CMD	"sensible-browser '%s'"
+ 
+ #ifdef _PATH_MAILDIR
+ #  define DEFAULT_SPOOL_PATH	_PATH_MAILDIR
+ #else
+-#  define DEFAULT_SPOOL_PATH	"/var/spool/mail"
++#  define DEFAULT_SPOOL_PATH	"/var/mail"
+ #endif
+ 
+ #define BUFFSIZE			8192
+diff -urN sylpheed-2.3.0beta1.orig/src/prefs_common_dialog.c sylpheed-2.3.0beta1/src/prefs_common_dialog.c
+--- sylpheed-2.3.0beta1.orig/src/prefs_common_dialog.c	2006-09-26 11:12:56.000000000 +0200
++++ sylpheed-2.3.0beta1/src/prefs_common_dialog.c	2006-10-01 22:01:04.000000000 +0200
+@@ -2343,11 +2343,13 @@
+ 			       "firefox '%s'",
+ 			       "mozilla -remote 'openURL(%s,new-window)'",
+ 			       "mozilla '%s'",
++			       "galeon --new-window '%s'",
++			       "galeon --new-tab '%s'",
+ 			       "netscape -remote 'openURL(%s,new-window)'",
+ 			       "netscape '%s'",
+ 			       "gnome-moz-remote --newwin '%s'",
+-			       "rxvt -e w3m '%s'",
+-			       "rxvt -e lynx '%s'",
++			       "x-terminal-emulator -e w3m '%s'",
++			       "x-terminal-emulator -e lynx '%s'",
+ #endif
+ 			       NULL);
+ 	uri_entry = GTK_COMBO (uri_combo)->entry;
+@@ -2381,8 +2383,9 @@
+ 			       "kedit %s",
+ 			       "emacs %s",
+ 			       "xemacs %s",
+-			       "rxvt -e jed %s",
+-			       "rxvt -e vi %s",
++			       "gvim -f %s",
++			       "x-terminal-emulator -e jed %s",
++			       "x-terminal-emulator -e vi %s",
+ #endif
+ 			       NULL);
+ 	exteditor_entry = GTK_COMBO (exteditor_combo)->entry;

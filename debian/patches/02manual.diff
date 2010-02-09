@@ -1,0 +1,61 @@
+diff -urN sylpheed-2.3.0beta1.orig/src/mainwindow.c sylpheed-2.3.0beta1/src/mainwindow.c
+--- sylpheed-2.3.0beta1.orig/src/mainwindow.c	2006-09-28 06:40:10.000000000 +0200
++++ sylpheed-2.3.0beta1/src/mainwindow.c	2006-10-01 21:50:23.000000000 +0200
+@@ -814,7 +814,10 @@
+ 	{N_("/_Help"),				NULL, NULL, 0, "<Branch>"},
+ 	{N_("/_Help/_Manual"),			NULL, NULL, 0, "<Branch>"},
+ 	{N_("/_Help/_Manual/_English"),		NULL, manual_open_cb, MANUAL_LANG_EN, NULL},
++	{N_("/_Help/_Manual/_French"),          NULL, manual_open_cb, MANUAL_LANG_FR, NULL},
++	{N_("/_Help/_Manual/_German"),          NULL, manual_open_cb, MANUAL_LANG_DE, NULL},
+ 	{N_("/_Help/_Manual/_Japanese"),	NULL, manual_open_cb, MANUAL_LANG_JA, NULL},
++	{N_("/_Help/_Manual/_Spanish"),         NULL, manual_open_cb, MANUAL_LANG_ES, NULL},	
+ 	{N_("/_Help/_FAQ"),			NULL, NULL, 0, "<Branch>"},
+ 	{N_("/_Help/_FAQ/_English"),		NULL, faq_open_cb, MANUAL_LANG_EN, NULL},
+ 	{N_("/_Help/_FAQ/_German"),		NULL, faq_open_cb, MANUAL_LANG_DE, NULL},
+diff -urN sylpheed-2.3.0beta1.orig/src/manual.c sylpheed-2.3.0beta1/src/manual.c
+--- sylpheed-2.3.0beta1.orig/src/manual.c	2006-08-31 10:21:21.000000000 +0200
++++ sylpheed-2.3.0beta1/src/manual.c	2006-10-01 21:56:28.000000000 +0200
+@@ -60,6 +60,21 @@
+ 	lang_str = get_lang_str(lang);
+ 	if (!lang_str) return;
+ 
++	{ /* On Debian the manuals are on the sylpheed-doc package */
++		gchar *file_path;
++		file_path = g_strconcat(MANUALDIR, G_DIR_SEPARATOR_S,
++					lang_str, G_DIR_SEPARATOR_S,
++					MANUAL_HTML_INDEX, NULL);
++
++		if (!is_file_exist(file_path)) {
++			alertpanel_error("apt-get install sylpheed-doc");
++			g_free(file_path);
++			return;
++		}
++
++		g_free(file_path);
++	}
++
+ 	file_uri = g_strconcat("file://",
+ #ifdef G_OS_WIN32
+ 			       get_startup_dir(),
+@@ -83,6 +98,21 @@
+ 	lang_str = get_lang_str(lang);
+ 	if (!lang_str) return;
+ 
++	{ /* On Debian the FAQs are on the sylpheed-doc package */
++		gchar *file_path;
++		file_path = g_strconcat(FAQDIR, G_DIR_SEPARATOR_S,
++					lang_str, G_DIR_SEPARATOR_S,
++					FAQ_HTML_INDEX, NULL);
++
++		if (!is_file_exist(file_path)) {
++			alertpanel_error("apt-get install sylpheed-doc");
++			g_free(file_path);
++			return;
++		}
++
++		g_free(file_path);
++	}
++
+ 	file_uri = g_strconcat("file://",
+ #ifdef G_OS_WIN32
+ 			       get_startup_dir(),

@@ -1,0 +1,72 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH SYLPHEED 1 "September 30, 2000"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+sylpheed \- Light weight e\-mail client using GTK+
+.SH SYNOPSIS
+.B sylpheed [OPTION]...
+.RI
+.SH DESCRIPTION
+.B Sylpheed
+is a light weight e\-mail client for the X Window System using GTK+ aiming for
+ * Quick response 
+ * Graceful, and sophisticated interface 
+ * Easy configuration, intuitive operation 
+ * Abundant features
+
+The appearance and interface are similar to some popular e\-mail clients for
+Windows, such as Outlook Express or so.
+The interface is also designed to emulate the mailers on Emacsen and almost
+all commands are accessible with the keyboard.
+
+.TP
+\fB\-\-compose\fR [address]           open composition window
+.TP
+\fB\-\-attach\fR file1 [...]          open compose with attached files
+.TP
+\fB\-\-receive\fR                     receive new messages
+.TP
+\fB\-\-receive\-all\fR                receive new messages of all accounts
+.TP
+\fB\-\-send\fR                        send all queued messages
+.TP
+\fB\-\-status\fR [folder ...]         show the total number of messages
+.TP
+\fB\-\-status\-full\fR [folder ...]   show status status of each folder
+.TP
+\fB\-\-configdir\fR dirname           specify directory with configuration files
+.TP
+\fB\-\-exit\fR                        exit sylpheed
+.TP
+\fB\-\-debug\fR                       debug mode
+.TP
+\fB\-\-help\fR                        display this help and exit
+.TP
+\fB\-\-version\fR                     output version information and exit
+.PP
+There's a also a complete manual available in the
+.I sylpheed\-doc
+package.
+.PP
+.SH SEE ALSO
+.BR /usr/share/doc/sylpheed/
+.BR /usr/share/doc/sylpheed\-doc/manual/
+.br
+.SH AUTHOR
+This manual page was written by Takuo KITAME <kitame@northeye.org>, Guido
+Guenther <agx@debian.org> and Ricardo Mones <mones@aic.uniovi.es> for the 
+Debian GNU/Linux system (but may be used by others).
