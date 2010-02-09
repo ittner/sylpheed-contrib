@@ -320,6 +320,16 @@ else
 	AC_MSG_RESULT(no)
 fi
 
+
+dnl Check for libnotify support
+AC_ARG_ENABLE(notify,
+	[  --disable-notify        Do not use notifications (libnotify)],
+	[ac_cv_enable_notify=$enableval], [ac_cv_enable_notify=yes])
+if test "$ac_cv_enable_notify" = yes; then
+	AC_CHECK_LIB(notify, notify_init,,[ac_cv_enable_notify=no])
+fi
+
+
 dnl check additional libraries
 AC_CHECK_LIB(xpg4, setlocale)
 AC_CHECK_LIB(resolv, res_init)
@@ -463,6 +473,7 @@ echo "compface      : $ac_cv_enable_compface"
 echo "IPv6          : $ac_cv_enable_ipv6"
 echo "GtkSpell      : $ac_cv_enable_gtkspell"
 echo "Oniguruma     : $ac_cv_enable_oniguruma"
+echo "Notifications : $ac_cv_enable_notify"
 echo ""
 echo "The binary will be installed in $prefix/bin"
 echo ""

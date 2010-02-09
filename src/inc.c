@@ -154,12 +154,7 @@ static void inc_finished(MainWindow *mainwin, gint new_messages)
 		new_messages += folderview_check_new(NULL);
 
 	if (new_messages > 0 && !block_notify) {
-		gchar buf[1024];
-
-		g_snprintf(buf, sizeof(buf), _("Sylpheed: %d new messages"),
-			   new_messages);
-		trayicon_set_tooltip(buf);
-		trayicon_set_notify(TRUE);
+		trayicon_set_new_messages(new_messages);
 	}
 
 	inc_block_notify(FALSE);
