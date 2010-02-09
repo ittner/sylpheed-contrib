@@ -7,8 +7,7 @@ Uploaders: Paul Mangan <claws@thewildbeast.co.uk>, Gustavo Noronha Silva <kov@de
 Build-Depends: debhelper (>= 7), quilt, libcompfaceg1-dev, libglib2.0-dev, 
  libgtk2.0-dev, libpng12-dev, libgpgme11-dev (>= 1.0.0), libssl-dev, 
  libpisock-dev, libldap2-dev, flex | flex-old, bison, gettext, 
- libreadline5-dev, libgtkspell-dev (>= 2.0), libonig-dev,
- libenchant-dev
+ libreadline5-dev, libgtkspell-dev (>= 2.0), libenchant-dev, libnotify-dev
 Standards-Version: 3.8.2
 Homepage: http://sylpheed.sraoss.jp/
 
@@ -18,8 +17,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: sylpheed-i18n, metamail, xfonts-100dpi | 
  xfonts-75dpi | xfonts-100dpi-transcoded | xfonts-75dpi-transcoded, aspell-en | 
  aspell-dictionary, ca-certificates, curl
-Suggests: jpilot, sylpheed-doc (>= 20020420-3), claws-mail-tools, bogofilter, 
- bsfilter
+Suggests: sylpheed-doc (>= 20020420-3), claws-mail-tools, bogofilter, bsfilter
 Provides: mail-reader, news-reader
 Conflicts: sylpheed-doc (<= 20020420-2)
 Description: Light weight e-mail client with GTK+
