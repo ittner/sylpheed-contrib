@@ -43,6 +43,10 @@
 #include "compose.h"
 #include "prefs_common.h"
 
+#if HAVE_LIBNOTIFY
+#  include <libnotify/notify.h>
+#endif
+
 #if GTK_CHECK_VERSION(2, 10, 0) || defined(GDK_WINDOWING_X11)
 
 #if GTK_CHECK_VERSION(2, 10, 0)
@@ -417,3 +421,70 @@ void trayicon_set_stock_icon(StockPixmap icon)
 }
 
 #endif /* GTK_CHECK_VERSION(2, 10, 0) || defined(GDK_WINDOWING_X11) */
+
+
+#if HAVE_LIBNOTIFY
+static NotifyNotification *new_mail_notification = NULL;
+
+static void new_mail_notification_cb(NotifyNotification *notification,
+        gchar *action, gpointer udata)
+{
+	main_window_popup(main_window_get());
+	notify_notification_close(notification, NULL);
+}
+
+#endif /* HAVE_LIBNOTIFY */
+
+void trayicon_set_new_messages(guint new_messages)
+{
+	if (new_messages == 0)
+		return;
+
+	gchar buf[1024];
+	g_snprintf(buf, sizeof(buf), _("Sylpheed: %d new messages"),
+		new_messages);
+	trayicon_set_tooltip(buf);
+	trayicon_set_notify(TRUE);
+
+#if HAVE_LIBNOTIFY
+	/* Suppress notifications if the main window have focus. */
+	MainWindow *mainw = main_window_get();
+	if (gtk_window_is_active(mainw->window))
+		return;
+
+	/* Send the 'New mail notification' to the user message bus */
+	gchar *ntitle;
+	gchar *nbody = NULL;
+
+	if (new_messages == 1) {
+		ntitle = g_strdup(_("You have a new message"));
+		/* TODO: Fetch new mail header (sender, subject, etc)
+		   and show it to the user in the notification body. */
+		/* nbody = g_strdup(_("A new message was received")); */
+	} else
+		ntitle = g_strdup_printf(_("You have %d new messages"),
+		    new_messages);
+
+	if (new_mail_notification == NULL) {
+		new_mail_notification = notify_notification_new(ntitle,
+		    nbody, NULL, NULL);
+		notify_notification_set_category(new_mail_notification,
+		    "email.arrived");
+	} else
+		notify_notification_update(new_mail_notification,
+		    ntitle, nbody, NULL);
+
+#if GTK_CHECK_VERSION(2, 10, 0)
+	/* Try to put the notification near the tray icon. Its position may
+	 * have changed after the last invocation, or the icon may have
+	 * been enabled/disabled in the preferences. */
+	if (gtk_status_icon_get_visible(trayicon.status_icon))
+		notify_notification_attach_to_status_icon(
+		    new_mail_notification, trayicon.status_icon);
+#endif
+	notify_notification_show(new_mail_notification, NULL);
+	g_free(ntitle);
+	if (nbody != NULL)
+		g_free(nbody);
+#endif /* HAVE_LIBNOTIFY */
+}

@@ -168,6 +168,9 @@ static void about_create(void)
 #if USE_ONIGURUMA
 		   " Oniguruma"
 #endif
+#if HAVE_LIBNOTIFY
+		   " notify"
+#endif
 	"");
 
 	label = gtk_label_new(buf);
