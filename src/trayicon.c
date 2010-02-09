@@ -447,8 +447,12 @@ void trayicon_set_new_messages(guint new_messages)
 	trayicon_set_notify(TRUE);
 
 #if HAVE_LIBNOTIFY
-	/* Send the 'New mail notification' to the user message bus */
+	/* Suppress notifications if the main window have focus. */
+	MainWindow *mainw = main_window_get();
+	if (gtk_window_is_active(mainw->window))
+		return;
 
+	/* Send the 'New mail notification' to the user message bus */
 	gchar *ntitle;
 	gchar *nbody = NULL;
 
