@@ -17,12 +17,12 @@ msgstr ""
 "Project-Id-Version: sylpheed\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-12 17:08+0900\n"
-"PO-Revision-Date: 2010-02-07 04:00-0200\n"
+"PO-Revision-Date: 2010-02-12 08:41-0200\n"
 "Last-Translator: Alexandre Erwin Ittner <alexandre@ittner.com.br>\n"
 "Language-Team: Portuguese/Brazil <(none)>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bit"
 
 #: libsylph/account.c:57
 msgid "Reading all config for each account...\n"
@@ -5936,14 +5936,12 @@ msgid "doesn't match to regex"
 msgstr "não casa com a expressão regular"
 
 #: src/prefs_filter_edit.c:542
-#, fuzzy
 msgid "is in addressbook"
-msgstr "Catálogo de endereços"
+msgstr "está no catálogo de endereços"
 
 #: src/prefs_filter_edit.c:544
-#, fuzzy
 msgid "is not in addressbook"
-msgstr "Adicionar ao _catálogo de endereços"
+msgstr "não está no catálogo de endereços"
 
 #: src/prefs_filter_edit.c:556
 msgid "is larger than"
@@ -6496,9 +6494,8 @@ msgid "Last 7 days"
 msgstr "Últimos 7 dias"
 
 #: src/quick_search.c:119
-#, fuzzy
 msgid "In addressbook"
-msgstr "Catálogo de endereços"
+msgstr "No catálogo de endereços"
 
 #: src/quick_search.c:150 src/quick_search.c:378
 msgid "Search for Subject or From"
