@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: sylpheed\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-12 17:08+0900\n"
-"PO-Revision-Date: 2010-02-12 08:41-0200\n"
+"PO-Revision-Date: 2010-02-13 18:13-0200\n"
 "Last-Translator: Alexandre Erwin Ittner <alexandre@ittner.com.br>\n"
 "Language-Team: Portuguese/Brazil <(none)>\n"
 "MIME-Version: 1.0\n"
@@ -108,7 +108,7 @@ msgstr "pasta raiz %s inexistente\n"
 
 #: libsylph/imap.c:2078 libsylph/imap.c:2086
 msgid "error occurred while getting LIST.\n"
-msgstr "um erro ocorreu ao receber resultados do LIST.\n"
+msgstr "Houve um erro ao receber resultados do LIST.\n"
 
 #: libsylph/imap.c:2318
 #, c-format
@@ -135,7 +135,7 @@ msgstr "Não é possível renomear caixa de correio: %s para %s\n"
 
 #: libsylph/imap.c:2616
 msgid "can't delete mailbox\n"
-msgstr "Não foi possível apagar a caixa de correio\n"
+msgstr "Não foi possível excluir a caixa de correio\n"
 
 #: libsylph/imap.c:2643
 #, c-format
@@ -144,7 +144,7 @@ msgstr "Recebendo cabeçalhos das mensagens (%d / %d)"
 
 #: libsylph/imap.c:2695
 msgid "error occurred while getting envelope.\n"
-msgstr "Ocorreu um erro ao obter \"envelope\"\n"
+msgstr "Ocorreu um erro ao receber \"envelope\"\n"
 
 #: libsylph/imap.c:2716
 #, c-format
@@ -153,7 +153,7 @@ msgstr "Não foi possível realizar o parse no envelope: %s\n"
 
 #: libsylph/imap.c:2773
 msgid "can't get envelope\n"
-msgstr "Não foi possível obter o \"envelope\"\n"
+msgstr "Não foi possível receber o \"envelope\"\n"
 
 #: libsylph/imap.c:2880 libsylph/imap.c:2886
 #, c-format
@@ -167,7 +167,7 @@ msgstr "Não foi possível estabelecer uma sessão IMAP4 com: %s:%d\n"
 
 #: libsylph/imap.c:2969
 msgid "can't get namespace\n"
-msgstr "Não foi possível obter o namespace\n"
+msgstr "Não foi possível receber o namespace\n"
 
 #: libsylph/imap.c:3577
 #, c-format
@@ -280,7 +280,7 @@ msgstr "não foi possível criar %s\n"
 
 #: libsylph/mbox.c:342
 msgid "mailbox is owned by another process, waiting...\n"
-msgstr "a caixa-postal está em uso por outro processo, aguardando...\n"
+msgstr "A caixa de correio está em uso por outro processo, aguardando...\n"
 
 #: libsylph/mbox.c:371
 #, c-format
@@ -308,7 +308,7 @@ msgstr "Exportando mensagens de %s em %s...\n"
 #: libsylph/mh.c:509
 #, c-format
 msgid "can't copy message %s to %s\n"
-msgstr "não foi possível copiar a mensagem %s para %s\n"
+msgstr "Não foi possível copiar a mensagem %s para %s\n"
 
 #: libsylph/mh.c:705 libsylph/mh.c:825
 msgid "the src folder is identical to the dest.\n"
@@ -402,11 +402,11 @@ msgstr "Recebendo xover %d - %d en %s...\n"
 
 #: libsylph/news.c:836
 msgid "can't get xover\n"
-msgstr "não foi possível obter xover\n"
+msgstr "Não foi possível receber XOVER\n"
 
 #: libsylph/news.c:846
 msgid "error occurred while getting xover.\n"
-msgstr "ocorreu um erro ao obter xover.\n"
+msgstr "Houve um erro ao receber xover.\n"
 
 #: libsylph/news.c:856
 #, c-format
@@ -415,11 +415,11 @@ msgstr "linha xover inválida: %s\n"
 
 #: libsylph/news.c:875 libsylph/news.c:907
 msgid "can't get xhdr\n"
-msgstr "não foi possível obter xover\n"
+msgstr "Não foi possível obter XHDR\n"
 
 #: libsylph/news.c:887 libsylph/news.c:919
 msgid "error occurred while getting xhdr.\n"
-msgstr "ocorreu um erro ao obter xover.\n"
+msgstr "Houve um erro ao receber XHDR.\n"
 
 #: libsylph/nntp.c:68
 #, c-format
@@ -476,7 +476,7 @@ msgstr "POP3: Pulando mensagem %d (%d bytes)\n"
 
 #: libsylph/pop.c:690
 msgid "mailbox is locked\n"
-msgstr "a caixa de correio está bloqueada\n"
+msgstr "A caixa de correio está bloqueada\n"
 
 #: libsylph/pop.c:693
 msgid "session timeout\n"
@@ -527,7 +527,7 @@ msgstr "procmime_get_text_content(): Conversão de código falhou.\n"
 
 #: libsylph/procmsg.c:849
 msgid "can't open mark file\n"
-msgstr "não foi possível abrir o arquivo de marcas\n"
+msgstr "Não foi possível abrir o arquivo de marcas\n"
 
 #: libsylph/procmsg.c:1333
 #, c-format
@@ -696,7 +696,7 @@ msgid ""
 "on the `G' column to enable message retrieval by `Get all'."
 msgstr ""
 "Mensagens novas serão baixadas nessa ordem. Marque as caixas\n"
-"na coluna \"G\" para habilitar essa caixa no comando \"Obter todas\"."
+"na coluna \"G\" para habilitar essa caixa no comando \"Receber todas\"."
 
 #: src/account_dialog.c:374 src/addressadd.c:178 src/addressbook.c:683
 #: src/compose.c:5295 src/editaddress.c:777 src/editaddress.c:826
@@ -720,7 +720,7 @@ msgstr "Editar"
 
 #: src/account_dialog.c:442
 msgid " _Set as default account "
-msgstr " _Marcar como conta padrão "
+msgstr " _Definir como conta padrão "
 
 #: src/account_dialog.c:522
 #, c-format
@@ -738,7 +738,7 @@ msgstr "Excluir conta"
 #: src/action.c:331
 #, c-format
 msgid "Could not get message file %d"
-msgstr "Não foi possível ler o arquivo %d da mensagem"
+msgstr "Não foi possível ler o arquivo de mensagens %d"
 
 #: src/action.c:362
 msgid "Could not get message part."
@@ -883,7 +883,7 @@ msgstr "/_Arquivo/_Editar"
 
 #: src/addressbook.c:352
 msgid "/_File/_Delete"
-msgstr "/_Arquivo/_Apagar"
+msgstr "/_Arquivo/E_xcluir"
 
 #: src/addressbook.c:354
 msgid "/_File/_Save"
@@ -913,7 +913,7 @@ msgstr "/_Endereço"
 
 #: src/addressbook.c:362
 msgid "/_Address/New _Address"
-msgstr "/_Endereço/Novo _Endereço"
+msgstr "/_Endereço/Nova _Entrada"
 
 #: src/addressbook.c:363
 msgid "/_Address/New _Group"
@@ -933,7 +933,7 @@ msgstr "/_Endereço/_Editar"
 
 #: src/addressbook.c:367
 msgid "/_Address/_Delete"
-msgstr "/_Endereço/_Apagar"
+msgstr "/_Endereço/E_xcluir"
 
 #: src/addressbook.c:369 src/compose.c:706 src/mainwindow.c:827
 #: src/messageview.c:282
@@ -985,7 +985,7 @@ msgstr "/---"
 
 #: src/addressbook.c:398 src/addressbook.c:408 src/summaryview.c:444
 msgid "/_Delete"
-msgstr "/_Apagar"
+msgstr "/E_xcluir"
 
 #: src/addressbook.c:410
 msgid "/_Copy"
@@ -1034,7 +1034,7 @@ msgstr "Cco:"
 #: src/prefs_display_header.c:280 src/prefs_display_header.c:336
 #: src/prefs_template.c:239 src/prefs_toolbar.c:65
 msgid "Delete"
-msgstr "Apagar"
+msgstr "Excluir"
 
 #: src/addressbook.c:821 src/editaddress.c:725 src/editaddress.c:859
 #: src/prefs_actions.c:254 src/prefs_customheader.c:232
@@ -1070,8 +1070,8 @@ msgid ""
 "Do you want to delete the folder AND all addresses in `%s' ?\n"
 "If deleting the folder only, addresses will be moved into parent folder."
 msgstr ""
-"Você deseja apagar a pasta e todos os endereços em \"%s\"?\n"
-"Caso você apague somente a pasta, os endereços serão movidos para a pasta "
+"Você deseja excluir a pasta e todos os endereços em \"%s\"?\n"
+"Caso você exclua somente a pasta, os endereços serão movidos para a pasta "
 "pai."
 
 #: src/addressbook.c:1888 src/folderview.c:2546
@@ -1585,7 +1585,7 @@ msgstr "%s: o arquivo não existe\n"
 
 #: src/compose.c:1101 src/compose.c:1178
 msgid "Can't get text part\n"
-msgstr "Não foi possível obter o texto\n"
+msgstr "Não foi possível receber o texto\n"
 
 #: src/compose.c:1723
 msgid "Quote mark format error."
@@ -1677,7 +1677,7 @@ msgstr "_Enviar"
 
 #: src/compose.c:3451
 msgid "can't get recipient list."
-msgstr "não foi possível  obter a lista de destinatários."
+msgstr "Não foi possível  obter a lista de destinatários."
 
 #: src/compose.c:3471
 msgid ""
@@ -1884,7 +1884,7 @@ msgstr "Salvar mensagem"
 
 #: src/compose.c:7288
 msgid "This message has been modified. Save it to draft folder?"
-msgstr "Esta mensagem foi modificada. Salvá-la na pasta de rascunhos?"
+msgstr "Esta mensagem foi modificada.  Você deseja salvá-la na pasta de rascunhos?"
 
 #: src/compose.c:7290 src/compose.c:7294
 msgid "Close _without saving"
@@ -2322,7 +2322,7 @@ msgstr "/_Mover pasta..."
 
 #: src/folderview.c:255 src/folderview.c:278 src/folderview.c:304
 msgid "/_Delete folder"
-msgstr "/_Apagar pasta"
+msgstr "/E_xcluir pasta"
 
 #: src/folderview.c:257 src/folderview.c:280
 msgid "/Empty _trash"
@@ -2503,8 +2503,7 @@ msgid ""
 "\n"
 "Do you really want to delete?"
 msgstr ""
-"Todas as pastas e mensagens sob \"%s\" serão permanentemente excluídas.\n"
-"Não será possível recuperá-las\n"
+"Todas as pastas e mensagens sob \"%s\" serão permanentemente excluídas. Não será possível recuperá-las.\n"
 "\n"
 "Você realmente deseja excluí-las?"
 
@@ -2519,7 +2518,7 @@ msgstr "Esvaziar lixeira"
 
 #: src/folderview.c:2618
 msgid "Delete all messages in the trash folder?"
-msgstr "Apagar todas as mensagens da lixeira?"
+msgstr "Você realmente deseja excluir todas as mensagens da lixeira?"
 
 #: src/folderview.c:2659
 #, c-format
@@ -2857,7 +2856,7 @@ msgstr "Concluído (Não há mensagens novas)"
 
 #: src/inc.c:796
 msgid "Some errors occurred while getting mail."
-msgstr "Houve alguns erros ao obter as mensagens"
+msgstr "Houve alguns erros ao receber as mensagens"
 
 #: src/inc.c:830
 #, c-format
@@ -3251,7 +3250,7 @@ msgstr "/_Arquivo/Sai_r"
 
 #: src/mainwindow.c:582
 msgid "/_Edit/Select _thread"
-msgstr "/_Editar/_Selecionar t_hread"
+msgstr "/_Editar/_Selecionar c_onversa"
 
 #: src/mainwindow.c:584 src/messageview.c:163
 msgid "/_Edit/_Find in current message..."
@@ -3367,7 +3366,7 @@ msgstr "/E_xibir/_Classificar/por as_sunto"
 
 #: src/mainwindow.c:627
 msgid "/_View/_Sort/by _color label"
-msgstr "/E_xibir/_Classificar/por _etiqueta de cor"
+msgstr "/E_xibir/_Classificar/por eti_queta"
 
 #: src/mainwindow.c:629
 msgid "/_View/_Sort/by _mark"
@@ -3399,23 +3398,23 @@ msgstr "/E_xibir/_Classificar/Decrescente"
 
 #: src/mainwindow.c:638
 msgid "/_View/_Sort/_Attract by subject"
-msgstr "/E_xibir/_Classificar/Atrair _por assunto"
+msgstr "/E_xibir/_Classificar/Agrupar _por assunto"
 
 #: src/mainwindow.c:640
 msgid "/_View/Th_read view"
-msgstr "/E_xibir/Visão de th_read"
+msgstr "/E_xibir/Exibi_r conversas"
 
 #: src/mainwindow.c:641
 msgid "/_View/E_xpand all threads"
-msgstr "/E_xibir/E_xpandir todas as threads"
+msgstr "/E_xibir/E_xpandir todas as conversas"
 
 #: src/mainwindow.c:642
 msgid "/_View/Co_llapse all threads"
-msgstr "/E_xibir/_Fechar todas as threads"
+msgstr "/E_xibir/_Fechar todas as conversas"
 
 #: src/mainwindow.c:643
 msgid "/_View/Set display _item..."
-msgstr "/E_xibir/Elementos _visíveis..."
+msgstr "/E_xibir/Colunas _visíveis..."
 
 #: src/mainwindow.c:646
 msgid "/_View/_Go to"
@@ -3460,7 +3459,7 @@ msgstr "/E_xibir/Ir _Para/Próxima mensagem ma_rcada"
 
 #: src/mainwindow.c:663
 msgid "/_View/_Go to/Prev _labeled message"
-msgstr "/E_xibir/Ir _Para/Mensagem eti_quetada anterior"
+msgstr "/E_xibir/Ir _Para/Mensagem e_tiquetada anterior"
 
 #: src/mainwindow.c:665
 msgid "/_View/_Go to/Next la_beled message"
@@ -3548,7 +3547,7 @@ msgstr "/_Mensagem/_Receber/---"
 
 #: src/mainwindow.c:790
 msgid "/_Message/_Send queued messages"
-msgstr "/_Mensagem/Enviar mensagens da _fila"
+msgstr "/_Mensagem/Enviar mensagens da caixa de _saída"
 
 #: src/mainwindow.c:791 src/mainwindow.c:793 src/mainwindow.c:800
 #: src/mainwindow.c:805 src/mainwindow.c:808 src/mainwindow.c:819
@@ -3559,7 +3558,7 @@ msgstr "/_Mensagem/---"
 
 #: src/mainwindow.c:792 src/messageview.c:264
 msgid "/_Message/Compose _new message"
-msgstr "/_Mensagem/Compor _nova mensagem"
+msgstr "/_Mensagem/Escrever _nova mensagem"
 
 #: src/mainwindow.c:794 src/messageview.c:267
 msgid "/_Message/_Reply"
@@ -3627,7 +3626,7 @@ msgstr "/_Mensagem/_Marcar/Marcar como l_ida"
 
 #: src/mainwindow.c:816
 msgid "/_Message/_Mark/Mark _thread as read"
-msgstr "/_Mensagem/_Marcar/Marcar _tópico como lido"
+msgstr "/_Mensagem/_Marcar/Marcar _conversa como lida"
 
 #: src/mainwindow.c:818
 msgid "/_Message/_Mark/Mark all _read"
@@ -3635,7 +3634,7 @@ msgstr "/_Mensagem/_Marcar/Marcar todas como _lidas"
 
 #: src/mainwindow.c:820
 msgid "/_Message/_Delete"
-msgstr "/_Mensagem/_Apagar"
+msgstr "/_Mensagem/E_xcluir"
 
 #: src/mainwindow.c:822
 msgid "/_Message/Set as _junk mail"
@@ -4434,7 +4433,7 @@ msgstr "Sem limite se 0 for especificado."
 
 #: src/prefs_account_dialog.c:1034
 msgid "`Get all' checks for new messages on this account"
-msgstr "\"Receber todas\" confere novas mensagens nessa conta"
+msgstr "\"Receber todas\" verifica novas mensagens nessa conta"
 
 #: src/prefs_account_dialog.c:1088 src/prefs_customheader.c:186
 msgid "Header"
@@ -4450,7 +4449,7 @@ msgstr "Gerar Message-ID"
 
 #: src/prefs_account_dialog.c:1103
 msgid "Add user-defined header"
-msgstr "Adicionar cabeçalho do usuário"
+msgstr "Adicionar cabeçalhos personalizados"
 
 #: src/prefs_account_dialog.c:1105 src/prefs_common_dialog.c:1778
 #: src/prefs_common_dialog.c:1805
@@ -4517,7 +4516,7 @@ msgstr "Criptografar mensagens com PGP por padrão"
 
 #: src/prefs_account_dialog.c:1407
 msgid "Encrypt when replying to encrypted message"
-msgstr "Criptografar quando responder uma mensagem criptografada"
+msgstr "Criptografar quando responder a uma mensagem criptografada"
 
 #: src/prefs_account_dialog.c:1409
 msgid "Use ASCII-armored format for encryption"
@@ -4741,7 +4740,7 @@ msgstr "Sintaxe"
 
 #: src/prefs_actions.c:291
 msgid "Registered actions"
-msgstr "Ações registradas"
+msgstr "Ações salvas"
 
 #: src/prefs_actions.c:423 src/prefs_template.c:326
 msgid "(New)"
@@ -4780,11 +4779,11 @@ msgstr ""
 
 #: src/prefs_actions.c:564
 msgid "Delete action"
-msgstr "Apagar ação"
+msgstr "Excluir ação"
 
 #: src/prefs_actions.c:565
 msgid "Do you really want to delete this action?"
-msgstr "Você realmente deseja apagar esta ação?"
+msgstr "Você realmente deseja excluir esta ação?"
 
 #: src/prefs_common_dialog.c:728
 msgid "Creating common preferences window...\n"
@@ -5066,7 +5065,7 @@ msgstr "Formato de data"
 
 #: src/prefs_common_dialog.c:1656
 msgid " Set display item of summary... "
-msgstr " Elementos visíveis no cabeçalho... "
+msgstr "Colunas visíveis no sumário..."
 
 #: src/prefs_common_dialog.c:1662
 msgid "Message"
@@ -5174,7 +5173,7 @@ msgstr "Comando de aprendizado:"
 
 #: src/prefs_common_dialog.c:2074
 msgid "(Select preset)"
-msgstr "(Selecionar pré-definido)"
+msgstr "(definição atual)"
 
 #: src/prefs_common_dialog.c:2099
 msgid "Not Junk"
@@ -5210,7 +5209,7 @@ msgstr "Filtrar spam antes da filtragem normal"
 
 #: src/prefs_common_dialog.c:2170
 msgid "Delete junk mails from server on receiving"
-msgstr "Apagar spam do servidor ao receber"
+msgstr "Excluir spam do servidor ao receber"
 
 #: src/prefs_common_dialog.c:2175
 msgid "Mark filtered junk mails as read"
@@ -5218,7 +5217,7 @@ msgstr "Marcar spam filtrado como lido"
 
 #: src/prefs_common_dialog.c:2217
 msgid "Automatically check signatures"
-msgstr "Verificar assinaturas automaticamente"
+msgstr "Verificar assinaturas digitais automaticamente"
 
 #: src/prefs_common_dialog.c:2220
 msgid "Show signature check result in a popup window"
@@ -5250,11 +5249,11 @@ msgstr "Exibir um aviso de inicialização caso o GnuPG não estiver funcionando
 
 #: src/prefs_common_dialog.c:2351
 msgid "Always open messages in summary when selected"
-msgstr "Sempre abrir mensagens no sumário quando selecionado"
+msgstr "Sempre abrir mensagens no sumário, quando selecionado"
 
 #: src/prefs_common_dialog.c:2355
 msgid "Open first unread message when a folder is opened"
-msgstr "Abrir a primeira mensagem não lida ao abrir uma pasta"
+msgstr "Selecionar a primeira mensagem não lida ao abrir uma pasta"
 
 #: src/prefs_common_dialog.c:2362
 msgid "Remember last selected message"
@@ -5278,8 +5277,7 @@ msgstr "Executar comandos imediatamente ao mover ou excluir mensagens"
 
 #: src/prefs_common_dialog.c:2392
 msgid "Messages will be marked until execution if this is turned off."
-msgstr ""
-"Se esta opção for desativada, as mensagens permanecerão marcadas até que os "
+msgstr "Se esta opção for desativada, as mensagens permanecerão marcadas até que os "
 "comandos agendados forem executados."
 
 #: src/prefs_common_dialog.c:2401
@@ -5394,7 +5392,7 @@ msgstr "Usar programa externo para enviar"
 
 #: src/prefs_common_dialog.c:2765
 msgid "Update check requires 'curl' command."
-msgstr "A verificação de atualizações requer o comando 'curl'."
+msgstr "A verificação de atualizações requer o comando \"curl\"."
 
 #: src/prefs_common_dialog.c:2776
 msgid "Enable auto update check"
@@ -5437,7 +5435,7 @@ msgstr "Automático (Recomendado)"
 
 #: src/prefs_common_dialog.c:2877
 msgid "7bit ascii (US-ASCII)"
-msgstr "ASCII de 7 bits (US-ASC_II)"
+msgstr "ASCII de 7 bits (US-ASCII)"
 
 #: src/prefs_common_dialog.c:2879
 msgid "Unicode (UTF-8)"
@@ -5768,7 +5766,7 @@ msgstr "Configuração de cabeçalho personalizado"
 
 #: src/prefs_customheader.c:238 src/prefs_filter_edit.c:1606
 msgid " Delete "
-msgstr " Apagar "
+msgstr " Excluir "
 
 #: src/prefs_customheader.c:257
 msgid "Custom headers"
@@ -5784,7 +5782,7 @@ msgstr "Excluir cabeçalho"
 
 #: src/prefs_customheader.c:411
 msgid "Do you really want to delete this header?"
-msgstr "Você realmente deseja apagar este cabeçalho?"
+msgstr "Você realmente deseja excluir este cabeçalho?"
 
 #: src/prefs_display_header.c:179
 msgid "Creating display header setting window...\n"
@@ -5885,7 +5883,7 @@ msgstr "Qualquer cabeçalho"
 
 #: src/prefs_filter_edit.c:502
 msgid "Edit header..."
-msgstr "Editar cabeçalho..."
+msgstr "Outro cabeçalho..."
 
 #: src/prefs_filter_edit.c:505
 msgid "Message body"
@@ -5961,11 +5959,11 @@ msgstr "mais curto que"
 
 #: src/prefs_filter_edit.c:577
 msgid "matches to status"
-msgstr "casa com o status"
+msgstr "Sim"
 
 #: src/prefs_filter_edit.c:578
 msgid "doesn't match to status"
-msgstr "não casa com o status"
+msgstr "Não"
 
 #: src/prefs_filter_edit.c:682
 msgid "Move to"
@@ -5981,7 +5979,7 @@ msgstr "Não receber"
 
 #: src/prefs_filter_edit.c:685
 msgid "Delete from server"
-msgstr "Apagar do servidor"
+msgstr "Excluir do servidor"
 
 #: src/prefs_filter_edit.c:688
 msgid "Set mark"
@@ -5989,7 +5987,7 @@ msgstr "Marcar"
 
 #: src/prefs_filter_edit.c:689
 msgid "Set color"
-msgstr "Definir cor"
+msgstr "Definir etiqueta"
 
 #: src/prefs_filter_edit.c:690
 msgid "Mark as read"
@@ -6090,7 +6088,7 @@ msgstr "Não exibir [...] ou (...) no início do assunto no sumário"
 
 #: src/prefs_folder_item.c:249
 msgid "Delete [...] or (...) at the beginning of subject on reply"
-msgstr "Remover [...] ou (...) do começo do assunto na resposta"
+msgstr "Remover [...] ou (...) do começo do assunto ao responder"
 
 #: src/prefs_folder_item.c:289 src/prefs_folder_item.c:300
 #: src/prefs_toolbar.c:98 src/progressdialog.c:91
@@ -6173,14 +6171,14 @@ msgstr "Criando janela de configuração da coluna de resumo...\n"
 
 #: src/prefs_summary_column.c:192
 msgid "Summary display item setting"
-msgstr "Configurações de itens a serem mostrados no resumo"
+msgstr "Colunas visíveis no sumário"
 
 #: src/prefs_summary_column.c:207
 msgid ""
 "Select items to be displayed on the summary view. You can modify\n"
 "the order by using the Up / Down button."
 msgstr ""
-"Selecione os itens a serem mostrados na visão resumida. Você\n"
+"Selecione as colunas que serão exibidas na lista de mensagens. Você\n"
 "pode modificar a ordem usando os botões Acima / Abaixo."
 
 #: src/prefs_template.c:164
@@ -6189,19 +6187,19 @@ msgstr "Nome do Modelo"
 
 #: src/prefs_template.c:227
 msgid "Register"
-msgstr "Registrar"
+msgstr "Adicionar"
 
 #: src/prefs_template.c:233
 msgid " Substitute "
-msgstr " Sustituir "
+msgstr "Sustituir"
 
 #: src/prefs_template.c:245
 msgid " Symbols "
-msgstr " Símbolos "
+msgstr "Símbolos"
 
 #: src/prefs_template.c:259
 msgid "Registered templates"
-msgstr "Modelos registrados"
+msgstr "Modelos salvos"
 
 #: src/prefs_template.c:281
 msgid "Templates"
@@ -6217,11 +6215,11 @@ msgstr "Erro no formato do modelo"
 
 #: src/prefs_template.c:565
 msgid "Delete template"
-msgstr "Apagar modelo"
+msgstr "Excluir modelo"
 
 #: src/prefs_template.c:566
 msgid "Do you really want to delete this template?"
-msgstr "Quer realmente apagar este modelo?"
+msgstr "Você realmente deseja excluir este modelo?"
 
 #: src/prefs_toolbar.c:39
 msgid "---- Separator ----"
@@ -6277,7 +6275,7 @@ msgstr "Encaminhar a mensagem"
 
 #: src/prefs_toolbar.c:66
 msgid "Delete the message"
-msgstr "Apagar a mensagem"
+msgstr "Excluir a mensagem"
 
 #: src/prefs_toolbar.c:69
 msgid "Set as junk mail"
@@ -6475,11 +6473,11 @@ msgstr "Todos"
 
 #: src/quick_search.c:112
 msgid "Have color label"
-msgstr "Possuem etiqueta"
+msgstr "Com etiqueta"
 
 #: src/quick_search.c:113
 msgid "Have attachment"
-msgstr "Possuem anexo"
+msgstr "Com anexo"
 
 #: src/quick_search.c:115
 msgid "Within 1 day"
@@ -7167,7 +7165,7 @@ msgstr "/_Marcar/Marcar como _lida"
 
 #: src/summaryview.c:439
 msgid "/_Mark/Mark _thread as read"
-msgstr "/_Marcar/Marcar _tópico como lido"
+msgstr "/_Marcar/Marcar _conversa como lida"
 
 #: src/summaryview.c:441
 msgid "/_Mark/Mark all _read"
@@ -7293,7 +7291,7 @@ msgstr "Não há mais mensagens etiquetadas"
 
 #: src/summaryview.c:1492
 msgid "No labeled message found. Search from the end?"
-msgstr "Não foram encontradas mensagens etiquetadas. Procurar a partir do fim?"
+msgstr "Nenhuma mensagem etiquetada foi encontrada. Procurar a partir do fim?"
 
 #: src/summaryview.c:1494 src/summaryview.c:1503
 msgid "No labeled messages."
@@ -7310,7 +7308,7 @@ msgstr "Agrupando mensagens por assunto..."
 #: src/summaryview.c:2042
 #, c-format
 msgid "%d deleted"
-msgstr "%d apagadas"
+msgstr "%d excluídas"
 
 #: src/summaryview.c:2046
 #, c-format
@@ -7365,7 +7363,7 @@ msgstr "Mensagem %d marcada\n"
 #: src/summaryview.c:2927
 #, c-format
 msgid "Message %d is marked as being read\n"
-msgstr "Mensagem %d marcada como sendo lida\n"
+msgstr "Mensagem %d marcada como lida\n"
 
 #: src/summaryview.c:3140
 #, c-format
