@@ -1,3 +1,46 @@
+2010-02-19
+
+	* version 3.0.0rc
+
+2010-02-19
+
+	* src/update_check.c: set curl timeout to 10 secs.
+
+2010-02-19
+
+	* src/prefs_actions.c: removed compilation warning.
+
+2010-02-16
+
+	* src/addressadd.c: translate 'Auto-registered address' book.
+
+2010-02-16
+
+	* libsylph/prefs_common.[ch]
+	  src/compose.c
+	  src/prefs_common_dialog.c: added 'Enable address auto-completion'
+	  setting.
+
+2010-02-16
+
+	* src/plugin.h: bumped SYL_PLUGIN_INTERFACE_VERSION.
+
+2010-02-16
+
+	* libsylph/folder.c: folder_find_child_item_by_name(): use case
+	  insensitive match on Win32 to prohibit multiple reference of folder.
+
+2010-02-15
+
+	* src/query_search.c: row_activated(): fixed a bug that 'Getting
+	  message n' message was left on the status bar on displaying IMAP4
+	  messages with new window.
+
+2010-02-15
+
+	* src/setup.c: fixed compile error with OpenSSL disabled.
+	  Don't accept default Gmail address.
+
 2010-02-12
 
 	* version 3.0.0beta8
