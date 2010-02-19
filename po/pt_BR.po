@@ -2,7 +2,7 @@
 # Copyright (C) 2000 Free Software Foundation, Inc.
 # André Casteliano <digitalcoder@users.sourceforge.net>, 2000.
 # Ricardo Nabinger Sanchez <rnsanchez@gmail.com>, 2005, 2006, 2007, 2008, 2009.
-# Alexandre Erwin Ittner <alexandre@ittner.com.br>, 2010
+# Alexandre Erwin Ittner <alexandre@ittner.com.br>, 2010.
 # Former translators:
 # André Casteliano <digitalcoder@users.sourceforge.net>
 # Isaías V. Prestes <isix@uol.com.br>
@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: sylpheed\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-19 11:27+0900\n"
-"PO-Revision-Date: 2010-02-13 18:13-0200\n"
+"PO-Revision-Date: 2010-02-19 10:30-0200\n"
 "Last-Translator: Alexandre Erwin Ittner <alexandre@ittner.com.br>\n"
 "Language-Team: Portuguese/Brazil <(none)>\n"
 "MIME-Version: 1.0\n"
@@ -5349,7 +5349,7 @@ msgstr "Adicionar endereço para o destinatário com duplo-clique"
 
 #: src/prefs_common_dialog.c:2537
 msgid "Enable address auto-completion"
-msgstr ""
+msgstr "Completar endereços automaticamente"
 
 #: src/prefs_common_dialog.c:2539
 msgid "On exit"
@@ -7431,7 +7431,7 @@ msgstr "Erro ao processar mensagens."
 
 #: src/summaryview.c:4029 src/summaryview.c:4030
 msgid "Building threads..."
-msgstr "Construindo conversas..."
+msgstr "Organizando conversas..."
 
 #: src/summaryview.c:4180 src/summaryview.c:4181
 msgid "Unthreading..."
@@ -7567,7 +7567,7 @@ msgstr "Sylpheed está devidamente atualizado."
 
 #: src/update_check.c:227
 msgid "Couldn't get the version information."
-msgstr "Não foi possível obter a informação sobre versão."
+msgstr "Não foi possível obter a informações de versão."
 
 #~ msgid "Reply button invokes mailing list reply"
 #~ msgstr "Botão de responder chama resposta para a lista"
