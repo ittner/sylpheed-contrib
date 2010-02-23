@@ -1,24 +1,27 @@
-# translation of tr.po to 
+# translation of tr.po to Turkish
+# translation of tr.po to
 # Turkish translation of Sylpheed
-# Copyright (C) 2001, 2004 Free Software Foundation, Inc.
+# Copyright (C) 2001, 2004, 2010 Free Software Foundation, Inc.
 # From 'oh what a po file'
 #
-# Edited by
-# Arman Aksoy (Armish) <armish@linux-sevenler.de>
 # Görkem Çetin <gorkem@gelecek.com.tr>, 2001-2002.
 # Arman Aksoy <armish@linux-sevenler.org>, 2004.
+# Fethican Coşkuner <fethicanc@gmail.com>, 2010.
+# Doruk Fisek <dfisek@fisek.com.tr>, 2010.
+# Edited by
+# Arman Aksoy (Armish) <armish@linux-sevenler.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-05 16:26+0900\n"
-"PO-Revision-Date: 2004-12-03 11:44+0200\n"
-"Last-Translator: Arman Aksoy <armish@linux-sevenler.org>\n"
-"Language-Team:  <gnome-turk@gnome.org>\n"
+"POT-Creation-Date: 2010-02-19 11:27+0900\n"
+"PO-Revision-Date: 2010-02-20 16:54+0200\n"
+"Last-Translator: Doruk Fisek <dfisek@fisek.com.tr>\n"
+"Language-Team: Turkish <gnu-tr-u12a@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3.1\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: libsylph/account.c:57
 msgid "Reading all config for each account...\n"
@@ -507,12 +510,12 @@ msgstr "%s bulundu\n"
 msgid "Configuration is saved.\n"
 msgstr "Yapılandırma kaydedildi.\n"
 
-#: libsylph/prefs_common.c:589
+#: libsylph/prefs_common.c:591
 #, fuzzy
 msgid "Junk mail filter (manual)"
 msgstr "dizin:"
 
-#: libsylph/prefs_common.c:592
+#: libsylph/prefs_common.c:594
 #, fuzzy
 msgid "Junk mail filter"
 msgstr "dizin:"
@@ -693,8 +696,8 @@ msgstr ""
 "kutucukları tıklanarak bu hesaplar için `Hepsini al' seçeneğini \n"
 "etkin duruma getirilebilir."
 
-#: src/account_dialog.c:374 src/addressadd.c:178 src/addressbook.c:679
-#: src/compose.c:5258 src/editaddress.c:777 src/editaddress.c:826
+#: src/account_dialog.c:374 src/addressadd.c:178 src/addressbook.c:683
+#: src/compose.c:5295 src/editaddress.c:777 src/editaddress.c:826
 #: src/editbook.c:198 src/editgroup.c:266 src/editjpilot.c:270
 #: src/editldap.c:307 src/editvcard.c:183 src/mimeview.c:226
 #: src/prefs_filter.c:257 src/prefs_folder_item.c:171 src/select-keys.c:311
@@ -831,12 +834,12 @@ msgstr "Eylemin kullanıcı argümanı"
 msgid "Add Address to Book"
 msgstr "Adres Defterine Ekle"
 
-#: src/addressadd.c:188 src/compose.c:3277 src/prefs_toolbar.c:89
+#: src/addressadd.c:188 src/compose.c:3318 src/prefs_toolbar.c:89
 #: src/select-keys.c:312
 msgid "Address"
 msgstr "Adres"
 
-#: src/addressadd.c:198 src/addressbook.c:722 src/editaddress.c:629
+#: src/addressadd.c:198 src/addressbook.c:726 src/editaddress.c:629
 #: src/editaddress.c:695 src/editgroup.c:268 src/importcsv.c:125
 msgid "Remarks"
 msgstr "Notlar"
@@ -845,132 +848,137 @@ msgstr "Notlar"
 msgid "Select Address Book Folder"
 msgstr "Adres Defteri Dizinini Seç"
 
-#: src/addressbook.c:338 src/compose.c:568 src/mainwindow.c:543
+#: src/addressadd.c:311 src/addressbook.c:950 src/addressbook.c:3082
+#, fuzzy
+msgid "Auto-registered address"
+msgstr "Kayıtlı şablonlar"
+
+#: src/addressbook.c:341 src/compose.c:571 src/mainwindow.c:543
 #: src/messageview.c:149
 msgid "/_File"
 msgstr "/_Dosya"
 
-#: src/addressbook.c:339
+#: src/addressbook.c:342
 msgid "/_File/New _Book"
 msgstr "/_Dosya/Yeni _Defter"
 
-#: src/addressbook.c:340
+#: src/addressbook.c:343
 msgid "/_File/New _vCard"
 msgstr "/_Dosya/Yeni _vCard"
 
-#: src/addressbook.c:342
+#: src/addressbook.c:345
 msgid "/_File/New _JPilot"
 msgstr "/_Dosya/Yeni _JPilot"
 
-#: src/addressbook.c:345
+#: src/addressbook.c:348
 #, fuzzy
 msgid "/_File/New _LDAP Server"
 msgstr "/_Dosya/Yeni _Sunucu"
 
-#: src/addressbook.c:347 src/addressbook.c:350 src/compose.c:573
-#: src/compose.c:578 src/compose.c:581 src/compose.c:584 src/mainwindow.c:561
+#: src/addressbook.c:350 src/addressbook.c:353 src/compose.c:576
+#: src/compose.c:581 src/compose.c:584 src/compose.c:587 src/mainwindow.c:561
 #: src/mainwindow.c:564 src/mainwindow.c:566 src/mainwindow.c:568
 #: src/mainwindow.c:573 src/mainwindow.c:575 src/messageview.c:151
 #: src/messageview.c:156
 msgid "/_File/---"
 msgstr "/_Dosya/---"
 
-#: src/addressbook.c:348
+#: src/addressbook.c:351
 msgid "/_File/_Edit"
 msgstr "/_Dosya/_Düzenle"
 
-#: src/addressbook.c:349
+#: src/addressbook.c:352
 msgid "/_File/_Delete"
 msgstr "/_Dosya/_Sil"
 
-#: src/addressbook.c:351
+#: src/addressbook.c:354
 msgid "/_File/_Save"
 msgstr "/_Dosya/_Kaydet"
 
-#: src/addressbook.c:352 src/compose.c:585 src/messageview.c:157
+#: src/addressbook.c:355 src/compose.c:588 src/messageview.c:157
 msgid "/_File/_Close"
 msgstr "/_Dosya/K_apat"
 
-#: src/addressbook.c:354 src/addressbook.c:394 src/addressbook.c:404
-#: src/compose.c:587 src/mainwindow.c:579 src/messageview.c:159
+#: src/addressbook.c:357 src/addressbook.c:397 src/addressbook.c:407
+#: src/compose.c:590 src/mainwindow.c:579 src/messageview.c:159
 msgid "/_Edit"
 msgstr "/Dü_zenle"
 
-#: src/addressbook.c:355 src/compose.c:592 src/mainwindow.c:580
+#: src/addressbook.c:358 src/compose.c:595 src/mainwindow.c:580
 #: src/messageview.c:160
 msgid "/_Edit/_Copy"
 msgstr "/Dü_zenle/K_opyala"
 
-#: src/addressbook.c:356 src/compose.c:593
+#: src/addressbook.c:359 src/compose.c:596
 msgid "/_Edit/_Paste"
 msgstr "/Dü_zenle/_Yapıştır"
 
-#: src/addressbook.c:358
+#: src/addressbook.c:361
 msgid "/_Address"
 msgstr "/_Adres"
 
-#: src/addressbook.c:359
+#: src/addressbook.c:362
 msgid "/_Address/New _Address"
 msgstr "/_Adres/Yeni _Adres"
 
-#: src/addressbook.c:360
+#: src/addressbook.c:363
 msgid "/_Address/New _Group"
 msgstr "/_Adres/Yeni _Grup"
 
-#: src/addressbook.c:361
+#: src/addressbook.c:364
 msgid "/_Address/New _Folder"
 msgstr "/_Adres/Yeni _Dizin"
 
-#: src/addressbook.c:362
+#: src/addressbook.c:365
 msgid "/_Address/---"
 msgstr "/_Adres/---"
 
-#: src/addressbook.c:363
+#: src/addressbook.c:366
 msgid "/_Address/_Edit"
 msgstr "/_Adres/Dü_zenle"
 
-#: src/addressbook.c:364
+#: src/addressbook.c:367
 msgid "/_Address/_Delete"
 msgstr "/_Adres/_Sil"
 
-#: src/addressbook.c:366 src/compose.c:703 src/mainwindow.c:827
+#: src/addressbook.c:369 src/compose.c:706 src/mainwindow.c:827
 #: src/messageview.c:282
 msgid "/_Tools"
 msgstr "/A_raçlar"
 
-#: src/addressbook.c:367
+#: src/addressbook.c:370
 msgid "/_Tools/Import _LDIF file"
 msgstr "/A_raçlar/_LDIF dosyasını ekle"
 
-#: src/addressbook.c:368
+#: src/addressbook.c:371
 #, fuzzy
 msgid "/_Tools/Import _CSV file"
 msgstr "/A_raçlar/_LDIF dosyasını ekle"
 
-#: src/addressbook.c:370 src/compose.c:727 src/mainwindow.c:883
+#: src/addressbook.c:373 src/compose.c:730 src/mainwindow.c:883
 #: src/messageview.c:302
 msgid "/_Help"
 msgstr "/_Yardım"
 
-#: src/addressbook.c:371 src/compose.c:728 src/mainwindow.c:899
+#: src/addressbook.c:374 src/compose.c:731 src/mainwindow.c:899
 #: src/messageview.c:303
 msgid "/_Help/_About"
 msgstr "/_Yardım/_Hakkında"
 
-#: src/addressbook.c:390 src/addressbook.c:400
+#: src/addressbook.c:393 src/addressbook.c:403
 msgid "/New _Address"
 msgstr "/Yeni _Adres"
 
-#: src/addressbook.c:391 src/addressbook.c:401
+#: src/addressbook.c:394 src/addressbook.c:404
 msgid "/New _Group"
 msgstr "/Yeni _Grup"
 
-#: src/addressbook.c:392 src/addressbook.c:402
+#: src/addressbook.c:395 src/addressbook.c:405
 msgid "/New _Folder"
 msgstr "/Yeni _Dizin"
 
-#: src/addressbook.c:393 src/addressbook.c:403 src/addressbook.c:406
-#: src/compose.c:562 src/folderview.c:256 src/folderview.c:258
+#: src/addressbook.c:396 src/addressbook.c:406 src/addressbook.c:409
+#: src/compose.c:565 src/folderview.c:256 src/folderview.c:258
 #: src/folderview.c:263 src/folderview.c:266 src/folderview.c:279
 #: src/folderview.c:281 src/folderview.c:283 src/folderview.c:288
 #: src/folderview.c:291 src/folderview.c:305 src/folderview.c:307
@@ -982,94 +990,89 @@ msgstr "/Yeni _Dizin"
 msgid "/---"
 msgstr "/---"
 
-#: src/addressbook.c:395 src/addressbook.c:405 src/summaryview.c:444
+#: src/addressbook.c:398 src/addressbook.c:408 src/summaryview.c:444
 msgid "/_Delete"
 msgstr "/_Sil"
 
-#: src/addressbook.c:407
+#: src/addressbook.c:410
 #, fuzzy
 msgid "/_Copy"
 msgstr "/_Kopyala..."
 
-#: src/addressbook.c:408
+#: src/addressbook.c:411
 #, fuzzy
 msgid "/_Paste"
 msgstr "/Dü_zenle/_Yapıştır"
 
-#: src/addressbook.c:532 src/prefs_common_dialog.c:2520 src/prefs_toolbar.c:90
+#: src/addressbook.c:536 src/prefs_common_dialog.c:2525 src/prefs_toolbar.c:90
 msgid "Address book"
 msgstr "Adres defteri"
 
 #. special folder setting (maybe these options are redundant)
-#: src/addressbook.c:606 src/addressbook.c:3767 src/folderview.c:385
+#: src/addressbook.c:610 src/addressbook.c:3776 src/folderview.c:385
 #: src/prefs_account_dialog.c:1835 src/query_search.c:400
 msgid "Folder"
 msgstr "Dizin"
 
-#: src/addressbook.c:708
+#: src/addressbook.c:712
 msgid "E-Mail address"
 msgstr "İleti adresi"
 
-#: src/addressbook.c:747 src/quick_search.c:124
+#: src/addressbook.c:751 src/quick_search.c:128
 #, fuzzy
 msgid "Search:"
 msgstr "Ara"
 
-#: src/addressbook.c:785 src/compose.c:3222 src/headerview.c:55
+#: src/addressbook.c:789 src/compose.c:3263 src/headerview.c:55
 #: src/prefs_folder_item.c:339 src/prefs_template.c:179
 msgid "To:"
 msgstr "Kime:"
 
-#: src/addressbook.c:789 src/compose.c:3239 src/headerview.c:56
+#: src/addressbook.c:793 src/compose.c:3280 src/headerview.c:56
 #: src/prefs_folder_item.c:356 src/prefs_template.c:181
 msgid "Cc:"
 msgstr "Cc:"
 
-#: src/addressbook.c:793 src/compose.c:3256 src/prefs_folder_item.c:367
+#: src/addressbook.c:797 src/compose.c:3297 src/prefs_folder_item.c:367
 #: src/prefs_template.c:183
 msgid "Bcc:"
 msgstr "Bcc:"
 
 #. Buttons
-#: src/addressbook.c:814 src/addressbook.c:1889 src/editaddress.c:719
+#: src/addressbook.c:818 src/addressbook.c:1894 src/editaddress.c:719
 #: src/editaddress.c:853 src/prefs_actions.c:266
 #: src/prefs_display_header.c:280 src/prefs_display_header.c:336
 #: src/prefs_template.c:239 src/prefs_toolbar.c:65
 msgid "Delete"
 msgstr "Sil"
 
-#: src/addressbook.c:817 src/editaddress.c:725 src/editaddress.c:859
+#: src/addressbook.c:821 src/editaddress.c:725 src/editaddress.c:859
 #: src/prefs_actions.c:254 src/prefs_customheader.c:232
 #: src/prefs_display_header.c:274 src/prefs_display_header.c:330
-#: src/prefs_filter_edit.c:1560
+#: src/prefs_filter_edit.c:1603
 msgid "Add"
 msgstr "Ekle"
 
-#: src/addressbook.c:820 src/prefs_toolbar.c:80
+#: src/addressbook.c:824 src/prefs_toolbar.c:80
 #, fuzzy
 msgid "Search"
 msgstr "Ara"
 
-#: src/addressbook.c:823
+#: src/addressbook.c:827
 #, fuzzy
 msgid "_Close"
 msgstr "Kapat"
 
-#: src/addressbook.c:946 src/addressbook.c:3074
-#, fuzzy
-msgid "Auto-registered address"
-msgstr "Kayıtlı şablonlar"
-
 #. Confirm deletion
-#: src/addressbook.c:1019
+#: src/addressbook.c:1023
 msgid "Delete address(es)"
 msgstr "Adres(ler)i sil"
 
-#: src/addressbook.c:1020
+#: src/addressbook.c:1024
 msgid "Really delete the address(es)?"
 msgstr "Adres(ler) silinsin mi?"
 
-#: src/addressbook.c:1880
+#: src/addressbook.c:1885
 #, fuzzy, c-format
 msgid ""
 "Do you want to delete the folder AND all addresses in `%s' ?\n"
@@ -1079,38 +1082,38 @@ msgstr ""
 "misiniz?\n"
 "Eğer sadece dizini silerseniz, içindeki adresler ana dizine taşınacaktır."
 
-#: src/addressbook.c:1883 src/folderview.c:2546
+#: src/addressbook.c:1888 src/folderview.c:2546
 msgid "Delete folder"
 msgstr "Dizini sil"
 
-#: src/addressbook.c:1883
+#: src/addressbook.c:1888
 #, fuzzy
 msgid "_Folder only"
 msgstr "Sadece dizin"
 
-#: src/addressbook.c:1883
+#: src/addressbook.c:1888
 #, fuzzy
 msgid "Folder and _addresses"
 msgstr "Dizin ve Adresler"
 
-#: src/addressbook.c:1888
+#: src/addressbook.c:1893
 #, c-format
 msgid "Really delete `%s' ?"
 msgstr "`%s' silinsin mi?"
 
-#: src/addressbook.c:2820 src/addressbook.c:2958
+#: src/addressbook.c:2828 src/addressbook.c:2966
 msgid "New user, could not save index file."
 msgstr "Yeni kullanıcı, indeks dosyası kaydedilemedi."
 
-#: src/addressbook.c:2824 src/addressbook.c:2962
+#: src/addressbook.c:2832 src/addressbook.c:2970
 msgid "New user, could not save address book files."
 msgstr "Yeni kullanıcı, adres defteri dosyaları kaydedilemedi."
 
-#: src/addressbook.c:2834 src/addressbook.c:2972
+#: src/addressbook.c:2842 src/addressbook.c:2980
 msgid "Old address book converted successfully."
 msgstr "Eski adres defteri başarıyla çevrildi."
 
-#: src/addressbook.c:2839
+#: src/addressbook.c:2847
 msgid ""
 "Old address book converted,\n"
 "could not save new address index file"
@@ -1118,7 +1121,7 @@ msgstr ""
 "Eski adres defteri çevrildi,\n"
 "yeni adres indeks dosyası kaydedilemedi"
 
-#: src/addressbook.c:2852
+#: src/addressbook.c:2860
 msgid ""
 "Could not convert address book,\n"
 "but created empty new address book files."
@@ -1126,7 +1129,7 @@ msgstr ""
 "Adres defteri çevrilemedi,\n"
 "ancak boş bir adres defteri dosyası oluşturuldu."
 
-#: src/addressbook.c:2858
+#: src/addressbook.c:2866
 msgid ""
 "Could not convert address book,\n"
 "could not create new address book files."
@@ -1134,7 +1137,7 @@ msgstr ""
 "Adres defteri ve yeni adres defteri \n"
 "dosyası oluşturulamadı."
 
-#: src/addressbook.c:2863
+#: src/addressbook.c:2871
 msgid ""
 "Could not convert address book\n"
 "and could not create new address book files."
@@ -1142,17 +1145,17 @@ msgstr ""
 "Adres defteri ve yeni adres defteri \n"
 "dosyası oluşturulamadı."
 
-#: src/addressbook.c:2870
+#: src/addressbook.c:2878
 #, fuzzy
 msgid "Address book conversion error"
 msgstr "Adres defteri çevrim hatası"
 
-#: src/addressbook.c:2874
+#: src/addressbook.c:2882
 #, fuzzy
 msgid "Address book conversion"
 msgstr "Adres defteri çevrimi"
 
-#: src/addressbook.c:2913
+#: src/addressbook.c:2921
 #, fuzzy, c-format
 msgid ""
 "Could not read address index:\n"
@@ -1160,78 +1163,78 @@ msgid ""
 "%s%c%s"
 msgstr "Adres indeksi okunamadı"
 
-#: src/addressbook.c:2916
+#: src/addressbook.c:2924
 #, fuzzy
 msgid "Address Book Error"
 msgstr "Adres Defteri Hatası"
 
-#: src/addressbook.c:2977
+#: src/addressbook.c:2985
 msgid "Old address book converted, could not save new address index file"
 msgstr ""
 "Eski adres defteri çevrildi, ancak yeni adres indeks dosyası kaydedilemedi"
 
-#: src/addressbook.c:2991
+#: src/addressbook.c:2999
 msgid ""
 "Could not convert address book, but created empty new address book files."
 msgstr ""
 "Adres defteri çevrilemedi, ancak yeni ve boş bir adres defteri dosyası "
 "oluşturuldu."
 
-#: src/addressbook.c:2997
+#: src/addressbook.c:3005
 msgid ""
 "Could not convert address book, could not create new address book files."
 msgstr ""
 "Adres defteri çevrilemedi ve yeni adres defteri dosyası oluşturulamadı."
 
-#: src/addressbook.c:3003
+#: src/addressbook.c:3011
 msgid ""
 "Could not convert address book and could not create new address book files."
 msgstr ""
 "Adres defteri çevrilemedi ve yeni adres defteri dosyası oluşturulamadı."
 
-#: src/addressbook.c:3015
+#: src/addressbook.c:3023
 msgid "Could not read address index"
 msgstr "Adres indeksi okunamadı"
 
-#: src/addressbook.c:3021
+#: src/addressbook.c:3029
 #, fuzzy
 msgid "Address Book Conversion Error"
 msgstr "Adres Defteri Çevrim Hatası"
 
-#: src/addressbook.c:3027
+#: src/addressbook.c:3035
 #, fuzzy
 msgid "Address Book Conversion"
 msgstr "Adres Defteri Çevrimi"
 
-#: src/addressbook.c:3697 src/prefs_common_dialog.c:2343
+#: src/addressbook.c:3706 src/prefs_common_dialog.c:2347
 msgid "Interface"
 msgstr "Arayüz"
 
-#: src/addressbook.c:3711 src/importcsv.c:671 src/importldif.c:478
+#: src/addressbook.c:3720 src/importcsv.c:671 src/importldif.c:478
 msgid "Address Book"
 msgstr "Adres Defteri"
 
-#: src/addressbook.c:3725
+#: src/addressbook.c:3734
 msgid "Person"
 msgstr "Kişi"
 
-#: src/addressbook.c:3739
+#: src/addressbook.c:3748
 msgid "EMail Address"
 msgstr "İleti Adresi"
 
-#: src/addressbook.c:3753
+#: src/addressbook.c:3762
 msgid "Group"
 msgstr "Grup"
 
-#: src/addressbook.c:3781
+#: src/addressbook.c:3790
 msgid "vCard"
 msgstr "vCard"
 
-#: src/addressbook.c:3795 src/addressbook.c:3809
+#: src/addressbook.c:3804 src/addressbook.c:3818
 msgid "JPilot"
 msgstr "JPilot"
 
-#: src/addressbook.c:3823
+#: src/addressbook.c:3832
 msgid "LDAP Server"
 msgstr "LDAP Sunucu"
 
@@ -1243,11 +1246,11 @@ msgstr "Ortak adres"
 msgid "Personal address"
 msgstr "Kişisel adres"
 
-#: src/alertpanel.c:142 src/compose.c:6590 src/main.c:750
+#: src/alertpanel.c:142 src/compose.c:6657 src/main.c:751
 msgid "Notice"
 msgstr "Not"
 
-#: src/alertpanel.c:155 src/main.c:870
+#: src/alertpanel.c:155 src/main.c:871
 msgid "Warning"
 msgstr "Uyarı"
 
@@ -1298,429 +1301,429 @@ msgstr "Kahverengi"
 msgid "None"
 msgstr "Hiçbiri"
 
-#: src/compose.c:560
+#: src/compose.c:563
 msgid "/_Add..."
 msgstr "/_Ekle..."
 
-#: src/compose.c:561
+#: src/compose.c:564
 msgid "/_Remove"
 msgstr "/_Sil"
 
-#: src/compose.c:563 src/folderview.c:270 src/folderview.c:295
+#: src/compose.c:566 src/folderview.c:270 src/folderview.c:295
 #: src/folderview.c:317
 msgid "/_Properties..."
 msgstr "/Ö_zellikler..."
 
-#: src/compose.c:569
+#: src/compose.c:572
 msgid "/_File/_Send"
 msgstr "/_Dosya/_Gönder"
 
-#: src/compose.c:571
+#: src/compose.c:574
 msgid "/_File/Send _later"
 msgstr "/_Dosya/_Sonra gönder"
 
-#: src/compose.c:574
+#: src/compose.c:577
 msgid "/_File/Save to _draft folder"
 msgstr "/_Dosya/T_aslak dizinine kaydet"
 
-#: src/compose.c:576
+#: src/compose.c:579
 msgid "/_File/Save and _keep editing"
 msgstr "/_Dosya/_Kaydet ve düzenlemeye devam et"
 
-#: src/compose.c:579
+#: src/compose.c:582
 msgid "/_File/_Attach file"
 msgstr "/_Dosya/_Dosya ekle"
 
-#: src/compose.c:580
+#: src/compose.c:583
 msgid "/_File/_Insert file"
 msgstr "/_Dosya/Dosya _içer"
 
-#: src/compose.c:582
+#: src/compose.c:585
 msgid "/_File/Insert si_gnature"
 msgstr "/_Dosya/İ_mza ekle"
 
-#: src/compose.c:583
+#: src/compose.c:586
 #, fuzzy
 msgid "/_File/A_ppend signature"
 msgstr "/_Dosya/İ_mza ekle"
 
-#: src/compose.c:588
+#: src/compose.c:591
 msgid "/_Edit/_Undo"
 msgstr "/Dü_zenle/_Geri al"
 
-#: src/compose.c:589
+#: src/compose.c:592
 msgid "/_Edit/_Redo"
 msgstr "/Dü_zenle/_Yenile"
 
-#: src/compose.c:590 src/compose.c:597 src/mainwindow.c:583
+#: src/compose.c:593 src/compose.c:600 src/mainwindow.c:583
 #: src/messageview.c:162
 msgid "/_Edit/---"
 msgstr "/Dü_zenle/---"
 
-#: src/compose.c:591
+#: src/compose.c:594
 msgid "/_Edit/Cu_t"
 msgstr "/Dü_zenle/_Kes"
 
-#: src/compose.c:594
+#: src/compose.c:597
 msgid "/_Edit/Paste as _quotation"
 msgstr "/Dü_zenle/_Alıntı Yaparak Yapıştır"
 
-#: src/compose.c:596 src/mainwindow.c:581 src/messageview.c:161
+#: src/compose.c:599 src/mainwindow.c:581 src/messageview.c:161
 msgid "/_Edit/Select _all"
 msgstr "/Dü_zenle/_Tümünü seç"
 
-#: src/compose.c:598
+#: src/compose.c:601
 msgid "/_Edit/_Wrap current paragraph"
 msgstr "/Dü_zenle/_Şuanki paragrafı kaydır"
 
-#: src/compose.c:600
+#: src/compose.c:603
 msgid "/_Edit/Wrap all long _lines"
 msgstr "/Dü_zenle/Tüm _uzun satırları kaydır"
 
-#: src/compose.c:602
+#: src/compose.c:605
 msgid "/_Edit/Aut_o wrapping"
 msgstr "/Dü_zenle/Otomatik ka_ydır"
 
-#: src/compose.c:603 src/mainwindow.c:589 src/messageview.c:166
+#: src/compose.c:606 src/mainwindow.c:589 src/messageview.c:166
 #: src/summaryview.c:463
 msgid "/_View"
 msgstr "/_Görünüm"
 
-#: src/compose.c:604
+#: src/compose.c:607
 msgid "/_View/_To"
 msgstr "/_Görünüm/_Alıcı"
 
-#: src/compose.c:605
+#: src/compose.c:608
 msgid "/_View/_Cc"
 msgstr "/_Görünüm/_Cc"
 
-#: src/compose.c:606
+#: src/compose.c:609
 msgid "/_View/_Bcc"
 msgstr "/_Görünüm/_Bcc"
 
-#: src/compose.c:607
+#: src/compose.c:610
 #, fuzzy
 msgid "/_View/_Reply-To"
 msgstr "/_Görünüm/_Yanıtla/"
 
-#: src/compose.c:608 src/compose.c:610 src/compose.c:612 src/compose.c:614
-#: src/compose.c:617 src/mainwindow.c:612 src/mainwindow.c:618
+#: src/compose.c:611 src/compose.c:613 src/compose.c:615 src/compose.c:617
+#: src/compose.c:620 src/mainwindow.c:612 src/mainwindow.c:618
 #: src/mainwindow.c:645 src/mainwindow.c:669 src/mainwindow.c:772
 #: src/mainwindow.c:776 src/messageview.c:258
 msgid "/_View/---"
 msgstr "/_Görünüm/---"
 
-#: src/compose.c:609
+#: src/compose.c:612
 #, fuzzy
 msgid "/_View/_Followup-To"
 msgstr "/_Görünüm/_Kodlama/"
 
-#: src/compose.c:611
+#: src/compose.c:614
 msgid "/_View/R_uler"
 msgstr "/_Görünüm/_Cetvel"
 
-#: src/compose.c:613
+#: src/compose.c:616
 msgid "/_View/_Attachment"
 msgstr "/_Görünüm/_Ek"
 
-#: src/compose.c:615
+#: src/compose.c:618
 #, fuzzy
 msgid "/_View/Cu_stomize toolbar..."
 msgstr "/_Görünüm/_Git/_Başka dizine git..."
 
-#: src/compose.c:623 src/mainwindow.c:676 src/messageview.c:173
+#: src/compose.c:626 src/mainwindow.c:676 src/messageview.c:173
 #, fuzzy
 msgid "/_View/Character _encoding"
 msgstr "/_Görünüm/_Sırala/Azalan sırala"
 
-#: src/compose.c:624
+#: src/compose.c:627
 msgid "/_View/Character _encoding/_Automatic"
-msgstr ""
+msgstr "/_Görünüm/Karakter _kodlaması/_Otomatik"
 
-#: src/compose.c:626 src/compose.c:632 src/compose.c:638 src/compose.c:642
-#: src/compose.c:650 src/compose.c:654 src/compose.c:660 src/compose.c:666
-#: src/compose.c:670 src/compose.c:680 src/compose.c:684 src/compose.c:692
-#: src/compose.c:696 src/mainwindow.c:672 src/mainwindow.c:679
+#: src/compose.c:629 src/compose.c:635 src/compose.c:641 src/compose.c:645
+#: src/compose.c:653 src/compose.c:657 src/compose.c:663 src/compose.c:669
+#: src/compose.c:673 src/compose.c:683 src/compose.c:687 src/compose.c:695
+#: src/compose.c:699 src/mainwindow.c:672 src/mainwindow.c:679
 #: src/messageview.c:169
 #, fuzzy
 msgid "/_View/Character _encoding/---"
 msgstr "/_Görünüm/_Sırala/Azalan sırala"
 
-#: src/compose.c:628 src/mainwindow.c:680 src/messageview.c:177
+#: src/compose.c:631 src/mainwindow.c:680 src/messageview.c:177
 #, fuzzy
 msgid "/_View/Character _encoding/7bit ascii (US-ASC_II)"
 msgstr "/_Görünüm/_Kodlama/7 bit ascii (US-ASC_II)"
 
-#: src/compose.c:630 src/mainwindow.c:682 src/messageview.c:180
+#: src/compose.c:633 src/mainwindow.c:682 src/messageview.c:180
 #, fuzzy
 msgid "/_View/Character _encoding/Unicode (_UTF-8)"
 msgstr "/_Görünüm/_Kodlama/Unicode (_UTF-8)"
 
-#: src/compose.c:634 src/mainwindow.c:686 src/messageview.c:183
+#: src/compose.c:637 src/mainwindow.c:686 src/messageview.c:183
 #, fuzzy
 msgid "/_View/Character _encoding/Western European (ISO-8859-_1)"
 msgstr "/_Görünüm/_Kodlama/Batı Avrupa (ISO-8859-_1)"
 
-#: src/compose.c:636 src/mainwindow.c:688 src/messageview.c:185
+#: src/compose.c:639 src/mainwindow.c:688 src/messageview.c:185
 #, fuzzy
 msgid "/_View/Character _encoding/Western European (ISO-8859-15)"
 msgstr "/_Görünüm/_Kodlama/Batı Avrupa (ISO-8859-_15)"
 
-#: src/compose.c:640 src/mainwindow.c:694 src/messageview.c:190
+#: src/compose.c:643 src/mainwindow.c:694 src/messageview.c:190
 #, fuzzy
 msgid "/_View/Character _encoding/Central European (ISO-8859-_2)"
 msgstr "/_Görünüm/_Kodlama/Orta Avrupa (ISO-8859-_2)"
 
-#: src/compose.c:644 src/mainwindow.c:698 src/messageview.c:193
+#: src/compose.c:647 src/mainwindow.c:698 src/messageview.c:193
 #, fuzzy
 msgid "/_View/Character _encoding/_Baltic (ISO-8859-13)"
 msgstr "/_Görünüm/_Kodlama/_Baltık (ISO-8859-13)"
 
-#: src/compose.c:646 src/mainwindow.c:700 src/messageview.c:195
+#: src/compose.c:649 src/mainwindow.c:700 src/messageview.c:195
 #, fuzzy
 msgid "/_View/Character _encoding/Baltic (ISO-8859-_4)"
 msgstr "/_Görünüm/_Kodlama/Baltık (ISO-8859-_4)"
 
-#: src/compose.c:648 src/mainwindow.c:702 src/messageview.c:197
+#: src/compose.c:651 src/mainwindow.c:702 src/messageview.c:197
 #, fuzzy
 msgid "/_View/Character _encoding/Baltic (Windows-1257)"
 msgstr "/_Görünüm/_Kodlama/Kiril (Windows-1251)"
 
-#: src/compose.c:652 src/mainwindow.c:706 src/messageview.c:200
+#: src/compose.c:655 src/mainwindow.c:706 src/messageview.c:200
 #, fuzzy
 msgid "/_View/Character _encoding/Greek (ISO-8859-_7)"
 msgstr "/_Görünüm/_Kodlama/Yunanca (ISO-8859-_7)"
 
-#: src/compose.c:656 src/mainwindow.c:710 src/messageview.c:203
+#: src/compose.c:659 src/mainwindow.c:710 src/messageview.c:203
 #, fuzzy
 msgid "/_View/Character _encoding/Arabic (ISO-8859-_6)"
 msgstr "/_Görünüm/_Kodlama/Baltık (ISO-8859-_4)"
 
-#: src/compose.c:658 src/mainwindow.c:712 src/messageview.c:205
+#: src/compose.c:661 src/mainwindow.c:712 src/messageview.c:205
 #, fuzzy
 msgid "/_View/Character _encoding/Arabic (Windows-1256)"
 msgstr "/_Görünüm/_Kodlama/Kiril (Windows-1251)"
 
-#: src/compose.c:662 src/mainwindow.c:716 src/messageview.c:208
+#: src/compose.c:665 src/mainwindow.c:716 src/messageview.c:208
 #, fuzzy
 msgid "/_View/Character _encoding/Hebrew (ISO-8859-_8)"
 msgstr "/_Görünüm/_Kodlama/Yunanca (ISO-8859-_7)"
 
-#: src/compose.c:664 src/mainwindow.c:718 src/messageview.c:210
+#: src/compose.c:667 src/mainwindow.c:718 src/messageview.c:210
 #, fuzzy
 msgid "/_View/Character _encoding/Hebrew (Windows-1255)"
 msgstr "/_Görünüm/_Kodlama/Kiril (Windows-1251)"
 
-#: src/compose.c:668 src/mainwindow.c:722 src/messageview.c:213
+#: src/compose.c:671 src/mainwindow.c:722 src/messageview.c:213
 #, fuzzy
 msgid "/_View/Character _encoding/Turkish (ISO-8859-_9)"
 msgstr "/_Görünüm/_Kodlama/Türkçe (ISO-8859-_9)"
 
-#: src/compose.c:672 src/mainwindow.c:726 src/messageview.c:216
+#: src/compose.c:675 src/mainwindow.c:726 src/messageview.c:216
 #, fuzzy
 msgid "/_View/Character _encoding/Cyrillic (ISO-8859-_5)"
 msgstr "/_Görünüm/_Kodlama/Kiril (ISO-8859-_5)"
 
-#: src/compose.c:674 src/mainwindow.c:728 src/messageview.c:218
+#: src/compose.c:677 src/mainwindow.c:728 src/messageview.c:218
 #, fuzzy
 msgid "/_View/Character _encoding/Cyrillic (KOI8-_R)"
 msgstr "/_Görünüm/_Kodlama/Kiril (ISO-8859-_5)"
 
-#: src/compose.c:676 src/mainwindow.c:730 src/messageview.c:220
+#: src/compose.c:679 src/mainwindow.c:730 src/messageview.c:220
 #, fuzzy
 msgid "/_View/Character _encoding/Cyrillic (KOI8-U)"
 msgstr "/_Görünüm/_Kodlama/Kiril (KOI8-U)"
 
-#: src/compose.c:678 src/mainwindow.c:732 src/messageview.c:222
+#: src/compose.c:681 src/mainwindow.c:732 src/messageview.c:222
 #, fuzzy
 msgid "/_View/Character _encoding/Cyrillic (Windows-1251)"
 msgstr "/_Görünüm/_Kodlama/Kiril (Windows-1251)"
 
-#: src/compose.c:682 src/mainwindow.c:736 src/messageview.c:225
+#: src/compose.c:685 src/mainwindow.c:736 src/messageview.c:225
 #, fuzzy
 msgid "/_View/Character _encoding/Japanese (ISO-2022-_JP)"
 msgstr "/_Görünüm/_Kodlama/Japonca (ISO-2022-_JP)"
 
-#: src/compose.c:686 src/mainwindow.c:746 src/messageview.c:234
+#: src/compose.c:689 src/mainwindow.c:746 src/messageview.c:234
 #, fuzzy
 msgid "/_View/Character _encoding/Simplified Chinese (_GB2312)"
 msgstr "/_Görünüm/_Kodlama/Basit Çince (_GB2312)"
 
-#: src/compose.c:688 src/mainwindow.c:748 src/messageview.c:236
+#: src/compose.c:691 src/mainwindow.c:748 src/messageview.c:236
 #, fuzzy
 msgid "/_View/Character _encoding/Simplified Chinese (GBK)"
 msgstr "/_Görünüm/_Kodlama/Basit Çince (_GB2312)"
 
-#: src/compose.c:690 src/mainwindow.c:750 src/messageview.c:238
+#: src/compose.c:693 src/mainwindow.c:750 src/messageview.c:238
 #, fuzzy
 msgid "/_View/Character _encoding/Traditional Chinese (_Big5)"
 msgstr "/_Görünüm/_Kodlama/Geleneksel Çince (_Big5)"
 
-#: src/compose.c:694 src/mainwindow.c:758 src/messageview.c:245
+#: src/compose.c:697 src/mainwindow.c:758 src/messageview.c:245
 #, fuzzy
 msgid "/_View/Character _encoding/Korean (EUC-_KR)"
 msgstr "/_Görünüm/_Kodlama/Korece (EUC-_KR)"
 
-#: src/compose.c:698 src/mainwindow.c:764 src/messageview.c:250
+#: src/compose.c:701 src/mainwindow.c:764 src/messageview.c:250
 #, fuzzy
 msgid "/_View/Character _encoding/Thai (TIS-620)"
 msgstr "/_Görünüm/_Kodlama/Tayca (TIS-620)"
 
-#: src/compose.c:700 src/mainwindow.c:766 src/messageview.c:252
+#: src/compose.c:703 src/mainwindow.c:766 src/messageview.c:252
 #, fuzzy
 msgid "/_View/Character _encoding/Thai (Windows-874)"
 msgstr "/_Görünüm/_Kodlama/Tayca (Windows-874)"
 
-#: src/compose.c:704 src/mainwindow.c:828 src/messageview.c:283
+#: src/compose.c:707 src/mainwindow.c:828 src/messageview.c:283
 msgid "/_Tools/_Address book"
 msgstr "/A_raçlar/_Adres defteri"
 
-#: src/compose.c:705
+#: src/compose.c:708
 msgid "/_Tools/_Template"
 msgstr "/A_raçlar/Ş_ablon"
 
-#: src/compose.c:707 src/mainwindow.c:852 src/messageview.c:299
+#: src/compose.c:710 src/mainwindow.c:852 src/messageview.c:299
 msgid "/_Tools/Actio_ns"
 msgstr "/A_raçlar/E_ylemler"
 
-#: src/compose.c:709 src/compose.c:712 src/compose.c:716 src/compose.c:722
+#: src/compose.c:712 src/compose.c:715 src/compose.c:719 src/compose.c:725
 #: src/mainwindow.c:831 src/mainwindow.c:845 src/mainwindow.c:850
 #: src/mainwindow.c:853 src/mainwindow.c:857 src/mainwindow.c:859
 #: src/messageview.c:286 src/messageview.c:298
 msgid "/_Tools/---"
 msgstr "/A_raçlar/---"
 
-#: src/compose.c:710
+#: src/compose.c:713
 msgid "/_Tools/Edit with e_xternal editor"
 msgstr "/A_raçlar/Harici _düzenleyicide aç"
 
-#: src/compose.c:713
+#: src/compose.c:716
 msgid "/_Tools/Request _disposition notification"
 msgstr ""
 
-#: src/compose.c:717
+#: src/compose.c:720
 msgid "/_Tools/PGP Si_gn"
 msgstr "/A_raçlar/PGP İ_mza"
 
-#: src/compose.c:718
+#: src/compose.c:721
 msgid "/_Tools/PGP _Encrypt"
 msgstr "/A_raçlar/PGP ile Ş_ifrele"
 
-#: src/compose.c:723
+#: src/compose.c:726
 #, fuzzy
 msgid "/_Tools/_Check spell"
 msgstr "/A_raçlar/Ç_alıştır"
 
-#: src/compose.c:724
+#: src/compose.c:727
 #, fuzzy
 msgid "/_Tools/_Set spell language"
 msgstr "/A_raçlar/Ş_ablon"
 
-#: src/compose.c:992
+#: src/compose.c:995
 #, c-format
 msgid "%s: file not exist\n"
 msgstr "%s: dosya bulunamadı\n"
 
-#: src/compose.c:1098 src/compose.c:1175
+#: src/compose.c:1101 src/compose.c:1178
 msgid "Can't get text part\n"
 msgstr "Metin bölümü alınamadı\n"
 
-#: src/compose.c:1682
+#: src/compose.c:1723
 msgid "Quote mark format error."
 msgstr "Alıntı formatı hatası."
 
-#: src/compose.c:1694
+#: src/compose.c:1735
 msgid "Message reply/forward format error."
 msgstr "Posta cevapla/ilet formatı hatası"
 
-#: src/compose.c:2204
+#: src/compose.c:2245
 #, c-format
 msgid "File %s doesn't exist\n"
 msgstr "%s dosyası bulunamadı\n"
 
-#: src/compose.c:2208
+#: src/compose.c:2249
 #, c-format
 msgid "Can't get file size of %s\n"
 msgstr "%s dosyasının boyu bulunamadı\n"
 
-#: src/compose.c:2212 src/compose.c:4343
+#: src/compose.c:2253 src/compose.c:4367
 #, c-format
 msgid "File %s is empty."
 msgstr "%s dosyası boş."
 
-#: src/compose.c:2216
+#: src/compose.c:2257
 #, c-format
 msgid "Can't read %s."
 msgstr "%s okunamadı."
 
-#: src/compose.c:2249
+#: src/compose.c:2290
 #, c-format
 msgid "Message: %s"
 msgstr "İleti: %s"
 
-#: src/compose.c:2309 src/mimeview.c:586
+#: src/compose.c:2350 src/mimeview.c:586
 msgid "Can't get the part of multipart message."
 msgstr "Çok parçalı mesajın bir kısmı alınamadı"
 
-#: src/compose.c:2799 src/headerview.c:233 src/query_search.c:790
+#: src/compose.c:2840 src/headerview.c:233 src/query_search.c:790
 #: src/rpop3.c:667 src/summaryview.c:2297
 msgid "(No Subject)"
 msgstr "(Konu yok)"
 
-#: src/compose.c:2802
+#: src/compose.c:2843
 #, fuzzy, c-format
 msgid "%s - Compose%s"
 msgstr "%s - İleti düzenle (%s)"
 
-#: src/compose.c:2917
+#: src/compose.c:2958
 msgid "Recipient is not specified."
 msgstr "Alıcı belirtilmedi."
 
-#: src/compose.c:2925
+#: src/compose.c:2966
 #, fuzzy
 msgid "Empty subject"
 msgstr "Konu"
 
-#: src/compose.c:2926
+#: src/compose.c:2967
 msgid "Subject is empty. Send it anyway?"
 msgstr "Konuyu boş bıraktınız. Yine de göndermek istiyor musunuz?"
 
-#: src/compose.c:2990
+#: src/compose.c:3031
 #, fuzzy
 msgid "Attachment is missing"
 msgstr "Ekler"
 
-#: src/compose.c:2991
+#: src/compose.c:3032
 msgid "There is no attachment. Send it without attachments?"
-msgstr ""
+msgstr "Hiç ek yok. Yine de eksiz göndermek istiyor musunuz?"
 
-#: src/compose.c:3108 src/compose.c:3134
+#: src/compose.c:3149 src/compose.c:3175
 msgid "Check recipients"
-msgstr ""
+msgstr "Alıcıları kontrol et"
 
-#: src/compose.c:3154
+#: src/compose.c:3195
 #, fuzzy
 msgid "Really send this mail to the following addresses?"
 msgstr "Aşağıdaki adresleri otomatik olarak tanımla"
 
-#: src/compose.c:3167 src/compose.c:5124 src/headerview.c:54
+#: src/compose.c:3208 src/compose.c:5161 src/headerview.c:54
 msgid "From:"
 msgstr "Kimden:"
 
-#: src/compose.c:3189 src/headerview.c:58 src/prefs_template.c:187
+#: src/compose.c:3230 src/headerview.c:58 src/prefs_template.c:187
 msgid "Subject:"
 msgstr "Konu:"
 
-#: src/compose.c:3282
+#: src/compose.c:3323
 #, fuzzy
 msgid "_Send"
 msgstr "Gönder"
 
-#: src/compose.c:3427
+#: src/compose.c:3451
 msgid "can't get recipient list."
 msgstr "alıcı listesi alınamadı."
 
-#: src/compose.c:3447
+#: src/compose.c:3471
 msgid ""
 "Account for sending mail is not specified.\n"
 "Please select a mail account before sending."
@@ -1728,40 +1731,40 @@ msgstr ""
 "İletinin gönderileceği hesap belirtilmedi.\n"
 "Lütfen göndermeden önce bir e-posta hesabı girin."
 
-#: src/compose.c:3461 src/send_message.c:315
+#: src/compose.c:3485 src/send_message.c:315
 #, c-format
 msgid "Error occurred while posting the message to %s ."
 msgstr "İleti, %s adresine gönderilirken bir hata oluştu."
 
-#: src/compose.c:3511
+#: src/compose.c:3535
 msgid "Can't save the message to outbox."
 msgstr "İleti, giden kutusuna kaydedilemiyor."
 
-#: src/compose.c:3554
+#: src/compose.c:3578
 #, c-format
 msgid "Could not find any key associated with currently selected key id `%s'."
 msgstr "Seçilen `%s' anahtar kimliğiyle bir eşleştirme yapılamadı."
 
-#: src/compose.c:3581 src/compose.c:3966
+#: src/compose.c:3605 src/compose.c:3990
 #, fuzzy
 msgid "Can't sign the message."
 msgstr "İleti kuyruğa gönderilemedi."
 
-#: src/compose.c:3608 src/compose.c:4009
+#: src/compose.c:3632 src/compose.c:4033
 #, fuzzy
 msgid "Can't encrypt the message."
 msgstr "İleti kuyruğa gönderilemedi."
 
-#: src/compose.c:3643 src/compose.c:4004
+#: src/compose.c:3667 src/compose.c:4028
 #, fuzzy
 msgid "Can't encrypt or sign the message."
 msgstr "İleti kuyruğa gönderilemedi."
 
-#: src/compose.c:3689 src/compose.c:4037 src/compose.c:4100 src/compose.c:4220
+#: src/compose.c:3713 src/compose.c:4061 src/compose.c:4124 src/compose.c:4244
 msgid "can't change file mode\n"
 msgstr "dosya modu değiştirilemedi\n"
 
-#: src/compose.c:3722
+#: src/compose.c:3746
 #, fuzzy, c-format
 msgid ""
 "Can't convert the character encoding of the message body from %s to %s.\n"
@@ -1772,12 +1775,12 @@ msgstr ""
 "%s / %s\n"
 "Yine de gönderilsin mi?"
 
-#: src/compose.c:3728
+#: src/compose.c:3752
 #, fuzzy
 msgid "Code conversion error"
 msgstr "Adres defteri çevrim hatası"
 
-#: src/compose.c:3814
+#: src/compose.c:3838
 #, c-format
 msgid ""
 "Line %d exceeds the line length limit (998 bytes).\n"
@@ -1785,16 +1788,20 @@ msgid ""
 "\n"
 "Send it anyway?"
 msgstr ""
+"%d numaralı satır, satır uzunluk sınırını geçiyor (998 byte).\n"
+" İletim sırasında mesajın içeriği bozulabilir.\n"
+"\n"
+"Yine de göndermek istiyor musunuz?"
 
-#: src/compose.c:3818
+#: src/compose.c:3842
 msgid "Line length limit"
-msgstr ""
+msgstr "Satır uzunlık sınırı"
 
-#: src/compose.c:3984
+#: src/compose.c:4008
 msgid "Encrypting with Bcc"
-msgstr ""
+msgstr "Bcc ile Şifreleme"
 
-#: src/compose.c:3985
+#: src/compose.c:4009
 msgid ""
 "This message has Bcc recipients. If this message is encrypted, all Bcc "
 "recipients will be visible by examing the encryption key list, leading to "
@@ -1802,95 +1809,100 @@ msgid ""
 "\n"
 "Send it anyway?"
 msgstr ""
+"Bu mesajın Bcc alıcıları var. Eğer bu mesaj şifrelenirse, tüm Bcc alıcıları "
+"şifreleme anahtar listesi incelenerek görülebilir, bir gizlilik kaybına yol "
+"açabilir.\n"
+"\n"
+"Yine de göndermek istiyor musunuz?"
 
-#: src/compose.c:4180
+#: src/compose.c:4204
 msgid "can't remove the old message\n"
 msgstr "eski ileti silinemedi\n"
 
-#: src/compose.c:4198
+#: src/compose.c:4222
 msgid "queueing message...\n"
 msgstr "ileti kuyruğa gönderiliyor...\n"
 
-#: src/compose.c:4286
+#: src/compose.c:4310
 msgid "can't find queue folder\n"
 msgstr "kuyruk dizini bulunamadı\n"
 
-#: src/compose.c:4293
+#: src/compose.c:4317
 msgid "can't queue the message\n"
 msgstr "ileti kuyruğa gönderilemedi\n"
 
-#: src/compose.c:4338
+#: src/compose.c:4362
 #, fuzzy, c-format
 msgid "File %s doesn't exist."
 msgstr "%s dosyası bulunamadı\n"
 
-#: src/compose.c:4347
+#: src/compose.c:4371
 #, fuzzy, c-format
 msgid "Can't open file %s."
 msgstr "işaretli dosya açılamadı.\n"
 
-#: src/compose.c:4956
+#: src/compose.c:4993
 #, c-format
 msgid "generated Message-ID: %s\n"
 msgstr "İleti numarası oluşturuldu: %s\n"
 
-#: src/compose.c:5071
+#: src/compose.c:5108
 msgid "Creating compose window...\n"
 msgstr "Düzenleme penceresi oluşturuluyor...\n"
 
-#: src/compose.c:5198
+#: src/compose.c:5235
 #, fuzzy
 msgid "PGP Sign"
 msgstr "/A_raçlar/PGP İ_mza"
 
-#: src/compose.c:5201
+#: src/compose.c:5238
 #, fuzzy
 msgid "PGP Encrypt"
 msgstr "/A_raçlar/PGP ile Ş_ifrele"
 
-#: src/compose.c:5239 src/compose.c:6409
+#: src/compose.c:5276 src/compose.c:6476
 msgid "MIME type"
 msgstr "MIME türü"
 
 #. S_COL_DATE
-#: src/compose.c:5248 src/mimeview.c:217 src/prefs_filter_edit.c:503
+#: src/compose.c:5285 src/mimeview.c:217 src/prefs_filter_edit.c:507
 #: src/prefs_summary_column.c:72 src/rpop3.c:418 src/select-keys.c:309
 #: src/summaryview.c:5164
 msgid "Size"
 msgstr "Boyut"
 
-#: src/compose.c:6304
+#: src/compose.c:6371
 msgid "Invalid MIME type."
 msgstr "Geçersiz MIME türü."
 
-#: src/compose.c:6322
+#: src/compose.c:6389
 msgid "File doesn't exist or is empty."
 msgstr "Dosya yok, ya da boş."
 
-#: src/compose.c:6391
+#: src/compose.c:6458
 msgid "Properties"
 msgstr "Özellikler"
 
 #. Encoding
-#: src/compose.c:6411 src/prefs_common_dialog.c:1009
-#: src/prefs_common_dialog.c:1670
+#: src/compose.c:6478 src/prefs_common_dialog.c:1013
+#: src/prefs_common_dialog.c:1674
 msgid "Encoding"
 msgstr "Kodlama"
 
-#: src/compose.c:6434 src/prefs_folder_item.c:202
+#: src/compose.c:6501 src/prefs_folder_item.c:202
 msgid "Path"
 msgstr "Yol"
 
-#: src/compose.c:6435
+#: src/compose.c:6502
 msgid "File name"
 msgstr "Dosya adı"
 
-#: src/compose.c:6525
+#: src/compose.c:6592
 #, c-format
 msgid "External editor command line is invalid: `%s'\n"
 msgstr "Harici düzenleyici komut satırı geçersiz: `%s'\n"
 
-#: src/compose.c:6587
+#: src/compose.c:6654
 #, fuzzy, c-format
 msgid ""
 "The external editor is still working.\n"
@@ -1900,52 +1912,52 @@ msgstr ""
 "Bu süreci sonlandırayım mı?\n"
 "Programın grup numarası (GID): %d"
 
-#: src/compose.c:6924 src/mainwindow.c:3022
+#: src/compose.c:6991 src/mainwindow.c:3022
 msgid "_Customize toolbar..."
 msgstr ""
 
-#: src/compose.c:7044 src/compose.c:7049 src/compose.c:7055
+#: src/compose.c:7111 src/compose.c:7116 src/compose.c:7122
 msgid "Can't queue the message."
 msgstr "İleti kuyruğa gönderilemedi."
 
-#: src/compose.c:7146
+#: src/compose.c:7213
 #, fuzzy
 msgid "Select files"
 msgstr "Dosya seç"
 
-#: src/compose.c:7169 src/inputdialog.c:372
+#: src/compose.c:7236 src/inputdialog.c:372
 msgid "Select file"
 msgstr "Dosya seç"
 
-#: src/compose.c:7220
+#: src/compose.c:7287
 #, fuzzy
 msgid "Save message"
 msgstr "İletiyi gönder"
 
-#: src/compose.c:7221
+#: src/compose.c:7288
 #, fuzzy
 msgid "This message has been modified. Save it to draft folder?"
 msgstr "Bu ileti değiştirildi. Silinsin mi?"
 
-#: src/compose.c:7223 src/compose.c:7227
+#: src/compose.c:7290 src/compose.c:7294
 msgid "Close _without saving"
 msgstr ""
 
-#: src/compose.c:7274
+#: src/compose.c:7341
 #, c-format
 msgid "Do you want to apply the template `%s' ?"
 msgstr "%s şablonunu uygulamak istiyor musunuz?"
 
-#: src/compose.c:7276
+#: src/compose.c:7343
 msgid "Apply template"
 msgstr "Şablonu uygula"
 
-#: src/compose.c:7277
+#: src/compose.c:7344
 #, fuzzy
 msgid "_Replace"
 msgstr "Değiştir"
 
-#: src/compose.c:7277
+#: src/compose.c:7344
 #, fuzzy
 msgid "_Insert"
 msgstr "İçer"
@@ -2129,7 +2141,7 @@ msgstr "JPilot Girdisini Düzenle"
 
 #: src/editjpilot.c:289 src/editldap.c:349 src/editvcard.c:202
 #: src/importcsv.c:691 src/importldif.c:498 src/prefs_account_dialog.c:1863
-#: src/prefs_common_dialog.c:2143
+#: src/prefs_common_dialog.c:2147
 msgid " ... "
 msgstr " ... "
 
@@ -2274,7 +2286,7 @@ msgstr "Hedef dizini:"
 
 #: src/export.c:361 src/import.c:355
 msgid "UNIX mbox"
-msgstr ""
+msgstr "UNIX mbox"
 
 #: src/export.c:364
 msgid "eml (number + .eml)"
@@ -2282,7 +2294,7 @@ msgstr ""
 
 #: src/export.c:367
 msgid "MH (number only)"
-msgstr ""
+msgstr "MH (yalnız numara)"
 
 #: src/export.c:381 src/export.c:387 src/import.c:372 src/import.c:378
 #: src/prefs_account_dialog.c:955
@@ -2352,7 +2364,7 @@ msgid "`%c' can't be included in folder name."
 msgstr "`%c' bir dizin adı içinde olamaz."
 
 #: src/foldersel.c:611 src/folderview.c:2315 src/folderview.c:2374
-#: src/query_search.c:1155
+#: src/query_search.c:1156
 #, c-format
 msgid "The folder `%s' already exists."
 msgstr "`%s' dizini zaten var."
@@ -2430,20 +2442,20 @@ msgstr "/H_aber grubunu sil"
 msgid "Creating folder view...\n"
 msgstr "Dizin görüntüsü oluşturuluyor...\n"
 
-#: src/folderview.c:415 src/prefs_common_dialog.c:1584
+#: src/folderview.c:415 src/prefs_common_dialog.c:1588
 msgid "New"
 msgstr "Yeni"
 
 #. S_COL_MARK
-#: src/folderview.c:431 src/prefs_common_dialog.c:1585
-#: src/prefs_filter_edit.c:507 src/prefs_summary_column.c:67
-#: src/quick_search.c:108
+#: src/folderview.c:431 src/prefs_common_dialog.c:1589
+#: src/prefs_filter_edit.c:511 src/prefs_summary_column.c:67
+#: src/quick_search.c:110
 msgid "Unread"
 msgstr "Okunmamış"
 
-#: src/folderview.c:447 src/prefs_common_dialog.c:1586
+#: src/folderview.c:447 src/prefs_common_dialog.c:1590
 msgid "Total"
-msgstr ""
+msgstr "Toplam"
 
 #: src/folderview.c:580
 msgid "Setting folder info...\n"
@@ -2453,12 +2465,12 @@ msgstr "Dizin bilgisi ayarlanıyor...\n"
 msgid "Setting folder info..."
 msgstr "Dizin bilgisi ayarlanıyor..."
 
-#: src/folderview.c:889 src/mainwindow.c:4078 src/setup.c:295
+#: src/folderview.c:889 src/mainwindow.c:4078 src/setup.c:298
 #, c-format
 msgid "Scanning folder %s%c%s ..."
 msgstr "%s%c%s dizini taranıyor..."
 
-#: src/folderview.c:893 src/mainwindow.c:4083 src/setup.c:300
+#: src/folderview.c:893 src/mainwindow.c:4083 src/setup.c:303
 #, c-format
 msgid "Scanning folder %s ..."
 msgstr "%s dizini taranıyor..."
@@ -2483,9 +2495,9 @@ msgstr "Dizin ağacı yeniden oluşturulamadı."
 msgid "Checking for new messages in all folders..."
 msgstr "Dizinlerde yeni mesajlar kontrol ediliyor..."
 
-#: src/folderview.c:1256 src/prefs_common_dialog.c:2087 src/prefs_toolbar.c:68
+#: src/folderview.c:1256 src/prefs_common_dialog.c:2091 src/prefs_toolbar.c:68
 msgid "Junk"
-msgstr ""
+msgstr "Gereksiz"
 
 #: src/folderview.c:1939
 #, c-format
@@ -2751,11 +2763,11 @@ msgstr "Dosya Adı"
 
 #: src/importcsv.c:700
 msgid "Comma-separated"
-msgstr ""
+msgstr "Virgüller ayrılmış"
 
 #: src/importcsv.c:704
 msgid "Tab-separated"
-msgstr ""
+msgstr "Tab ile ayrılmış"
 
 #: src/importcsv.c:735 src/importldif.c:530
 msgid "S"
@@ -3007,6 +3019,8 @@ msgid ""
 "Execution of the junk filter command failed.\n"
 "Please check the junk mail control setting."
 msgstr ""
+"Gereksiz mesaj filtresi komutu çalıştırılamadı.<br> Lütfen gereksiz mesaj "
+"kontrol ayarlarınızı kontrol ediniz."
 
 #: src/inc.c:1315
 msgid "Connection failed."
@@ -3095,16 +3109,16 @@ msgstr "Parolayı girin"
 msgid "Protocol log"
 msgstr "Protokol günlüğü"
 
-#: src/main.c:555
+#: src/main.c:556
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Kullanım: %s [SEÇENEKLER] ...\n"
 
-#: src/main.c:558
+#: src/main.c:559
 msgid "  --compose [address]    open composition window"
 msgstr "  --compose [adres]    düzenleme penceresini açar"
 
-#: src/main.c:559
+#: src/main.c:560
 msgid ""
 "  --attach file1 [file2]...\n"
 "                         open composition window with specified files\n"
@@ -3114,23 +3128,23 @@ msgstr ""
 "                         düzenleme penceresini belirtilen dosyalar\n"
 "                         postaya eklenmiş halde açar"
 
-#: src/main.c:562
+#: src/main.c:563
 msgid "  --receive              receive new messages"
 msgstr "  --receive               yeni mesajları alır"
 
-#: src/main.c:563
+#: src/main.c:564
 msgid "  --receive-all          receive new messages of all accounts"
 msgstr "  --receive-all          tüm hesaplardaki yeni mesajları alır"
 
-#: src/main.c:564
+#: src/main.c:565
 msgid "  --send                 send all queued messages"
 msgstr "  --send                 kuyruktaki postaları gönderir"
 
-#: src/main.c:565
+#: src/main.c:566
 msgid "  --status [folder]...   show the total number of messages"
 msgstr "  --status [dizin]...   toplam mesaj sayısını göster"
 
-#: src/main.c:566
+#: src/main.c:567
 msgid ""
 "  --status-full [folder]...\n"
 "                         show the status of each folder"
@@ -3138,49 +3152,49 @@ msgstr ""
 "  --status-full [dizin]...\n"
 "                         her dizinin durumunu göster"
 
-#: src/main.c:568
+#: src/main.c:569
 msgid "  --open folderid/msgnum open message in new window"
 msgstr ""
 
-#: src/main.c:569
+#: src/main.c:570
 msgid ""
 "  --configdir dirname    specify directory which stores configuration files"
 msgstr ""
 
-#: src/main.c:571
+#: src/main.c:572
 msgid "  --ipcport portnum      specify port for IPC remote commands"
 msgstr ""
 
-#: src/main.c:573
+#: src/main.c:574
 #, fuzzy
 msgid "  --exit                 exit Sylpheed"
 msgstr "  --debug                hata ayıklama modu"
 
-#: src/main.c:574
+#: src/main.c:575
 msgid "  --debug                debug mode"
 msgstr "  --debug                hata ayıklama modu"
 
-#: src/main.c:575
+#: src/main.c:576
 msgid "  --help                 display this help and exit"
 msgstr "  --help                 bu yardımı gösterir ve çıkar"
 
-#: src/main.c:576
+#: src/main.c:577
 msgid "  --version              output version information and exit"
 msgstr "  --version              sürüm bilgisini gösterir ve çıkar"
 
-#: src/main.c:580
+#: src/main.c:581
 #, fuzzy, c-format
 msgid "Press any key..."
 msgstr ""
 "ya da `y' tuşuna basın.\n"
 "\n"
 
-#: src/main.c:711
+#: src/main.c:712
 #, fuzzy
 msgid "Filename encoding"
 msgstr "Giden ileti kod kümesi"
 
-#: src/main.c:712
+#: src/main.c:713
 msgid ""
 "The locale encoding is not UTF-8, but the environmental variable "
 "G_FILENAME_ENCODING is not set.\n"
@@ -3194,19 +3208,19 @@ msgid ""
 "Continue?"
 msgstr ""
 
-#: src/main.c:751
+#: src/main.c:752
 msgid "Composing message exists. Really quit?"
 msgstr "Mesajı göndermeden çıkmak istediğinizden emin misiniz?"
 
-#: src/main.c:762
+#: src/main.c:763
 msgid "Queued messages"
 msgstr "Kuyruktaki iletiler"
 
-#: src/main.c:763
+#: src/main.c:764
 msgid "Some unsent messages are queued. Exit now?"
 msgstr "Hala gönderilmemiş bazı iletiler kuyrukta bekliyor. Şimdi çıkılsın mı?"
 
-#: src/main.c:871
+#: src/main.c:872
 msgid ""
 "GnuPG is not installed properly, or its version is too old.\n"
 "OpenPGP support disabled."
@@ -3214,25 +3228,27 @@ msgstr ""
 "GnuPG düzgün kurulmamış veya versiyonu çok eski\n"
 "OpenPGP desteği kapatıldı."
 
-#: src/main.c:1101
+#: src/main.c:1102
 msgid "Loading plug-ins..."
-msgstr ""
+msgstr "Eklentiler yükleniyor..."
 
 #. remote command mode
-#: src/main.c:1236
+#: src/main.c:1237
 msgid "another Sylpheed is already running.\n"
 msgstr "Başka bir Sylpheed sistemde çalışıyor.\n"
 
-#: src/main.c:1517
+#: src/main.c:1518
 #, fuzzy
 msgid "Migration of configuration"
 msgstr "Eylem ayarları"
 
-#: src/main.c:1518
+#: src/main.c:1519
 msgid ""
 "The previous version of configuration found.\n"
 "Do you want to migrate it?"
 msgstr ""
+"Eski sürümden kalma ayarlar bulundu.\n"
+" Ayarları yeni sürüme aktarmak ister misiniz?"
 
 #: src/mainwindow.c:544
 msgid "/_File/_Folder"
@@ -3400,7 +3416,7 @@ msgstr "/_Görünüm/Sıra_la/_Gönderene göre"
 
 #: src/mainwindow.c:615
 msgid "/_View/Layou_t/_Vertical"
-msgstr ""
+msgstr "/_Görünüm/Sıra_la/Dikey"
 
 #: src/mainwindow.c:616
 msgid "/_View/Separate f_older tree"
@@ -3890,7 +3906,7 @@ msgstr "/Yardı_m/---"
 
 #: src/mainwindow.c:896
 msgid "/_Help/_Update check..."
-msgstr ""
+msgstr "/_Yardım/_Güncelleme kontrolü"
 
 #: src/mainwindow.c:941
 msgid "Creating main window...\n"
@@ -3951,11 +3967,11 @@ msgstr ""
 msgid "The mailbox `%s' already exists."
 msgstr "`%s' posta kutusu zaten var."
 
-#: src/mainwindow.c:1800 src/setup.c:269
+#: src/mainwindow.c:1800 src/setup.c:272
 msgid "Mailbox"
 msgstr "Posta kutusu"
 
-#: src/mainwindow.c:1806 src/setup.c:275
+#: src/mainwindow.c:1806 src/setup.c:278
 msgid ""
 "Creation of the mailbox failed.\n"
 "Maybe some files already exist, or you don't have the permission to write "
@@ -4351,21 +4367,21 @@ msgstr "Hesap tercihleri"
 msgid "Creating account preferences window...\n"
 msgstr "Hesap tercihleri penceresi oluşturuluyor...\n"
 
-#: src/prefs_account_dialog.c:554 src/prefs_common_dialog.c:748
+#: src/prefs_account_dialog.c:554 src/prefs_common_dialog.c:752
 msgid "Receive"
 msgstr "Al"
 
-#: src/prefs_account_dialog.c:556 src/prefs_common_dialog.c:750
+#: src/prefs_account_dialog.c:556 src/prefs_common_dialog.c:754
 #: src/prefs_toolbar.c:50 src/prefs_toolbar.c:102
 msgid "Send"
 msgstr "Gönder"
 
-#: src/prefs_account_dialog.c:558 src/prefs_common_dialog.c:752
+#: src/prefs_account_dialog.c:558 src/prefs_common_dialog.c:756
 #: src/prefs_folder_item.c:140 src/prefs_toolbar.c:53
 msgid "Compose"
 msgstr "Düzenle"
 
-#: src/prefs_account_dialog.c:561 src/prefs_common_dialog.c:759
+#: src/prefs_account_dialog.c:561 src/prefs_common_dialog.c:763
 msgid "Privacy"
 msgstr "Gizlilik"
 
@@ -4373,7 +4389,7 @@ msgstr "Gizlilik"
 msgid "SSL"
 msgstr "SSL"
 
-#: src/prefs_account_dialog.c:568 src/prefs_common_dialog.c:2438
+#: src/prefs_account_dialog.c:568 src/prefs_common_dialog.c:2442
 msgid "Advanced"
 msgstr "Gelişmiş"
 
@@ -4477,8 +4493,8 @@ msgstr "Sunucudaki tüm iletileri indir"
 msgid "Receive size limit"
 msgstr "Alınan ileti boyutu sınırı"
 
-#: src/prefs_account_dialog.c:931 src/prefs_filter_edit.c:581
-#: src/prefs_filter_edit.c:1010
+#: src/prefs_account_dialog.c:931 src/prefs_filter_edit.c:592
+#: src/prefs_filter_edit.c:1053
 msgid "KB"
 msgstr "KB"
 
@@ -4500,7 +4516,7 @@ msgid "Authentication method"
 msgstr "Kimlik denetim yöntemi"
 
 #: src/prefs_account_dialog.c:989 src/prefs_account_dialog.c:1148
-#: src/prefs_common_dialog.c:1029 src/prefs_common_dialog.c:2874
+#: src/prefs_common_dialog.c:1033 src/prefs_common_dialog.c:2883
 msgid "Automatic"
 msgstr "Otomatik"
 
@@ -4550,8 +4566,8 @@ msgstr "İleti Numarası Oluştur"
 msgid "Add user-defined header"
 msgstr "Kullanıcı tanımlı başlık ekle"
 
-#: src/prefs_account_dialog.c:1105 src/prefs_common_dialog.c:1778
-#: src/prefs_common_dialog.c:1805
+#: src/prefs_account_dialog.c:1105 src/prefs_common_dialog.c:1782
+#: src/prefs_common_dialog.c:1809
 msgid " Edit... "
 msgstr " Düzenle... "
 
@@ -4577,7 +4593,7 @@ msgid "Authenticate with POP3 before sending"
 msgstr "Göndermeden önce POP3 ile kimlik denetimi yap"
 
 #. signature
-#: src/prefs_account_dialog.c:1250 src/prefs_common_dialog.c:1146
+#: src/prefs_account_dialog.c:1250 src/prefs_common_dialog.c:1150
 #: src/prefs_toolbar.c:117
 msgid "Signature"
 msgstr "İmza"
@@ -4891,117 +4907,117 @@ msgstr "Eylemi sil"
 msgid "Do you really want to delete this action?"
 msgstr "Bu hesabı silmek istiyor musunuz?"
 
-#: src/prefs_common_dialog.c:728
+#: src/prefs_common_dialog.c:732
 msgid "Creating common preferences window...\n"
 msgstr "Genel tercihler penceresi oluşturuluyor...\n"
 
-#: src/prefs_common_dialog.c:732
+#: src/prefs_common_dialog.c:736
 msgid "Common Preferences"
 msgstr "Genel Tercihler"
 
-#: src/prefs_common_dialog.c:754
+#: src/prefs_common_dialog.c:758
 msgid "Display"
 msgstr "Görünüm"
 
-#: src/prefs_common_dialog.c:756
+#: src/prefs_common_dialog.c:760
 #, fuzzy
 msgid "Junk mail"
 msgstr "dizin:"
 
-#: src/prefs_common_dialog.c:762
+#: src/prefs_common_dialog.c:766
 msgid "Details"
 msgstr ""
 
-#: src/prefs_common_dialog.c:812
+#: src/prefs_common_dialog.c:816
 msgid "Auto-check new mail"
 msgstr "Yeni postaları otomatik denetle"
 
-#: src/prefs_common_dialog.c:814 src/prefs_common_dialog.c:1264
+#: src/prefs_common_dialog.c:818 src/prefs_common_dialog.c:1268
 msgid "every"
 msgstr "her"
 
-#: src/prefs_common_dialog.c:826 src/prefs_common_dialog.c:1278
+#: src/prefs_common_dialog.c:830 src/prefs_common_dialog.c:1282
 msgid "minute(s)"
 msgstr "dakikada"
 
-#: src/prefs_common_dialog.c:835
+#: src/prefs_common_dialog.c:839
 msgid "Check new mail on startup"
 msgstr "Açılışta yeni e-postaları denetle"
 
-#: src/prefs_common_dialog.c:837
+#: src/prefs_common_dialog.c:841
 msgid "Update all local folders after incorporation"
 msgstr "Dağıtımdan sonra tüm yerel dizinleri güncelle"
 
-#: src/prefs_common_dialog.c:842
+#: src/prefs_common_dialog.c:846
 #, fuzzy
 msgid "Execute command when new messages arrived"
 msgstr "Postayı silerken ve taşırken çalıştır"
 
-#: src/prefs_common_dialog.c:854 src/prefs_common_dialog.c:2681
-#: src/prefs_common_dialog.c:2703 src/prefs_common_dialog.c:2725
+#: src/prefs_common_dialog.c:858 src/prefs_common_dialog.c:2690
+#: src/prefs_common_dialog.c:2712 src/prefs_common_dialog.c:2734
 msgid "Command"
 msgstr "Komut"
 
-#: src/prefs_common_dialog.c:865
+#: src/prefs_common_dialog.c:869
 #, fuzzy, c-format
 msgid "`%d' will be replaced with the number of new messages."
 msgstr "Yeni ileti numaraları alınıyor (STAT)..."
 
-#: src/prefs_common_dialog.c:869
+#: src/prefs_common_dialog.c:873
 #, fuzzy
 msgid "Incorporate from local spool"
 msgstr "Spooldan dağıt"
 
-#: src/prefs_common_dialog.c:882
+#: src/prefs_common_dialog.c:886
 msgid "Filter on incorporation"
 msgstr "Dağıtım filtresi"
 
-#: src/prefs_common_dialog.c:888
+#: src/prefs_common_dialog.c:892
 msgid "Spool path"
 msgstr "Makara konumu"
 
-#: src/prefs_common_dialog.c:949 src/prefs_common_dialog.c:1142
-#: src/prefs_common_dialog.c:1539 src/prefs_folder_item.c:139
+#: src/prefs_common_dialog.c:953 src/prefs_common_dialog.c:1146
+#: src/prefs_common_dialog.c:1543 src/prefs_folder_item.c:139
 msgid "General"
 msgstr "Genel"
 
-#: src/prefs_common_dialog.c:956
+#: src/prefs_common_dialog.c:960
 msgid "Save sent messages to outbox"
 msgstr "Gönderilen iletileri giden kutusuna kaydet"
 
-#: src/prefs_common_dialog.c:958
+#: src/prefs_common_dialog.c:962
 msgid "Apply filter rules to sent messages"
 msgstr ""
 
-#: src/prefs_common_dialog.c:961
+#: src/prefs_common_dialog.c:965
 #, fuzzy
 msgid "Automatically add recipients to address book"
 msgstr "Aşağıdaki adresleri otomatik olarak tanımla"
 
-#: src/prefs_common_dialog.c:968
+#: src/prefs_common_dialog.c:972
 msgid ""
 "Notify for missing attachments when the following strings (comma-separated) "
 "are found in the message body"
 msgstr ""
 
-#: src/prefs_common_dialog.c:979
+#: src/prefs_common_dialog.c:983
 msgid "(Ex: attach)"
 msgstr ""
 
-#: src/prefs_common_dialog.c:990
+#: src/prefs_common_dialog.c:994
 #, fuzzy
 msgid "Confirm recipients before sending"
 msgstr "Göndermeden önce kaydır"
 
-#: src/prefs_common_dialog.c:996
+#: src/prefs_common_dialog.c:1000
 msgid "Excluded addresses/domains (comma-separated):"
 msgstr ""
 
-#: src/prefs_common_dialog.c:1015
+#: src/prefs_common_dialog.c:1019
 msgid "Transfer encoding"
 msgstr "Transfer kod kümesi"
 
-#: src/prefs_common_dialog.c:1038
+#: src/prefs_common_dialog.c:1042
 #, fuzzy
 msgid ""
 "Specify Content-Transfer-Encoding used when message body contains non-ASCII "
@@ -5010,201 +5026,201 @@ msgstr ""
 "Mesaj gövdesi ASCII karakter içermediği zaman kullanılacak\n"
 "İçerik Transfer Kodlamasını seçiniz."
 
-#: src/prefs_common_dialog.c:1045
+#: src/prefs_common_dialog.c:1049
 #, fuzzy
 msgid "MIME filename encoding"
 msgstr "Giden ileti kod kümesi"
 
-#: src/prefs_common_dialog.c:1056
+#: src/prefs_common_dialog.c:1060
 #, fuzzy
 msgid "MIME header"
 msgstr "Giden ileti kod kümesi"
 
-#: src/prefs_common_dialog.c:1066
+#: src/prefs_common_dialog.c:1070
 msgid ""
 "Specify encoding method for MIME filename with non-ASCII characters.\n"
 "MIME header: most popular, but violates RFC 2047\n"
 "RFC 2231: conforms to standard, but not popular"
 msgstr ""
 
-#: src/prefs_common_dialog.c:1157
+#: src/prefs_common_dialog.c:1161
 msgid "Signature separator"
 msgstr "İmza ayıracı"
 
-#: src/prefs_common_dialog.c:1166
+#: src/prefs_common_dialog.c:1170
 msgid "Insert automatically"
 msgstr "Otomatik ekle"
 
-#: src/prefs_common_dialog.c:1168 src/prefs_toolbar.c:56
+#: src/prefs_common_dialog.c:1172 src/prefs_toolbar.c:56
 msgid "Reply"
 msgstr "Yanıtla"
 
-#: src/prefs_common_dialog.c:1176
+#: src/prefs_common_dialog.c:1180
 msgid "Automatically select account for replies"
 msgstr "Yanıtlamalarda hesabı otomatik seç"
 
-#: src/prefs_common_dialog.c:1178
+#: src/prefs_common_dialog.c:1182
 msgid "Quote message when replying"
 msgstr "Yanıtlarken alıntı yap"
 
-#: src/prefs_common_dialog.c:1180
+#: src/prefs_common_dialog.c:1184
 #, fuzzy
 msgid "Reply to mailing list by Reply button"
 msgstr "/_E-posta listesine yanıtla"
 
-#: src/prefs_common_dialog.c:1182
+#: src/prefs_common_dialog.c:1186
 msgid "Inherit recipients on reply to self messages"
 msgstr ""
 
-#: src/prefs_common_dialog.c:1184
+#: src/prefs_common_dialog.c:1188
 msgid "Set only mail address of recipients when replying"
 msgstr ""
 
 #. editor
-#: src/prefs_common_dialog.c:1188 src/prefs_common_dialog.c:2644
+#: src/prefs_common_dialog.c:1192 src/prefs_common_dialog.c:2653
 #: src/prefs_toolbar.c:120
 msgid "Editor"
 msgstr "Düzenleyici"
 
-#: src/prefs_common_dialog.c:1195
+#: src/prefs_common_dialog.c:1199
 msgid "Automatically launch the external editor"
 msgstr "Harici düzenleyici otomatik çalıştır"
 
-#: src/prefs_common_dialog.c:1205
+#: src/prefs_common_dialog.c:1209
 msgid "Undo level"
 msgstr "Geri alma seviyesi"
 
-#: src/prefs_common_dialog.c:1225
+#: src/prefs_common_dialog.c:1229
 msgid "Wrap messages at"
 msgstr "İletileri kaydır: "
 
-#: src/prefs_common_dialog.c:1237
+#: src/prefs_common_dialog.c:1241
 msgid "characters"
 msgstr "karakter"
 
-#: src/prefs_common_dialog.c:1247
+#: src/prefs_common_dialog.c:1251
 msgid "Wrap quotation"
 msgstr "Alıntı Kaydırması"
 
-#: src/prefs_common_dialog.c:1253
+#: src/prefs_common_dialog.c:1257
 msgid "Wrap on input"
 msgstr "Girdide Kaydır"
 
-#: src/prefs_common_dialog.c:1262
+#: src/prefs_common_dialog.c:1266
 #, fuzzy
 msgid "Auto-save to draft"
 msgstr "Taslak dizinine kaydet"
 
-#: src/prefs_common_dialog.c:1287
+#: src/prefs_common_dialog.c:1291
 #, fuzzy
 msgid "Format"
 msgstr "Normal"
 
-#: src/prefs_common_dialog.c:1292
+#: src/prefs_common_dialog.c:1296
 msgid "Spell checking"
 msgstr ""
 
 #. reply
-#: src/prefs_common_dialog.c:1345
+#: src/prefs_common_dialog.c:1349
 msgid "Reply format"
 msgstr "Yanıtlama formatı"
 
-#: src/prefs_common_dialog.c:1360 src/prefs_common_dialog.c:1402
+#: src/prefs_common_dialog.c:1364 src/prefs_common_dialog.c:1406
 msgid "Quotation mark"
 msgstr "Alıntı işareti"
 
 #. forward
-#: src/prefs_common_dialog.c:1387
+#: src/prefs_common_dialog.c:1391
 msgid "Forward format"
 msgstr "Yönlendirme biçimi"
 
-#: src/prefs_common_dialog.c:1434
+#: src/prefs_common_dialog.c:1438
 msgid " Description of symbols "
 msgstr " Sembollerin açıklaması "
 
-#: src/prefs_common_dialog.c:1463
+#: src/prefs_common_dialog.c:1467
 msgid "Enable Spell checking"
 msgstr ""
 
-#: src/prefs_common_dialog.c:1475
+#: src/prefs_common_dialog.c:1479
 #, fuzzy
 msgid "Default language:"
 msgstr "Öntanımlı gelen kutusu"
 
-#: src/prefs_common_dialog.c:1547
+#: src/prefs_common_dialog.c:1551
 #, fuzzy
 msgid "Text font"
 msgstr "Metin"
 
 #. ---- Folder View ----
-#: src/prefs_common_dialog.c:1559
+#: src/prefs_common_dialog.c:1563
 #, fuzzy
 msgid "Folder View"
 msgstr "Dizin"
 
-#: src/prefs_common_dialog.c:1567
+#: src/prefs_common_dialog.c:1571
 msgid "Display unread number next to folder name"
 msgstr "Dizin adının yanında kaç tane okunmamış posta olduğunu göster"
 
-#: src/prefs_common_dialog.c:1571
+#: src/prefs_common_dialog.c:1575
 #, fuzzy
 msgid "Displaying message number columns in the folder view:"
 msgstr "Dizin adının yanında kaç tane okunmamış posta olduğunu göster"
 
-#: src/prefs_common_dialog.c:1595
+#: src/prefs_common_dialog.c:1599
 msgid "Abbreviate newsgroups longer than"
 msgstr "Belirtilenden daha uzun olan haber gruplarını kısalt"
 
-#: src/prefs_common_dialog.c:1610
+#: src/prefs_common_dialog.c:1614
 msgid "letters"
 msgstr "posta"
 
 #. ---- Summary ----
-#: src/prefs_common_dialog.c:1616
+#: src/prefs_common_dialog.c:1620
 msgid "Summary View"
 msgstr "Özet Görünüm"
 
-#: src/prefs_common_dialog.c:1625
+#: src/prefs_common_dialog.c:1629
 msgid "Display recipient on `From' column if sender is yourself"
 msgstr "Eğer gönderen kendimsem 'Kimden' satırında alıcıyı göster"
 
-#: src/prefs_common_dialog.c:1627
+#: src/prefs_common_dialog.c:1631
 msgid "Expand threads"
 msgstr "Dizileri Genişlet"
 
-#: src/prefs_common_dialog.c:1635 src/prefs_common_dialog.c:3117
-#: src/prefs_common_dialog.c:3155
+#: src/prefs_common_dialog.c:1639 src/prefs_common_dialog.c:3126
+#: src/prefs_common_dialog.c:3164
 msgid "Date format"
 msgstr "Tarih biçimi"
 
-#: src/prefs_common_dialog.c:1656
+#: src/prefs_common_dialog.c:1660
 msgid " Set display item of summary... "
 msgstr " Özetin görüntü nesnesini belirt"
 
-#: src/prefs_common_dialog.c:1662
+#: src/prefs_common_dialog.c:1666
 msgid "Message"
 msgstr "İleti"
 
-#: src/prefs_common_dialog.c:1666
+#: src/prefs_common_dialog.c:1670
 #, fuzzy
 msgid "Color label"
 msgstr "/_Renk etiketi"
 
-#: src/prefs_common_dialog.c:1676
+#: src/prefs_common_dialog.c:1680
 #, fuzzy
 msgid "Default character encoding"
 msgstr "/_Görünüm/_Sırala/Azalan sırala"
 
-#: src/prefs_common_dialog.c:1690
+#: src/prefs_common_dialog.c:1694
 msgid "This is used when displaying messages with missing character encoding."
 msgstr ""
 
-#: src/prefs_common_dialog.c:1696
+#: src/prefs_common_dialog.c:1700
 #, fuzzy
 msgid "Outgoing character encoding"
 msgstr "/_Görünüm/_Sırala/Azalan sırala"
 
-#: src/prefs_common_dialog.c:1710
+#: src/prefs_common_dialog.c:1714
 #, fuzzy
 msgid ""
 "If `Automatic' is selected, the optimal encoding for the current locale will "
@@ -5213,11 +5229,11 @@ msgstr ""
 "Eğer 'Otomatik' seçili ise yerelde kullanılan kod\n"
 "kümesi kullanılacaktır."
 
-#: src/prefs_common_dialog.c:1774
+#: src/prefs_common_dialog.c:1778
 msgid "Enable coloration of message"
 msgstr "İletileri renklendir"
 
-#: src/prefs_common_dialog.c:1789
+#: src/prefs_common_dialog.c:1793
 msgid ""
 "Display multi-byte alphabet and numeric as\n"
 "ASCII character (Japanese only)"
@@ -5225,617 +5241,622 @@ msgstr ""
 "Çok bytelı alfabe veya numaraları \n"
 "ASCII karakter olarak göster(Sadece Japonca)"
 
-#: src/prefs_common_dialog.c:1796
+#: src/prefs_common_dialog.c:1800
 msgid "Display header pane above message view"
 msgstr "Postaları gösterirken üst kısımda başlıkları göster"
 
-#: src/prefs_common_dialog.c:1803
+#: src/prefs_common_dialog.c:1807
 msgid "Display short headers on message view"
 msgstr "Postaları gösterirken kısa başlıkları göster"
 
-#: src/prefs_common_dialog.c:1815
+#: src/prefs_common_dialog.c:1819
 msgid "Render HTML messages as text"
 msgstr ""
 
-#: src/prefs_common_dialog.c:1817
+#: src/prefs_common_dialog.c:1821
 #, fuzzy
 msgid "Treat HTML only messages as attachment"
 msgstr "/İ_leti/E_k olarak yönlendir"
 
-#: src/prefs_common_dialog.c:1821
+#: src/prefs_common_dialog.c:1825
 #, fuzzy
 msgid "Display cursor in message view"
 msgstr "Postaları gösterirken kısa başlıkları göster"
 
-#: src/prefs_common_dialog.c:1834
+#: src/prefs_common_dialog.c:1838
 msgid "Line space"
 msgstr "Satır boşluğu"
 
-#: src/prefs_common_dialog.c:1848 src/prefs_common_dialog.c:1886
+#: src/prefs_common_dialog.c:1852 src/prefs_common_dialog.c:1890
 msgid "pixel(s)"
 msgstr "benek"
 
-#: src/prefs_common_dialog.c:1853
+#: src/prefs_common_dialog.c:1857
 msgid "Scroll"
 msgstr "Kaydır"
 
-#: src/prefs_common_dialog.c:1860
+#: src/prefs_common_dialog.c:1864
 msgid "Half page"
 msgstr "Yarım sayfa"
 
-#: src/prefs_common_dialog.c:1866
+#: src/prefs_common_dialog.c:1870
 msgid "Smooth scroll"
 msgstr "Yumuşak kaydır"
 
-#: src/prefs_common_dialog.c:1872
+#: src/prefs_common_dialog.c:1876
 msgid "Step"
 msgstr "Adım"
 
-#: src/prefs_common_dialog.c:1892
+#: src/prefs_common_dialog.c:1896
 msgid "Images"
-msgstr ""
+msgstr "Resimler"
 
-#: src/prefs_common_dialog.c:1900
+#: src/prefs_common_dialog.c:1904
 msgid "Resize attached large images to fit in the window"
-msgstr "Pencereye uyması için eklenmiş büyük resimleri yenşden boyutlandır"
+msgstr "Pencereye uyması için eklenmiş büyük resimleri yeniden boyutlandır"
 
-#: src/prefs_common_dialog.c:1902
+#: src/prefs_common_dialog.c:1906
 #, fuzzy
 msgid "Display images as inline"
 msgstr "Görüntü başlığı ayarları"
 
-#: src/prefs_common_dialog.c:2053
-#, fuzzy
+#: src/prefs_common_dialog.c:2057
 msgid "Enable Junk mail control"
-msgstr "dizin:"
+msgstr ""
 
-#: src/prefs_common_dialog.c:2065
+#: src/prefs_common_dialog.c:2069
 #, fuzzy
 msgid "Learning command:"
 msgstr "Komut çalıştır"
 
-#: src/prefs_common_dialog.c:2074
+#: src/prefs_common_dialog.c:2078
 #, fuzzy
 msgid "(Select preset)"
 msgstr "Anahtarları Seçin"
 
-#: src/prefs_common_dialog.c:2099
+#: src/prefs_common_dialog.c:2103
 msgid "Not Junk"
 msgstr ""
 
-#: src/prefs_common_dialog.c:2114
+#: src/prefs_common_dialog.c:2118
 #, fuzzy
 msgid "Classifying command"
 msgstr "Komut çalıştır"
 
-#: src/prefs_common_dialog.c:2125
+#: src/prefs_common_dialog.c:2129
 msgid ""
 "To classify junk mails automatically, both junk and not junk mails must be "
 "learned manually to a certain extent."
 msgstr ""
 
-#: src/prefs_common_dialog.c:2135
+#: src/prefs_common_dialog.c:2139
 #, fuzzy
 msgid "Junk folder"
 msgstr "dizin:"
 
-#: src/prefs_common_dialog.c:2153
+#: src/prefs_common_dialog.c:2157
 #, fuzzy
 msgid "The messages which are set as junk mail will be moved to this folder."
 msgstr "(Filtrelenmemiş iletiler bu kutuda bekleyecektir)"
 
-#: src/prefs_common_dialog.c:2164
+#: src/prefs_common_dialog.c:2168
 #, fuzzy
 msgid "Filter messages classified as junk on receiving"
 msgstr "İletileri alırken filtrele"
 
-#: src/prefs_common_dialog.c:2167
+#: src/prefs_common_dialog.c:2171
 #, fuzzy
 msgid "Filter junk mails before normal filtering"
 msgstr "Sunucudan sil"
 
-#: src/prefs_common_dialog.c:2170
+#: src/prefs_common_dialog.c:2174
 #, fuzzy
 msgid "Delete junk mails from server on receiving"
 msgstr "Sunucudan sil"
 
-#: src/prefs_common_dialog.c:2175
+#: src/prefs_common_dialog.c:2179
 msgid "Mark filtered junk mails as read"
 msgstr ""
 
-#: src/prefs_common_dialog.c:2217
+#: src/prefs_common_dialog.c:2221
 msgid "Automatically check signatures"
 msgstr "İmzaları otomatik denetle"
 
-#: src/prefs_common_dialog.c:2220
+#: src/prefs_common_dialog.c:2224
 msgid "Show signature check result in a popup window"
 msgstr "İmza kontrol sonuçlarını ek pencerede göster"
 
-#: src/prefs_common_dialog.c:2223
+#: src/prefs_common_dialog.c:2227
 msgid "Store passphrase in memory temporarily"
 msgstr "Parolayı geçici olarak hafızada sakla"
 
-#: src/prefs_common_dialog.c:2238
+#: src/prefs_common_dialog.c:2242
 msgid "Expired after"
 msgstr "Belirtilen süre sonra geçerliliğini yitir"
 
-#: src/prefs_common_dialog.c:2251
+#: src/prefs_common_dialog.c:2255
 msgid "minute(s) "
 msgstr " dakikada"
 
-#: src/prefs_common_dialog.c:2265
+#: src/prefs_common_dialog.c:2269
 #, fuzzy
 msgid "Setting to '0' will store the passphrase for the whole session."
 msgstr ""
 "(Bu değere '0' atayarak parolanın\n"
 "tüm oturuum süresince saklanmasını sağlayabilirsiniz.)"
 
-#: src/prefs_common_dialog.c:2274
+#: src/prefs_common_dialog.c:2278
 msgid "Grab input while entering a passphrase"
 msgstr "Parolayı girerken girdiyi yakala"
 
-#: src/prefs_common_dialog.c:2279
+#: src/prefs_common_dialog.c:2283
 msgid "Display warning on startup if GnuPG doesn't work"
 msgstr "GnuPG çalışmazsa başlangıçta uyarı mesajı göster"
 
-#: src/prefs_common_dialog.c:2351
+#: src/prefs_common_dialog.c:2355
 msgid "Always open messages in summary when selected"
 msgstr "Mesajlar seçildiğinde her zaman özet halinda göster"
 
-#: src/prefs_common_dialog.c:2355
+#: src/prefs_common_dialog.c:2359
 #, fuzzy
 msgid "Open first unread message when a folder is opened"
 msgstr "Bir dizine girildiğinde ilk okunmamış iletiyi aç"
 
-#: src/prefs_common_dialog.c:2362
+#: src/prefs_common_dialog.c:2366
 #, fuzzy
 msgid "Remember last selected message"
 msgstr "Başka etiketlenmiş ileti yok"
 
-#: src/prefs_common_dialog.c:2366
+#: src/prefs_common_dialog.c:2370
 msgid "Only mark message as read when opened in new window"
 msgstr "Posta sadece yeni pencerede okunduğunda okunmuş olarak işaretle"
 
-#: src/prefs_common_dialog.c:2370
+#: src/prefs_common_dialog.c:2374
 #, fuzzy
 msgid "Open inbox after receiving new mail"
 msgstr "İleti geldiğinde gelen kutusuna git"
 
-#: src/prefs_common_dialog.c:2372
+#: src/prefs_common_dialog.c:2376
 #, fuzzy
 msgid "Open inbox on startup"
 msgstr "Açılışta yeni e-postaları denetle"
 
-#: src/prefs_common_dialog.c:2380
+#: src/prefs_common_dialog.c:2384
 msgid "Execute immediately when moving or deleting messages"
 msgstr "Postayı silerken ve taşırken çalıştır"
 
-#: src/prefs_common_dialog.c:2392
+#: src/prefs_common_dialog.c:2396
 #, fuzzy
 msgid "Messages will be marked until execution if this is turned off."
 msgstr ""
 "(Eğer bu özellik kapalı ise işlem bitinceye kadar\n"
 "postalar işaretlenecektir.)"
 
-#: src/prefs_common_dialog.c:2401
+#: src/prefs_common_dialog.c:2405
 msgid "Make the order of buttons comply with GNOME HIG"
 msgstr ""
 
-#: src/prefs_common_dialog.c:2404
+#: src/prefs_common_dialog.c:2408
 #, fuzzy
 msgid "Display tray icon"
 msgstr "Görüntülenecek İsim"
 
-#: src/prefs_common_dialog.c:2406
+#: src/prefs_common_dialog.c:2410
 msgid "Minimize to tray icon"
-msgstr ""
+msgstr "Sistem çekmecesine küçült"
 
-#: src/prefs_common_dialog.c:2408
+#: src/prefs_common_dialog.c:2412
 msgid "Toggle window on trayicon click"
 msgstr ""
 
-#: src/prefs_common_dialog.c:2418
+#: src/prefs_common_dialog.c:2422
 msgid " Set key bindings... "
 msgstr " Tuş kombinasyonları..."
 
-#: src/prefs_common_dialog.c:2424 src/select-keys.c:337
+#: src/prefs_common_dialog.c:2428 src/select-keys.c:337
 msgid "Other"
 msgstr "Diğer"
 
-#: src/prefs_common_dialog.c:2428
+#: src/prefs_common_dialog.c:2432
 #, fuzzy
 msgid "External commands"
 msgstr "Komut çalıştır"
 
-#: src/prefs_common_dialog.c:2433
+#: src/prefs_common_dialog.c:2437
 #, fuzzy
 msgid "Update"
 msgstr "Tarih"
 
-#: src/prefs_common_dialog.c:2487
+#: src/prefs_common_dialog.c:2492
 msgid "Receive dialog"
 msgstr "Alma penceresi"
 
-#: src/prefs_common_dialog.c:2497
+#: src/prefs_common_dialog.c:2502
 msgid "Show receive dialog"
 msgstr "Alma penceresini göster"
 
-#: src/prefs_common_dialog.c:2507
+#: src/prefs_common_dialog.c:2512
 msgid "Always"
 msgstr "Her zaman"
 
-#: src/prefs_common_dialog.c:2508
+#: src/prefs_common_dialog.c:2513
 msgid "Only on manual receiving"
 msgstr "Sadece kullanıcı kendi aldığında"
 
-#: src/prefs_common_dialog.c:2510
+#: src/prefs_common_dialog.c:2515
 msgid "Never"
 msgstr "Hiç bir zaman"
 
-#: src/prefs_common_dialog.c:2515
+#: src/prefs_common_dialog.c:2520
 msgid "Don't popup error dialog on receive error"
 msgstr "Alma sırasında bir hata oluşursa ek pencerede gösterme"
 
-#: src/prefs_common_dialog.c:2518
+#: src/prefs_common_dialog.c:2523
 msgid "Close receive dialog when finished"
 msgstr "İşlemler tamamlandığında alma penceresini kapat"
 
-#: src/prefs_common_dialog.c:2529
+#: src/prefs_common_dialog.c:2534
 msgid "Add address to destination when double-clicked"
 msgstr "Çift tıklandığında adresi hedefe ekle"
 
-#: src/prefs_common_dialog.c:2531
+#: src/prefs_common_dialog.c:2537
+msgid "Enable address auto-completion"
+msgstr "Otomatik adres tamamlamayı etkinleştir"
+
+#: src/prefs_common_dialog.c:2539
 msgid "On exit"
 msgstr "Çıkışta"
 
-#: src/prefs_common_dialog.c:2539
+#: src/prefs_common_dialog.c:2547
 msgid "Confirm on exit"
 msgstr "Çıkışta sor"
 
-#: src/prefs_common_dialog.c:2546
+#: src/prefs_common_dialog.c:2554
 msgid "Empty trash on exit"
 msgstr "Çıkışta çöpü boşalt"
 
-#: src/prefs_common_dialog.c:2548
+#: src/prefs_common_dialog.c:2556
 msgid "Ask before emptying"
 msgstr "Boşaltmadan önce sor"
 
-#: src/prefs_common_dialog.c:2552
+#: src/prefs_common_dialog.c:2560
 msgid "Warn if there are queued messages"
 msgstr "Kuyrukta ileti varsa uyar"
 
-#: src/prefs_common_dialog.c:2607
+#: src/prefs_common_dialog.c:2616
 #, c-format
 msgid "External commands (%s will be replaced with file name / URI)"
 msgstr "Harici düzenleyici (%s, dosya adı/URL ile yer değiştirecektir)"
 
-#: src/prefs_common_dialog.c:2616
+#: src/prefs_common_dialog.c:2625
 msgid "Web browser"
 msgstr "Tarayıcı"
 
-#: src/prefs_common_dialog.c:2628 src/prefs_common_dialog.c:4130
-#: src/prefs_common_dialog.c:4151
+#: src/prefs_common_dialog.c:2637 src/prefs_common_dialog.c:4139
+#: src/prefs_common_dialog.c:4160
 #, fuzzy
 msgid "(Default browser)"
 msgstr "Öntanımlı gelen kutusu"
 
-#: src/prefs_common_dialog.c:2669
-#, fuzzy
+#: src/prefs_common_dialog.c:2678
 msgid "Use external program for printing"
-msgstr "Göndermek için harici program kullan"
+msgstr "Çıktı almak için harici program kullan"
 
-#: src/prefs_common_dialog.c:2691
+#: src/prefs_common_dialog.c:2700
 msgid "Use external program for incorporation"
 msgstr "Dağıtım için harici program kullan"
 
-#: src/prefs_common_dialog.c:2713
+#: src/prefs_common_dialog.c:2722
 msgid "Use external program for sending"
 msgstr "Göndermek için harici program kullan"
 
-#: src/prefs_common_dialog.c:2765
+#: src/prefs_common_dialog.c:2774
 msgid "Update check requires 'curl' command."
-msgstr ""
+msgstr "Güncelleme kontrolü 'curl' komutu gerektirir"
 
-#: src/prefs_common_dialog.c:2776
+#: src/prefs_common_dialog.c:2785
 msgid "Enable auto update check"
-msgstr ""
+msgstr "Otomatik güncelle kontrolünü etkinleştir"
 
-#: src/prefs_common_dialog.c:2778
+#: src/prefs_common_dialog.c:2787
 msgid "Use HTTP proxy"
-msgstr ""
+msgstr "Vekil sunucu kullan"
 
-#: src/prefs_common_dialog.c:2780
+#: src/prefs_common_dialog.c:2789
 msgid "HTTP proxy host (hostname:port):"
 msgstr ""
 
-#: src/prefs_common_dialog.c:2821
+#: src/prefs_common_dialog.c:2830
 #, fuzzy
 msgid "Enable strict checking of the integrity of summary caches"
 msgstr "Özet (%s) önbelleğe yazılıyor..."
 
-#: src/prefs_common_dialog.c:2824
+#: src/prefs_common_dialog.c:2833
 msgid ""
 "Enable this if the contents of folders have the possibility of modification "
 "by other applications.\n"
 "This option will degrade the performance of displaying summary."
 msgstr ""
+"Eğer dizin içeriklerinin diğer programlar tarafından modifiye edilmesi "
+"olasılığı var ise bu seçeneği etkinleştirin.\n"
+"Bu seçenek özet gösterim performansını düşürecektir."
 
-#: src/prefs_common_dialog.c:2831
+#: src/prefs_common_dialog.c:2840
 msgid "Socket I/O timeout:"
 msgstr "Soket I/O zaman aşımı:"
 
-#: src/prefs_common_dialog.c:2844
+#: src/prefs_common_dialog.c:2853
 msgid "second(s)"
 msgstr "saniye"
 
-#: src/prefs_common_dialog.c:2872
+#: src/prefs_common_dialog.c:2881
 msgid "Automatic (Recommended)"
 msgstr "Otomatik (Önerilen)"
 
-#: src/prefs_common_dialog.c:2877
+#: src/prefs_common_dialog.c:2886
 msgid "7bit ascii (US-ASCII)"
 msgstr "7bit ascii (US-ASCII)"
 
-#: src/prefs_common_dialog.c:2879
+#: src/prefs_common_dialog.c:2888
 msgid "Unicode (UTF-8)"
 msgstr "Unicode (UTF-8)"
 
-#: src/prefs_common_dialog.c:2881
+#: src/prefs_common_dialog.c:2890
 msgid "Western European (ISO-8859-1)"
 msgstr "Batı Avrupa (ISO-8859-1)"
 
-#: src/prefs_common_dialog.c:2882
+#: src/prefs_common_dialog.c:2891
 msgid "Western European (ISO-8859-15)"
 msgstr "Batı Avrupa (ISO-8859-15)"
 
-#: src/prefs_common_dialog.c:2884
+#: src/prefs_common_dialog.c:2893
 #, fuzzy
 msgid "Western European (Windows-1252)"
 msgstr "Batı Avrupa (ISO-8859-15)"
 
-#: src/prefs_common_dialog.c:2888
+#: src/prefs_common_dialog.c:2897
 msgid "Central European (ISO-8859-2)"
 msgstr "Orta Avrupa (ISO-8859-2)"
 
-#: src/prefs_common_dialog.c:2890
+#: src/prefs_common_dialog.c:2899
 msgid "Baltic (ISO-8859-13)"
 msgstr "Baltık (ISO-8859-13)"
 
-#: src/prefs_common_dialog.c:2891
+#: src/prefs_common_dialog.c:2900
 msgid "Baltic (ISO-8859-4)"
 msgstr "Baltık (ISO-8859-4)"
 
-#: src/prefs_common_dialog.c:2892
+#: src/prefs_common_dialog.c:2901
 #, fuzzy
 msgid "Baltic (Windows-1257)"
 msgstr "Kiril (Windows-1251)"
 
-#: src/prefs_common_dialog.c:2894
+#: src/prefs_common_dialog.c:2903
 msgid "Greek (ISO-8859-7)"
 msgstr "Yunanca (ISO-8859-7)"
 
-#: src/prefs_common_dialog.c:2896
+#: src/prefs_common_dialog.c:2905
 #, fuzzy
 msgid "Arabic (ISO-8859-6)"
 msgstr "Baltık (ISO-8859-4)"
 
-#: src/prefs_common_dialog.c:2897
+#: src/prefs_common_dialog.c:2906
 #, fuzzy
 msgid "Arabic (Windows-1256)"
 msgstr "Kiril (Windows-1251)"
 
-#: src/prefs_common_dialog.c:2899
+#: src/prefs_common_dialog.c:2908
 #, fuzzy
 msgid "Hebrew (ISO-8859-8)"
 msgstr "Yunanca (ISO-8859-7)"
 
-#: src/prefs_common_dialog.c:2900
+#: src/prefs_common_dialog.c:2909
 #, fuzzy
 msgid "Hebrew (Windows-1255)"
 msgstr "Kiril (Windows-1251)"
 
-#: src/prefs_common_dialog.c:2902
+#: src/prefs_common_dialog.c:2911
 msgid "Turkish (ISO-8859-9)"
 msgstr "Türkçe (ISO-8859-9)"
 
-#: src/prefs_common_dialog.c:2904
+#: src/prefs_common_dialog.c:2913
 msgid "Cyrillic (ISO-8859-5)"
 msgstr "Kiril (ISO-8859-5)"
 
-#: src/prefs_common_dialog.c:2905
+#: src/prefs_common_dialog.c:2914
 msgid "Cyrillic (KOI8-R)"
 msgstr "Kiril (KOI8-R)"
 
-#: src/prefs_common_dialog.c:2906
+#: src/prefs_common_dialog.c:2915
 msgid "Cyrillic (KOI8-U)"
 msgstr "Kiril (KOI8-U)"
 
-#: src/prefs_common_dialog.c:2907
+#: src/prefs_common_dialog.c:2916
 msgid "Cyrillic (Windows-1251)"
 msgstr "Kiril (Windows-1251)"
 
-#: src/prefs_common_dialog.c:2909
+#: src/prefs_common_dialog.c:2918
 msgid "Japanese (ISO-2022-JP)"
 msgstr "Japonca (ISO-2022-JP)"
 
-#: src/prefs_common_dialog.c:2911
+#: src/prefs_common_dialog.c:2920
 msgid "Japanese (EUC-JP)"
 msgstr "Japonca (EUC-JP)"
 
-#: src/prefs_common_dialog.c:2912
+#: src/prefs_common_dialog.c:2921
 msgid "Japanese (Shift_JIS)"
 msgstr "Japonca (Shift_JIS)"
 
-#: src/prefs_common_dialog.c:2915
+#: src/prefs_common_dialog.c:2924
 msgid "Simplified Chinese (GB2312)"
 msgstr "Basitleştirilmiş Çince (GB2312)"
 
-#: src/prefs_common_dialog.c:2916
+#: src/prefs_common_dialog.c:2925
 #, fuzzy
 msgid "Simplified Chinese (GBK)"
 msgstr "Basitleştirilmiş Çince (GB2312)"
 
-#: src/prefs_common_dialog.c:2917
+#: src/prefs_common_dialog.c:2926
 msgid "Traditional Chinese (Big5)"
 msgstr "Geleneksel Çince (Big5)"
 
-#: src/prefs_common_dialog.c:2919
+#: src/prefs_common_dialog.c:2928
 msgid "Traditional Chinese (EUC-TW)"
 msgstr "Geleneksel Çince (EUC-TW)"
 
-#: src/prefs_common_dialog.c:2920
+#: src/prefs_common_dialog.c:2929
 msgid "Chinese (ISO-2022-CN)"
 msgstr "Çince (ISO-2022-CN)"
 
-#: src/prefs_common_dialog.c:2923
+#: src/prefs_common_dialog.c:2932
 msgid "Korean (EUC-KR)"
 msgstr "Korece (EUC-KR)"
 
-#: src/prefs_common_dialog.c:2925
+#: src/prefs_common_dialog.c:2934
 msgid "Thai (TIS-620)"
 msgstr "Tayca (TIS-620)"
 
-#: src/prefs_common_dialog.c:2926
+#: src/prefs_common_dialog.c:2935
 msgid "Thai (Windows-874)"
 msgstr "Tayca (Windows-874)"
 
-#: src/prefs_common_dialog.c:3093
+#: src/prefs_common_dialog.c:3102
 msgid "the full abbreviated weekday name"
 msgstr "kısa hafta adı"
 
-#: src/prefs_common_dialog.c:3094
+#: src/prefs_common_dialog.c:3103
 msgid "the full weekday name"
 msgstr "tam hafta adı"
 
-#: src/prefs_common_dialog.c:3095
+#: src/prefs_common_dialog.c:3104
 msgid "the abbreviated month name"
 msgstr "kısa ay adı"
 
-#: src/prefs_common_dialog.c:3096
+#: src/prefs_common_dialog.c:3105
 msgid "the full month name"
 msgstr "tam ay adı"
 
-#: src/prefs_common_dialog.c:3097
+#: src/prefs_common_dialog.c:3106
 msgid "the preferred date and time for the current locale"
 msgstr "güncel yerel bilgisi için tercih edilen gün ve saat"
 
-#: src/prefs_common_dialog.c:3098
+#: src/prefs_common_dialog.c:3107
 msgid "the century number (year/100)"
 msgstr "yüzyıl numarası (yıl/100)"
 
-#: src/prefs_common_dialog.c:3099
+#: src/prefs_common_dialog.c:3108
 msgid "the day of the month as a decimal number"
 msgstr "sayı değerinde ayın günü"
 
-#: src/prefs_common_dialog.c:3100
+#: src/prefs_common_dialog.c:3109
 msgid "the hour as a decimal number using a 24-hour clock"
 msgstr "24 saatlik format kullanılarak saat"
 
-#: src/prefs_common_dialog.c:3101
+#: src/prefs_common_dialog.c:3110
 msgid "the hour as a decimal number using a 12-hour clock"
 msgstr "12 saatlik format kullanılarak saat"
 
-#: src/prefs_common_dialog.c:3102
+#: src/prefs_common_dialog.c:3111
 msgid "the day of the year as a decimal number"
 msgstr "yılın gününün sayı değeri"
 
-#: src/prefs_common_dialog.c:3103
+#: src/prefs_common_dialog.c:3112
 msgid "the month as a decimal number"
 msgstr "ay sayı değerinde"
 
-#: src/prefs_common_dialog.c:3104
+#: src/prefs_common_dialog.c:3113
 msgid "the minute as a decimal number"
 msgstr "dakika"
 
-#: src/prefs_common_dialog.c:3105
+#: src/prefs_common_dialog.c:3114
 msgid "either AM or PM"
 msgstr "AM veya PM"
 
-#: src/prefs_common_dialog.c:3106
+#: src/prefs_common_dialog.c:3115
 msgid "the second as a decimal number"
 msgstr "saniye"
 
-#: src/prefs_common_dialog.c:3107
+#: src/prefs_common_dialog.c:3116
 msgid "the day of the week as a decimal number"
 msgstr "haftanın günü"
 
-#: src/prefs_common_dialog.c:3108
+#: src/prefs_common_dialog.c:3117
 msgid "the preferred date for the current locale"
 msgstr "tercih edilen yerek saat"
 
-#: src/prefs_common_dialog.c:3109
+#: src/prefs_common_dialog.c:3118
 msgid "the last two digits of a year"
 msgstr "yılın son iki rakamı"
 
-#: src/prefs_common_dialog.c:3110
+#: src/prefs_common_dialog.c:3119
 msgid "the year as a decimal number"
 msgstr "yıl"
 
-#: src/prefs_common_dialog.c:3111
+#: src/prefs_common_dialog.c:3120
 msgid "the time zone or name or abbreviation"
 msgstr "Zaman dilimi veya adı"
 
-#: src/prefs_common_dialog.c:3132
+#: src/prefs_common_dialog.c:3141
 msgid "Specifier"
 msgstr "Belirtici"
 
-#: src/prefs_common_dialog.c:3133
+#: src/prefs_common_dialog.c:3142
 msgid "Description"
 msgstr "Tanım"
 
-#: src/prefs_common_dialog.c:3173
+#: src/prefs_common_dialog.c:3182
 msgid "Example"
 msgstr "Örnek"
 
-#: src/prefs_common_dialog.c:3254
+#: src/prefs_common_dialog.c:3263
 msgid "Set message colors"
 msgstr "Posta renklerini belirt"
 
-#: src/prefs_common_dialog.c:3262
+#: src/prefs_common_dialog.c:3271
 msgid "Colors"
 msgstr "Renkler"
 
-#: src/prefs_common_dialog.c:3296
+#: src/prefs_common_dialog.c:3305
 msgid "Quoted Text - First Level"
 msgstr "Birinci derecen alıntı metin"
 
-#: src/prefs_common_dialog.c:3302
+#: src/prefs_common_dialog.c:3311
 msgid "Quoted Text - Second Level"
 msgstr "İkinci dereceden alıntı metin"
 
-#: src/prefs_common_dialog.c:3308
+#: src/prefs_common_dialog.c:3317
 msgid "Quoted Text - Third Level"
 msgstr "Üçüncü dereceden alıntı metin"
 
-#: src/prefs_common_dialog.c:3314
+#: src/prefs_common_dialog.c:3323
 msgid "URI link"
 msgstr "URL bağlantısı"
 
-#: src/prefs_common_dialog.c:3321
+#: src/prefs_common_dialog.c:3330
 msgid "Recycle quote colors"
 msgstr "Alıntı renklerini dönüştür"
 
-#: src/prefs_common_dialog.c:3388
+#: src/prefs_common_dialog.c:3397
 msgid "Pick color for quotation level 1"
 msgstr "Birinci dereceden alıntı rengini seçiniz"
 
-#: src/prefs_common_dialog.c:3391
+#: src/prefs_common_dialog.c:3400
 msgid "Pick color for quotation level 2"
 msgstr "İkinci dereceden alıntı rengini seçiniz"
 
-#: src/prefs_common_dialog.c:3394
+#: src/prefs_common_dialog.c:3403
 msgid "Pick color for quotation level 3"
 msgstr "Üçüncü dereceden alıntı rengini seçiniz"
 
-#: src/prefs_common_dialog.c:3397
+#: src/prefs_common_dialog.c:3406
 msgid "Pick color for URI"
 msgstr "URL için renk seçiniz"
 
-#: src/prefs_common_dialog.c:3537
+#: src/prefs_common_dialog.c:3546
 msgid "Description of symbols"
 msgstr "sembollerin açıklamaları"
 
-#: src/prefs_common_dialog.c:3593
+#: src/prefs_common_dialog.c:3602
 msgid ""
 "Date\n"
 "From\n"
@@ -5858,11 +5879,11 @@ msgstr ""
 "Habergrubu\n"
 "Mesaj Nosu"
 
-#: src/prefs_common_dialog.c:3606
+#: src/prefs_common_dialog.c:3615
 msgid "If x is set, displays expr"
 msgstr "Eğer x belirtilmişse expr göster"
 
-#: src/prefs_common_dialog.c:3610
+#: src/prefs_common_dialog.c:3619
 msgid ""
 "Message body\n"
 "Quoted message body\n"
@@ -5876,7 +5897,7 @@ msgstr ""
 "İmzasız alıntı yapılan metin\n"
 "Tam %"
 
-#: src/prefs_common_dialog.c:3618
+#: src/prefs_common_dialog.c:3627
 msgid ""
 "Literal backslash\n"
 "Literal question mark\n"
@@ -5888,20 +5909,20 @@ msgstr ""
 "Tam <\n"
 "Tam >"
 
-#: src/prefs_common_dialog.c:3672
+#: src/prefs_common_dialog.c:3681
 msgid "Key bindings"
 msgstr "Tuş bağıntıları"
 
-#: src/prefs_common_dialog.c:3685
+#: src/prefs_common_dialog.c:3694
 #, fuzzy
 msgid "Select the preset of key bindings."
 msgstr " Tuş kombinasyonları..."
 
-#: src/prefs_common_dialog.c:3695 src/prefs_common_dialog.c:4019
+#: src/prefs_common_dialog.c:3704 src/prefs_common_dialog.c:4028
 msgid "Default"
 msgstr "Öntanımlı"
 
-#: src/prefs_common_dialog.c:3698 src/prefs_common_dialog.c:4028
+#: src/prefs_common_dialog.c:3707 src/prefs_common_dialog.c:4037
 msgid "Old Sylpheed"
 msgstr "Eski Sylpheed"
 
@@ -5909,7 +5930,7 @@ msgstr "Eski Sylpheed"
 msgid "Custom header setting"
 msgstr "Özel başlık ayarları"
 
-#: src/prefs_customheader.c:238 src/prefs_filter_edit.c:1563
+#: src/prefs_customheader.c:238 src/prefs_filter_edit.c:1606
 msgid " Delete "
 msgstr " Sil "
 
@@ -5983,7 +6004,6 @@ msgid " Revert to default "
 msgstr " Öntanımlıya geçiş yap "
 
 #: src/prefs_filter.c:208
-#, fuzzy
 msgid "Filter settings"
 msgstr "Filtre ayarları"
 
@@ -5994,219 +6014,223 @@ msgstr "Etkin"
 #: src/prefs_filter.c:686
 #, fuzzy, c-format
 msgid "Do you really want to delete the rule '%s'?"
-msgstr "B kuralı silmek istiyor musunuz?"
+msgstr "Bu kuralı gerçekten silmek istiyor musunuz? '%s'"
 
 #: src/prefs_filter.c:688
 msgid "Delete rule"
 msgstr "Kuralı sil"
 
-#: src/prefs_filter_edit.c:236
+#: src/prefs_filter_edit.c:238
 msgid "Filter rule"
 msgstr "Filtre kuralı"
 
-#: src/prefs_filter_edit.c:251 src/prefs_search_folder.c:187
+#: src/prefs_filter_edit.c:253 src/prefs_search_folder.c:187
 msgid "Name:"
 msgstr "İsim:"
 
-#: src/prefs_filter_edit.c:270
+#: src/prefs_filter_edit.c:272
 msgid "If any of the following condition matches"
 msgstr "Aşağıdaki herhangi bir kural eşleşirse"
 
-#: src/prefs_filter_edit.c:272
+#: src/prefs_filter_edit.c:274
 msgid "If all of the following conditions match"
 msgstr "Aşağıdaki tüm koşullar eşleşirse"
 
-#: src/prefs_filter_edit.c:293
+#: src/prefs_filter_edit.c:295
 msgid "Perform the following actions:"
 msgstr "Aşağıdaki eylemleri gerçekleştir:"
 
-#: src/prefs_filter_edit.c:496
+#: src/prefs_filter_edit.c:500
 msgid "To or Cc"
 msgstr "Kime veya CC"
 
-#: src/prefs_filter_edit.c:497
+#: src/prefs_filter_edit.c:501
 msgid "Any header"
 msgstr "Herhangi bir başlık"
 
-#: src/prefs_filter_edit.c:498
+#: src/prefs_filter_edit.c:502
 msgid "Edit header..."
 msgstr "Başlığı düzenle..."
 
-#: src/prefs_filter_edit.c:501
+#: src/prefs_filter_edit.c:505
 msgid "Message body"
 msgstr "İleti gövdesi"
 
-#: src/prefs_filter_edit.c:502
+#: src/prefs_filter_edit.c:506
 msgid "Result of command"
 msgstr "Komut sonucu"
 
-#: src/prefs_filter_edit.c:504
+#: src/prefs_filter_edit.c:508
 msgid "Age"
 msgstr "Yaş"
 
-#: src/prefs_filter_edit.c:508 src/quick_search.c:109
-#, fuzzy
+#: src/prefs_filter_edit.c:512 src/quick_search.c:111
 msgid "Marked"
-msgstr "İşaretle"
+msgstr "İşaretlenmiş"
 
-#: src/prefs_filter_edit.c:509
-#, fuzzy
+#: src/prefs_filter_edit.c:513
 msgid "Has color label"
-msgstr "/_Renk etiketi"
+msgstr "Renk etiketi olan"
 
-#: src/prefs_filter_edit.c:510
-#, fuzzy
+#: src/prefs_filter_edit.c:514
 msgid "Has attachment"
-msgstr "Ek"
+msgstr "Eklentisi olan"
 
-#: src/prefs_filter_edit.c:523
+#: src/prefs_filter_edit.c:534
 msgid "contains"
 msgstr "içeriyor"
 
-#: src/prefs_filter_edit.c:525
+#: src/prefs_filter_edit.c:535
 msgid "doesn't contain"
 msgstr "içermiyor"
 
-#: src/prefs_filter_edit.c:527
+#: src/prefs_filter_edit.c:536
 msgid "is"
 msgstr "ise "
 
-#: src/prefs_filter_edit.c:529
+#: src/prefs_filter_edit.c:537
 msgid "is not"
 msgstr "değil ise"
 
-#: src/prefs_filter_edit.c:532
+#: src/prefs_filter_edit.c:539
 msgid "match to regex"
 msgstr "regex ile eşleştir"
 
-#: src/prefs_filter_edit.c:534
+#: src/prefs_filter_edit.c:540
 msgid "doesn't match to regex"
 msgstr "regex ile eşleştirme"
 
-#: src/prefs_filter_edit.c:545
+#: src/prefs_filter_edit.c:542
+msgid "is in addressbook"
+msgstr "adres defterinde var ise"
+
+#: src/prefs_filter_edit.c:544
+msgid "is not in addressbook"
+msgstr "adres defterinde değil ise"
+
+#: src/prefs_filter_edit.c:556
 msgid "is larger than"
 msgstr "büyükse"
 
-#: src/prefs_filter_edit.c:546
+#: src/prefs_filter_edit.c:557
 msgid "is smaller than"
 msgstr "küçükse"
 
-#: src/prefs_filter_edit.c:555
+#: src/prefs_filter_edit.c:566
 msgid "is longer than"
 msgstr "uzunsa"
 
-#: src/prefs_filter_edit.c:556
+#: src/prefs_filter_edit.c:567
 msgid "is shorter than"
 msgstr "kısaysa"
 
-#: src/prefs_filter_edit.c:566
+#: src/prefs_filter_edit.c:577
 msgid "matches to status"
-msgstr ""
+msgstr "durum ile eşleşiyorsa"
 
-#: src/prefs_filter_edit.c:567
-#, fuzzy
+#: src/prefs_filter_edit.c:578
 msgid "doesn't match to status"
-msgstr "regex ile eşleştirme"
+msgstr "durum ile eşleşmiyorsa"
 
-#: src/prefs_filter_edit.c:669
+#: src/prefs_filter_edit.c:682
 msgid "Move to"
 msgstr "Taşı"
 
-#: src/prefs_filter_edit.c:670
+#: src/prefs_filter_edit.c:683
 msgid "Copy to"
 msgstr "Kopyala"
 
-#: src/prefs_filter_edit.c:671
+#: src/prefs_filter_edit.c:684
 msgid "Don't receive"
 msgstr "Alma"
 
-#: src/prefs_filter_edit.c:672
+#: src/prefs_filter_edit.c:685
 msgid "Delete from server"
 msgstr "Sunucudan sil"
 
-#: src/prefs_filter_edit.c:675
+#: src/prefs_filter_edit.c:688
 msgid "Set mark"
 msgstr "İşaretle"
 
-#: src/prefs_filter_edit.c:676
+#: src/prefs_filter_edit.c:689
 msgid "Set color"
 msgstr "Renk ata"
 
-#: src/prefs_filter_edit.c:677
+#: src/prefs_filter_edit.c:690
 msgid "Mark as read"
 msgstr "Okunmuş olarak işaretle"
 
-#: src/prefs_filter_edit.c:681 src/prefs_toolbar.c:62
+#: src/prefs_filter_edit.c:694 src/prefs_toolbar.c:62
 msgid "Forward"
 msgstr "Yönlendir"
 
-#: src/prefs_filter_edit.c:682
+#: src/prefs_filter_edit.c:695
 msgid "Forward as attachment"
 msgstr "Ek olarak yönlendir"
 
-#: src/prefs_filter_edit.c:683
+#: src/prefs_filter_edit.c:696
 msgid "Redirect"
 msgstr "Yeniden yönlendir"
 
-#: src/prefs_filter_edit.c:687
+#: src/prefs_filter_edit.c:700
 msgid "Execute command"
 msgstr "Komut çalıştır"
 
-#: src/prefs_filter_edit.c:690
+#: src/prefs_filter_edit.c:703
 msgid "Stop rule evaluation"
 msgstr "Kural dönüşümünü durdur"
 
-#: src/prefs_filter_edit.c:696 src/prefs_filter_edit.c:1059
+#: src/prefs_filter_edit.c:709 src/prefs_filter_edit.c:1102
 msgid "folder:"
 msgstr "dizin:"
 
-#: src/prefs_filter_edit.c:1020
+#: src/prefs_filter_edit.c:1063
 #, fuzzy
 msgid "day(s)"
-msgstr "gün sonra sil"
+msgstr "gün"
 
-#: src/prefs_filter_edit.c:1099
+#: src/prefs_filter_edit.c:1142
 msgid "address:"
-msgstr "Adres"
+msgstr "adres:"
 
-#: src/prefs_filter_edit.c:1516
+#: src/prefs_filter_edit.c:1559
 msgid "Edit header list"
 msgstr "Başlık listesini düzenle"
 
-#: src/prefs_filter_edit.c:1539
+#: src/prefs_filter_edit.c:1582
 msgid "Headers"
 msgstr "Başlıklar"
 
-#: src/prefs_filter_edit.c:1551
+#: src/prefs_filter_edit.c:1594
 msgid "Header:"
 msgstr "Başlık:"
 
-#: src/prefs_filter_edit.c:1738 src/prefs_filter_edit.c:1836
-#: src/prefs_filter_edit.c:1843
+#: src/prefs_filter_edit.c:1788 src/prefs_filter_edit.c:1886
+#: src/prefs_filter_edit.c:1893
 msgid "Command is not specified."
 msgstr "Komut belirtilmedi."
 
-#: src/prefs_filter_edit.c:1816 src/prefs_filter_edit.c:1823
+#: src/prefs_filter_edit.c:1866 src/prefs_filter_edit.c:1873
 msgid "Destination folder is not specified."
 msgstr "Hedef dizin belirtilmedi."
 
-#: src/prefs_filter_edit.c:1893
+#: src/prefs_filter_edit.c:1943
 msgid "Invalid condition exists."
 msgstr "Geçersiz durum bulunuyor."
 
-#: src/prefs_filter_edit.c:1916
+#: src/prefs_filter_edit.c:1966
 msgid "Rule name is not specified."
 msgstr "Kural adı belirtilmedi."
 
-#: src/prefs_filter_edit.c:1942
+#: src/prefs_filter_edit.c:1992
 msgid "Invalid action exists."
 msgstr "Geçersiz eylem bulunuyor."
 
-#: src/prefs_filter_edit.c:1951
+#: src/prefs_filter_edit.c:2001
 msgid "Condition not exist."
 msgstr "Durum bulunamadı."
 
-#: src/prefs_filter_edit.c:1953
+#: src/prefs_filter_edit.c:2003
 msgid "Action not exist."
 msgstr "Eylem bulunamadı."
 
@@ -6255,7 +6279,7 @@ msgstr "Yanıtla:"
 #: src/prefs_search_folder.c:164
 #, c-format
 msgid "%s - Edit search condition"
-msgstr ""
+msgstr "%s - Arama durumunu düzenle"
 
 #: src/prefs_search_folder.c:209 src/query_search.c:276
 msgid "Match any of the following"
@@ -6266,14 +6290,12 @@ msgid "Match all of the following"
 msgstr "Aşağıdaki tüm koşullar eşleşirse"
 
 #: src/prefs_search_folder.c:231 src/query_search.c:322
-#, fuzzy
 msgid "Folder:"
-msgstr "Dizin"
+msgstr "Dizin:"
 
 #: src/prefs_search_folder.c:248 src/query_search.c:340
-#, fuzzy
 msgid "Search subfolders"
-msgstr "Aramada hata oluştu"
+msgstr "Alt dizinleri ara"
 
 #: src/prefs_summary_column.c:66
 msgid "Mark"
@@ -6309,26 +6331,24 @@ msgstr "Numara"
 
 #. S_COL_NUMBER
 #: src/prefs_summary_column.c:74 src/summaryview.c:5168
-#, fuzzy
 msgid "To"
-msgstr "Kime:"
+msgstr "Kime"
 
 #: src/prefs_summary_column.c:183
 msgid "Creating summary column setting window...\n"
-msgstr "Özet satırı aar penceresi yaratılıyor...\n"
+msgstr "Özet sütunu ayar penceresi yaratılıyor...\n"
 
 #: src/prefs_summary_column.c:192
 msgid "Summary display item setting"
 msgstr "Özet görünüm nesne ayarları"
 
 #: src/prefs_summary_column.c:207
-#, fuzzy
 msgid ""
 "Select items to be displayed on the summary view. You can modify\n"
 "the order by using the Up / Down button."
 msgstr ""
 "Özet görünümde gösterilecek nesneleri seçiniz. Ayrıca Yukarı/Aşağı\n"
-"tuşlarını kullanarak bu nesneleri sıralayabilirsiniz."
+"tuşlarını kullanarak bu nesneleri sıralamasını değiştirebilirsiniz."
 
 #: src/prefs_template.c:164
 msgid "Template name"
@@ -6371,9 +6391,8 @@ msgid "Do you really want to delete this template?"
 msgstr "Gerçekten bu şablonu silmek istiyor musunuz?"
 
 #: src/prefs_toolbar.c:39
-#, fuzzy
 msgid "---- Separator ----"
-msgstr "İmza ayıracı"
+msgstr "---- Ayıraç ----"
 
 #: src/prefs_toolbar.c:41
 msgid "Get"
@@ -6392,14 +6411,12 @@ msgid "Incorporate new mail of all accounts"
 msgstr "Tüm hesaplardaki postaları dağıt"
 
 #: src/prefs_toolbar.c:47
-#, fuzzy
 msgid "Remote mailbox"
-msgstr "Posta kutusunu sil"
+msgstr "Uzak posta kutusu"
 
 #: src/prefs_toolbar.c:48
-#, fuzzy
 msgid "POP3 Remote mailbox"
-msgstr "Posta kutusunu sil"
+msgstr "POP3 Uzak posta kutusu"
 
 #: src/prefs_toolbar.c:51
 msgid "Send queued message(s)"
@@ -6528,9 +6545,8 @@ msgid "Attach file"
 msgstr "Dosya ekle"
 
 #: src/prefs_toolbar.c:118
-#, fuzzy
 msgid "Append signature"
-msgstr "KÖTÜ imza"
+msgstr "İmza ekle"
 
 #: src/prefs_toolbar.c:121
 msgid "Edit with external editor"
@@ -6547,7 +6563,7 @@ msgstr "Tüm uzun satırları kaydır"
 #: src/prefs_toolbar.c:227
 #, fuzzy
 msgid "Customize toolbar"
-msgstr "/_Görünüm/_Git/_Başka dizine git..."
+msgstr "Araç çubuğunu uyarla"
 
 #: src/prefs_toolbar.c:229
 #, fuzzy
@@ -6555,17 +6571,16 @@ msgid ""
 "Select items to be displayed on the toolbar. You can modify\n"
 "the order by using the Up / Down button."
 msgstr ""
-"Özet görünümde gösterilecek nesneleri seçiniz. Ayrıca Yukarı/Aşağı\n"
+"Araç çubuğunda gösterilecek nesneleri seçiniz. Ayrıca Yukarı/Aşağı\n"
 "tuşlarını kullanarak bu nesneleri sıralayabilirsiniz."
 
 #: src/printing.c:523
 msgid "The message will be printed with the following command:"
-msgstr ""
+msgstr "Bu mesaj beraberinde şu komut ile yazdırılacaktır:"
 
 #: src/printing.c:524
-#, fuzzy
 msgid "(Default print command)"
-msgstr "Komut çalıştır"
+msgstr "(Öntanımlı yazdır komutu)"
 
 #: src/printing.c:534
 #, c-format
@@ -6583,97 +6598,97 @@ msgstr "Durum"
 #: src/progressdialog.c:107
 #, fuzzy
 msgid "Progress"
-msgstr "Özellikler"
+msgstr "İlerleme"
 
 #: src/query_search.c:425
 #, fuzzy
 msgid "_Save as search folder"
-msgstr "Taslak dizinine kaydet"
+msgstr "_Arama dizini olarak kaydet"
 
 #: src/query_search.c:547
-#, fuzzy, c-format
+#, c-format
 msgid "Message not found."
-msgstr "%d ileti bulundu.\n"
+msgstr "Mesaj bulunamadı."
 
 #: src/query_search.c:549
-#, fuzzy, c-format
+#, c-format
 msgid "1 message found."
-msgstr "%d ileti bulundu.\n"
+msgstr "1 ileti bulundu."
 
 #: src/query_search.c:551
-#, fuzzy, c-format
+#, c-format
 msgid "%d messages found."
-msgstr "%d ileti bulundu.\n"
+msgstr "%d ileti bulundu."
 
 #: src/query_search.c:586
-#, fuzzy, c-format
+#, c-format
 msgid "Searching %s (%d / %d)..."
-msgstr "Filtreleniyor..."
+msgstr "Arıyor %s (%d / %d)..."
 
 #: src/query_search.c:708
 #, fuzzy, c-format
 msgid "Searching %s ..."
-msgstr "%s dizini taranıyor..."
+msgstr "Arıyor %s..."
 
 #: src/query_search.c:799 src/rpop3.c:676 src/summaryview.c:2221
 msgid "(No Date)"
 msgstr "(Tarih Yok)"
 
-#: src/query_search.c:993
-#, fuzzy
+#: src/query_search.c:994
 msgid "Save as search folder"
-msgstr "Taslak dizinine kaydet"
+msgstr "Arama dizini olarak kaydet"
 
-#: src/query_search.c:1014
+#: src/query_search.c:1015
 msgid "Location:"
 msgstr ""
 
-#: src/query_search.c:1029
+#: src/query_search.c:1030
 #, fuzzy
 msgid "Folder name:"
 msgstr "Dosya adı"
 
-#: src/quick_search.c:107
+#: src/quick_search.c:109
 msgid "All"
-msgstr ""
+msgstr "Hepsi"
 
-#: src/quick_search.c:110
-#, fuzzy
+#: src/quick_search.c:112
 msgid "Have color label"
-msgstr "/_Renk etiketi"
-
-#: src/quick_search.c:111
-#, fuzzy
-msgid "Have attachment"
-msgstr "Ek"
+msgstr "Renk etiketi olan"
 
 #: src/quick_search.c:113
-msgid "Within 1 day"
-msgstr ""
-
-#: src/quick_search.c:114
-#, fuzzy
-msgid "Last 5 days"
-msgstr "Soyadı"
+msgid "Have attachment"
+msgstr "Eklentisi olan"
 
 #: src/quick_search.c:115
-#, fuzzy
-msgid "Last 7 days"
-msgstr "Soyadı"
+msgid "Within 1 day"
+msgstr "Son 1 günde"
 
-#: src/quick_search.c:146 src/quick_search.c:355
+#: src/quick_search.c:116
+msgid "Last 5 days"
+msgstr "Son 5 günde"
+
+#: src/quick_search.c:117
+msgid "Last 7 days"
+msgstr "Son 7 günde"
+
+#: src/quick_search.c:119
+#, fuzzy
+msgid "In addressbook"
+msgstr "Adres defterinde"
+
+#: src/quick_search.c:150 src/quick_search.c:378
 msgid "Search for Subject or From"
 msgstr ""
 
-#: src/quick_search.c:310
+#: src/quick_search.c:333
 #, c-format
 msgid "%1$d in %2$d matched"
-msgstr ""
+msgstr "%1$d içinde %2$d eşleşme"
 
-#: src/quick_search.c:313
+#: src/quick_search.c:336
 #, fuzzy, c-format
 msgid "No messages matched"
-msgstr "Yeni ileti yok."
+msgstr "Hiçbir mesaj eşleşmedi"
 
 #: src/rfc2015.c:144
 msgid "Cannot find user ID for this key."
@@ -6696,7 +6711,7 @@ msgstr "İmza doğrulanırken hata"
 #: src/rpop3.c:242
 #, fuzzy
 msgid "_File"
-msgstr "/_Dosya"
+msgstr "_Dosya"
 
 #: src/rpop3.c:243 src/rpop3.c:436
 #, fuzzy
@@ -6706,17 +6721,17 @@ msgstr "Al"
 #: src/rpop3.c:248
 #, fuzzy
 msgid "_Help"
-msgstr "/_Yardım"
+msgstr "_Yardım"
 
 #: src/rpop3.c:249
 #, fuzzy
 msgid "_About"
-msgstr "Hakkında"
+msgstr "_Hakkında"
 
 #: src/rpop3.c:338
-#, fuzzy, c-format
+#, c-format
 msgid "%s - POP3 Remote mailbox"
-msgstr "Posta kutusunu sil"
+msgstr "%s - POP3 Uzak posta kutusu"
 
 #: src/rpop3.c:414 src/summaryview.c:5166
 msgid "No."
@@ -6725,34 +6740,35 @@ msgstr "Hayır."
 #: src/rpop3.c:497
 #, fuzzy, c-format
 msgid "Connecting to %s:%d ..."
-msgstr "SMTP sunucuya bağlantı kuruluyor: %s ..."
+msgstr "Bağlanıyor %s:%d ..."
 
 #: src/rpop3.c:502 src/rpop3.c:556 src/rpop3.c:559
-#, fuzzy, c-format
+#, c-format
 msgid "Can't connect to POP3 server: %s:%d"
-msgstr "POP3 sunucuya bağlantı kurulamadı: %s:%d\n"
+msgstr "POP3 sunucusuna bağlantı kurulamadı: %s:%d"
 
 #: src/rpop3.c:530 src/rpop3.c:536 src/rpop3.c:563 src/rpop3.c:565
-#, fuzzy
 msgid "Error occurred during POP3 session."
-msgstr "POP3 oturumunda hata oluştu\n"
+msgstr "POP3 oturumunda hata oluştu."
 
 #: src/rpop3.c:533
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Error occurred during POP3 session:\n"
 "%s"
-msgstr "POP3 oturumunda hata oluştu\n"
+msgstr ""
+"POP3 oturumunda hata oluştu:\n"
+"%s"
 
 #: src/rpop3.c:690
-#, fuzzy, c-format
+#, c-format
 msgid "Retrieving message headers (%d / %d) ..."
-msgstr "İleti gönderiliyor (%d / %d bayt)"
+msgstr "İleti başlıkları alınıyor (%d / %d) ..."
 
 #: src/rpop3.c:853
 #, fuzzy
 msgid "Getting the number of messages..."
-msgstr "Yeni ileti numaraları alınıyor (STAT)..."
+msgstr "Mesaj sayısı alınıyor..."
 
 #: src/rpop3.c:862 src/rpop3.c:875
 #, fuzzy
@@ -6762,7 +6778,7 @@ msgstr "Yeni ileti yok."
 #: src/rpop3.c:908
 #, fuzzy, c-format
 msgid "Deleted %d messages"
-msgstr "İletileri  sil"
+msgstr "%d mesaj silindi"
 
 #: src/rpop3.c:951 src/rpop3.c:963 src/rpop3.c:1021 src/rpop3.c:1219
 #: src/send_message.c:834
@@ -6771,9 +6787,9 @@ msgid "Quitting..."
 msgstr "Çıkılıyor..."
 
 #: src/rpop3.c:1006
-#, fuzzy, c-format
+#, c-format
 msgid "Retrieved %d messages"
-msgstr "Yeni iletiler alınıyor"
+msgstr "%d ileti alınıdı"
 
 #: src/rpop3.c:1013
 #, fuzzy, c-format
@@ -6783,23 +6799,25 @@ msgstr "İletiyi gönder"
 #: src/rpop3.c:1029
 #, fuzzy, c-format
 msgid "Retrieved %d message headers"
-msgstr "Yeni iletiler alınıyor"
+msgstr "%d mesaj başlığı alındı"
 
 #: src/rpop3.c:1145
 #, fuzzy, c-format
 msgid "Retrieving message %d ..."
-msgstr "%s konumundan iletiler alınıyor..."
+msgstr "İleti alınıyor %d ..."
 
 #: src/rpop3.c:1171
-#, fuzzy
 msgid "Delete messages"
-msgstr "İletileri  sil"
+msgstr "İletileri sil"
 
 #: src/rpop3.c:1172
+#, fuzzy
 msgid ""
 "Really delete selected messages from server?\n"
 "This operation cannot be reverted."
 msgstr ""
+"Seçili mesajları sunucudan silmek istediğinizden emin misiniz?\n"
+"Bu işlem geri alınamaz."
 
 #: src/select-keys.c:96
 #, c-format
@@ -6853,14 +6871,14 @@ msgid "Sending message using command: %s\n"
 msgstr "İleti gönderiliyor (%d / %d bayt)"
 
 #: src/send_message.c:568
-#, fuzzy, c-format
+#, c-format
 msgid "Can't execute command: %s"
-msgstr "Komut çalıştır"
+msgstr "Komut çalıştırılamıyor: %s"
 
 #: src/send_message.c:603
 #, fuzzy, c-format
 msgid "Error occurred while executing command: %s"
-msgstr "Komut gönderilirken hata oluştu\n"
+msgstr "Komut çalıştırılırken hata oluştu: %s"
 
 #: src/send_message.c:720
 msgid "Connecting"
@@ -6942,156 +6960,160 @@ msgstr ""
 "%s"
 
 #: src/send_message.c:969
-#, fuzzy
 msgid "Can't connect to SMTP server."
-msgstr "NNTP sunucuya bağlantı yapılamadı: %s:%d\n"
+msgstr "SMTP sunucusuna bağlantı yapılamadı."
 
 #: src/send_message.c:971
-#, fuzzy, c-format
+#, c-format
 msgid "Can't connect to SMTP server: %s:%d"
-msgstr "NNTP sunucuya bağlantı yapılamadı: %s:%d\n"
+msgstr "SMTP sunucusuna bağlantı yapılamadı: %s:%d"
 
-#: src/setup.c:113 src/setup.c:137
+#: src/setup.c:116 src/setup.c:140
 msgid "Mailbox setting"
 msgstr "Posta kutusu ayarları"
 
-#: src/setup.c:156
+#: src/setup.c:159
+#, fuzzy
 msgid "This dialog will make initial setup of mailbox."
-msgstr ""
+msgstr "Bu diyalog posta kutunuzun başlangıç ayarlarını yapacaktır."
 
-#: src/setup.c:170
+#: src/setup.c:173
 #, fuzzy
 msgid "Create mailbox at the following default location:"
 msgstr "Aşağıdaki eylemleri gerçekleştir:"
 
-#: src/setup.c:190
+#: src/setup.c:193
+#, fuzzy
 msgid ""
 "Create mailbox at the following location:\n"
 "(enter folder name or full folder path)"
 msgstr ""
+"Şu adreste posta kutusunu oluştur:\n"
+"(dizin adın veya dizinin tam yolunu giriniz)"
 
-#: src/setup.c:208
+#: src/setup.c:211
 msgid ""
 "If you want to add a mailbox at another location afterward, please select "
 "'File - Mailbox - Add mailbox...' in the menu."
 msgstr ""
 
-#: src/setup.c:231 src/setup.c:455
+#: src/setup.c:234 src/setup.c:470
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/setup.c:231
+#: src/setup.c:234
+#, fuzzy
 msgid "Continue without creating mailbox?"
-msgstr ""
+msgstr "Posta kutusunu oluşturmadan devam edeyim mi?"
 
-#: src/setup.c:241
+#: src/setup.c:244
 msgid "Please input folder name or full folder path."
-msgstr ""
+msgstr "Lütfen dizin adını veya tam dizin yolunu giriniz."
 
-#: src/setup.c:250
+#: src/setup.c:253
 #, fuzzy, c-format
 msgid "The mailbox '%s' already exists."
 msgstr "`%s' posta kutusu zaten var."
 
-#: src/setup.c:256
+#: src/setup.c:259
 #, c-format
 msgid ""
 "The location '%s' includes settings folder. Please specify another location."
 msgstr ""
+"Bu adres '%s' ayar dizinini içeriyor. Lütfen başka bir adres belirtiniz."
 
-#: src/setup.c:455
+#: src/setup.c:470
 #, fuzzy
 msgid "Cancel mail account setup?"
 msgstr "Hesap ayarları"
 
-#: src/setup.c:473 src/setup.c:481
+#: src/setup.c:490 src/setup.c:498
 #, fuzzy
 msgid "Input value is not valid."
 msgstr "Menü adı belirtilmedi."
 
-#: src/setup.c:509 src/setup.c:517 src/setup.c:553 src/setup.c:561
-#: src/setup.c:783 src/setup.c:861
-#, fuzzy
+#: src/setup.c:529 src/setup.c:544 src/setup.c:580 src/setup.c:602
+#: src/setup.c:823 src/setup.c:905
 msgid "POP3 server:"
-msgstr "LDAP Sunucu"
+msgstr "POP3 sunucusu:"
 
-#: src/setup.c:525 src/setup.c:533 src/setup.c:569 src/setup.c:577
-#, fuzzy
+#: src/setup.c:535 src/setup.c:554 src/setup.c:593 src/setup.c:610
 msgid "IMAP4 server:"
-msgstr "LDAP Sunucu"
+msgstr "IMAP4 sunucusu:"
 
-#: src/setup.c:631 src/setup.c:667
-#, fuzzy
+#: src/setup.c:669 src/setup.c:705
 msgid "New account setup"
-msgstr "Hesap ayarları"
+msgstr "Yeni hesap ayarları"
 
-#: src/setup.c:686
+#: src/setup.c:724
+#, fuzzy
 msgid "This dialog will make initial setup of new mail account."
-msgstr ""
+msgstr "Bu diyalog posta hesabınızın başlangıç ayarlarını yapacaktır."
 
-#: src/setup.c:709
-#, fuzzy
+#: src/setup.c:747
 msgid "Select account type:"
-msgstr "Hesabı sil"
+msgstr "Hesap türünü seç:"
 
-#: src/setup.c:730
-#, fuzzy
+#: src/setup.c:770
 msgid "Input your name and mail address:"
-msgstr "Anahtarı e-posta adresine göre seç"
+msgstr "Adınızı ve posta adresinizi girin:"
 
-#: src/setup.c:739 src/setup.c:849
+#: src/setup.c:779 src/setup.c:893
 #, fuzzy
 msgid "Display name:"
-msgstr "Görüntülenecek İsim"
+msgstr "Görüntülenecek isim:"
 
-#: src/setup.c:743 src/setup.c:853
+#: src/setup.c:783 src/setup.c:897
 #, fuzzy
 msgid "E-mail address:"
 msgstr "İleti adresi"
 
-#: src/setup.c:759
+#: src/setup.c:799
+#, fuzzy
 msgid "This name will be seen at the side of recipients (e.g. John Doe)"
-msgstr ""
+msgstr "Bu isim alıcıların tarafında görünecektir (örn: John Doe)"
 
-#: src/setup.c:770
+#: src/setup.c:810
 msgid "Input user ID and mail server:"
 msgstr ""
 
-#: src/setup.c:779 src/setup.c:857
+#: src/setup.c:819 src/setup.c:901
 #, fuzzy
 msgid "User ID:"
-msgstr "Kullanıcı adı"
+msgstr "Kullanıcı Adı:"
 
-#: src/setup.c:788 src/setup.c:865
-#, fuzzy
+#: src/setup.c:828 src/setup.c:909
 msgid "SMTP server:"
-msgstr "Gönderme için SMTP sunucu"
+msgstr "SMTP sunucusu:"
 
-#: src/setup.c:812 src/setup.c:822
-#, fuzzy
+#: src/setup.c:853 src/setup.c:865
 msgid "Use SSL"
-msgstr "SSL"
+msgstr "SSL kullan"
 
-#: src/setup.c:819
+#: src/setup.c:861
 #, fuzzy
 msgid "Use SMTP authentication"
-msgstr "Kimlik denetimi"
+msgstr "SMTP yetkilendirmesi kullan"
 
-#: src/setup.c:834
+#: src/setup.c:878
+#, fuzzy
 msgid "Your new mail accout has been set up with the following setting."
-msgstr ""
+msgstr "Yeni posta hesabınız şu ayarlar ile oluşturuldu."
 
-#: src/setup.c:837
+#: src/setup.c:881
+#, fuzzy
 msgid ""
 "If you want to modify the settings, select\n"
 "'Configuration - Preferences for current account' or\n"
 "'Configuration - Edit accounts' in the main menu."
 msgstr ""
+"Ayarları değiştirmek isterseniz, ana menüden\n"
+"'Yapılandırma - Güncel hesap tercihleri' veya\n"
+"'Yapılandırma - Hesapları düzenle'yi seçiniz."
 
 #: src/sigstatus.c:116
-#, fuzzy
 msgid "Signature check result"
-msgstr "İmza kontrol sonuçlarını ek pencerede göster"
+msgstr "İmza kontrol sonuçları"
 
 #: src/sigstatus.c:135
 msgid "Checking signature"
@@ -7118,11 +7140,12 @@ msgstr "İyi imza"
 #: src/sigstatus.c:248
 #, c-format
 msgid "Valid signature but the key for \"%s\" is not trusted"
-msgstr ""
+msgstr "İmza geçerli fakat anahtar \"%s\" güvenilir değil"
 
 #: src/sigstatus.c:249 src/textview.c:778
+#, fuzzy
 msgid "Valid signature (untrusted key)"
-msgstr ""
+msgstr "Geçerli imza (güvenilir olmayan anahtar)"
 
 #: src/sigstatus.c:254
 #, c-format
@@ -7185,17 +7208,17 @@ msgstr "%s - Kaynak"
 
 #: src/sslmanager.c:67
 msgid "SSL certificate verify failed"
-msgstr ""
+msgstr "SSL sertifikası doğrulaması başarısız"
 
 #: src/sslmanager.c:99
-#, c-format
+#, fuzzy, c-format
 msgid "The SSL certificate of %s cannot be verified by the following reason:"
-msgstr ""
+msgstr "SSL sertifikası %s şu sebepten dolayı doğrulanamadı:"
 
 #: src/sslmanager.c:101
-#, fuzzy, c-format
+#, c-format
 msgid "Subject: %s\n"
-msgstr "  Konu: %s\n"
+msgstr "Konu: %s\n"
 
 #: src/sslmanager.c:102
 #, fuzzy, c-format
@@ -7218,22 +7241,22 @@ msgid "SHA1 fingerprint: %s\n"
 msgstr "Anahtar sorgusu çıktısı: %s\n"
 
 #: src/sslmanager.c:107
-#, fuzzy, c-format
+#, c-format
 msgid "MD5 fingerprint: %s\n"
-msgstr "Anahtar sorgusu çıktısı: %s\n"
+msgstr "MD5 parmakizi: %s\n"
 
 #: src/sslmanager.c:109
 msgid "Do you accept this certificate?"
-msgstr ""
+msgstr "Bu sertifikayı kabul ediyor musunuz?"
 
 #: src/sslmanager.c:184 src/sslmanager.c:192
-#, fuzzy
 msgid "_Reject"
-msgstr "Yeniden yönlendir"
+msgstr "_Reddet"
 
 #: src/sslmanager.c:185 src/sslmanager.c:191
+#, fuzzy
 msgid "_Temporarily accept"
-msgstr ""
+msgstr "_Geçici olarak kabul et"
 
 #: src/sslmanager.c:186 src/sslmanager.c:190
 #, fuzzy
@@ -7593,7 +7616,7 @@ msgstr "Hedef dizin şuanki dizinle aynı."
 #: src/summaryview.c:3481
 #, fuzzy
 msgid "Select folder to move"
-msgstr "Dizini seç"
+msgstr "Taşınacak dizini seç"
 
 #: src/summaryview.c:3511
 #, c-format
@@ -7624,7 +7647,7 @@ msgstr "Konumlar ayrılıyor..."
 #: src/summaryview.c:4474 src/summaryview.c:4535
 #, fuzzy, c-format
 msgid "Filtering (%d / %d)..."
-msgstr "Filtreleniyor..."
+msgstr "Filtreleniyor (%d / %d)..."
 
 #: src/summaryview.c:4600
 msgid "filtering..."
@@ -7705,7 +7728,7 @@ msgstr ""
 
 #: src/textview.c:2179
 msgid "Fake URL warning"
-msgstr ""
+msgstr "Sahte URL uyarısı"
 
 #: src/trayicon.c:139
 #, fuzzy
@@ -7735,7 +7758,7 @@ msgstr "Çık"
 #: src/trayicon.c:198 src/trayicon.c:290
 #, fuzzy
 msgid "Sylpheed"
-msgstr "Eski Sylpheed"
+msgstr "Sylpheed"
 
 #: src/update_check.c:116 src/update_check.c:121
 msgid ""
@@ -7760,393 +7783,4 @@ msgstr "Başka bir Sylpheed sistemde çalışıyor.\n"
 
 #: src/update_check.c:227
 msgid "Couldn't get the version information."
-msgstr ""
-
-#~ msgid "Reply button invokes mailing list reply"
-#~ msgstr "Yanıtla tuşu eposta listelerine de yanıtlasın"
-
-#, fuzzy
-#~ msgid "Select directory"
-#~ msgstr "Dizini seç"
-
-#, fuzzy
-#~ msgid ""
-#~ "Specify the location of mailbox.\n"
-#~ "If you are unsure, just select OK."
-#~ msgstr ""
-#~ "Posta kutusunun konumunu giriniz.\n"
-#~ "Eğer varolan potsa kutusu verilirse, otomatik\n"
-#~ "olarak taranacaktır."
-
-#~ msgid "Lookup"
-#~ msgstr "Ara"
-
-#~ msgid "Can't open mark file.\n"
-#~ msgstr "işaretli dosya açılamadı.\n"
-
-#~ msgid "g_thread is not supported by glib.\n"
-#~ msgstr "g_thread, glib tarafından desteklenmiyor.\n"
-
-#~ msgid "Importing file:"
-#~ msgstr "Dosya aktarılıyor:"
-
-#, fuzzy
-#~ msgid "eml (file)"
-#~ msgstr "Dosya seç"
-
-#~ msgid "Specify target folder and mbox file."
-#~ msgstr "Lütfen hedef dizini ve mbox dosyasını belirtin."
-
-#~ msgid "Exporting file:"
-#~ msgstr "Dosya aktarılıyor:"
-
-#~ msgid "Creating progress dialog...\n"
-#~ msgstr "İşlem durum penceresi oluşturuluyor...\n"
-
-#~ msgid "Yes"
-#~ msgstr "Evet"
-
-#~ msgid "No"
-#~ msgstr "Hayır"
-
-#~ msgid "%d messages found.\n"
-#~ msgstr "%d ileti bulundu.\n"
-
-#~ msgid "Done (no new messages)"
-#~ msgstr "Tamamlandı (Yeni ileti yok)"
-
-#~ msgid "Retrieving (%d message(s) (%s) received)"
-#~ msgstr "Alınıyor (%d mesaj, (%s) alındı)"
-
-#, fuzzy
-#~ msgid "Can't sign the message"
-#~ msgstr "İleti kuyruğa gönderilemedi."
-
-#~ msgid "Changing window separation type from %d to %d\n"
-#~ msgstr "Pencere ayırma tarzı %d den %d e çevriliyor\n"
-
-#~ msgid "Overwrite"
-#~ msgstr "Üzerine yaz"
-
-#~ msgid "Edit address"
-#~ msgstr "Adresi Düzenle"
-
-#~ msgid " -> "
-#~ msgstr " -> "
-
-#~ msgid " <- "
-#~ msgstr " <- "
-
-#~ msgid "#"
-#~ msgstr "#"
-
-#~ msgid ""
-#~ "Select items to be displayed on the summary view. You can modify\n"
-#~ "the order by using the Up / Down button, or dragging the items."
-#~ msgstr ""
-#~ "Özet görünümde gösterilecek nesneleri seçiniz. Ayrıca Yukarı/Aşağı\n"
-#~ "tuşlarını kullanarak bu nesneleri sıralayabilirsiniz."
-
-#~ msgid "/_Tools/E_xecute"
-#~ msgstr "/A_raçlar/Ç_alıştır"
-
-#~ msgid "SSL connect failed (%s)\n"
-#~ msgstr "SSL bağlantısında hata (%s)\n"
-
-#, fuzzy
-#~ msgid "/_View/Show all _headers"
-#~ msgstr "/_Görünüm/Tüm _başlıkları görüntüle"
-
-#~ msgid "/_View/_Source"
-#~ msgstr "/_Görünüm/_Kaynak"
-
-#~ msgid "Last number in dir %s = %d\n"
-#~ msgstr "Dizindeki son numara %s = %d\n"
-
-#~ msgid "MIME viewer command line is invalid: `%s'"
-#~ msgstr "MIME görüntüleyici komutu geçersiz: `%s'"
-
-#~ msgid "%dB"
-#~ msgstr "%dB"
-
-#~ msgid "%.1fKB"
-#~ msgstr "%.1fKB"
-
-#~ msgid "%.2fMB"
-#~ msgstr "%.2fMB"
-
-#~ msgid "%.2fGB"
-#~ msgstr "%.2fGB"
-
-#~ msgid "Insert signature"
-#~ msgstr "İmza ekle"
-
-#~ msgid "can't retrieve newsgroup list\n"
-#~ msgstr "haber grubu listesi alınamıyor\n"
-
-#, fuzzy
-#~ msgid "%s - Search folder properties"
-#~ msgstr " Dizin Ayarları"
-
-#~ msgid "Body:"
-#~ msgstr "Gövde:"
-
-#~ msgid "Beginning of list reached; continue from end?"
-#~ msgstr "Listesinin başına gelindi, sondan devam edilsin mi?"
-
-#~ msgid "End of list reached; continue from beginning?"
-#~ msgstr "Listenin sonuna gelindi, baştan devam edilsin mi?"
-
-#, fuzzy
-#~ msgid "Outgoing encoding"
-#~ msgstr "Giden ileti kod kümesi"
-
-#~ msgid "Quote"
-#~ msgstr "Alıntı"
-
-#~ msgid "Font"
-#~ msgstr "Yazıtipi"
-
-#~ msgid " [Edited]"
-#~ msgstr " [Düzenlendi]"
-
-#, fuzzy
-#~ msgid "Fallback encoding"
-#~ msgstr "Giden ileti kod kümesi"
-
-#~ msgid "Terminated process group id: %d"
-#~ msgstr "Grup numarası %d olan süreç sonlandırıldı"
-
-#~ msgid "Temporary file: %s"
-#~ msgstr "Geçici dosya: %s"
-
-#~ msgid "Compose: input from monitoring process\n"
-#~ msgstr "Düzenle: süreç görüntüsünü içer\n"
-
-#~ msgid "Couldn't exec external editor\n"
-#~ msgstr "Harici düzenleyici çalıştırılamadı\n"
-
-#~ msgid "Couldn't write to file\n"
-#~ msgstr "Dosyaya yazılamadı\n"
-
-#~ msgid "Pipe read failed\n"
-#~ msgstr "Boru okumada hata\n"
-
-#, fuzzy
-#~ msgid ""
-#~ "Filtered messages will be moved to the junk folder and deleted from the "
-#~ "server."
-#~ msgstr "(Filtrelenmemiş iletiler bu kutuda bekleyecektir)"
-
-#~ msgid ""
-#~ "Enter the print command line:\n"
-#~ "(`%s' will be replaced with file name)"
-#~ msgstr ""
-#~ "Yazdırma komutunu giriniz:\n"
-#~ "('%s' dosya adıyla değiştirilecek)"
-
-#~ msgid ""
-#~ "First, you have to set the location of mailbox.\n"
-#~ "You can use existing mailbox in MH format\n"
-#~ "if you have the one.\n"
-#~ "If you're not sure, just select OK."
-#~ msgstr ""
-#~ "Öncelikle posta kutusunun konumunu belirlemelisiniz.\n"
-#~ "Varolan posta kutunuzu MH formatında kullanabilirsiniz\n"
-#~ "Eğer emin değilseniz OK e basın."
-
-#~ msgid ""
-#~ "Select the preset of key bindings.\n"
-#~ "You can also modify each menu's shortcuts by pressing\n"
-#~ "any key(s) when placing the mouse pointer on the item."
-#~ msgstr ""
-#~ "Önceden belirlenmiş tuş kombinasyonlarını seçiniz\n"
-#~ "Ayrıca menüde mousunuzun imleci üzerindeyken herhangi bir tuşa\n"
-#~ "basarak nesnelerin kısayollarını değiştirebilirsiniz."
-
-#~ msgid "Compose message%s"
-#~ msgstr "İleti düzenle (%s)"
-
-#~ msgid "Translate header name (such as `From:', `Subject:')"
-#~ msgstr "Başlık adlarını çevir('Kimden','Konu' gibi)"
-
-#~ msgid "Font selection"
-#~ msgstr "Yazıtipi seçimi"
-
-#~ msgid "Empty messages in all trash?"
-#~ msgstr "Çöpteki tüm iletiler silinsin mi?"
-
-#~ msgid "+No"
-#~ msgstr "+Hayır"
-
-#~ msgid "Discard message"
-#~ msgstr "İletiyi sil"
-
-#~ msgid "Discard"
-#~ msgstr "Sil"
-
-#~ msgid "to Draft"
-#~ msgstr "Taslağa Gönder"
-
-#~ msgid "can't write headers\n"
-#~ msgstr "başlıklar yazılamadı\n"
-
-#~ msgid "External program"
-#~ msgstr "Harici program"
-
-#~ msgid "Local spool"
-#~ msgstr "Yerel spool"
-
-#~ msgid "Sending queued message %d failed.\n"
-#~ msgstr "Kuyrutaki ileti (%d) gönderilirken hata oluştu.\n"
-
-#~ msgid "Backward search"
-#~ msgstr "Eskileri arama"
-
-#~ msgid "Select all matched"
-#~ msgstr "Eşleşenlerin tamamını seç"
-
-#~ msgid "M"
-#~ msgstr "İ"
-
-#~ msgid "U"
-#~ msgstr "O"
-
-#~ msgid "Selecting all messages..."
-#~ msgstr "Tüm iletiler seçiliyor..."
-
-#~ msgid "Unthreading for execution..."
-#~ msgstr "İşlemler için ayrım yapılıyor..."
-
-#~ msgid "/_Edit/A_dvanced"
-#~ msgstr "/Dü_zenle/G_elişmiş"
-
-#~ msgid "/_Edit/A_dvanced/Move a character backward"
-#~ msgstr "/Dü_zenle/G_elişmiş/Bir karakteir geri taşı"
-
-#~ msgid "/_Edit/A_dvanced/Move a character forward"
-#~ msgstr "/Dü_zenle/G_elişmiş/Bir karakteri ileri taşı"
-
-#~ msgid "/_Edit/A_dvanced/Move a word backward"
-#~ msgstr "/Dü_zenle/G_elişmiş/Bir kelimeyi geri taşı"
-
-#~ msgid "/_Edit/A_dvanced/Move a word forward"
-#~ msgstr "/Dü_zenle/G_elişmiş/Bir kelimeyi ileri taşı"
-
-#~ msgid "/_Edit/A_dvanced/Move to beginning of line"
-#~ msgstr "/Dü_zenle/G_elişmiş/Satırın başına taşı"
-
-#~ msgid "/_Edit/A_dvanced/Move to end of line"
-#~ msgstr "/Dü_zenle/G_elişmiş/Satırın sonuna taşı"
-
-#~ msgid "/_Edit/A_dvanced/Move to previous line"
-#~ msgstr "/Dü_zenle/G_elişmiş/Önceki satıra taşı"
-
-#~ msgid "/_Edit/A_dvanced/Move to next line"
-#~ msgstr "/Dü_zenle/G_elişmiş/Sonraki satıra taşı"
-
-#~ msgid "/_Edit/A_dvanced/Delete a character backward"
-#~ msgstr "/Dü_zenle/G_elişmiş/Bir karakter gerisini sil"
-
-#~ msgid "/_Edit/A_dvanced/Delete a character forward"
-#~ msgstr "/Dü_zenle/G_elişmiş/Bir karakter ilerisini sil"
-
-#~ msgid "/_Edit/A_dvanced/Delete a word backward"
-#~ msgstr "/Dü_zenle/G_elişmiş/Bir kelime sonrasını sil"
-
-#~ msgid "/_Edit/A_dvanced/Delete a word forward"
-#~ msgstr "/Dü_zenle/G_elişmiş/Bir kelime öncesini sil"
-
-#~ msgid "/_Edit/A_dvanced/Delete line"
-#~ msgstr "/Dü_zenle/G_elişmiş/Satırı sil"
-
-#~ msgid "/_Edit/A_dvanced/Delete to end of line"
-#~ msgstr "/Dü_zenle/G_elişmiş/Satır sonunu sil"
-
-#~ msgid "Rebuilding all folder trees..."
-#~ msgstr "Tüm dizin ağaçları yeniden yaratılıyor..."
-
-#~ msgid "/_View/_Code set/---"
-#~ msgstr "/_Görünüm/_Kodlama/---"
-
-#~ msgid "/_View/_Code set"
-#~ msgstr "/_Görünüm/_Kodlama"
-
-#~ msgid "To save this part, pop up the context menu with "
-#~ msgstr "Bu bölümü kaydetmek için, üstteki pencerede işaretli "
-
-#~ msgid "right click and select `Save as...', "
-#~ msgstr "bölgeyi farenin sağ tuşu ile tıklayın ve `Farklı Kaydet'e, "
-
-#~ msgid "To display this part as a text message, select "
-#~ msgstr "Bu bölümü bir metin olarak görüntülemek için, `Metin olarak "
-
-#~ msgid ""
-#~ "`Display as text', or press `t' key.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "görüntüle'yi seçin, ya da `t' tuşuna tıklayın.\n"
-#~ "\n"
-
-#~ msgid "To open this part with external program, select "
-#~ msgstr "Bu bölümü harici bir programla açmak için, "
-
-#~ msgid "`Open' or `Open with...', "
-#~ msgstr "`Aç' ya da `Birlikte aç...'ı seçin, "
-
-#~ msgid "or double-click, or click the center button, "
-#~ msgstr "ya da çift tıklayın, ya da "
-
-#~ msgid "or press `l' key."
-#~ msgstr "`I' düğmesine basın."
-
-#~ msgid "To check it, pop up the context menu with\n"
-#~ msgstr "Kontrol etmek için, içerik menüsünü\n"
-
-#~ msgid "right click and select `Check signature'.\n"
-#~ msgstr "ile açın, sağ tıklayın ve 'İmzayı Kontrol Et'i seçin.\n"
-
-#~ msgid "Top"
-#~ msgstr "Üst"
-
-#~ msgid "Bottom"
-#~ msgstr "Alt"
-
-#~ msgid "Copy"
-#~ msgstr "Kopyala"
-
-#~ msgid "OK"
-#~ msgstr "Tamam"
-
-#~ msgid "Refresh"
-#~ msgstr "Yenile"
-
-#~ msgid "Apply"
-#~ msgstr "Uygula"
-
-#~ msgid "Oops: Signature not verified"
-#~ msgstr "Oops: İmza doğrulanamadı"
-
-#~ msgid "Different results for signatures"
-#~ msgstr "İmzalar için farklı sonuçlar"
-
-#~ msgid "Error: Unknown status"
-#~ msgstr "Hata: Bilinmeyen durum"
-
-#~ msgid "                aka \"%s\"\n"
-#~ msgstr "                aka \"%s\"\n"
-
-#~ msgid "Found label: %s\n"
-#~ msgstr "Etiket bulundu: %s\n"
-
-#~ msgid "Reading configuration...\n"
-#~ msgstr "Yapılandırma dosyası okunuyor...\n"
-
-#~ msgid "Finished reading configuration.\n"
-#~ msgstr "Yapılandırma dosyasının okunması tamamlandı.\n"
-
-#~ msgid "Leave space on head"
-#~ msgstr "Başta boşluk bırak"
-
-#~ msgid "Abcdef"
-#~ msgstr "Abcdef"
+msgstr "Sürüm bilgisi alınamadı."

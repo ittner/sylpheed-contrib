@@ -1,6 +1,6 @@
 /*
  * Sylpheed -- a GTK+ based, lightweight, and fast e-mail client
- * Copyright (C) 1999-2009 Hiroyuki Yamamoto
+ * Copyright (C) 1999-2010 Hiroyuki Yamamoto
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -333,6 +333,9 @@ static void addressbook_list_select_set		(GList		*row_list);
 static void addressbook_import_ldif_cb		(void);
 static void addressbook_import_csv_cb		(void);
 
+static void addressbook_modified		(void);
+
+
 static GtkItemFactoryEntry addressbook_entries[] =
 {
 	{N_("/_File"),			NULL,	NULL, 0, "<Branch>"},
@@ -407,6 +410,7 @@ static GtkItemFactoryEntry addressbook_list_popup_entries[] =
 	{N_("/_Copy"),		NULL, addressbook_copy_address_cb,  0, NULL},
 	{N_("/_Paste"),		NULL, addressbook_paste_address_cb, 0, NULL}
 };
+
 
 void addressbook_open(Compose *target)
 {
@@ -1067,6 +1071,7 @@ static void addressbook_del_clicked(GtkButton *button, gpointer data)
 		}
 		addressbook_list_select_clear();
 		addressbook_reopen();
+		addressbook_modified();
 		return;
 	} else if (pobj->type == ADDR_ITEM_GROUP) {
 		/* Items inside groups */
@@ -1987,6 +1992,7 @@ static void addressbook_new_address_cb(gpointer data, guint action, GtkWidget *w
 				if (gtkut_tree_row_reference_equal(addrbook.tree_selected, addrbook.tree_opened)) {
 					addressbook_reopen();
 				}
+				addressbook_modified();
 			}
 		}
 	}
@@ -1998,6 +2004,7 @@ static void addressbook_new_address_cb(gpointer data, guint action, GtkWidget *w
 			if (gtkut_tree_row_reference_equal(addrbook.tree_selected, addrbook.tree_opened)) {
 				addressbook_reopen();
 			}
+			addressbook_modified();
 		}
 	}
 	else if( pobj->type == ADDR_ITEM_GROUP ) {
@@ -2181,7 +2188,7 @@ static void addressbook_edit_address_cb(gpointer data, guint action, GtkWidget *
 			if (addressbook_edit_person(abf, NULL, person, TRUE) == NULL)
 				return;
 			addressbook_reopen();
-			invalidate_address_completion();
+			addressbook_modified();
 			return;
 		}
 	} else if (obj->type == ADDR_ITEM_PERSON) {
@@ -2191,7 +2198,7 @@ static void addressbook_edit_address_cb(gpointer data, guint action, GtkWidget *
 		if (addressbook_edit_person(abf, NULL, person, FALSE) == NULL)
 			return;
 		addressbook_reopen();
-		invalidate_address_completion();
+		addressbook_modified();
 		return;
 	} else if (obj->type == ADDR_ITEM_GROUP) {
 		ItemGroup *itemGrp = (ItemGroup *)obj;
@@ -2305,6 +2312,7 @@ static void addressbook_paste_address_cb(gpointer data, guint action,
 
 	if (gtkut_tree_row_reference_equal(addrbook.tree_selected, addrbook.tree_opened))
 		addressbook_reopen();
+	addressbook_modified();
 }
 
 static void close_cb(gpointer data, guint action, GtkWidget *widget)
@@ -3237,7 +3245,7 @@ void addressbook_export_to_file( void ) {
 		}
 
 		/* Notify address completion of new data */
-		invalidate_address_completion();
+		addressbook_modified();
 	}
 }
 
@@ -3433,6 +3441,7 @@ static void addressbook_new_vcard_cb(gpointer data, guint action, GtkWidget *wid
 		if (gtkut_tree_row_reference_equal(addrbook.tree_selected, addrbook.tree_opened)) {
 			addressbook_reopen();
 		}
+		addressbook_modified();
 	}
 }
 
@@ -4151,7 +4160,7 @@ static void addressbook_import_ldif_cb(void)
 	}
 
 	/* Notify address completion */
-	invalidate_address_completion();
+	addressbook_modified();
 }
 
 /*
@@ -4191,7 +4200,99 @@ static void addressbook_import_csv_cb(void)
 	}
 
 	/* Notify address completion */
+	addressbook_modified();
+}
+
+/* **********************************************************************
+* Address Book Fast Search.
+* ***********************************************************************
+*/
+
+static GHashTable *addr_table;
+
+#if USE_THREADS
+G_LOCK_DEFINE_STATIC(addr_table);
+#define S_LOCK(name)	G_LOCK(name)
+#define S_UNLOCK(name)	G_UNLOCK(name)
+#else
+#define S_LOCK(name)
+#define S_UNLOCK(name)
+#endif
+
+static gint load_address(const gchar *name, const gchar *address,
+			 const gchar *nickname)
+{
+	gchar *addr;
+
+	if (!address)
+		return -1;
+
+	addr = g_ascii_strdown(address, -1);
+
+	if (g_hash_table_lookup(addr_table, addr) == NULL)
+		g_hash_table_insert(addr_table, addr, addr);
+	else
+		g_free(addr);
+
+	return 0;
+}
+
+static void addressbook_modified(void)
+{
+	S_LOCK(addr_table);
+
+	if (addr_table) {
+		hash_free_strings(addr_table);
+		g_hash_table_destroy(addr_table);
+		addr_table = NULL;
+	}
+
+	S_UNLOCK(addr_table);
+
 	invalidate_address_completion();
+}
+
+gboolean addressbook_has_address(const gchar *address)
+{
+	GSList *list, *cur;
+	gchar *addr;
+	gboolean found = FALSE;
+
+	if (!address)
+		return FALSE;
+
+	/* debug_print("addressbook_has_address: check if addressbook has address: %s\n", address); */
+
+	list = address_list_append(NULL, address);
+	if (!list)
+		return FALSE;
+
+	S_LOCK(addr_table);
+
+	if (!addr_table) {
+		addr_table = g_hash_table_new(g_str_hash, g_str_equal);
+		addressbook_load_completion(load_address);
+	}
+
+	for (cur = list; cur != NULL; cur = cur->next) {
+		addr = g_ascii_strdown((gchar *)cur->data, -1);
+
+		if (g_hash_table_lookup(addr_table, addr)) {
+			found = TRUE;
+			/* debug_print("<%s> is in addressbook\n", addr); */
+		} else {
+			found = FALSE;
+			g_free(addr);
+			break;
+		}
+		g_free(addr);
+	}
+
+	S_UNLOCK(addr_table);
+
+	slist_free_strings(list);
+
+	return found;
 }
 
 /*

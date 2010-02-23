@@ -1,3 +1,102 @@
+2010-02-19
+
+	* version 3.0.0rc
+
+2010-02-19
+
+	* src/update_check.c: set curl timeout to 10 secs.
+
+2010-02-19
+
+	* src/prefs_actions.c: removed compilation warning.
+
+2010-02-16
+
+	* src/addressadd.c: translate 'Auto-registered address' book.
+
+2010-02-16
+
+	* libsylph/prefs_common.[ch]
+	  src/compose.c
+	  src/prefs_common_dialog.c: added 'Enable address auto-completion'
+	  setting.
+
+2010-02-16
+
+	* src/plugin.h: bumped SYL_PLUGIN_INTERFACE_VERSION.
+
+2010-02-16
+
+	* libsylph/folder.c: folder_find_child_item_by_name(): use case
+	  insensitive match on Win32 to prohibit multiple reference of folder.
+
+2010-02-15
+
+	* src/query_search.c: row_activated(): fixed a bug that 'Getting
+	  message n' message was left on the status bar on displaying IMAP4
+	  messages with new window.
+
+2010-02-15
+
+	* src/setup.c: fixed compile error with OpenSSL disabled.
+	  Don't accept default Gmail address.
+
+2010-02-12
+
+	* version 3.0.0beta8
+
+2010-02-12
+
+	* libsylph/libsylph-0.def: updated.
+
+2010-02-12
+
+	* libsylph/filter.c: made default_addrbook_func static.
+
+2010-02-12
+
+	* src/compose.c: compose_change_spell_lang_menu(): force selection of
+	  currently selected item to update compose->spell_lang.
+
+2010-02-12
+
+	* src/compose.c: Preserve PGP settings saving and loading drafts
+	  (thanks to Antonio).
+
+2010-02-12
+
+	* src/compose.c: Preserve spell-checking settings saving and loading
+	  drafts (thanks to Antonio).
+
+2010-02-12
+
+	* libsylph/folder.c
+	  src/quick_search.[ch]
+	  src/addressbook.c: added 'In addressbook' to the quick search menu.
+
+2010-02-12
+
+	* src/compose.c: compose_add_new_recipients_to_addressbook():
+	  use addressbook_has_address().
+
+2010-02-12
+
+	* src/addressbook.c: lock addr_table since it can be accessed from
+	  sub threads.
+
+2010-02-10
+
+	* libsylph/filter.c: filter_write_file(): fixed crash.
+
+2010-02-10
+
+	* libsylph/filter.[ch]
+	  src/prefs_filter_edit.[ch]
+	  src/addressbook.[ch]
+	  src/main.c: added a new filter match type: is (not) in addressbook.
+	  addressbook_has_address(): new function for fast search of address
+	  book by addresses.
+
 2010-02-05
 
 	* src/setup.c: confirm on cancel. Modified messages.
