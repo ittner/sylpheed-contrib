@@ -157,6 +157,8 @@ private:
 
 	/* unthreading */
 	GSList *pos_list;
+
+	guint write_lock_count;
 };
 
 SummaryView	*summary_create(void);
@@ -168,9 +170,18 @@ gboolean summary_show		  (SummaryView		*summaryview,
 void summary_clear_list		  (SummaryView		*summaryview);
 void summary_clear_all		  (SummaryView		*summaryview);
 
+void summary_show_queued_msgs	  (SummaryView		*summaryview);
+
+/* full lock */
 void summary_lock		  (SummaryView		*summaryview);
 void summary_unlock		  (SummaryView		*summaryview);
 gboolean summary_is_locked	  (SummaryView		*summaryview);
+gboolean summary_is_read_locked	  (SummaryView		*summaryview);
+
+/* write lock (read only) */
+void summary_write_lock		  (SummaryView		*summaryview);
+void summary_write_unlock	  (SummaryView		*summaryview);
+gboolean summary_is_write_locked  (SummaryView		*summaryview);
 
 SummarySelection summary_get_selection_type	(SummaryView	*summaryview);
 GSList *summary_get_selected_msg_list		(SummaryView	*summaryview);

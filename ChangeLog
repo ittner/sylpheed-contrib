@@ -1,3 +1,291 @@
+2010-07-07
+
+	* src/prefs_common_dialog.c: changed the upper limit of auto check
+	  interval to 1000 minutes.
+
+2010-07-06
+
+	* src/plugin.[ch]
+	  src/main.c
+	  plugin/test/test.c: added plug-in APIs to get selected messages
+	  on summary.
+
+2010-07-06
+
+	* src/plugin.[ch]
+	  src/main.c
+	  src/summaryview.c
+	  plugin/test/test.c: added new plug-in APIs for manipulating the
+	  summary view popup menu.
+
+2010-07-02
+
+	* src/mainwindow.c
+	  src/summaryview.c
+	  src/prefs_common_dialog.c: changed 'Mark/Mark' to 'Mark/Set flag',
+	  'Mark/Unmark' to 'Mark/Unset flag'.
+
+2010-07-02
+
+	* src/summaryview.c: summary_show(): display error if a connection to
+	  IMAP/News server failed.
+
+2010-07-02
+
+	* src/plugin.[ch]
+	  src/main.c
+	  src/summaryview.[ch]
+	  src/folderview.c: added write lock mode on summary view.
+
+2010-07-01
+
+	* src/foldersel.c: move up/collapse/expand row with left/right key.
+
+2010-07-01
+
+	* src/folderview.c: folderview_key_pressed(): modified key handling
+	  code.
+
+2010-07-01
+
+	* src/mimeview.c: mimeview_selection_changed(): don't display images
+	  when inline image setting is off (workaround for vulnerability).
+
+2010-06-30
+
+	* src/folderview.c: folderview_key_pressed(): move up/collapse/expand
+	  row with left/right key (like Windows Explorer).
+
+2010-06-30
+
+	* libsylph/procmsg.[ch]
+	  src/inc.c
+	  src/summaryview.[ch]: update summary view on receiving on the fly.
+	* configure.in: updated/fixed libtool version.
+
+2010-06-18
+
+	* libsylph/pop.c
+	  libsylph/session.c: protect against session->sock == NULL
+	  (fixes crash on cancel).
+
+2010-06-17
+
+	* libsylph/prefs_common.h
+	  src/compose.c
+	  src/main.c: made user-agent string configurable from plug-ins.
+
+2010-06-15
+
+	* version 3.1.0beta1
+
+2010-06-15
+
+	* src/libsylpheed-plugin-0.def: updated.
+
+2010-06-15
+
+	* src/addr_compl.c: removed debug print.
+
+2010-06-11
+
+	* src/plugin.c
+	  src/folderview.c: fixed syl_plugin_folderview_add_sub_widget().
+	* plugin/test/test.c: added syl_plugin_folderview_add_sub_widget()
+	  test.
+
+2010-06-11
+
+	* src/plugin.[ch]
+	  src/main.c
+	  src/folderview.[ch]: added plug-in APIs for folder view.
+	  Added folderview_add_sub_widget() which adds sub widget under
+	  folder view.
+
+2010-06-11
+
+	* src/action.c: reset signal handlers of child process to prevent
+	  app_will_exit() called on SIGTERM.
+	  Added debug output.
+
+2010-06-10
+
+	* src/folderview.[ch]: put vbox on the top of folder view.
+
+2010-06-09
+
+	* src/action.c: prevent double free when using %f.
+	  Obtain thread lock in gdk_input_add() callbacks.
+
+2010-06-07
+
+	* libsylph/prefs_common.[ch]
+	  src/addr_compl.c
+	  src/prefs_common_dialog.c: made the old behavior of address
+	  completion configurable.
+
+2010-06-05
+
+	* src/addr_compl.c: replace_address_in_edit(): fixed infinite loop
+	  on completion start with GTK+ 2.18+.
+
+2010-06-04
+
+	* src/addr_compl.c: implemented real automatic address completion.
+
+2010-06-03
+
+	* src/quick_search.c: suppress filter debug output.
+
+2010-06-02
+
+	* libsylph/filter.c: added debug log for filter.
+
+2010-06-01
+
+	* src/summaryview.c: modified 'Go to next folder' dialog description.
+
+2010-05-31
+
+	* src/plugin.[ch]
+	  src/main.c: added some functions for FolderView.
+
+2010-05-28
+
+	* src/update_check.c: support DISP_RELEASE / DISP_DEVEL which
+	  set displayed new version.
+
+2010-05-28
+
+	* src/update_check.[ch]
+	  src/plugin.[ch]
+	  src/main.c: added functions to modify URLs for update check.
+
+2010-05-27
+
+	* src/prefs_common_dialog.c: prefs_colorlabel_create(): added
+	  description for the color label settings.
+
+2010-05-25
+
+	* src/mainwindow.c: help_command_line_show(): added Windows-only
+	  --ipcport option.
+
+2010-05-24
+
+	* src/compose.c: compose_attach_open(): fixed compilation on win32.
+
+2010-05-24
+
+	* src/inc.c: fixed crash when clicking tray icon menu
+	  'Get from current account' with no account.
+
+2010-05-24
+
+	* src/main.c: added --instance-id <ID> option, which allows users to
+	  run multiple instances of Sylpheed. There is no extra checks for
+	  config directory, so use with caution.
+
+2010-05-21
+
+	* libsylph/filter.c: filter_apply(): fixed a bug that MIME flag was
+	  not set to filtered messages. This occurred to filtered sent
+	  messages.
+
+2010-05-21
+
+	* src/prefs_common_dialog.c
+	  src/prefs_filter_edit.c
+	  src/prefs_account_dialog.c
+	  src/editldap.c: removed warnings 'GtkSpinButton: setting an
+	  adjustment with non-zero page size is deprecated'.
+	  The last value of gtk_adjustment_new() must be 0 for GtkSpinButton.
+
+2010-05-21
+
+	* libsylph/socket.c: sock_kill_process(): prevent redundant error
+	  messages when waitpid() is interrupted by EINTR.
+
+2010-05-20
+
+	* src/compose.c: added "Open" menu in the attach context menu.
+	  attach_button_pressed(): modify sensitivity of attach context menu.
+
+2010-05-11
+
+	* src/syldap.c: allow deprecated LDAP API calls (debian BTS #463366).
+	  Possibly fixes crash on 64-bit architecture.
+
+2010-05-11
+
+	* src/setup.c: removed debug print.
+
+2010-05-08
+
+	* libsylph/mbox.c: proc_mbox_full(): fixed a bug that MIME flag was
+	  not properly set on importing mbox file.
+
+2010-04-23
+
+	* faq/en/sylpheed-faq*: updated Sylpheed FAQ (English)
+	  (thanks to Petr Kovar).
+
+2010-04-09
+
+	* libsylph/sylmain.c
+	  libsylph/defs.h
+	  src/main.c: also load plug-ins from user plug-in directory.
+
+2010-04-07
+
+	* libsylph/defs.h
+	  src/prefs_common_dialog.c: made DEFAULT_BROWSER_CMD 'xdg-open'
+	  (thanks to Doruk Fisek). Removed obsolete commands.
+
+2010-04-02
+
+	* version 3.0.2
+
+2010-04-02
+
+	* src/folderview.c: folderview_create(): use fixed-height-mode
+	  for the GtkTreeView if GTK+ >= 2.12. This fixes random scrolling
+	  problem on selecting folders.
+
+2010-03-19
+
+	* src/account_dialog.c: update folder config file after account name
+	  changed.
+
+2010-03-19
+
+	* src/main.c
+	  src/setup.c
+	  src/mainwindow.c: update account and folder config files after
+	  creating new accounts.
+
+2010-03-16
+
+	* version 3.0.1
+
+2010-03-12
+
+	* manual/ja/sylpheed.sgml: updated.
+
+2010-03-01
+
+	* src/update_check.c
+	  src/setup.c: fixed typos (thanks to Ricardo Mones).
+
+2010-02-24
+
+	* version 3.0.0
+
+2010-02-24
+
+	* src/sslmanager.c: fixed freeze when sending/receiving messages with
+	  STARTTLS and 'SSL certificate verify failed' dialog popped up.
+
 2010-02-19
 
 	* version 3.0.0rc

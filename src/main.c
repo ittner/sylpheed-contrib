@@ -113,6 +113,7 @@ static gboolean init_console_done = FALSE;
 static gint lock_socket = -1;
 static gint lock_socket_tag = 0;
 static GIOChannel *lock_ch = NULL;
+static gchar *instance_id = NULL;
 
 #if USE_THREADS
 static GThread *main_thread;
@@ -200,7 +201,7 @@ static void send_queue			(void);
 
 static void load_cb(GObject *obj, GModule *module, gpointer data)
 {
-	g_print("load_cb: %p (%s), %p\n", module, module ? g_module_name(module) : "(null)", data);
+	debug_print("load_cb: %p (%s), %p\n", module, module ? g_module_name(module) : "(null)", data);
 }
 
 int main(int argc, char *argv[])
@@ -212,6 +213,7 @@ int main(int argc, char *argv[])
 	GList *iconlist = NULL;
 #endif
 	GObject *syl_app;
+	PrefsAccount *new_account = NULL;
 
 	app_init();
 	parse_cmd_opt(argc, argv);
@@ -262,6 +264,12 @@ int main(int argc, char *argv[])
 	prefs_actions_read_config();
 	prefs_display_header_read_config();
 	colorlabel_read_config();
+
+	prefs_common.user_agent_str = g_strdup_printf
+		("%s (GTK+ %d.%d.%d; %s)",
+		 prog_version,
+		 gtk_major_version, gtk_minor_version, gtk_micro_version,
+		 TARGET_ALIAS);
 
 #ifdef G_OS_WIN32
 	{
@@ -334,7 +342,7 @@ int main(int argc, char *argv[])
 		folder_write_list();
 	}
 	if (!account_get_list()) {
-		setup_account();
+		new_account = setup_account();
 	}
 
 	account_set_menu();
@@ -343,6 +351,8 @@ int main(int argc, char *argv[])
 	account_set_missing_folder();
 	folder_set_missing_folders();
 	folderview_set(folderview);
+	if (new_account && new_account->folder)
+		folder_write_list();
 
 	addressbook_read_file();
 
@@ -548,6 +558,12 @@ static void parse_cmd_opt(int argc, char *argv[])
 				i++;
 			}
 #endif
+		} else if (!strncmp(argv[i], "--instance-id", 13)) {
+			if (argv[i + 1]) {
+				instance_id = g_locale_to_utf8
+					(argv[i + 1], -1, NULL, NULL, NULL);
+				i++;
+			}
 		} else if (!strncmp(argv[i], "--exit", 6)) {
 			cmd.exit = TRUE;
 		} else if (!strncmp(argv[i], "--help", 6)) {
@@ -1093,9 +1109,12 @@ static void register_system_events(void)
 }
 #endif
 
+#define ADD_SYM(sym)	syl_plugin_add_symbol(#sym, sym)
+
 static void plugin_init(void)
 {
 	MainWindow *mainwin;
+	gchar *path;
 
 	mainwin = main_window_get();
 
@@ -1106,19 +1125,32 @@ static void plugin_init(void)
 		return;
 	}
 
-	syl_plugin_add_symbol("prog_version", prog_version);
-	syl_plugin_add_symbol("main_window_lock", main_window_lock);
-	syl_plugin_add_symbol("main_window_unlock", main_window_unlock);
-	syl_plugin_add_symbol("main_window_get", main_window_get);
-	syl_plugin_add_symbol("main_window_popup", main_window_popup);
-	syl_plugin_add_symbol("app_will_exit", app_will_exit);
+	ADD_SYM(prog_version);
+	ADD_SYM(app_will_exit);
+
+	ADD_SYM(main_window_lock);
+	ADD_SYM(main_window_unlock);
+	ADD_SYM(main_window_get);
+	ADD_SYM(main_window_popup);
+
 	syl_plugin_add_symbol("main_window_menu_factory",
 			      mainwin->menu_factory);
 	syl_plugin_add_symbol("main_window_statusbar", mainwin->statusbar);
 
-	syl_plugin_add_symbol("folderview", mainwin->folderview);
-	syl_plugin_add_symbol("folderview_get_selected_item",
-			      folderview_get_selected_item);
+	ADD_SYM(folderview_get);
+	ADD_SYM(folderview_add_sub_widget);
+	ADD_SYM(folderview_select);
+	ADD_SYM(folderview_unselect);
+	ADD_SYM(folderview_select_next_unread);
+	ADD_SYM(folderview_get_selected_item);
+	ADD_SYM(folderview_check_new);
+	ADD_SYM(folderview_check_new_item);
+	ADD_SYM(folderview_check_new_all);
+	ADD_SYM(folderview_update_item);
+	ADD_SYM(folderview_update_item_foreach);
+	ADD_SYM(folderview_update_all_updated);
+	ADD_SYM(folderview_check_new_selected);
+
 	syl_plugin_add_symbol("folderview_mail_popup_factory",
 			      mainwin->folderview->mail_factory);
 	syl_plugin_add_symbol("folderview_imap_popup_factory",
@@ -1127,58 +1159,72 @@ static void plugin_init(void)
 			      mainwin->folderview->news_factory);
 
 	syl_plugin_add_symbol("summaryview", mainwin->summaryview);
-	syl_plugin_add_symbol("summary_select_by_msgnum",
-			      summary_select_by_msgnum);
-	syl_plugin_add_symbol("summary_select_by_msginfo",
-			      summary_select_by_msginfo);
-	syl_plugin_add_symbol("summary_lock", summary_lock);
-	syl_plugin_add_symbol("summary_unlock", summary_unlock);
-	syl_plugin_add_symbol("summary_is_locked", summary_is_locked);
+	syl_plugin_add_symbol("summaryview_popup_factory",
+			      mainwin->summaryview->popupfactory);
 
-	syl_plugin_add_symbol("messageview_create_with_new_window",
-			      messageview_create_with_new_window);
-	syl_plugin_add_symbol("messageview_show", messageview_show);
+	ADD_SYM(summary_select_by_msgnum);
+	ADD_SYM(summary_select_by_msginfo);
+	ADD_SYM(summary_lock);
+	ADD_SYM(summary_unlock);
+	ADD_SYM(summary_is_locked);
+	ADD_SYM(summary_is_read_locked);
+	ADD_SYM(summary_write_lock);
+	ADD_SYM(summary_write_unlock);
+	ADD_SYM(summary_is_write_locked);
+	ADD_SYM(summary_get_selection_type);
+	ADD_SYM(summary_get_selected_msg_list);
+	ADD_SYM(summary_get_msg_list);
 
-	syl_plugin_add_symbol("compose_new", compose_new);
-	syl_plugin_add_symbol("compose_entry_set", compose_entry_set);
-	syl_plugin_add_symbol("compose_entry_append", compose_entry_append);
-	syl_plugin_add_symbol("compose_entry_get_text", compose_entry_get_text);
-	syl_plugin_add_symbol("compose_lock", compose_lock);
-	syl_plugin_add_symbol("compose_unlock", compose_unlock);
+	ADD_SYM(messageview_create_with_new_window);
+	ADD_SYM(messageview_show);
 
-	syl_plugin_add_symbol("foldersel_folder_sel",
-			      foldersel_folder_sel);
-	syl_plugin_add_symbol("foldersel_folder_sel_full",
-			      foldersel_folder_sel_full);
-	syl_plugin_add_symbol("input_dialog", input_dialog);
-	syl_plugin_add_symbol("input_dialog_with_invisible",
-			      input_dialog_with_invisible);
+	ADD_SYM(compose_new);
+	ADD_SYM(compose_entry_set);
+	ADD_SYM(compose_entry_append);
+	ADD_SYM(compose_entry_get_text);
+	ADD_SYM(compose_lock);
+	ADD_SYM(compose_unlock);
 
-	syl_plugin_add_symbol("manage_window_set_transient",
-			      manage_window_set_transient);
-	syl_plugin_add_symbol("manage_window_signals_connect",
-			      manage_window_signals_connect);
-	syl_plugin_add_symbol("manage_window_get_focus_window",
-			      manage_window_get_focus_window);
+	ADD_SYM(foldersel_folder_sel);
+	ADD_SYM(foldersel_folder_sel_full);
 
-	syl_plugin_add_symbol("inc_mail", inc_mail);
-	syl_plugin_add_symbol("inc_is_active", inc_is_active);
-	syl_plugin_add_symbol("inc_lock", inc_lock);
-	syl_plugin_add_symbol("inc_unlock", inc_unlock);
+	ADD_SYM(input_dialog);
+	ADD_SYM(input_dialog_with_invisible);
+
+	ADD_SYM(manage_window_set_transient);
+	ADD_SYM(manage_window_signals_connect);
+	ADD_SYM(manage_window_get_focus_window);
+
+	ADD_SYM(inc_mail);
+	ADD_SYM(inc_is_active);
+	ADD_SYM(inc_lock);
+	ADD_SYM(inc_unlock);
+
+#if USE_UPDATE_CHECK
+	ADD_SYM(update_check);
+	ADD_SYM(update_check_set_check_url);
+	ADD_SYM(update_check_get_check_url);
+	ADD_SYM(update_check_set_jump_url);
+	ADD_SYM(update_check_get_jump_url);
+#endif
 
 	syl_plugin_signal_connect("plugin-load", G_CALLBACK(load_cb), NULL);
 
+	/* loading plug-ins from user plug-in directory */
+	path = g_strconcat(get_rc_dir(), G_DIR_SEPARATOR_S, PLUGIN_DIR, NULL);
+	syl_plugin_load_all(path);
+	g_free(path);
+
+	/* loading plug-ins from system plug-in directory */
 #ifdef G_OS_WIN32
-	{
-		gchar *path;
-		path = g_strconcat(get_startup_dir(), G_DIR_SEPARATOR_S,
-				   "plugins", NULL);
-		syl_plugin_load_all(path);
-		g_free(path);
-	}
+	path = g_strconcat(get_startup_dir(), G_DIR_SEPARATOR_S, PLUGIN_DIR,
+			   NULL);
+	syl_plugin_load_all(path);
+	g_free(path);
 #else
 	syl_plugin_load_all(PLUGINDIR);
 #endif
+
 	STATUSBAR_POP(mainwin);
 }
 
@@ -1187,8 +1233,9 @@ static gchar *get_socket_name(void)
 	static gchar *filename = NULL;
 
 	if (filename == NULL) {
-		filename = g_strdup_printf("%s%csylpheed-%d",
+		filename = g_strdup_printf("%s%c%s-%d",
 					   g_get_tmp_dir(), G_DIR_SEPARATOR,
+					   instance_id ? instance_id : "sylpheed",
 #if HAVE_GETUID
 					   getuid());
 #else
@@ -1205,28 +1252,35 @@ static gint prohibit_duplicate_launch(void)
 
 #ifdef G_OS_WIN32
 	HANDLE hmutex;
+	const gchar *ins_id = instance_id ? instance_id : "Sylpheed";
+	gushort port = cmd.ipcport ? cmd.ipcport : REMOTE_CMD_PORT;
 
-	hmutex = CreateMutexA(NULL, FALSE, "Sylpheed");
+	debug_print("prohibit_duplicate_launch: checking mutex: %s\n", ins_id);
+	hmutex = CreateMutexA(NULL, FALSE, ins_id);
 	if (!hmutex) {
-		g_warning("cannot create Mutex\n");
+		g_warning("cannot create Mutex: %s\n", ins_id);
 		return -1;
 	}
 	if (GetLastError() != ERROR_ALREADY_EXISTS) {
-		sock = fd_open_inet(cmd.ipcport ? cmd.ipcport : REMOTE_CMD_PORT);
+		debug_print("prohibit_duplicate_launch: creating socket: port %d\n", port);
+		sock = fd_open_inet(port);
 		if (sock < 0)
 			return 0;
 		return sock;
 	}
 
-	sock = fd_connect_inet(cmd.ipcport ? cmd.ipcport : REMOTE_CMD_PORT);
+	debug_print("prohibit_duplicate_launch: connecting to socket: port %d\n", port);
+	sock = fd_connect_inet(port);
 	if (sock < 0)
 		return -1;
 #else
 	gchar *path;
 
 	path = get_socket_name();
+	debug_print("prohibit_duplicate_launch: checking socket: %s\n", path);
 	sock = fd_connect_unix(path);
 	if (sock < 0) {
+		debug_print("prohibit_duplicate_launch: creating socket: %s\n", path);
 		g_unlink(path);
 		return fd_open_unix(path);
 	}
@@ -1338,6 +1392,7 @@ static gint lock_socket_remove(void)
 
 #ifndef G_OS_WIN32
 	filename = get_socket_name();
+	debug_print("lock_socket_remove: removing socket: %s\n", filename);
 	g_unlink(filename);
 #endif
 

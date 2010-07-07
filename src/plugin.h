@@ -45,7 +45,7 @@ typedef void (*SylPluginLoadFunc)	(void);
 typedef void (*SylPluginUnloadFunc)	(void);
 typedef void (*SylPluginCallbackFunc)	(void);
 
-#define SYL_PLUGIN_INTERFACE_VERSION	0x0104
+#define SYL_PLUGIN_INTERFACE_VERSION	0x0105
 
 struct _SylPlugin
 {
@@ -60,6 +60,7 @@ struct _SylPluginClass
 	void (* plugin_unload)	(GObject *obj, GModule *module);
 
 	void (* folderview_menu_popup)	(GObject *obj, gpointer ifactory);
+	void (* summaryview_menu_popup)	(GObject *obj, gpointer ifactory);
 
 	void (* compose_created)	(GObject *obj, gpointer compose);
 	void (* compose_destroy)	(GObject *obj, gpointer compose);
@@ -139,8 +140,25 @@ void syl_plugin_menu_set_active			(const gchar	*path,
 
 /* FolderView */
 gpointer syl_plugin_folderview_get		(void);
+
+void syl_plugin_folderview_add_sub_widget	(GtkWidget	*widget);
+
+void syl_plugin_folderview_select		(FolderItem	*item);
+void syl_plugin_folderview_unselect		(void);
+void syl_plugin_folderview_select_next_unread	(void);
 FolderItem *syl_plugin_folderview_get_selected_item
 						(void);
+
+gint syl_plugin_folderview_check_new		(Folder         *folder);
+gint syl_plugin_folderview_check_new_item	(FolderItem     *item);
+gint syl_plugin_folderview_check_new_all	(void);
+
+void syl_plugin_folderview_update_item		(FolderItem	*item,
+						 gboolean	 update_summary);
+void syl_plugin_folderview_update_item_foreach	(GHashTable	*table,
+						 gboolean	 update_summary);
+void syl_plugin_folderview_update_all_updated	(gboolean	 update_summary);
+void syl_plugin_folderview_check_new_selected	(void);
 
 /* SummaryView */
 gpointer syl_plugin_summary_view_get		(void);
@@ -153,6 +171,14 @@ void syl_plugin_open_message			(const gchar *folder_id,
 void syl_plugin_summary_lock			(void);
 void syl_plugin_summary_unlock			(void);
 gboolean syl_plugin_summary_is_locked		(void);
+gboolean syl_plugin_summary_is_read_locked	(void);
+void syl_plugin_summary_write_lock		(void);
+void syl_plugin_summary_write_unlock		(void);
+gboolean syl_plugin_summary_is_write_locked	(void);
+
+gint syl_plugin_summary_get_selection_type	(void);
+GSList *syl_plugin_summary_get_selected_msg_list(void);
+GSList *syl_plugin_summary_get_msg_list		(void);
 
 /* MessageView */
 gpointer syl_plugin_messageview_create_with_new_window
@@ -203,5 +229,11 @@ void syl_plugin_inc_mail			(void);
 gboolean syl_plugin_inc_is_active		(void);
 void syl_plugin_inc_lock			(void);
 void syl_plugin_inc_unlock			(void);
+
+void syl_plugin_update_check			(gboolean show_dialog_always);
+void syl_plugin_update_check_set_check_url		(const gchar *url);
+const gchar *syl_plugin_update_check_get_check_url	(void);
+void syl_plugin_update_check_set_jump_url		(const gchar *url);
+const gchar *syl_plugin_update_check_get_jump_url	(void);
 
 #endif /* __PLUGIN_H__ */

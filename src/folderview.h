@@ -1,6 +1,6 @@
 /*
  * Sylpheed -- a GTK+ based, lightweight, and fast e-mail client
- * Copyright (C) 1999-2005 Hiroyuki Yamamoto
+ * Copyright (C) 1999-2010 Hiroyuki Yamamoto
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,6 +34,8 @@ typedef struct _FolderView	FolderView;
 
 struct _FolderView
 {
+	GtkWidget *vbox;
+
 	GtkWidget *scrolledwin;
 
 	GtkWidget *treeview;
@@ -72,6 +74,9 @@ struct _FolderView
 FolderView *folderview_create		(void);
 void folderview_init			(FolderView	*folderview);
 void folderview_reflect_prefs		(FolderView	*folderview);
+
+void folderview_add_sub_widget		(FolderView	*folderview,
+					 GtkWidget	*widget);
 
 FolderView *folderview_get		(void);
 

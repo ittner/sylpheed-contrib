@@ -314,6 +314,9 @@ struct _PrefsCommon
 	gboolean reply_address_only;         /* Compose */
 	gboolean recipients_autoreg;         /* Send */
 	gboolean enable_address_completion;  /* Compose */
+	gboolean fullauto_completion_mode;   /* Compose */
+
+	gchar *user_agent_str;
 };
 
 extern PrefsCommon prefs_common;

@@ -1,6 +1,6 @@
 /*
  * Sylpheed -- a GTK+ based, lightweight, and fast e-mail client
- * Copyright (C) 1999-2009 Hiroyuki Yamamoto
+ * Copyright (C) 1999-2010 Hiroyuki Yamamoto
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@
 #include <glib/gi18n.h>
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtkwidget.h>
+#include <gtk/gtkvbox.h>
 #include <gtk/gtkscrolledwindow.h>
 #include <gtk/gtktreestore.h>
 #include <gtk/gtktreeview.h>
@@ -321,6 +322,7 @@ static GtkItemFactoryEntry folderview_news_popup_entries[] =
 FolderView *folderview_create(void)
 {
 	FolderView *folderview;
+	GtkWidget *vbox;
 	GtkWidget *scrolledwin;
 	GtkWidget *treeview;
 	GtkTreeStore *store;
@@ -338,12 +340,15 @@ FolderView *folderview_create(void)
 	debug_print(_("Creating folder view...\n"));
 	folderview = g_new0(FolderView, 1);
 
+	vbox = gtk_vbox_new(FALSE, 1);
+
 	scrolledwin = gtk_scrolled_window_new(NULL, NULL);
 	gtk_scrolled_window_set_policy
 		(GTK_SCROLLED_WINDOW(scrolledwin),
 		 GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
 	gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolledwin),
 					    GTK_SHADOW_IN);
+	gtk_box_pack_start(GTK_BOX(vbox), scrolledwin, TRUE, TRUE, 0);
 	gtk_widget_set_size_request(scrolledwin,
 				    prefs_common.folderview_width,
 				    prefs_common.folderview_height);
@@ -364,7 +369,9 @@ FolderView *folderview_create(void)
 	gtk_tree_view_set_search_column(GTK_TREE_VIEW(treeview),
 					COL_FOLDER_NAME);
 	gtk_tree_view_set_reorderable(GTK_TREE_VIEW(treeview), FALSE);
-	/* g_object_set(treeview, "fixed-height-mode", TRUE, NULL); */
+#if GTK_CHECK_VERSION(2, 12, 0)
+	g_object_set(treeview, "fixed-height-mode", TRUE, NULL);
+#endif
 
 	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
 	gtk_tree_selection_set_mode(selection, GTK_SELECTION_BROWSE);
@@ -519,6 +526,7 @@ FolderView *folderview_create(void)
 			 G_CALLBACK(folderview_drag_received_cb),
 			 folderview);
 
+	folderview->vbox         = vbox;
 	folderview->scrolledwin  = scrolledwin;
 	folderview->treeview     = treeview;
 	folderview->store        = store;
@@ -534,7 +542,7 @@ FolderView *folderview_create(void)
 
 	folderview_set_columns(folderview);
 
-	gtk_widget_show_all(scrolledwin);
+	gtk_widget_show_all(vbox);
 
 	folderview_list = g_list_append(folderview_list, folderview);
 
@@ -565,6 +573,16 @@ void folderview_reflect_prefs(FolderView *folderview)
 			prefs_common.display_folder_unread;
 		folderview_update_row_all(folderview);
 	}
+}
+
+void folderview_add_sub_widget(FolderView *folderview, GtkWidget *widget)
+{
+	g_return_if_fail(folderview != NULL);
+	g_return_if_fail(widget != NULL);
+
+	debug_print("folderview_add_sub_widget: adding sub widget\n");
+
+	gtk_box_pack_start(GTK_BOX(folderview->vbox), widget, FALSE, FALSE, 0);
 }
 
 FolderView *folderview_get(void)
@@ -1843,7 +1861,10 @@ static gboolean folderview_button_released(GtkWidget *treeview,
 static gboolean folderview_key_pressed(GtkWidget *widget, GdkEventKey *event,
 				       FolderView *folderview)
 {
+	GtkTreeView *treeview = GTK_TREE_VIEW(widget);
 	GtkTreePath *opened = NULL, *selected = NULL;
+	GtkAdjustment *adj;
+	gboolean moved;
 
 	if (!event) return FALSE;
 
@@ -1859,7 +1880,6 @@ static gboolean folderview_key_pressed(GtkWidget *widget, GdkEventKey *event,
 						  folderview->selected);
 		}
 		return TRUE;
-		break;
 	case GDK_space:
 	case GDK_KP_Space:
 		if (folderview->selected) {
@@ -1879,6 +1899,52 @@ static gboolean folderview_key_pressed(GtkWidget *widget, GdkEventKey *event,
 			gtk_tree_path_free(selected);
 			gtk_tree_path_free(opened);
 			return TRUE;
+		}
+		break;
+	case GDK_Left:
+	case GDK_KP_Left:
+		if ((event->state &
+		     (GDK_SHIFT_MASK|GDK_MOD1_MASK|GDK_CONTROL_MASK)) != 0)
+			return FALSE;
+		adj = gtk_scrolled_window_get_hadjustment
+			(GTK_SCROLLED_WINDOW(folderview->scrolledwin));
+		if (adj->lower < adj->value)
+			return FALSE;
+		if (folderview->selected) {
+			selected = gtk_tree_row_reference_get_path
+				(folderview->selected);
+			if (selected) {
+				if (gtk_tree_view_row_expanded(treeview, selected)) {
+					gtk_tree_view_collapse_row(treeview, selected);
+					gtk_tree_path_free(selected);
+					return TRUE;
+				}
+				gtk_tree_path_free(selected);
+			}
+		}
+		g_signal_emit_by_name(G_OBJECT(treeview),
+				      "select-cursor-parent", &moved);
+		return TRUE;
+	case GDK_Right:
+	case GDK_KP_Right:
+		if ((event->state &
+		     (GDK_SHIFT_MASK|GDK_MOD1_MASK|GDK_CONTROL_MASK)) != 0)
+			return FALSE;
+		adj = gtk_scrolled_window_get_hadjustment
+			(GTK_SCROLLED_WINDOW(folderview->scrolledwin));
+		if (adj->upper - adj->page_size > adj->value)
+			return FALSE;
+		if (folderview->selected) {
+			selected = gtk_tree_row_reference_get_path
+				(folderview->selected);
+			if (selected) {
+				if (!gtk_tree_view_row_expanded(treeview, selected)) {
+					gtk_tree_view_expand_row(treeview, selected, FALSE);
+					gtk_tree_path_free(selected);
+					return TRUE;
+				}
+				gtk_tree_path_free(selected);
+			}
 		}
 		break;
 	default:
@@ -3079,6 +3145,9 @@ static gboolean folderview_drag_motion_cb(GtkWidget      *widget,
 			acceptable = FOLDER_ITEM_CAN_ADD(item);
 	} else
 		remove_auto_expand_timeout(folderview);
+
+	if (summary_is_locked(folderview->summaryview))
+		acceptable = FALSE;
 
 	gtk_tree_view_get_drag_dest_row(GTK_TREE_VIEW(widget),
 					&prev_path, NULL);

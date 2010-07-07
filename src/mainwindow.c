@@ -1,6 +1,6 @@
 /*
  * Sylpheed -- a GTK+ based, lightweight, and fast e-mail client
- * Copyright (C) 1999-2009 Hiroyuki Yamamoto
+ * Copyright (C) 1999-2010 Hiroyuki Yamamoto
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -807,8 +807,8 @@ static GtkItemFactoryEntry mainwin_entries[] =
 	{N_("/_Message/_Copy..."),		"<shift><control>O", copy_to_cb, 0, NULL},
 	{N_("/_Message/---"),			NULL, NULL, 0, "<Separator>"},
 	{N_("/_Message/_Mark"),			NULL, NULL, 0, "<Branch>"},
-	{N_("/_Message/_Mark/_Mark"),		"<shift>asterisk", mark_cb, 0, NULL},
-	{N_("/_Message/_Mark/_Unmark"),		"U", unmark_cb, 0, NULL},
+	{N_("/_Message/_Mark/Set _flag"),	"<shift>asterisk", mark_cb, 0, NULL},
+	{N_("/_Message/_Mark/_Unset flag"),	"U", unmark_cb, 0, NULL},
 	{N_("/_Message/_Mark/---"),		NULL, NULL, 0, "<Separator>"},
 	{N_("/_Message/_Mark/Mark as unr_ead"),	"<shift>exclam", mark_as_unread_cb, 0, NULL},
 	{N_("/_Message/_Mark/Mark as rea_d"),
@@ -3897,17 +3897,21 @@ static void prefs_account_open_cb(MainWindow *mainwin, guint action,
 static void new_account_cb(MainWindow *mainwin, guint action,
 			   GtkWidget *widget)
 {
+	PrefsAccount *ac;
+
 	if (compose_get_compose_list()) {
 		alertpanel_notice(_("Some composing windows are open.\n"
 				    "Please close all the composing windows before editing the accounts."));
 		return;
 	}
 
-	if (setup_account()) {
+	if ((ac = setup_account())) {
 		account_set_menu();
 		main_window_reflect_prefs_all();
 		account_set_missing_folder();
 		folderview_set(mainwin->folderview);
+		if (ac->folder)
+			folder_write_list();
 	}
 }
 
@@ -4037,6 +4041,26 @@ static void help_command_line_show(void)
 	gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 0);
 	gtk_label_set_justify(GTK_LABEL(label), GTK_JUSTIFY_LEFT);
 	gtk_misc_set_alignment(GTK_MISC(label), 0, 0.5);
+
+#ifdef G_OS_WIN32
+	label = gtk_label_new(_("Windows-only option:"));
+	gtk_box_pack_start(GTK_BOX(vbox2), label, FALSE, FALSE, 0);
+	gtk_label_set_justify(GTK_LABEL(label), GTK_JUSTIFY_LEFT);
+	gtk_misc_set_alignment(GTK_MISC(label), 0, 0.5);
+
+	hbox = gtk_hbox_new(FALSE, 32);
+	gtk_box_pack_start(GTK_BOX(vbox2), hbox, FALSE, FALSE, 0);
+
+	label = gtk_label_new(_("--ipcport portnum"));
+	gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 0);
+	gtk_label_set_justify(GTK_LABEL(label), GTK_JUSTIFY_LEFT);
+	gtk_misc_set_alignment(GTK_MISC(label), 0, 0.5);
+
+	label = gtk_label_new(_("specify port for IPC remote commands"));
+	gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 0);
+	gtk_label_set_justify(GTK_LABEL(label), GTK_JUSTIFY_LEFT);
+	gtk_misc_set_alignment(GTK_MISC(label), 0, 0.5);
+#endif
 
 	gtkut_stock_button_set_create(&hbbox, &ok_btn, GTK_STOCK_OK,
 				      NULL, NULL, NULL, NULL);

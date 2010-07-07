@@ -1,6 +1,6 @@
 /*
  * Sylpheed -- a GTK+ based, lightweight, and fast e-mail client
- * Copyright (C) 1999-2009 Hiroyuki Yamamoto
+ * Copyright (C) 1999-2010 Hiroyuki Yamamoto
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -84,6 +84,7 @@
 #include "colorlabel.h"
 #include "inc.h"
 #include "imap.h"
+#include "plugin.h"
 
 #define STATUSBAR_PUSH(mainwin, str) \
 { \
@@ -197,6 +198,9 @@ static void summary_update_status	(SummaryView		*summaryview);
 
 /* display functions */
 static void summary_status_show		(SummaryView		*summaryview);
+static void summary_set_row		(SummaryView		*summaryview,
+					 GtkTreeIter		*iter,
+					 MsgInfo		*msginfo);
 static void summary_set_tree_model_from_list
 					(SummaryView		*summaryview,
 					 GSList			*mlist);
@@ -430,8 +434,8 @@ static GtkItemFactoryEntry summary_popup_entries[] =
 	{N_("/_Copy..."),		NULL, summary_copy_to,	0, NULL},
 	{N_("/---"),			NULL, NULL,		0, "<Separator>"},
 	{N_("/_Mark"),			NULL, NULL,		0, "<Branch>"},
-	{N_("/_Mark/_Mark"),		NULL, summary_mark,	0, NULL},
-	{N_("/_Mark/_Unmark"),		NULL, summary_unmark,	0, NULL},
+	{N_("/_Mark/Set _flag"),	NULL, summary_mark,	0, NULL},
+	{N_("/_Mark/_Unset flag"),	NULL, summary_unmark,	0, NULL},
 	{N_("/_Mark/---"),		NULL, NULL,		0, "<Separator>"},
 	{N_("/_Mark/Mark as unr_ead"),	NULL, summary_mark_as_unread, 0, NULL},
 	{N_("/_Mark/Mark as rea_d"),
@@ -909,6 +913,14 @@ gboolean summary_show(SummaryView *summaryview, FolderItem *item,
 	STATUSBAR_PUSH(summaryview->mainwin, _("Done."));
 
 	main_window_cursor_normal(summaryview->mainwin);
+
+	if (prefs_common.online_mode) {
+		if (FOLDER_IS_REMOTE(item->folder) &&
+		    REMOTE_FOLDER(item->folder)->session == NULL) {
+			alertpanel_error(_("Could not establish a connection to the server."));
+		}
+	}
+
 	summary_unlock(summaryview);
 	inc_unlock();
 
@@ -1020,20 +1032,88 @@ void summary_clear_all(SummaryView *summaryview)
 	summary_status_show(summaryview);
 }
 
+void summary_show_queued_msgs(SummaryView *summaryview)
+{
+	FolderItem *item;
+	GSList *qlist, *cur;
+	MsgInfo *msginfo;
+	GtkTreeStore *store = GTK_TREE_STORE(summaryview->store);
+	GtkTreeIter iter;
+
+	if (summary_is_locked(summaryview))
+		return;
+
+	item = summaryview->folder_item;
+	if (!item || !item->path || !item->cache_queue ||
+	    item->stype == F_VIRTUAL)
+		return;
+
+	debug_print("summary_show_queued_msgs: appending queued messages to summary (%s)\n", item->path);
+
+	qlist = g_slist_reverse(item->cache_queue);
+	item->cache_queue = NULL;
+	if (item->mark_queue) {
+		procmsg_flaginfo_list_free(item->mark_queue);
+		item->mark_queue = NULL;
+	}
+
+	for (cur = qlist; cur != NULL; cur = cur->next) {
+		msginfo = (MsgInfo *)cur->data;
+
+		debug_print("summary_show_queued_msgs: appending msg %u\n",
+			    msginfo->msgnum);
+		msginfo->folder = item;
+		gtk_tree_store_append(store, &iter, NULL);
+		summary_set_row(summaryview, &iter, msginfo);
+
+		summaryview->total_size += msginfo->size;
+	}
+
+	summaryview->all_mlist = g_slist_concat(summaryview->all_mlist, qlist);
+
+	item->cache_dirty = TRUE;
+
+	debug_print("summary_show_queued_msgs: done.\n");
+}
+
 void summary_lock(SummaryView *summaryview)
 {
 	summaryview->lock_count++;
+	summaryview->write_lock_count++;
 }
 
 void summary_unlock(SummaryView *summaryview)
 {
 	if (summaryview->lock_count)
 		summaryview->lock_count--;
+	if (summaryview->write_lock_count)
+		summaryview->write_lock_count--;
 }
 
 gboolean summary_is_locked(SummaryView *summaryview)
 {
+	return summaryview->lock_count > 0 || summaryview->write_lock_count > 0;
+}
+
+gboolean summary_is_read_locked(SummaryView *summaryview)
+{
 	return summaryview->lock_count > 0;
+}
+
+void summary_write_lock(SummaryView *summaryview)
+{
+	summaryview->write_lock_count++;
+}
+
+void summary_write_unlock(SummaryView *summaryview)
+{
+	if (summaryview->write_lock_count)
+		summaryview->write_lock_count--;
+}
+
+gboolean summary_is_write_locked(SummaryView *summaryview)
+{
+	return summaryview->write_lock_count > 0;
 }
 
 SummarySelection summary_get_selection_type(SummaryView *summaryview)
@@ -1251,8 +1331,8 @@ static void summary_set_menu_sensitive(SummaryView *summaryview)
 	menu_set_sensitive(ifactory, "/Copy...", TRUE);
 
 	menu_set_sensitive(ifactory, "/Mark", TRUE);
-	menu_set_sensitive(ifactory, "/Mark/Mark",   TRUE);
-	menu_set_sensitive(ifactory, "/Mark/Unmark", TRUE);
+	menu_set_sensitive(ifactory, "/Mark/Set flag",   TRUE);
+	menu_set_sensitive(ifactory, "/Mark/Unset flag", TRUE);
 
 	menu_set_sensitive(ifactory, "/Mark/Mark as unread", TRUE);
 	menu_set_sensitive(ifactory, "/Mark/Mark as read",   TRUE);
@@ -1445,7 +1525,7 @@ void summary_select_next_unread(SummaryView *summaryview)
 	summary_select_next_flagged_or_folder(summaryview, MSG_UNREAD,
 					      _("No more unread messages"),
 					      _("No unread message found. "
-						"Go to next folder?"),
+						"Go to next unread folder?"),
 					      NULL);
 }
 
@@ -1463,7 +1543,7 @@ void summary_select_next_new(SummaryView *summaryview)
 	summary_select_next_flagged_or_folder(summaryview, MSG_NEW,
 					      _("No more new messages"),
 					      _("No new message found. "
-						"Go to next folder?"),
+						"Go to next folder which has new messages?"),
 					      NULL);
 }
 
@@ -2501,7 +2581,7 @@ gint summary_write_cache(SummaryView *summaryview)
 	for (cur = summaryview->all_mlist; cur != NULL; cur = cur->next) {
 		MsgInfo *msginfo = (MsgInfo *)cur->data;
 
-		if (msginfo->folder->mark_queue != NULL) {
+		if (msginfo->folder && msginfo->folder->mark_queue != NULL) {
 			MSG_UNSET_PERM_FLAGS(msginfo->flags, MSG_NEW);
 		}
 		if (fps.cache_fp)
@@ -2591,7 +2671,7 @@ static void summary_display_msg_full(SummaryView *summaryview,
 	    summary_row_is_displayed(summaryview, iter))
 		return;
 
-	if (summary_is_locked(summaryview)) return;
+	if (summary_is_read_locked(summaryview)) return;
 	summary_lock(summaryview);
 
 	STATUSBAR_POP(summaryview->mainwin);
@@ -2694,7 +2774,7 @@ void summary_display_msg_selected(SummaryView *summaryview,
 {
 	GtkTreeIter iter;
 
-	if (summary_is_locked(summaryview)) return;
+	if (summary_is_read_locked(summaryview)) return;
 
 	if (summaryview->selected) {
 		if (gtkut_tree_row_reference_get_iter
@@ -2778,7 +2858,7 @@ gboolean summary_step(SummaryView *summaryview, GtkScrollType type)
 	GtkTreeModel *model = GTK_TREE_MODEL(summaryview->store);
 	GtkTreeIter iter;
 
-	if (summary_is_locked(summaryview)) return FALSE;
+	if (summary_is_read_locked(summaryview)) return FALSE;
 
 	if (!gtkut_tree_row_reference_get_iter
 		(model, summaryview->selected, &iter))
@@ -2864,7 +2944,7 @@ void summary_mark(SummaryView *summaryview)
 	FolderSortType sort_type = SORT_ASCENDING;
 
 	if (FOLDER_TYPE(summaryview->folder_item->folder) == F_IMAP &&
-	    summary_is_locked(summaryview))
+	    summary_is_read_locked(summaryview))
 		return;
 
 	SORT_BLOCK(SORT_BY_MARK);
@@ -2938,7 +3018,7 @@ void summary_mark_as_read(SummaryView *summaryview)
 	FolderSortType sort_type = SORT_ASCENDING;
 
 	if (FOLDER_TYPE(summaryview->folder_item->folder) == F_IMAP &&
-	    summary_is_locked(summaryview))
+	    summary_is_read_locked(summaryview))
 		return;
 
 	SORT_BLOCK(SORT_BY_UNREAD);
@@ -2993,7 +3073,7 @@ void summary_mark_thread_as_read(SummaryView *summaryview)
 	FolderSortType sort_type = SORT_ASCENDING;
 
 	if (FOLDER_TYPE(summaryview->folder_item->folder) == F_IMAP &&
-	    summary_is_locked(summaryview))
+	    summary_is_read_locked(summaryview))
 		return;
 
 	SORT_BLOCK(SORT_BY_UNREAD);
@@ -3072,7 +3152,7 @@ void summary_mark_all_read(SummaryView *summaryview)
 	FolderSortType sort_type = SORT_ASCENDING;
 
 	if (FOLDER_TYPE(summaryview->folder_item->folder) == F_IMAP &&
-	    summary_is_locked(summaryview))
+	    summary_is_read_locked(summaryview))
 		return;
 
 	SORT_BLOCK(SORT_BY_UNREAD);
@@ -3153,7 +3233,7 @@ void summary_mark_as_unread(SummaryView *summaryview)
 	FolderSortType sort_type = SORT_ASCENDING;
 
 	if (FOLDER_TYPE(summaryview->folder_item->folder) == F_IMAP &&
-	    summary_is_locked(summaryview))
+	    summary_is_read_locked(summaryview))
 		return;
 
 	SORT_BLOCK(SORT_BY_UNREAD);
@@ -3358,7 +3438,7 @@ void summary_unmark(SummaryView *summaryview)
 	FolderSortType sort_type = SORT_ASCENDING;
 
 	if (FOLDER_TYPE(summaryview->folder_item->folder) == F_IMAP &&
-	    summary_is_locked(summaryview))
+	    summary_is_read_locked(summaryview))
 		return;
 
 	SORT_BLOCK(SORT_BY_MARK);
@@ -5566,6 +5646,8 @@ static gboolean summary_button_pressed(GtkWidget *treeview,
 		return TRUE;
 	} else if (event->button == 3) {
 		/* right clicked */
+		syl_plugin_signal_emit("summaryview-menu-popup",
+				       summaryview->popupfactory);
 		gtk_menu_popup(GTK_MENU(summaryview->popupmenu), NULL, NULL,
 			       NULL, NULL, event->button, event->time);
 		if (is_selected) {
@@ -5620,7 +5702,7 @@ static gboolean summary_key_pressed(GtkWidget *widget, GdkEventKey *event,
 	GtkAdjustment *adj;
 	gboolean mod_pressed;
 
-	if (summary_is_locked(summaryview)) return FALSE;
+	if (summary_is_read_locked(summaryview)) return FALSE;
 	if (!event) return FALSE;
 
 	switch (event->keyval) {

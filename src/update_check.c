@@ -1,6 +1,6 @@
 /*
  * Sylpheed -- a GTK+ based, lightweight, and fast e-mail client
- * Copyright (C) 1999-2009 Hiroyuki Yamamoto
+ * Copyright (C) 1999-2010 Hiroyuki Yamamoto
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -44,6 +44,8 @@
 #include "utils.h"
 #include "version.h"
 
+static gchar *check_url = NULL;
+static gchar *jump_url = NULL;
 
 static gboolean compare_version(gint major, gint minor, gint micro,
 				const gchar *extra, gboolean remote_is_release,
@@ -106,19 +108,29 @@ static void parse_version_string(const gchar *ver, gint *major, gint *minor,
 	g_strfreev(vers);
 }
 
-static void update_dialog(const gchar *new_ver, gboolean manual)
+static void update_dialog(const gchar *new_ver, const gchar *disp_ver,
+			  gboolean manual)
 {
 	gchar buf[1024];
 	AlertValue val;
 
-	if (new_ver)
-		g_snprintf(buf, sizeof(buf), "%s\n\n%s -> %s",
-			   _("The newer version of Sylpheed found.\n"
-			     "Upgrade now?"),
-			   VERSION, new_ver);
-	else
+	if (!jump_url)
+		update_check_set_jump_url(HOMEPAGE_URI);
+
+	if (new_ver) {
+		if (disp_ver)
+			g_snprintf(buf, sizeof(buf), "%s\n\n%s\n(%s -> %s)",
+				   _("A newer version of Sylpheed has been found.\n"
+				     "Upgrade now?"),
+				   disp_ver, VERSION, new_ver);
+		else
+			g_snprintf(buf, sizeof(buf), "%s\n\n%s -> %s",
+				   _("A newer version of Sylpheed has been found.\n"
+				     "Upgrade now?"),
+				   VERSION, new_ver);
+	} else
 		g_snprintf(buf, sizeof(buf), "%s",
-			   _("The newer version of Sylpheed found.\n"
+			   _("A newer version of Sylpheed has been found.\n"
 			     "Upgrade now?"));
 
 	val = alertpanel_full(_("New version found"), buf,
@@ -127,7 +139,7 @@ static void update_dialog(const gchar *new_ver, gboolean manual)
 			      manual ? FALSE : TRUE,
 			      GTK_STOCK_YES, GTK_STOCK_NO, NULL);
 	if ((val & G_ALERT_VALUE_MASK) == G_ALERTDEFAULT) {
-		open_uri(HOMEPAGE_URI, prefs_common.uri_cmd);
+		open_uri(jump_url, prefs_common.uri_cmd);
 	}
 	if (val & G_ALERTDISABLE) {
 		prefs_common.auto_update_check = FALSE;
@@ -149,9 +161,13 @@ static void update_check_cb(GPid pid, gint status, gpointer data)
 #endif
 	gboolean result = FALSE;
 	gboolean got_version = FALSE;
+	gboolean rel_result = FALSE;
+	gboolean dev_result = FALSE;
 	gboolean show_dialog_always = (gboolean)data;
 	gchar buf[BUFFSIZE];
 	ssize_t size;
+	gchar *disp_rel_ver = NULL;
+	gchar *disp_dev_ver = NULL;
 
 	debug_print("update_check_cb\n");
 
@@ -185,28 +201,37 @@ static void update_check_cb(GPid pid, gint status, gpointer data)
 		key = g_strndup(lines[i], p - lines[i]);
 		val = p + 1;
 
-		if (!strcmp(key, "RELEASE")) {
-			parse_version_string(val, &major, &minor, &micro,
-					     &extra);
-			result = compare_version(major, minor, micro, extra,
-						 TRUE, cur_ver_is_release);
-		} else if (!cur_ver_is_release && !strcmp(key, "DEVEL")) {
-			parse_version_string(val, &major, &minor, &micro,
-					     &extra);
-			result = compare_version(major, minor, micro, extra,
-						 FALSE, cur_ver_is_release);
+		if (!disp_rel_ver && !strcmp(key, "DISP_RELEASE")) {
+			disp_rel_ver = g_strdup(val);
+		} else if (!cur_ver_is_release && !disp_dev_ver &&
+			   !strcmp(key, "DISP_DEVEL")) {
+			disp_dev_ver = g_strdup(val);
 		}
 
-		if (major + minor + micro != 0)
-			got_version = TRUE;
+		if (!result) {
+			if (!strcmp(key, "RELEASE")) {
+				parse_version_string(val, &major, &minor, &micro,
+						     &extra);
+				result = compare_version(major, minor, micro, extra,
+							 TRUE, cur_ver_is_release);
+				rel_result = result;
+			} else if (!cur_ver_is_release && !strcmp(key, "DEVEL")) {
+				parse_version_string(val, &major, &minor, &micro,
+						     &extra);
+				result = compare_version(major, minor, micro, extra,
+							 FALSE, cur_ver_is_release);
+				dev_result = result;
+			}
 
-		if (result) {
-			new_ver = g_strdup_printf("%d.%d.%d%s", major, minor, micro, extra ? extra : "");
-			debug_print("update_check: new ver: %s\n", new_ver);
-			g_free(extra);
-			g_free(key);
-			break;
+			if (major + minor + micro != 0)
+				got_version = TRUE;
+
+			if (result) {
+				new_ver = g_strdup_printf("%d.%d.%d%s", major, minor, micro, extra ? extra : "");
+				debug_print("update_check: new ver: %s (%s)\n", new_ver, rel_result ? "release version" : "devel version");
+			}
 		}
+
 		g_free(extra);
 		g_free(key);
 	}
@@ -216,9 +241,12 @@ static void update_check_cb(GPid pid, gint status, gpointer data)
 	gdk_threads_enter();
 
 	if (!gtkut_window_modal_exist() && !inc_is_active()) {
-		if (result)
-			update_dialog(new_ver, show_dialog_always);
-		else if (show_dialog_always) {
+		if (result) {
+			if (rel_result)
+				update_dialog(new_ver, disp_rel_ver, show_dialog_always);
+			else
+				update_dialog(new_ver, disp_dev_ver, show_dialog_always);
+		} else if (show_dialog_always) {
 			if (got_version)
 				alertpanel_message(_("Information"),
 						   _("Sylpheed is already the latest version."),
@@ -229,6 +257,9 @@ static void update_check_cb(GPid pid, gint status, gpointer data)
 	} else {
 		debug_print("update_check_cb: modal dialog exists or incorporation is active. Disabling update dialog.\n");
 	}
+
+	g_free(disp_rel_ver);
+	g_free(disp_dev_ver);
 	g_free(new_ver);
 
 	gdk_threads_leave();
@@ -240,6 +271,10 @@ void update_check(gboolean show_dialog_always)
 	GPid pid;
 	GError *error = NULL;
 
+	if (!check_url)
+		update_check_set_check_url
+			("http://sylpheed.sraoss.jp/version.txt?");
+
 	if (child_stdout > 0) {
 		debug_print("update check is in progress\n");
 		return;
@@ -247,9 +282,9 @@ void update_check(gboolean show_dialog_always)
 
 	child_stdout = 0;
 
-	debug_print("update_check: getting latest version from http://sylpheed.sraoss.jp/version.txt\n");
+	debug_print("update_check: getting latest version from %s\n", check_url);
 
-	cmdline[4] = "http://sylpheed.sraoss.jp/version.txt?";
+	cmdline[4] = check_url;
 	if (prefs_common.use_http_proxy && prefs_common.http_proxy_host &&
 	    prefs_common.http_proxy_host[0] != '\0') {
 		cmdline[5] = "--proxy";
@@ -281,6 +316,30 @@ void update_check(gboolean show_dialog_always)
 	}
 
 	g_child_watch_add(pid, update_check_cb, (gpointer)show_dialog_always);
+}
+
+void update_check_set_check_url(const gchar *url)
+{
+	if (check_url)
+		g_free(check_url);
+	check_url = g_strdup(url);
+}
+
+const gchar *update_check_get_check_url(void)
+{
+	return check_url;
+}
+
+void update_check_set_jump_url(const gchar *url)
+{
+	if (jump_url)
+		g_free(jump_url);
+	jump_url = g_strdup(url);
+}
+
+const gchar *update_check_get_jump_url(void)
+{
+	return jump_url;
 }
 
 #endif /* USE_UPDATE_CHECK */

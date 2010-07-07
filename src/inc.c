@@ -241,6 +241,7 @@ static gint inc_remote_account_mail(MainWindow *mainwin, PrefsAccount *account)
 	gint new_msgs = 0;
 	gboolean update_summary = FALSE;
 
+	g_return_val_if_fail(account != NULL, 0);
 	g_return_val_if_fail(account->folder != NULL, 0);
 
 	if (account->protocol == A_IMAP4 &&
@@ -353,6 +354,8 @@ static gint inc_account_mail_real(MainWindow *mainwin, PrefsAccount *account)
 {
 	IncProgressDialog *inc_dialog;
 	IncSession *session;
+
+	g_return_val_if_fail(account != NULL, 0);
 
 	if (account->protocol == A_IMAP4 || account->protocol == A_NNTP)
 		return inc_remote_account_mail(mainwin, account);
@@ -1033,12 +1036,17 @@ static gboolean hash_remove_func(gpointer key, gpointer value, gpointer data)
 static void inc_update_folderview(IncProgressDialog *inc_dialog,
 				  IncSession *inc_session)
 {
+	MainWindow *mainwin;
+
 	if (g_hash_table_size(inc_session->tmp_folder_table) > 0) {
 		folderview_update_item_foreach(inc_session->tmp_folder_table,
 					       FALSE);
 		g_hash_table_foreach_remove(inc_session->tmp_folder_table,
 					    hash_remove_func, NULL);
 	}
+
+	mainwin = main_window_get();
+	summary_show_queued_msgs(mainwin->summaryview);
 }
 
 static void inc_progress_dialog_update_periodic(IncProgressDialog *inc_dialog,

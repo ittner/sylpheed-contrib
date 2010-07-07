@@ -27,19 +27,26 @@
 
 static SylPluginInfo info = {
 	"Test Plugin",
-	"1.0.0",
+	"3.0.99",
 	"Hiroyuki Yamamoto",
 	"Test plug-in for Sylpheed plug-in system"
 };
 
 static void init_done_cb(GObject *obj, gpointer data);
 static void app_exit_cb(GObject *obj, gpointer data);
-static void menu_popup_cb(GObject *obj, GtkItemFactory *ifactory,
-			  gpointer data);
+
+static void folderview_menu_popup_cb(GObject *obj, GtkItemFactory *ifactory,
+				     gpointer data);
+static void summaryview_menu_popup_cb(GObject *obj, GtkItemFactory *ifactory,
+				      gpointer data);
+
+static void menu_selected_cb(void);
+
 static void compose_created_cb(GObject *obj, gpointer compose);
 static void compose_destroy_cb(GObject *obj, gpointer compose);
 
 static void create_window(void);
+static void create_folderview_sub_widget(void);
 
 void plugin_load(void)
 {
@@ -64,6 +71,8 @@ void plugin_load(void)
 	g_print("mainwin: %p\n", mainwin);
 	syl_plugin_main_window_popup(mainwin);
 
+	create_folderview_sub_widget();
+
 	syl_plugin_add_menuitem("/Tools", NULL, NULL, NULL);
 	syl_plugin_add_menuitem("/Tools", "Plugin test", create_window, NULL);
 
@@ -72,11 +81,17 @@ void plugin_load(void)
 	g_signal_connect(syl_app_get(), "app-exit", G_CALLBACK(app_exit_cb),
 			 NULL);
 	syl_plugin_signal_connect("folderview-menu-popup",
-				  G_CALLBACK(menu_popup_cb), NULL);
+				  G_CALLBACK(folderview_menu_popup_cb), NULL);
+	syl_plugin_signal_connect("summaryview-menu-popup",
+				  G_CALLBACK(summaryview_menu_popup_cb), NULL);
 	syl_plugin_signal_connect("compose-created",
 				  G_CALLBACK(compose_created_cb), NULL);
 	syl_plugin_signal_connect("compose-destroy",
 				  G_CALLBACK(compose_destroy_cb), NULL);
+
+	syl_plugin_add_factory_item("<SummaryView>", "/---", NULL, NULL);
+	syl_plugin_add_factory_item("<SummaryView>", "/Test Plug-in menu",
+				    menu_selected_cb, NULL);
 
 	g_print("test plug-in loading done\n");
 }
@@ -106,10 +121,35 @@ static void app_exit_cb(GObject *obj, gpointer data)
 	g_print("test: %p: app will exit\n", obj);
 }
 
-static void menu_popup_cb(GObject *obj, GtkItemFactory *ifactory,
-			  gpointer data)
+static void folderview_menu_popup_cb(GObject *obj, GtkItemFactory *ifactory,
+				     gpointer data)
 {
 	g_print("test: %p: folderview menu popup\n", obj);
+}
+
+static void summaryview_menu_popup_cb(GObject *obj, GtkItemFactory *ifactory,
+				      gpointer data)
+{
+	GtkWidget *widget;
+
+	g_print("test: %p: summaryview menu popup\n", obj);
+	widget = gtk_item_factory_get_item(ifactory, "/Test Plug-in menu");
+	if (widget)
+		gtk_widget_set_sensitive(widget, TRUE);
+}
+
+static void menu_selected_cb(void)
+{
+	gint sel;
+	GSList *mlist;
+
+	g_print("test: summary menu selected\n");
+	sel = syl_plugin_summary_get_selection_type();
+	mlist = syl_plugin_summary_get_selected_msg_list();
+	g_print("test: selection type: %d\n", sel);
+	g_print("test: number of selected summary message: %d\n",
+		g_slist_length(mlist));
+	g_slist_free(mlist);
 }
 
 static void compose_created_cb(GObject *obj, gpointer compose)
@@ -152,4 +192,18 @@ static void create_window(void)
 	g_signal_connect(G_OBJECT(button), "clicked",
 			 G_CALLBACK(button_clicked), NULL);
 	gtk_widget_show_all(window);
+}
+
+static void create_folderview_sub_widget(void)
+{
+	GtkWidget *vbox;
+	GtkWidget *button;
+
+	g_print("creating sub widget\n");
+
+	vbox = gtk_vbox_new(FALSE, 2);
+	button = gtk_button_new_with_label("Test");
+	gtk_box_pack_start(GTK_BOX(vbox), button, FALSE, FALSE, 0);
+	gtk_widget_show_all(vbox);
+	syl_plugin_folderview_add_sub_widget(vbox);
 }

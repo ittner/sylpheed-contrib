@@ -218,7 +218,7 @@ static struct Other {
 	GtkWidget *checkbtn_close_recv_dialog;
 
 	GtkWidget *checkbtn_addaddrbyclick;
-	GtkWidget *checkbtn_enable_addr_compl;
+	GtkWidget *radiobtn_addr_compl;
 
 	GtkWidget *checkbtn_confonexit;
 	GtkWidget *checkbtn_cleanonexit;
@@ -280,6 +280,9 @@ static void prefs_common_charset_set_optmenu		   (PrefParam *pparam);
 static void prefs_common_recv_dialog_set_optmenu	   (PrefParam *pparam);
 static void prefs_common_uri_set_data_from_entry	   (PrefParam *pparam);
 static void prefs_common_uri_set_entry			   (PrefParam *pparam);
+
+static void prefs_common_addr_compl_set_data_from_radiobtn (PrefParam *pparam);
+static void prefs_common_addr_compl_set_radiobtn	   (PrefParam *pparam);
 
 static PrefsUIData ui_data[] = {
 	/* Receive */
@@ -534,8 +537,9 @@ static PrefsUIData ui_data[] = {
 
 	{"add_address_by_click", &other.checkbtn_addaddrbyclick,
 	 prefs_set_data_from_toggle, prefs_set_toggle},
-	{"enable_address_completion", &other.checkbtn_enable_addr_compl,
-	 prefs_set_data_from_toggle, prefs_set_toggle},
+	{"enable_address_completion", &other.radiobtn_addr_compl,
+	 prefs_common_addr_compl_set_data_from_radiobtn,
+	 prefs_common_addr_compl_set_radiobtn},
 
 	{"confirm_on_exit", &other.checkbtn_confonexit,
 	 prefs_set_data_from_toggle, prefs_set_toggle},
@@ -819,7 +823,7 @@ static void prefs_receive_create(void)
 	gtk_widget_show (label_autochk1);
 	gtk_box_pack_start (GTK_BOX (hbox_autochk), label_autochk1, FALSE, FALSE, 0);
 
-	spinbtn_autochk_adj = gtk_adjustment_new (5, 1, 100, 1, 10, 10);
+	spinbtn_autochk_adj = gtk_adjustment_new (5, 1, 1000, 1, 10, 0);
 	spinbtn_autochk = gtk_spin_button_new
 		(GTK_ADJUSTMENT (spinbtn_autochk_adj), 1, 0);
 	gtk_widget_show (spinbtn_autochk);
@@ -1210,7 +1214,7 @@ static void prefs_compose_create(void)
 	gtk_widget_show (label_undolevel);
 	gtk_box_pack_start (GTK_BOX (hbox3), label_undolevel, FALSE, FALSE, 0);
 
-	spinbtn_undolevel_adj = gtk_adjustment_new (50, 0, 100, 1, 10, 10);
+	spinbtn_undolevel_adj = gtk_adjustment_new (50, 0, 100, 1, 10, 0);
 	spinbtn_undolevel = gtk_spin_button_new
 		(GTK_ADJUSTMENT (spinbtn_undolevel_adj), 1, 0);
 	gtk_widget_show (spinbtn_undolevel);
@@ -1230,7 +1234,7 @@ static void prefs_compose_create(void)
 	gtk_widget_show (label_linewrap);
 	gtk_box_pack_start (GTK_BOX (hbox3), label_linewrap, FALSE, FALSE, 0);
 
-	spinbtn_linewrap_adj = gtk_adjustment_new (72, 20, 1024, 1, 10, 10);
+	spinbtn_linewrap_adj = gtk_adjustment_new (72, 20, 1024, 1, 10, 0);
 	spinbtn_linewrap = gtk_spin_button_new
 		(GTK_ADJUSTMENT (spinbtn_linewrap_adj), 1, 0);
 	gtk_widget_show (spinbtn_linewrap);
@@ -1270,7 +1274,7 @@ static void prefs_compose_create(void)
 	gtk_box_pack_start (GTK_BOX (hbox_autosave), label_autosave1,
 			    FALSE, FALSE, 0);
 
-	spinbtn_autosave_adj = gtk_adjustment_new (5, 1, 100, 1, 10, 10);
+	spinbtn_autosave_adj = gtk_adjustment_new (5, 1, 100, 1, 10, 0);
 	spinbtn_autosave = gtk_spin_button_new
 		(GTK_ADJUSTMENT (spinbtn_autosave_adj), 1, 0);
 	gtk_widget_show (spinbtn_autosave);
@@ -1600,7 +1604,7 @@ static void prefs_display_create(void)
 	gtk_widget_show (label_ng_abbrev);
 	gtk_box_pack_start (GTK_BOX (hbox1), label_ng_abbrev, FALSE, FALSE, 0);
 
-	spinbtn_ng_abbrev_len_adj = gtk_adjustment_new (16, 0, 999, 1, 10, 10);
+	spinbtn_ng_abbrev_len_adj = gtk_adjustment_new (16, 0, 999, 1, 10, 0);
 	spinbtn_ng_abbrev_len = gtk_spin_button_new
 		(GTK_ADJUSTMENT (spinbtn_ng_abbrev_len_adj), 1, 0);
 	gtk_widget_show (spinbtn_ng_abbrev_len);
@@ -1840,7 +1844,7 @@ static GtkWidget *prefs_message_create(void)
 	gtk_box_pack_start (GTK_BOX (hbox_linespc), label_linespc,
 			    FALSE, FALSE, 0);
 
-	spinbtn_linespc_adj = gtk_adjustment_new (2, 0, 16, 1, 1, 16);
+	spinbtn_linespc_adj = gtk_adjustment_new (2, 0, 16, 1, 1, 0);
 	spinbtn_linespc = gtk_spin_button_new
 		(GTK_ADJUSTMENT (spinbtn_linespc_adj), 1, 0);
 	gtk_widget_show (spinbtn_linespc);
@@ -1877,7 +1881,7 @@ static GtkWidget *prefs_message_create(void)
 	gtk_widget_show (label_scr);
 	gtk_box_pack_start (GTK_BOX (hbox_scr), label_scr, FALSE, FALSE, 0);
 
-	spinbtn_scrollstep_adj = gtk_adjustment_new (1, 1, 100, 1, 10, 10);
+	spinbtn_scrollstep_adj = gtk_adjustment_new (1, 1, 100, 1, 10, 0);
 	spinbtn_scrollstep = gtk_spin_button_new
 		(GTK_ADJUSTMENT (spinbtn_scrollstep_adj), 1, 0);
 	gtk_widget_show (spinbtn_scrollstep);
@@ -1927,6 +1931,8 @@ static GtkWidget *prefs_message_create(void)
 static GtkWidget *prefs_colorlabel_create(void)
 {
 	GtkWidget *vbox;
+	GtkWidget *hbox;
+	GtkWidget *label;
 	GtkWidget *table;
 	GtkWidget *clabel;
 	GtkWidget *entry;
@@ -1935,6 +1941,17 @@ static GtkWidget *prefs_colorlabel_create(void)
 	vbox = gtk_vbox_new(FALSE, VSPACING);
 	gtk_widget_show(vbox);
 	gtk_container_set_border_width(GTK_CONTAINER(vbox), 8);
+
+	hbox = gtk_hbox_new(FALSE, 8);
+	gtk_widget_show(hbox);
+	gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, TRUE, 0);
+
+	label = gtk_label_new(_("You can specify label names for each color (Work, TODO etc.)."));
+	gtk_widget_show(label);
+	gtk_misc_set_alignment(GTK_MISC(label), 0, 0.5);
+        gtk_label_set_justify(GTK_LABEL(label), GTK_JUSTIFY_LEFT);
+        gtk_label_set_line_wrap(GTK_LABEL(label), TRUE);
+	gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 0);
 
 	table = gtk_table_new(7, 2, FALSE);
 	gtk_widget_show(table);
@@ -2243,7 +2260,7 @@ static void prefs_privacy_create(void)
 	gtk_widget_show (label);
 	gtk_box_pack_start (GTK_BOX (hbox1), label, FALSE, FALSE, 0);
 
-	spinbtn_store_passphrase_adj = gtk_adjustment_new (0, 0, 1440, 1, 5, 5);
+	spinbtn_store_passphrase_adj = gtk_adjustment_new (0, 0, 1440, 1, 5, 0);
 	spinbtn_store_passphrase = gtk_spin_button_new
 		(GTK_ADJUSTMENT (spinbtn_store_passphrase_adj), 1, 0);
 	gtk_widget_show (spinbtn_store_passphrase);
@@ -2477,7 +2494,11 @@ static GtkWidget *prefs_other_create(void)
 	GtkWidget *frame_addr;
 	GtkWidget *vbox_addr;
 	GtkWidget *checkbtn_addaddrbyclick;
-	GtkWidget *checkbtn_enable_addr_compl;
+	GtkWidget *vbox_spc;
+	GtkWidget *hbox_spc;
+	GtkWidget *radiobtn_addr_compl;
+	GtkWidget *radiobtn_compl_tab;
+	GtkWidget *radiobtn_no_compl;
 
 	GtkWidget *frame_exit;
 	GtkWidget *vbox_exit;
@@ -2532,9 +2553,49 @@ static GtkWidget *prefs_other_create(void)
 	PACK_CHECK_BUTTON
 		(vbox_addr, checkbtn_addaddrbyclick,
 		 _("Add address to destination when double-clicked"));
-	PACK_CHECK_BUTTON
-		(vbox_addr, checkbtn_enable_addr_compl,
-		 _("Enable address auto-completion"));
+
+	PACK_VSPACER (vbox_addr, vbox_spc, VSPACING_NARROW_2);
+
+	hbox1 = gtk_hbox_new (FALSE, 8);
+	gtk_widget_show (hbox1);
+	gtk_box_pack_start (GTK_BOX (vbox_addr), hbox1, FALSE, FALSE, 0);
+
+	label = gtk_label_new (_("Address auto-completion:"));
+	gtk_widget_show (label);
+	gtk_box_pack_start (GTK_BOX (hbox1), label, FALSE, FALSE, 0);
+
+	hbox1 = gtk_hbox_new (FALSE, 8);
+	gtk_widget_show (hbox1);
+	gtk_box_pack_start (GTK_BOX (vbox_addr), hbox1, FALSE, FALSE, 0);
+
+	hbox_spc = gtk_hbox_new (FALSE, 0);
+	gtk_widget_show (hbox_spc);
+	gtk_box_pack_start (GTK_BOX (hbox1), hbox_spc, FALSE, FALSE, 0);
+	gtk_widget_set_size_request (hbox_spc, 12, -1);
+
+	radiobtn_addr_compl = gtk_radio_button_new_with_label
+		(NULL, _("Automatic"));
+	gtk_widget_show (radiobtn_addr_compl);
+	gtk_box_pack_start (GTK_BOX (hbox1), radiobtn_addr_compl,
+			    FALSE, FALSE, 0);
+	g_object_set_data (G_OBJECT (radiobtn_addr_compl), MENU_VAL_ID,
+			   GINT_TO_POINTER (0));
+
+	radiobtn_compl_tab = gtk_radio_button_new_with_label_from_widget
+		(GTK_RADIO_BUTTON (radiobtn_addr_compl), _("Start with Tab"));
+	gtk_widget_show (radiobtn_compl_tab);
+	gtk_box_pack_start (GTK_BOX (hbox1), radiobtn_compl_tab,
+			    FALSE, FALSE, 0);
+	g_object_set_data (G_OBJECT (radiobtn_compl_tab), MENU_VAL_ID,
+			   GINT_TO_POINTER (1));
+
+	radiobtn_no_compl = gtk_radio_button_new_with_label_from_widget
+		(GTK_RADIO_BUTTON (radiobtn_addr_compl), _("Disable"));
+	gtk_widget_show (radiobtn_no_compl);
+	gtk_box_pack_start (GTK_BOX (hbox1), radiobtn_no_compl,
+			    FALSE, FALSE, 0);
+	g_object_set_data (G_OBJECT (radiobtn_no_compl), MENU_VAL_ID,
+			   GINT_TO_POINTER (2));
 
 	PACK_FRAME (vbox1, frame_exit, _("On exit"));
 
@@ -2564,7 +2625,7 @@ static GtkWidget *prefs_other_create(void)
 	other.checkbtn_close_recv_dialog = checkbtn_close_recv_dialog;
 
 	other.checkbtn_addaddrbyclick    = checkbtn_addaddrbyclick;
-	other.checkbtn_enable_addr_compl = checkbtn_enable_addr_compl;
+	other.radiobtn_addr_compl = radiobtn_addr_compl;
 
 	other.checkbtn_confonexit  = checkbtn_confonexit;
 	other.checkbtn_cleanonexit = checkbtn_cleanonexit;
@@ -2637,13 +2698,11 @@ static GtkWidget *prefs_extcmd_create(void)
 			       _("(Default browser)"),
 #else
 			       DEFAULT_BROWSER_CMD,
-			       "mozilla-firefox '%s'",
+			       "sensible-browser '%s'",
+			       "firefox -remote 'openURL(%s,new-window)'",
 			       "firefox '%s'",
 			       "mozilla -remote 'openURL(%s,new-window)'",
 			       "mozilla '%s'",
-			       "netscape -remote 'openURL(%s,new-window)'",
-			       "netscape '%s'",
-			       "gnome-moz-remote --newwin '%s'",
 			       "rxvt -e w3m '%s'",
 			       "rxvt -e lynx '%s'",
 #endif
@@ -2841,7 +2900,7 @@ static GtkWidget *prefs_advanced_create(void)
 	gtk_widget_show (label_iotimeout);
 	gtk_box_pack_start (GTK_BOX (hbox1), label_iotimeout, FALSE, FALSE, 0);
 
-	spinbtn_iotimeout_adj = gtk_adjustment_new (60, 0, 1000, 1, 10, 10);
+	spinbtn_iotimeout_adj = gtk_adjustment_new (60, 0, 1000, 1, 10, 0);
 	spinbtn_iotimeout = gtk_spin_button_new
 		(GTK_ADJUSTMENT (spinbtn_iotimeout_adj), 1, 0);
 	gtk_widget_show (spinbtn_iotimeout);
@@ -3818,8 +3877,8 @@ static void prefs_keybind_apply_clicked(GtkWidget *widget)
 		{"<Main>/Message/Move...",			"<control>O"},
 		{"<Main>/Message/Copy...",			"<shift><control>O"},
 		{"<Main>/Message/Delete",			"<control>D"},
-		{"<Main>/Message/Mark/Mark",			"<shift>asterisk"},
-		{"<Main>/Message/Mark/Unmark",			"U"},
+		{"<Main>/Message/Mark/Set flag",		"<shift>asterisk"},
+		{"<Main>/Message/Mark/Unset flag",		"U"},
 		{"<Main>/Message/Mark/Mark as unread",		"<shift>exclam"},
 		{"<Main>/Message/Mark/Mark as read",		""},
 
@@ -3866,8 +3925,8 @@ static void prefs_keybind_apply_clicked(GtkWidget *widget)
 		{"<Main>/Message/Move...",			"O"},
 		{"<Main>/Message/Copy...",			"<shift>O"},
 		{"<Main>/Message/Delete",			"D"},
-		{"<Main>/Message/Mark/Mark",			"<shift>asterisk"},
-		{"<Main>/Message/Mark/Unmark",			"U"},
+		{"<Main>/Message/Mark/Set flag",		"<shift>asterisk"},
+		{"<Main>/Message/Mark/Unset flag",		"U"},
 		{"<Main>/Message/Mark/Mark as unread",		"<shift>exclam"},
 		{"<Main>/Message/Mark/Mark as read",		"<shift>R"},
 
@@ -3914,8 +3973,8 @@ static void prefs_keybind_apply_clicked(GtkWidget *widget)
 		{"<Main>/Message/Move...",			"<control>O"},
 		{"<Main>/Message/Copy...",			"<shift>C"},
 		{"<Main>/Message/Delete",			"D"},
-		{"<Main>/Message/Mark/Mark",			"<shift>F"},
-		{"<Main>/Message/Mark/Unmark",			"U"},
+		{"<Main>/Message/Mark/Set flag",		"<shift>F"},
+		{"<Main>/Message/Mark/Unset flag",		"U"},
 		{"<Main>/Message/Mark/Mark as unread",		"<shift>N"},
 		{"<Main>/Message/Mark/Mark as read",		""},
 
@@ -3962,8 +4021,8 @@ static void prefs_keybind_apply_clicked(GtkWidget *widget)
 		{"<Main>/Message/Move...",			"<alt>O"},
 		{"<Main>/Message/Copy...",			""},
 		{"<Main>/Message/Delete",			"<alt>D"},
-		{"<Main>/Message/Mark/Mark",			"<shift>asterisk"},
-		{"<Main>/Message/Mark/Unmark",			"U"},
+		{"<Main>/Message/Mark/Set flag",		"<shift>asterisk"},
+		{"<Main>/Message/Mark/Unset flag",		"U"},
 		{"<Main>/Message/Mark/Mark as unread",		"<shift>exclam"},
 		{"<Main>/Message/Mark/Mark as read",		""},
 
@@ -4010,8 +4069,8 @@ static void prefs_keybind_apply_clicked(GtkWidget *widget)
 		{"<Main>/Message/Move...",			""},
 		{"<Main>/Message/Copy...",			""},
 		{"<Main>/Message/Delete",			""},
-		{"<Main>/Message/Mark/Mark",			""},
-		{"<Main>/Message/Mark/Unmark",			""},
+		{"<Main>/Message/Mark/Set flag",		""},
+		{"<Main>/Message/Mark/Unset flag",		""},
 		{"<Main>/Message/Mark/Mark as unread",		""},
 		{"<Main>/Message/Mark/Mark as read",		""},
 
@@ -4160,6 +4219,76 @@ static void prefs_common_uri_set_entry(PrefParam *pparam)
 				   *str ? *str : _("(Default browser)"));
 	} else {
 		g_warning("Invalid type for URI setting\n");
+	}
+}
+
+static void prefs_common_addr_compl_set_data_from_radiobtn(PrefParam *pparam)
+{
+	PrefsUIData *ui_data;
+	GtkRadioButton *radiobtn;
+	GSList *group;
+
+	ui_data = (PrefsUIData *)pparam->ui_data;
+	g_return_if_fail(ui_data != NULL);
+	g_return_if_fail(*ui_data->widget != NULL);
+
+	radiobtn = GTK_RADIO_BUTTON(*ui_data->widget);
+	group = gtk_radio_button_get_group(radiobtn);
+	while (group != NULL) {
+		GtkToggleButton *btn = GTK_TOGGLE_BUTTON(group->data);
+		gint mode;
+
+		if (gtk_toggle_button_get_active(btn)) {
+			mode = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(btn),
+								 MENU_VAL_ID));
+			if (mode == 2) {
+				prefs_common.enable_address_completion = FALSE;
+				prefs_common.fullauto_completion_mode = FALSE;
+			} else {
+				prefs_common.enable_address_completion = TRUE;
+				if (mode == 0)
+					prefs_common.fullauto_completion_mode = TRUE;
+				else
+					prefs_common.fullauto_completion_mode = FALSE;
+			}
+			break;
+		}
+		group = group->next;
+	}
+}
+
+static void prefs_common_addr_compl_set_radiobtn(PrefParam *pparam)
+{
+	PrefsUIData *ui_data;
+	GtkRadioButton *radiobtn;
+	GSList *group;
+	gint mode;
+
+	if (prefs_common.enable_address_completion) {
+		if (prefs_common.fullauto_completion_mode)
+			mode = 0;
+		else
+			mode = 1;
+	} else
+		mode = 2;
+
+	ui_data = (PrefsUIData *)pparam->ui_data;
+	g_return_if_fail(ui_data != NULL);
+	g_return_if_fail(*ui_data->widget != NULL);
+
+	radiobtn = GTK_RADIO_BUTTON(*ui_data->widget);
+	group = gtk_radio_button_get_group(radiobtn);
+	while (group != NULL) {
+		GtkToggleButton *btn = GTK_TOGGLE_BUTTON(group->data);
+		gint data;
+
+		data = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(btn),
+							 MENU_VAL_ID));
+		if (data == mode) {
+			gtk_toggle_button_set_active(btn, TRUE);
+			break;
+		}
+		group = group->next;
 	}
 }
 

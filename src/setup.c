@@ -459,9 +459,6 @@ static void setup_account_response_cb(GtkDialog *dialog, gint response_id,
 	prev_page = page =
 		gtk_notebook_get_current_page(GTK_NOTEBOOK(setupac.notebook));
 
-	g_print("response_id = %d\n", response_id);
-	g_print("page = %d\n", page);
-
 	if (response_id == GTK_RESPONSE_CANCEL ||
 	    response_id == GTK_RESPONSE_DELETE_EVENT) {
 		if (page == SETUP_PAGE_FINISH) {
@@ -518,7 +515,6 @@ static void setup_account_response_cb(GtkDialog *dialog, gint response_id,
 	}
 
 	page = gtk_notebook_get_current_page(GTK_NOTEBOOK(setupac.notebook));
-	g_print("new page = %d\n", page);
 
 	if (page == SETUP_PAGE_START)
 		prev_enable = FALSE;
@@ -875,7 +871,7 @@ PrefsAccount *setup_account(void)
 	vbox2 = gtk_vbox_new(FALSE, 8);
 	gtk_box_pack_start(GTK_BOX(vbox), vbox2, FALSE, FALSE, 8);
 
-	label = gtk_label_new(_("Your new mail accout has been set up with the following setting."));
+	label = gtk_label_new(_("Your new mail account has been set up with the following settings."));
 	gtk_box_pack_start(GTK_BOX(vbox2), label, FALSE, FALSE, 0);
 	gtk_misc_set_alignment(GTK_MISC(label), 0.0, 0.0);
 	label = gtk_label_new(_("If you want to modify the settings, select\n"
@@ -1005,7 +1001,11 @@ PrefsAccount *setup_account(void)
 	g_free(ac->sig_text);
 	ac->sig_text = g_strdup_printf("%s <%s>\\n", ac->name, ac->address);
 
+	account_update_lock();
 	account_append(ac);
+	account_write_config_all();
+	account_update_unlock();
+	account_updated();
 
 	g_free(setupac.name);
 	g_free(setupac.addr);

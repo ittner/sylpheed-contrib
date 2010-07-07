@@ -1,20 +1,20 @@
 # Copyright (C) 2000 - 2007 Free Software Foundation, Inc.
-# Cristian Secară <cristi AT secarica DOT ro>, 2007.
+# Little Dragon <littledragon AT altern DOT org>, 2002.
+# Cristian Secară <cristi AT secarica DOT ro>, 2007-2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: sylpheed 2.2.0\n"
+"Project-Id-Version: sylpheed 3.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-19 11:27+0900\n"
-"PO-Revision-Date: 2009-12-01 16:54+0200\n"
+"POT-Creation-Date: 2010-07-02 16:05+0900\n"
+"PO-Revision-Date: 2010-05-09 12:41+0200\n"
 "Last-Translator: Cristian Secară <cristi AT secarica DOT ro>\n"
-"Language-Team: \n"
+"Language-Team: Gnome Romanian Team <gnomero-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Romanian\n"
-"X-Poedit-Country: Romania\n"
-"X-Poedit-Bookmarks: -1,-1,-1,-1,-1,-1,1020,139,414,422\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
 
 #: libsylph/account.c:57
 msgid "Reading all config for each account...\n"
@@ -30,9 +30,8 @@ msgid "IMAP4 server disables LOGIN.\n"
 msgstr "Serverul IMAP4 dezactivează LOGIN.\n"
 
 #: libsylph/imap.c:656
-#, fuzzy
 msgid "Could not establish IMAP connection.\n"
-msgstr "Nu se poate stabili sesiunea IMAP4 cu: %s:%d\n"
+msgstr "Nu s-a putut stabili conexiunea IMAP.\n"
 
 #: libsylph/imap.c:674
 #, c-format
@@ -45,12 +44,12 @@ msgstr "Nu se poate porni sesiunea TLS.\n"
 
 #: libsylph/imap.c:865
 msgid "(retrieving FLAGS...)"
-msgstr ""
+msgstr "(se recepționează FLAGS...)"
 
 #: libsylph/imap.c:1256
-#, fuzzy, c-format
+#, c-format
 msgid "Getting message %u"
-msgstr "Obținere mesaj %d"
+msgstr "Obținere mesaj %u"
 
 #: libsylph/imap.c:1378
 #, c-format
@@ -265,43 +264,43 @@ msgstr ""
 "a fost găsit câmp From „unescaped”:\n"
 "%s"
 
-#: libsylph/mbox.c:323
+#: libsylph/mbox.c:324
 #, c-format
 msgid "can't create lock file %s\n"
 msgstr "nu se poate crea fișierul „lock” %s\n"
 
-#: libsylph/mbox.c:324
+#: libsylph/mbox.c:325
 msgid "use 'flock' instead of 'file' if possible.\n"
 msgstr "dacă este posibil, folosiți „flock” în loc de „file”.\n"
 
-#: libsylph/mbox.c:336
+#: libsylph/mbox.c:337
 #, c-format
 msgid "can't create %s\n"
 msgstr "nu se poate crea %s\n"
 
-#: libsylph/mbox.c:342
+#: libsylph/mbox.c:343
 msgid "mailbox is owned by another process, waiting...\n"
 msgstr "căsuța poștală este folosită de alt proces, așteaptați...\n"
 
-#: libsylph/mbox.c:371
+#: libsylph/mbox.c:372
 #, c-format
 msgid "can't lock %s\n"
 msgstr "nu se poate bloca %s\n"
 
-#: libsylph/mbox.c:378 libsylph/mbox.c:428
+#: libsylph/mbox.c:379 libsylph/mbox.c:429
 msgid "invalid lock type\n"
 msgstr "tipul de blocare nu este valid\n"
 
-#: libsylph/mbox.c:414
+#: libsylph/mbox.c:415
 #, c-format
 msgid "can't unlock %s\n"
 msgstr "nu se poate debloca %s\n"
 
-#: libsylph/mbox.c:449
+#: libsylph/mbox.c:450
 msgid "can't truncate mailbox to zero.\n"
 msgstr "nu se poate trunchia la zero căsuța poștală.\n"
 
-#: libsylph/mbox.c:474
+#: libsylph/mbox.c:475
 #, c-format
 msgid "Exporting messages from %s into %s...\n"
 msgstr "Exportare mesaje din %s în %s...\n"
@@ -320,7 +319,7 @@ msgstr "dosarul sursă este identic cu cel de destinație.\n"
 msgid "Copying message %s/%d to %s ...\n"
 msgstr "Copiere mesaj %s/%d în %s ...\n"
 
-#: libsylph/mh.c:1195 libsylph/mh.c:1208 src/main.c:185
+#: libsylph/mh.c:1195 libsylph/mh.c:1208 src/main.c:186
 #, c-format
 msgid ""
 "File `%s' already exists.\n"
@@ -514,11 +513,11 @@ msgstr "Găsit %s\n"
 msgid "Configuration is saved.\n"
 msgstr "Configurația a fost salvată.\n"
 
-#: libsylph/prefs_common.c:591
+#: libsylph/prefs_common.c:593
 msgid "Junk mail filter (manual)"
 msgstr "Filtru mesaj spam (manual)"
 
-#: libsylph/prefs_common.c:594
+#: libsylph/prefs_common.c:596
 msgid "Junk mail filter"
 msgstr "Filtru mesaj spam"
 
@@ -526,16 +525,16 @@ msgstr "Filtru mesaj spam"
 msgid "procmime_get_text_content(): Code conversion failed.\n"
 msgstr "procmime_get_text_content(): conversia codului a eșuat.\n"
 
-#: libsylph/procmsg.c:849
+#: libsylph/procmsg.c:850
 msgid "can't open mark file\n"
 msgstr "nu se poate deschide fișierul de marcaj\n"
 
-#: libsylph/procmsg.c:1333
+#: libsylph/procmsg.c:1334
 #, c-format
 msgid "can't fetch message %d\n"
 msgstr "nu se poate prelua mesajul %d\n"
 
-#: libsylph/procmsg.c:1572
+#: libsylph/procmsg.c:1573
 #, c-format
 msgid "Print command line is invalid: `%s'\n"
 msgstr "Linia de comandă pentru tipărire nu este validă: „%s”\n"
@@ -586,13 +585,13 @@ msgstr "Metodă SSL necunoscută *PROGRAM BUG*\n"
 
 #: libsylph/ssl.c:250
 msgid "Error creating ssl context\n"
-msgstr "Eroare creare context SSL\n"
+msgstr "Eroare la crearea contextului SSL\n"
 
 #. Get the cipher
 #: libsylph/ssl.c:269
 #, c-format
 msgid "SSL connection using %s\n"
-msgstr "Conexiune SSL utilizând %s\n"
+msgstr "Conexiune SSL folosind %s\n"
 
 #: libsylph/ssl.c:285
 msgid "Server certificate:\n"
@@ -663,7 +662,7 @@ msgstr ""
 "acest program; dacă nu, scrieți la Free Software Foundation, Inc., 59 Temple "
 "Place - Suite 330, Boston, MA 02111-1307, USA."
 
-#: src/account_dialog.c:139 src/mainwindow.c:3901
+#: src/account_dialog.c:139 src/mainwindow.c:3903
 msgid ""
 "Some composing windows are open.\n"
 "Please close all the composing windows before editing the accounts."
@@ -675,27 +674,26 @@ msgstr ""
 msgid "Opening account edit window...\n"
 msgstr "Deschidere fereastră editare cont...\n"
 
+# hm ? dosar sau dosare ?
 #: src/account_dialog.c:193
-#, fuzzy
 msgid "Creating folder tree. Please wait..."
-msgstr "Creare vizualizare dosar...\n"
+msgstr "Se creează arborele de dosare. Așteptați..."
 
-# hm ? sau la singular ?
+# hm ? dosar sau dosare ?
 #: src/account_dialog.c:195
-#, fuzzy
 msgid "Creation of the folder tree failed."
-msgstr "Reconstruirea arborelui de dosare a eșuat."
+msgstr "Crearea arborelui de dosare a eșuat."
 
-#: src/account_dialog.c:294
+#: src/account_dialog.c:295
 msgid "Creating account edit window...\n"
-msgstr "Creare fereastră editare cont...\n"
+msgstr "Creare fereastră de editare cont...\n"
 
-#: src/account_dialog.c:299
+#: src/account_dialog.c:300
 msgid "Edit accounts"
 msgstr "Editare conturi"
 
 # !!! dependent de traducerea butonului Get all !!!
-#: src/account_dialog.c:319
+#: src/account_dialog.c:320
 msgid ""
 "New messages will be checked in this order. Check the boxes\n"
 "on the `G' column to enable message retrieval by `Get all'."
@@ -704,41 +702,41 @@ msgstr ""
 "coloana „G”\n"
 "pentru a activa recepționarea mesajelor la comanda „Verifică tot”."
 
-#: src/account_dialog.c:374 src/addressadd.c:178 src/addressbook.c:683
-#: src/compose.c:5295 src/editaddress.c:777 src/editaddress.c:826
+#: src/account_dialog.c:375 src/addressadd.c:178 src/addressbook.c:683
+#: src/compose.c:5300 src/editaddress.c:777 src/editaddress.c:826
 #: src/editbook.c:198 src/editgroup.c:266 src/editjpilot.c:270
 #: src/editldap.c:307 src/editvcard.c:183 src/mimeview.c:226
 #: src/prefs_filter.c:257 src/prefs_folder_item.c:171 src/select-keys.c:311
 msgid "Name"
 msgstr "Nume"
 
-#: src/account_dialog.c:379 src/prefs_account_dialog.c:693
+#: src/account_dialog.c:380 src/prefs_account_dialog.c:693
 msgid "Protocol"
 msgstr "Protocol"
 
-#: src/account_dialog.c:384
+#: src/account_dialog.c:385
 msgid "Server"
 msgstr "Server"
 
 # hm ? unde apare ?
-#: src/account_dialog.c:408 src/prefs_filter.c:322
+#: src/account_dialog.c:409 src/prefs_filter.c:322
 msgid "Edit"
 msgstr "Editează"
 
-#: src/account_dialog.c:442
+#: src/account_dialog.c:443
 msgid " _Set as default account "
 msgstr " _Stabilește ca și cont implicit"
 
-#: src/account_dialog.c:522
+#: src/account_dialog.c:523
 #, c-format
 msgid "Do you really want to delete the account '%s'?"
 msgstr "Chiar vreți să ștergeți contul „%s” ?"
 
-#: src/account_dialog.c:524 src/prefs_filter.c:687
+#: src/account_dialog.c:525 src/prefs_filter.c:687
 msgid "(Untitled)"
 msgstr "(neintitulat)"
 
-#: src/account_dialog.c:525
+#: src/account_dialog.c:526
 msgid "Delete account"
 msgstr "Șterge cont"
 
@@ -779,7 +777,7 @@ msgstr ""
 # Nu a putut fi executată instrucțiunea fork pentru execuția următoarei comenzi:
 # Eșec la bifurcarea procesului pentru execuția următoarei comenzi:
 #. Fork error
-#: src/action.c:799
+#: src/action.c:810
 #, c-format
 msgid ""
 "Could not fork to execute the following command:\n"
@@ -790,29 +788,29 @@ msgstr ""
 "%s\n"
 "%s"
 
-#: src/action.c:1035
+#: src/action.c:1052
 #, c-format
 msgid "--- Running: %s\n"
 msgstr "--- Running: %s\n"
 
-#: src/action.c:1039
+#: src/action.c:1056
 #, c-format
 msgid "--- Ended: %s\n"
 msgstr "--- Ended: %s\n"
 
-#: src/action.c:1071
+#: src/action.c:1088
 msgid "Action's input/output"
 msgstr "Introducerea și rezultatul acțiunii"
 
-#: src/action.c:1131
+#: src/action.c:1148
 msgid " Send "
 msgstr " Trimite "
 
-#: src/action.c:1142
+#: src/action.c:1159
 msgid "Abort"
 msgstr "Abandonează"
 
-#: src/action.c:1315
+#: src/action.c:1349
 #, c-format
 msgid ""
 "Enter the argument for the following action:\n"
@@ -824,11 +822,11 @@ msgstr ""
 "  %s"
 
 # hm ?
-#: src/action.c:1320
+#: src/action.c:1354
 msgid "Action's hidden user argument"
 msgstr "Argumentul invizibil al acțiunii dat de utilizator"
 
-#: src/action.c:1324
+#: src/action.c:1358
 #, c-format
 msgid ""
 "Enter the argument for the following action:\n"
@@ -840,7 +838,7 @@ msgstr ""
 "  %s"
 
 # hm ?
-#: src/action.c:1329
+#: src/action.c:1363
 msgid "Action's user argument"
 msgstr "Argumentul acțiunii dat de utilizator"
 
@@ -849,7 +847,7 @@ msgid "Add Address to Book"
 msgstr "Adăugare în agendă"
 
 # în meniu la compunere
-#: src/addressadd.c:188 src/compose.c:3318 src/prefs_toolbar.c:89
+#: src/addressadd.c:188 src/compose.c:3325 src/prefs_toolbar.c:89
 #: src/select-keys.c:312
 msgid "Address"
 msgstr "Agendă"
@@ -864,11 +862,10 @@ msgid "Select Address Book Folder"
 msgstr "Selectați dosarul pentru agendă"
 
 #: src/addressadd.c:311 src/addressbook.c:950 src/addressbook.c:3082
-#, fuzzy
 msgid "Auto-registered address"
-msgstr "Șabloane înregistrate"
+msgstr "Adrese înregistrate automat"
 
-#: src/addressbook.c:341 src/compose.c:571 src/mainwindow.c:543
+#: src/addressbook.c:341 src/compose.c:578 src/mainwindow.c:543
 #: src/messageview.c:149
 msgid "/_File"
 msgstr "/_Fișier"
@@ -889,8 +886,8 @@ msgstr "/_Fișier/_JPilot nou"
 msgid "/_File/New _LDAP Server"
 msgstr "/_Fișier/Server _LDAP nou"
 
-#: src/addressbook.c:350 src/addressbook.c:353 src/compose.c:576
-#: src/compose.c:581 src/compose.c:584 src/compose.c:587 src/mainwindow.c:561
+#: src/addressbook.c:350 src/addressbook.c:353 src/compose.c:583
+#: src/compose.c:588 src/compose.c:591 src/compose.c:594 src/mainwindow.c:561
 #: src/mainwindow.c:564 src/mainwindow.c:566 src/mainwindow.c:568
 #: src/mainwindow.c:573 src/mainwindow.c:575 src/messageview.c:151
 #: src/messageview.c:156
@@ -899,7 +896,7 @@ msgstr "/_Fișier/---"
 
 #: src/addressbook.c:351
 msgid "/_File/_Edit"
-msgstr "/_Fișier/_Editare"
+msgstr "/_Fișier/_Editează"
 
 #: src/addressbook.c:352
 msgid "/_File/_Delete"
@@ -909,22 +906,22 @@ msgstr "/_Fișier/Ș_terge"
 msgid "/_File/_Save"
 msgstr "/_Fișier/_Salvează"
 
-#: src/addressbook.c:355 src/compose.c:588 src/messageview.c:157
+#: src/addressbook.c:355 src/compose.c:595 src/messageview.c:157
 msgid "/_File/_Close"
 msgstr "/_Fișier/În_chide"
 
 # comun și în main menu și în rmb agendă
 #: src/addressbook.c:357 src/addressbook.c:397 src/addressbook.c:407
-#: src/compose.c:590 src/mainwindow.c:579 src/messageview.c:159
+#: src/compose.c:597 src/mainwindow.c:579 src/messageview.c:159
 msgid "/_Edit"
 msgstr "/_Editare"
 
-#: src/addressbook.c:358 src/compose.c:595 src/mainwindow.c:580
+#: src/addressbook.c:358 src/compose.c:602 src/mainwindow.c:580
 #: src/messageview.c:160
 msgid "/_Edit/_Copy"
 msgstr "/_Editare/_Copiază"
 
-#: src/addressbook.c:359 src/compose.c:596
+#: src/addressbook.c:359 src/compose.c:603
 msgid "/_Edit/_Paste"
 msgstr "/_Editare/Li_pește"
 
@@ -950,13 +947,13 @@ msgstr "/A_dresă/---"
 
 #: src/addressbook.c:366
 msgid "/_Address/_Edit"
-msgstr "/A_dresă/_Editare"
+msgstr "/A_dresă/_Editează"
 
 #: src/addressbook.c:367
 msgid "/_Address/_Delete"
 msgstr "/A_dresă/Ș_terge"
 
-#: src/addressbook.c:369 src/compose.c:706 src/mainwindow.c:827
+#: src/addressbook.c:369 src/compose.c:713 src/mainwindow.c:827
 #: src/messageview.c:282
 msgid "/_Tools"
 msgstr "/_Unelte"
@@ -969,12 +966,12 @@ msgstr "/_Unelte/Importă un fișier _LDIF"
 msgid "/_Tools/Import _CSV file"
 msgstr "/_Unelte/Importă un fișier _CSV"
 
-#: src/addressbook.c:373 src/compose.c:730 src/mainwindow.c:883
+#: src/addressbook.c:373 src/compose.c:737 src/mainwindow.c:883
 #: src/messageview.c:302
 msgid "/_Help"
 msgstr "/_Ajutor"
 
-#: src/addressbook.c:374 src/compose.c:731 src/mainwindow.c:899
+#: src/addressbook.c:374 src/compose.c:738 src/mainwindow.c:899
 #: src/messageview.c:303
 msgid "/_Help/_About"
 msgstr "/_Ajutor/_Despre"
@@ -992,20 +989,20 @@ msgid "/New _Folder"
 msgstr "/_Dosar nou"
 
 #: src/addressbook.c:396 src/addressbook.c:406 src/addressbook.c:409
-#: src/compose.c:565 src/folderview.c:256 src/folderview.c:258
-#: src/folderview.c:263 src/folderview.c:266 src/folderview.c:279
-#: src/folderview.c:281 src/folderview.c:283 src/folderview.c:288
-#: src/folderview.c:291 src/folderview.c:305 src/folderview.c:307
-#: src/folderview.c:311 src/folderview.c:313 src/mimeview.c:141
-#: src/mimeview.c:151 src/summaryview.c:424 src/summaryview.c:428
-#: src/summaryview.c:431 src/summaryview.c:443 src/summaryview.c:445
-#: src/summaryview.c:448 src/summaryview.c:450 src/summaryview.c:462
-#: src/summaryview.c:468
+#: src/compose.c:569 src/compose.c:572 src/folderview.c:257
+#: src/folderview.c:259 src/folderview.c:264 src/folderview.c:267
+#: src/folderview.c:280 src/folderview.c:282 src/folderview.c:284
+#: src/folderview.c:289 src/folderview.c:292 src/folderview.c:306
+#: src/folderview.c:308 src/folderview.c:312 src/folderview.c:314
+#: src/mimeview.c:141 src/mimeview.c:151 src/summaryview.c:427
+#: src/summaryview.c:431 src/summaryview.c:434 src/summaryview.c:446
+#: src/summaryview.c:448 src/summaryview.c:451 src/summaryview.c:453
+#: src/summaryview.c:465 src/summaryview.c:471
 msgid "/---"
 msgstr "/---"
 
 # comun și la intrare în agendă și la rmb pe mesaj
-#: src/addressbook.c:398 src/addressbook.c:408 src/summaryview.c:444
+#: src/addressbook.c:398 src/addressbook.c:408 src/summaryview.c:447
 msgid "/_Delete"
 msgstr "/Șter_ge"
 
@@ -1018,12 +1015,12 @@ msgid "/_Paste"
 msgstr "/Li_pește"
 
 # tooltip peste butonul Agendă
-#: src/addressbook.c:536 src/prefs_common_dialog.c:2525 src/prefs_toolbar.c:90
+#: src/addressbook.c:536 src/prefs_common_dialog.c:2546 src/prefs_toolbar.c:90
 msgid "Address book"
 msgstr "Agendă"
 
 #. special folder setting (maybe these options are redundant)
-#: src/addressbook.c:610 src/addressbook.c:3776 src/folderview.c:385
+#: src/addressbook.c:610 src/addressbook.c:3776 src/folderview.c:392
 #: src/prefs_account_dialog.c:1835 src/query_search.c:400
 msgid "Folder"
 msgstr "Dosar"
@@ -1036,17 +1033,17 @@ msgstr "Adresă de e-mail"
 msgid "Search:"
 msgstr "Caută:"
 
-#: src/addressbook.c:789 src/compose.c:3263 src/headerview.c:55
+#: src/addressbook.c:789 src/compose.c:3270 src/headerview.c:55
 #: src/prefs_folder_item.c:339 src/prefs_template.c:179
 msgid "To:"
 msgstr "Către:"
 
-#: src/addressbook.c:793 src/compose.c:3280 src/headerview.c:56
+#: src/addressbook.c:793 src/compose.c:3287 src/headerview.c:56
 #: src/prefs_folder_item.c:356 src/prefs_template.c:181
 msgid "Cc:"
 msgstr "Cc:"
 
-#: src/addressbook.c:797 src/compose.c:3297 src/prefs_folder_item.c:367
+#: src/addressbook.c:797 src/compose.c:3304 src/prefs_folder_item.c:367
 #: src/prefs_template.c:183
 msgid "Bcc:"
 msgstr "Bcc:"
@@ -1092,7 +1089,7 @@ msgstr ""
 "Vreți să ștergeți dosarul ȘI toate adresele din „%s” ?\n"
 "Dacă ștergeți doar dosarul, adresele vor fi mutate în dosarul părinte."
 
-#: src/addressbook.c:1888 src/folderview.c:2546
+#: src/addressbook.c:1888 src/folderview.c:2612
 msgid "Delete folder"
 msgstr "Ștergere dosar"
 
@@ -1162,12 +1159,15 @@ msgid "Address book conversion"
 msgstr "Conversie agendă"
 
 #: src/addressbook.c:2921
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not read address index:\n"
 "\n"
 "%s%c%s"
-msgstr "Fișierul index al agendei nu a putut fi citit"
+msgstr ""
+"Nu s-a putut citi fișierul index de adrese:\n"
+"\n"
+"%s%c%s"
 
 #: src/addressbook.c:2924
 msgid "Address Book Error"
@@ -1212,7 +1212,7 @@ msgstr "Eroare de conversie a agendei"
 msgid "Address Book Conversion"
 msgstr "Conversie agendă"
 
-#: src/addressbook.c:3706 src/prefs_common_dialog.c:2347
+#: src/addressbook.c:3706 src/prefs_common_dialog.c:2364
 msgid "Interface"
 msgstr "Interfață"
 
@@ -1246,21 +1246,21 @@ msgstr "Server LDAP"
 
 #: src/addrindex.c:95 src/addrindex.c:99 src/addrindex.c:106
 msgid "Common address"
-msgstr "Adrese comune:"
+msgstr "Adrese comune"
 
 #: src/addrindex.c:96 src/addrindex.c:100 src/addrindex.c:107
 msgid "Personal address"
-msgstr "Adrese personale:"
+msgstr "Adrese personale"
 
-#: src/alertpanel.c:142 src/compose.c:6657 src/main.c:751
+#: src/alertpanel.c:142 src/compose.c:6714 src/main.c:767
 msgid "Notice"
 msgstr "Notificare"
 
-#: src/alertpanel.c:155 src/main.c:871
+#: src/alertpanel.c:155 src/main.c:887
 msgid "Warning"
 msgstr "Avertisment"
 
-#: src/alertpanel.c:168 src/inc.c:734
+#: src/alertpanel.c:168 src/inc.c:737
 msgid "Error"
 msgstr "Eroare"
 
@@ -1305,401 +1305,405 @@ msgstr "Maro"
 #. create sub items. for the menu item activation callback we pass the
 #. * color flag value as data parameter. Also we attach a data pointer
 #. * so we can always get back the SummaryView pointer.
-#: src/colorlabel.c:300 src/prefs_folder_item.c:316 src/summaryview.c:5015
+#: src/colorlabel.c:300 src/prefs_folder_item.c:316 src/summaryview.c:5094
 msgid "None"
 msgstr "Niciunul"
 
-#: src/compose.c:563
+#: src/compose.c:568 src/mimeview.c:135
+msgid "/_Open"
+msgstr "/_Deschide"
+
+#: src/compose.c:570
 msgid "/_Add..."
 msgstr "/_Adăugă..."
 
-#: src/compose.c:564
+#: src/compose.c:571
 msgid "/_Remove"
 msgstr "/Ște_rge"
 
-#: src/compose.c:566 src/folderview.c:270 src/folderview.c:295
-#: src/folderview.c:317
+#: src/compose.c:573 src/folderview.c:271 src/folderview.c:296
+#: src/folderview.c:318
 msgid "/_Properties..."
 msgstr "/_Proprietăți..."
 
-#: src/compose.c:572
+#: src/compose.c:579
 msgid "/_File/_Send"
 msgstr "/_Fișier/_Trimite"
 
-#: src/compose.c:574
+#: src/compose.c:581
 msgid "/_File/Send _later"
 msgstr "/_Fișier/Trimite _mai târziu"
 
 # !!! dependent de traducerea lui draft !!!
-#: src/compose.c:577
+#: src/compose.c:584
 msgid "/_File/Save to _draft folder"
 msgstr "/_Fișier/Salvează în dosarul _ciorne"
 
-#: src/compose.c:579
+#: src/compose.c:586
 msgid "/_File/Save and _keep editing"
 msgstr "/_Fișier/_Salvează și continuă editarea"
 
-#: src/compose.c:582
+#: src/compose.c:589
 msgid "/_File/_Attach file"
 msgstr "/_Fișier/_Atașează un fișier"
 
-#: src/compose.c:583
+#: src/compose.c:590
 msgid "/_File/_Insert file"
 msgstr "/_Fișier/_Inserează un fișier"
 
-#: src/compose.c:585
+#: src/compose.c:592
 msgid "/_File/Insert si_gnature"
 msgstr "/_Fișier/Inserea_ză semnătura"
 
-#: src/compose.c:586
+#: src/compose.c:593
 msgid "/_File/A_ppend signature"
 msgstr "/_Fișier/Adau_gă semnătura"
 
-#: src/compose.c:591
+#: src/compose.c:598
 msgid "/_Edit/_Undo"
 msgstr "/_Editare/An_ulează"
 
-#: src/compose.c:592
+#: src/compose.c:599
 msgid "/_Edit/_Redo"
 msgstr "/_Editare/_Refă"
 
-#: src/compose.c:593 src/compose.c:600 src/mainwindow.c:583
+#: src/compose.c:600 src/compose.c:607 src/mainwindow.c:583
 #: src/messageview.c:162
 msgid "/_Edit/---"
 msgstr "/_Editare/---"
 
-#: src/compose.c:594
+#: src/compose.c:601
 msgid "/_Edit/Cu_t"
 msgstr "/_Editare/_Taie"
 
-#: src/compose.c:597
+#: src/compose.c:604
 msgid "/_Edit/Paste as _quotation"
 msgstr "/_Editare/_Lipește ca citat"
 
-#: src/compose.c:599 src/mainwindow.c:581 src/messageview.c:161
+#: src/compose.c:606 src/mainwindow.c:581 src/messageview.c:161
 msgid "/_Edit/Select _all"
 msgstr "/_Editare/Selecte_ază tot"
 
-#: src/compose.c:601
+#: src/compose.c:608
 msgid "/_Edit/_Wrap current paragraph"
 msgstr "/_Editare/_Desparte paragraful curent"
 
-#: src/compose.c:603
+#: src/compose.c:610
 msgid "/_Edit/Wrap all long _lines"
 msgstr "/_Editare/Desparte _liniile lungi"
 
-#: src/compose.c:605
+#: src/compose.c:612
 msgid "/_Edit/Aut_o wrapping"
 msgstr "/_Editare/Desparte liniile aut_omat"
 
-#: src/compose.c:606 src/mainwindow.c:589 src/messageview.c:166
-#: src/summaryview.c:463
+#: src/compose.c:613 src/mainwindow.c:589 src/messageview.c:166
+#: src/summaryview.c:466
 msgid "/_View"
 msgstr "/_Vizualizare"
 
-#: src/compose.c:607
+#: src/compose.c:614
 msgid "/_View/_To"
 msgstr "/_Vizualizare/Că_tre"
 
-#: src/compose.c:608
+#: src/compose.c:615
 msgid "/_View/_Cc"
 msgstr "/_Vizualizare/_Cc"
 
-#: src/compose.c:609
+#: src/compose.c:616
 msgid "/_View/_Bcc"
 msgstr "/_Vizualizare/_Bcc"
 
 # obs: câmpul propriu de întoarcere când se răspunde cuiva
-#: src/compose.c:610
+#: src/compose.c:617
 msgid "/_View/_Reply-To"
 msgstr "/_Vizualizare/_Răspuns către"
 
-#: src/compose.c:611 src/compose.c:613 src/compose.c:615 src/compose.c:617
-#: src/compose.c:620 src/mainwindow.c:612 src/mainwindow.c:618
+#: src/compose.c:618 src/compose.c:620 src/compose.c:622 src/compose.c:624
+#: src/compose.c:627 src/mainwindow.c:612 src/mainwindow.c:618
 #: src/mainwindow.c:645 src/mainwindow.c:669 src/mainwindow.c:772
 #: src/mainwindow.c:776 src/messageview.c:258
 msgid "/_View/---"
 msgstr "/_Vizualizare/---"
 
 # hm ?
-#: src/compose.c:612
+#: src/compose.c:619
 msgid "/_View/_Followup-To"
 msgstr "/_Vizualizare/_Urmărește"
 
-#: src/compose.c:614
+#: src/compose.c:621
 msgid "/_View/R_uler"
 msgstr "/_Vizualizare/Ri_glă"
 
-#: src/compose.c:616
+#: src/compose.c:623
 msgid "/_View/_Attachment"
 msgstr "/_Vizualizare/_Atașament"
 
-#: src/compose.c:618
+#: src/compose.c:625
 msgid "/_View/Cu_stomize toolbar..."
 msgstr "/_Vizualizare/Personali_zează bara de unelte..."
 
-#: src/compose.c:626 src/mainwindow.c:676 src/messageview.c:173
+#: src/compose.c:633 src/mainwindow.c:676 src/messageview.c:173
 msgid "/_View/Character _encoding"
 msgstr "/_Vizualizare/Codare caract_ere"
 
-#: src/compose.c:627
+#: src/compose.c:634
 msgid "/_View/Character _encoding/_Automatic"
 msgstr "/_Vizualizare/Codare caract_ere/_Automat"
 
-#: src/compose.c:629 src/compose.c:635 src/compose.c:641 src/compose.c:645
-#: src/compose.c:653 src/compose.c:657 src/compose.c:663 src/compose.c:669
-#: src/compose.c:673 src/compose.c:683 src/compose.c:687 src/compose.c:695
-#: src/compose.c:699 src/mainwindow.c:672 src/mainwindow.c:679
+#: src/compose.c:636 src/compose.c:642 src/compose.c:648 src/compose.c:652
+#: src/compose.c:660 src/compose.c:664 src/compose.c:670 src/compose.c:676
+#: src/compose.c:680 src/compose.c:690 src/compose.c:694 src/compose.c:702
+#: src/compose.c:706 src/mainwindow.c:672 src/mainwindow.c:679
 #: src/messageview.c:169
 msgid "/_View/Character _encoding/---"
 msgstr "/_Vizualizare/Codare caract_ere/---"
 
-#: src/compose.c:631 src/mainwindow.c:680 src/messageview.c:177
+#: src/compose.c:638 src/mainwindow.c:680 src/messageview.c:177
 msgid "/_View/Character _encoding/7bit ascii (US-ASC_II)"
 msgstr "/_Vizualizare/Codare caract_ere/7bit ascii (US-ASC_II)"
 
-#: src/compose.c:633 src/mainwindow.c:682 src/messageview.c:180
+#: src/compose.c:640 src/mainwindow.c:682 src/messageview.c:180
 msgid "/_View/Character _encoding/Unicode (_UTF-8)"
 msgstr "/_Vizualizare/Codare caract_ere/Unicode (_UTF-8)"
 
-#: src/compose.c:637 src/mainwindow.c:686 src/messageview.c:183
+#: src/compose.c:644 src/mainwindow.c:686 src/messageview.c:183
 msgid "/_View/Character _encoding/Western European (ISO-8859-_1)"
 msgstr "/_Vizualizare/Codare caract_ere/Western European (ISO-8859-_1)"
 
-#: src/compose.c:639 src/mainwindow.c:688 src/messageview.c:185
+#: src/compose.c:646 src/mainwindow.c:688 src/messageview.c:185
 msgid "/_View/Character _encoding/Western European (ISO-8859-15)"
 msgstr "/_Vizualizare/Codare caract_ere/Western European (ISO-8859-15)"
 
-#: src/compose.c:643 src/mainwindow.c:694 src/messageview.c:190
+#: src/compose.c:650 src/mainwindow.c:694 src/messageview.c:190
 msgid "/_View/Character _encoding/Central European (ISO-8859-_2)"
 msgstr "/_Vizualizare/Codare caract_ere/Central European (ISO-8859-_2)"
 
-#: src/compose.c:647 src/mainwindow.c:698 src/messageview.c:193
+#: src/compose.c:654 src/mainwindow.c:698 src/messageview.c:193
 msgid "/_View/Character _encoding/_Baltic (ISO-8859-13)"
 msgstr "/_Vizualizare/Codare caract_ere/_Baltic (ISO-8859-13)"
 
-#: src/compose.c:649 src/mainwindow.c:700 src/messageview.c:195
+#: src/compose.c:656 src/mainwindow.c:700 src/messageview.c:195
 msgid "/_View/Character _encoding/Baltic (ISO-8859-_4)"
 msgstr "/_Vizualizare/Codare caract_ere/Baltic (ISO-8859-_4)"
 
-#: src/compose.c:651 src/mainwindow.c:702 src/messageview.c:197
+#: src/compose.c:658 src/mainwindow.c:702 src/messageview.c:197
 msgid "/_View/Character _encoding/Baltic (Windows-1257)"
 msgstr "/_Vizualizare/Codare caract_ere/Baltic (Windows-1257)"
 
-#: src/compose.c:655 src/mainwindow.c:706 src/messageview.c:200
+#: src/compose.c:662 src/mainwindow.c:706 src/messageview.c:200
 msgid "/_View/Character _encoding/Greek (ISO-8859-_7)"
 msgstr "/_Vizualizare/Codare caract_ere/Greek (ISO-8859-_7)"
 
-#: src/compose.c:659 src/mainwindow.c:710 src/messageview.c:203
+#: src/compose.c:666 src/mainwindow.c:710 src/messageview.c:203
 msgid "/_View/Character _encoding/Arabic (ISO-8859-_6)"
 msgstr "/_Vizualizare/Codare caract_ere/Arabic (ISO-8859-_6)"
 
-#: src/compose.c:661 src/mainwindow.c:712 src/messageview.c:205
+#: src/compose.c:668 src/mainwindow.c:712 src/messageview.c:205
 msgid "/_View/Character _encoding/Arabic (Windows-1256)"
 msgstr "/_Vizualizare/Codare caract_ere/Arabic (Windows-1256)"
 
-#: src/compose.c:665 src/mainwindow.c:716 src/messageview.c:208
+#: src/compose.c:672 src/mainwindow.c:716 src/messageview.c:208
 msgid "/_View/Character _encoding/Hebrew (ISO-8859-_8)"
 msgstr "/_Vizualizare/Codare caract_ere/Hebrew (ISO-8859-_8)"
 
-#: src/compose.c:667 src/mainwindow.c:718 src/messageview.c:210
+#: src/compose.c:674 src/mainwindow.c:718 src/messageview.c:210
 msgid "/_View/Character _encoding/Hebrew (Windows-1255)"
 msgstr "/_Vizualizare/Codare caract_ere/Hebrew (Windows-1255)"
 
-#: src/compose.c:671 src/mainwindow.c:722 src/messageview.c:213
+#: src/compose.c:678 src/mainwindow.c:722 src/messageview.c:213
 msgid "/_View/Character _encoding/Turkish (ISO-8859-_9)"
 msgstr "/_Vizualizare/Codare caract_ere/Turkish (ISO-8859-_9)"
 
-#: src/compose.c:675 src/mainwindow.c:726 src/messageview.c:216
+#: src/compose.c:682 src/mainwindow.c:726 src/messageview.c:216
 msgid "/_View/Character _encoding/Cyrillic (ISO-8859-_5)"
 msgstr "/_Vizualizare/Codare caract_ere/Cyrillic (ISO-8859-_5)"
 
-#: src/compose.c:677 src/mainwindow.c:728 src/messageview.c:218
+#: src/compose.c:684 src/mainwindow.c:728 src/messageview.c:218
 msgid "/_View/Character _encoding/Cyrillic (KOI8-_R)"
 msgstr "/_Vizualizare/Codare caract_ere/Cyrillic (KOI8-_R)"
 
-#: src/compose.c:679 src/mainwindow.c:730 src/messageview.c:220
+#: src/compose.c:686 src/mainwindow.c:730 src/messageview.c:220
 msgid "/_View/Character _encoding/Cyrillic (KOI8-U)"
 msgstr "/_Vizualizare/Codare caract_ere/Cyrillic (KOI8-U)"
 
-#: src/compose.c:681 src/mainwindow.c:732 src/messageview.c:222
+#: src/compose.c:688 src/mainwindow.c:732 src/messageview.c:222
 msgid "/_View/Character _encoding/Cyrillic (Windows-1251)"
 msgstr "/_Vizualizare/Codare caract_ere/Cyrillic (Windows-1251)"
 
-#: src/compose.c:685 src/mainwindow.c:736 src/messageview.c:225
+#: src/compose.c:692 src/mainwindow.c:736 src/messageview.c:225
 msgid "/_View/Character _encoding/Japanese (ISO-2022-_JP)"
 msgstr "/_Vizualizare/Codare caract_ere/Japanese (ISO-2022-_JP)"
 
-#: src/compose.c:689 src/mainwindow.c:746 src/messageview.c:234
+#: src/compose.c:696 src/mainwindow.c:746 src/messageview.c:234
 msgid "/_View/Character _encoding/Simplified Chinese (_GB2312)"
 msgstr "/_Vizualizare/Codare caract_ere/Simplified Chinese (_GB2312)"
 
-#: src/compose.c:691 src/mainwindow.c:748 src/messageview.c:236
+#: src/compose.c:698 src/mainwindow.c:748 src/messageview.c:236
 msgid "/_View/Character _encoding/Simplified Chinese (GBK)"
 msgstr "/_Vizualizare/Codare caract_ere/Simplified Chinses (GBK)"
 
-#: src/compose.c:693 src/mainwindow.c:750 src/messageview.c:238
+#: src/compose.c:700 src/mainwindow.c:750 src/messageview.c:238
 msgid "/_View/Character _encoding/Traditional Chinese (_Big5)"
 msgstr "/_Vizualizare/Codare caract_ere/Traditional Chinese (_Big5)"
 
-#: src/compose.c:697 src/mainwindow.c:758 src/messageview.c:245
+#: src/compose.c:704 src/mainwindow.c:758 src/messageview.c:245
 msgid "/_View/Character _encoding/Korean (EUC-_KR)"
 msgstr "/_Vizualizare/Codare caract_ere/Korean (EUC-_KR)"
 
-#: src/compose.c:701 src/mainwindow.c:764 src/messageview.c:250
+#: src/compose.c:708 src/mainwindow.c:764 src/messageview.c:250
 msgid "/_View/Character _encoding/Thai (TIS-620)"
 msgstr "/_Vizualizare/Codare caract_ere/Thai (TIS-620)"
 
-#: src/compose.c:703 src/mainwindow.c:766 src/messageview.c:252
+#: src/compose.c:710 src/mainwindow.c:766 src/messageview.c:252
 msgid "/_View/Character _encoding/Thai (Windows-874)"
 msgstr "/_Vizualizare/Codare caract_ere/Thai (Windows-874)"
 
-#: src/compose.c:707 src/mainwindow.c:828 src/messageview.c:283
+#: src/compose.c:714 src/mainwindow.c:828 src/messageview.c:283
 msgid "/_Tools/_Address book"
 msgstr "/_Unelte/_Agendă"
 
-#: src/compose.c:708
+#: src/compose.c:715
 msgid "/_Tools/_Template"
 msgstr "/_Unelte/_Șablon"
 
-#: src/compose.c:710 src/mainwindow.c:852 src/messageview.c:299
+#: src/compose.c:717 src/mainwindow.c:852 src/messageview.c:299
 msgid "/_Tools/Actio_ns"
 msgstr "/_Unelte/Acțiu_ni"
 
-#: src/compose.c:712 src/compose.c:715 src/compose.c:719 src/compose.c:725
+#: src/compose.c:719 src/compose.c:722 src/compose.c:726 src/compose.c:732
 #: src/mainwindow.c:831 src/mainwindow.c:845 src/mainwindow.c:850
 #: src/mainwindow.c:853 src/mainwindow.c:857 src/mainwindow.c:859
 #: src/messageview.c:286 src/messageview.c:298
 msgid "/_Tools/---"
 msgstr "/_Unelte/---"
 
-#: src/compose.c:713
-msgid "/_Tools/Edit with e_xternal editor"
-msgstr "/_Unelte/Editare cu editor e_xtern"
-
-#: src/compose.c:716
-msgid "/_Tools/Request _disposition notification"
-msgstr ""
-
 #: src/compose.c:720
+msgid "/_Tools/Edit with e_xternal editor"
+msgstr "/_Unelte/Editează cu un editor e_xtern"
+
+#: src/compose.c:723
+msgid "/_Tools/Request _disposition notification"
+msgstr "/_Unelte/Cere notificare de _disponibilitate"
+
+#: src/compose.c:727
 msgid "/_Tools/PGP Si_gn"
 msgstr "/_Unelte/Semnează P_GP"
 
-#: src/compose.c:721
+#: src/compose.c:728
 msgid "/_Tools/PGP _Encrypt"
 msgstr "/_Unelte/Cr_iptează PGP"
 
-#: src/compose.c:726
+#: src/compose.c:733
 msgid "/_Tools/_Check spell"
 msgstr "/_Unelte/Verifi_că ortografia"
 
-#: src/compose.c:727
+#: src/compose.c:734
 msgid "/_Tools/_Set spell language"
 msgstr "/_Unelte/_Selectați limba ortografiei"
 
-#: src/compose.c:995
+#: src/compose.c:1002
 #, c-format
 msgid "%s: file not exist\n"
 msgstr "%s: fișier inexistent\n"
 
-#: src/compose.c:1101 src/compose.c:1178
+#: src/compose.c:1108 src/compose.c:1185
 msgid "Can't get text part\n"
 msgstr "Nu se poate obține partea de text\n"
 
-#: src/compose.c:1723
+#: src/compose.c:1730
 msgid "Quote mark format error."
 msgstr "Eroare de formatare a citației."
 
-#: src/compose.c:1735
+#: src/compose.c:1742
 msgid "Message reply/forward format error."
 msgstr "Eroare de format al mesajului de răspuns sau înaintat."
 
-#: src/compose.c:2245
+#: src/compose.c:2252
 #, c-format
 msgid "File %s doesn't exist\n"
 msgstr "Fișierul %s nu există\n"
 
-#: src/compose.c:2249
+#: src/compose.c:2256
 #, c-format
 msgid "Can't get file size of %s\n"
 msgstr "Nu se poate obține dimensiunea fișierului %s\n"
 
-#: src/compose.c:2253 src/compose.c:4367
+#: src/compose.c:2260 src/compose.c:4374
 #, c-format
 msgid "File %s is empty."
 msgstr "Fișierul %s este gol."
 
-#: src/compose.c:2257
+#: src/compose.c:2264
 #, c-format
 msgid "Can't read %s."
 msgstr "Nu se poate citi %s."
 
-#: src/compose.c:2290
+#: src/compose.c:2297
 #, c-format
 msgid "Message: %s"
 msgstr "Mesaj: %s"
 
-#: src/compose.c:2350 src/mimeview.c:586
+#: src/compose.c:2357 src/mimeview.c:586
 msgid "Can't get the part of multipart message."
 msgstr "Nu se poate obține o parte a mesajului multiparte."
 
-#: src/compose.c:2840 src/headerview.c:233 src/query_search.c:790
-#: src/rpop3.c:667 src/summaryview.c:2297
+#: src/compose.c:2847 src/headerview.c:233 src/query_search.c:790
+#: src/rpop3.c:667 src/summaryview.c:2376
 msgid "(No Subject)"
 msgstr "(Fără subiect)"
 
-#: src/compose.c:2843
+#: src/compose.c:2850
 #, c-format
 msgid "%s - Compose%s"
 msgstr "%s - Compune%s"
 
-#: src/compose.c:2958
+#: src/compose.c:2965
 msgid "Recipient is not specified."
 msgstr "Destinatarul nu este specificat."
 
-#: src/compose.c:2966
+#: src/compose.c:2973
 msgid "Empty subject"
 msgstr "Subiect gol"
 
-#: src/compose.c:2967
+#: src/compose.c:2974
 msgid "Subject is empty. Send it anyway?"
 msgstr "Subiectul este gol. Trimiteți mesajul oricum ?"
 
-#: src/compose.c:3031
+#: src/compose.c:3038
 msgid "Attachment is missing"
 msgstr "Lipsă atașament"
 
-#: src/compose.c:3032
+#: src/compose.c:3039
 msgid "There is no attachment. Send it without attachments?"
 msgstr "Nu este atașat niciun fișier. Trimiteți fără atașamente ?"
 
-#: src/compose.c:3149 src/compose.c:3175
+#: src/compose.c:3156 src/compose.c:3182
 msgid "Check recipients"
 msgstr "Confirmare destinatari"
 
-#: src/compose.c:3195
+#: src/compose.c:3202
 msgid "Really send this mail to the following addresses?"
 msgstr "Sigur trimiteți acest mesaj către următoarele adrese ?"
 
-#: src/compose.c:3208 src/compose.c:5161 src/headerview.c:54
+#: src/compose.c:3215 src/compose.c:5166 src/headerview.c:54
 msgid "From:"
 msgstr "De la:"
 
-#: src/compose.c:3230 src/headerview.c:58 src/prefs_template.c:187
+#: src/compose.c:3237 src/headerview.c:58 src/prefs_template.c:187
 msgid "Subject:"
 msgstr "Subiect:"
 
 # butonul de la confirmarea cui se trimite
-#: src/compose.c:3323
+#: src/compose.c:3330
 msgid "_Send"
 msgstr "_Trimite"
 
 # hm ?
-#: src/compose.c:3451
+#: src/compose.c:3458
 msgid "can't get recipient list."
 msgstr "nu se poate obține lista destinatarilor."
 
-#: src/compose.c:3471
+#: src/compose.c:3478
 msgid ""
 "Account for sending mail is not specified.\n"
 "Please select a mail account before sending."
@@ -1707,38 +1711,38 @@ msgstr ""
 "Contul pentru trimitere de mesaje nu este specificat.\n"
 "Vă rugăm să selectați un cont înainte de a trimite."
 
-#: src/compose.c:3485 src/send_message.c:315
+#: src/compose.c:3492 src/send_message.c:315
 #, c-format
 msgid "Error occurred while posting the message to %s ."
 msgstr "A apărut o eroare în timpul trimiterii mesajului către %s ."
 
 # !!! dependent de traducerea lui Outbox !!!
-#: src/compose.c:3535
+#: src/compose.c:3542
 msgid "Can't save the message to outbox."
 msgstr "Nu se poate salva mesajul în „Trimise”."
 
-#: src/compose.c:3578
+#: src/compose.c:3585
 #, c-format
 msgid "Could not find any key associated with currently selected key id `%s'."
 msgstr "Nu s-a putut găsi nicio cheie asociată cu ID-ul cheii selectate „%s”."
 
-#: src/compose.c:3605 src/compose.c:3990
+#: src/compose.c:3612 src/compose.c:3997
 msgid "Can't sign the message."
 msgstr "Nu se poate semna mesajul."
 
-#: src/compose.c:3632 src/compose.c:4033
+#: src/compose.c:3639 src/compose.c:4040
 msgid "Can't encrypt the message."
 msgstr "Nu se poate cripta mesajul."
 
-#: src/compose.c:3667 src/compose.c:4028
+#: src/compose.c:3674 src/compose.c:4035
 msgid "Can't encrypt or sign the message."
 msgstr "Nu se poate cripta sau semna mesajul."
 
-#: src/compose.c:3713 src/compose.c:4061 src/compose.c:4124 src/compose.c:4244
+#: src/compose.c:3720 src/compose.c:4068 src/compose.c:4131 src/compose.c:4251
 msgid "can't change file mode\n"
 msgstr "nu se pot schimba permisiunile fișierului\n"
 
-#: src/compose.c:3746
+#: src/compose.c:3753
 #, c-format
 msgid ""
 "Can't convert the character encoding of the message body from %s to %s.\n"
@@ -1750,11 +1754,11 @@ msgstr ""
 "\n"
 "Îl trimiteți oricum ca %s ?"
 
-#: src/compose.c:3752
+#: src/compose.c:3759
 msgid "Code conversion error"
 msgstr "Eroare conversie cod"
 
-#: src/compose.c:3838
+#: src/compose.c:3845
 #, c-format
 msgid ""
 "Line %d exceeds the line length limit (998 bytes).\n"
@@ -1767,15 +1771,15 @@ msgstr ""
 "\n"
 "Îl trimiteți oricum ?"
 
-#: src/compose.c:3842
+#: src/compose.c:3849
 msgid "Line length limit"
 msgstr "Limită lungime linie"
 
-#: src/compose.c:4008
+#: src/compose.c:4015
 msgid "Encrypting with Bcc"
 msgstr "Criptare cu Bcc"
 
-#: src/compose.c:4009
+#: src/compose.c:4016
 msgid ""
 "This message has Bcc recipients. If this message is encrypted, all Bcc "
 "recipients will be visible by examing the encryption key list, leading to "
@@ -1789,92 +1793,113 @@ msgstr ""
 "\n"
 "Îl trimiteți oricum ?"
 
-#: src/compose.c:4204
+#: src/compose.c:4211
 msgid "can't remove the old message\n"
 msgstr "nu se poate șterge mesajul vechi\n"
 
-#: src/compose.c:4222
+#: src/compose.c:4229
 msgid "queueing message...\n"
 msgstr "punere mesaj în coada de așteptare...\n"
 
-#: src/compose.c:4310
+#: src/compose.c:4317
 msgid "can't find queue folder\n"
 msgstr "nu se poate găsi dosarul de coadă\n"
 
-#: src/compose.c:4317
+#: src/compose.c:4324
 msgid "can't queue the message\n"
 msgstr "nu se poate pune mesajului în coada de așteptare\n"
 
-#: src/compose.c:4362
+#: src/compose.c:4369
 #, c-format
 msgid "File %s doesn't exist."
 msgstr "Fișierul %s nu există."
 
-#: src/compose.c:4371
+#: src/compose.c:4378
 #, c-format
 msgid "Can't open file %s."
 msgstr "Nu se poate deschide fișierul %s."
 
-#: src/compose.c:4993
+#: src/compose.c:4998
 #, c-format
 msgid "generated Message-ID: %s\n"
 msgstr "Message-ID creat: %s\n"
 
-#: src/compose.c:5108
+#: src/compose.c:5113
 msgid "Creating compose window...\n"
 msgstr "Creare fereastră de compunere...\n"
 
-#: src/compose.c:5235
+#: src/compose.c:5240
 msgid "PGP Sign"
 msgstr "Semnătură PGP"
 
-#: src/compose.c:5238
+#: src/compose.c:5243
 msgid "PGP Encrypt"
 msgstr "Criptare PGP"
 
-#: src/compose.c:5276 src/compose.c:6476
+#: src/compose.c:5281 src/compose.c:6481
 msgid "MIME type"
 msgstr "Tip MIME"
 
 #. S_COL_DATE
-#: src/compose.c:5285 src/mimeview.c:217 src/prefs_filter_edit.c:507
+#: src/compose.c:5290 src/mimeview.c:217 src/prefs_filter_edit.c:507
 #: src/prefs_summary_column.c:72 src/rpop3.c:418 src/select-keys.c:309
-#: src/summaryview.c:5164
+#: src/summaryview.c:5243
 msgid "Size"
 msgstr "Dimensiune"
 
-#: src/compose.c:6371
+#: src/compose.c:6376
 msgid "Invalid MIME type."
 msgstr "Tipul MIME nu este valid."
 
-#: src/compose.c:6389
+#: src/compose.c:6394
 msgid "File doesn't exist or is empty."
 msgstr "Fișierul nu există sau este gol."
 
-#: src/compose.c:6458
+#: src/compose.c:6463
 msgid "Properties"
 msgstr "Proprietăți"
 
 #. Encoding
-#: src/compose.c:6478 src/prefs_common_dialog.c:1013
-#: src/prefs_common_dialog.c:1674
+#: src/compose.c:6483 src/prefs_common_dialog.c:1017
+#: src/prefs_common_dialog.c:1678
 msgid "Encoding"
 msgstr "Codare"
 
-#: src/compose.c:6501 src/prefs_folder_item.c:202
+#: src/compose.c:6506 src/prefs_folder_item.c:202
 msgid "Path"
 msgstr "Cale"
 
-#: src/compose.c:6502
+#: src/compose.c:6507
 msgid "File name"
 msgstr "Nume fișier"
 
-#: src/compose.c:6592
+#: src/compose.c:6596
+#, fuzzy
+msgid "File not exist."
+msgstr "%s: fișier inexistent\n"
+
+#: src/compose.c:6606 src/mimeview.c:1220
+msgid "Opening executable file"
+msgstr "Deschidere fișier executabil"
+
+#: src/compose.c:6607 src/mimeview.c:1221
+msgid ""
+"This is an executable file. Opening executable file is restricted for "
+"security.\n"
+"If you want to launch it, save it to somewhere and make sure it is not an "
+"virus or something like a malicious program."
+msgstr ""
+"Acesta este un fișier executabil. Deschiderea fișierelor executabile este "
+"restricționată din motive de securitate.\n"
+"Dacă vreți să îl lansați în execuție, salvați-l undeva și asigurați-vă că nu "
+"este un virus sau un alt tip de program malițios."
+
+#: src/compose.c:6649
 #, c-format
 msgid "External editor command line is invalid: `%s'\n"
 msgstr "Linia de comandă pentru editor extern nu este validă: „%s”\n"
 
-#: src/compose.c:6654
+#: src/compose.c:6711
 #, c-format
 msgid ""
 "The external editor is still working.\n"
@@ -1883,49 +1908,49 @@ msgstr ""
 "Editorul extern este încă în funcțiune.\n"
 "Forțați terminarea procesului (pid: %d) ?\n"
 
-#: src/compose.c:6991 src/mainwindow.c:3022
+#: src/compose.c:7048 src/mainwindow.c:3022
 msgid "_Customize toolbar..."
 msgstr "_Personalizează bara de unelte..."
 
-#: src/compose.c:7111 src/compose.c:7116 src/compose.c:7122
+#: src/compose.c:7182 src/compose.c:7187 src/compose.c:7193
 msgid "Can't queue the message."
 msgstr "Nu se poate pune mesajul în coada de așteptare."
 
-#: src/compose.c:7213
+#: src/compose.c:7292
 msgid "Select files"
 msgstr "Selectați fișierele"
 
-#: src/compose.c:7236 src/inputdialog.c:372
+#: src/compose.c:7315 src/inputdialog.c:372
 msgid "Select file"
 msgstr "Selectați fișierul"
 
-#: src/compose.c:7287
+#: src/compose.c:7366
 msgid "Save message"
 msgstr "Salvare mesaj"
 
 # !!! dependent de traducerea lui draft !!!
-#: src/compose.c:7288
+#: src/compose.c:7367
 msgid "This message has been modified. Save it to draft folder?"
 msgstr "Acest mesaj a fost modificat. Îl salvați în dosarul Ciorne ?"
 
-#: src/compose.c:7290 src/compose.c:7294
+#: src/compose.c:7369 src/compose.c:7373
 msgid "Close _without saving"
-msgstr "Închide _fără a salva"
+msgstr "Închide _fără salvare"
 
-#: src/compose.c:7341
+#: src/compose.c:7420
 #, c-format
 msgid "Do you want to apply the template `%s' ?"
 msgstr "Vreți să aplicați șablonul „%s” ?"
 
-#: src/compose.c:7343
+#: src/compose.c:7422
 msgid "Apply template"
 msgstr "Aplică șablon"
 
-#: src/compose.c:7344
+#: src/compose.c:7423
 msgid "_Replace"
 msgstr "Înl_ocuiește"
 
-#: src/compose.c:7344
+#: src/compose.c:7423
 msgid "_Insert"
 msgstr "_Inserează"
 
@@ -2083,12 +2108,12 @@ msgstr "Editare dosar"
 msgid "Input the new name of folder:"
 msgstr "Introduceți noul nume al dosarului:"
 
-#: src/editgroup.c:540 src/foldersel.c:591 src/folderview.c:2278
-#: src/folderview.c:2284
+#: src/editgroup.c:540 src/foldersel.c:597 src/folderview.c:2344
+#: src/folderview.c:2350
 msgid "New folder"
 msgstr "Dosar nou"
 
-#: src/editgroup.c:541 src/foldersel.c:592 src/folderview.c:2285
+#: src/editgroup.c:541 src/foldersel.c:598 src/folderview.c:2351
 msgid "Input the name of new folder:"
 msgstr "Introduceți numele dosarului nou:"
 
@@ -2106,7 +2131,7 @@ msgstr "Editare înregistrare JPilot"
 
 #: src/editjpilot.c:289 src/editldap.c:349 src/editvcard.c:202
 #: src/importcsv.c:691 src/importldif.c:498 src/prefs_account_dialog.c:1863
-#: src/prefs_common_dialog.c:2147
+#: src/prefs_common_dialog.c:2164
 msgid " ... "
 msgstr " ... "
 
@@ -2287,206 +2312,206 @@ msgstr "Suprascriere fișier existent"
 msgid "The file already exists. Do you want to replace it?"
 msgstr "Fișierul există deja. Vreți să îl înlocuiți ?"
 
-#: src/filesel.c:183 src/foldersel.c:252
+#: src/filesel.c:183 src/foldersel.c:256
 msgid "Select folder"
 msgstr "Selectare dosar"
 
-#: src/foldersel.c:396 src/folderview.c:1224 src/prefs_folder_item.c:235
+#: src/foldersel.c:402 src/folderview.c:1242 src/prefs_folder_item.c:235
 msgid "Inbox"
 msgstr "Primite (Inbox)"
 
-#: src/foldersel.c:400 src/folderview.c:1230 src/prefs_folder_item.c:236
+#: src/foldersel.c:406 src/folderview.c:1248 src/prefs_folder_item.c:236
 msgid "Sent"
 msgstr "Trimise"
 
-#: src/foldersel.c:404 src/folderview.c:1236 src/prefs_folder_item.c:238
+#: src/foldersel.c:410 src/folderview.c:1254 src/prefs_folder_item.c:238
 msgid "Queue"
 msgstr "Coadă"
 
-#: src/foldersel.c:408 src/folderview.c:1242 src/prefs_folder_item.c:239
+#: src/foldersel.c:414 src/folderview.c:1260 src/prefs_folder_item.c:239
 msgid "Trash"
 msgstr "Gunoi"
 
-#: src/foldersel.c:412 src/folderview.c:1248 src/prefs_folder_item.c:237
+#: src/foldersel.c:418 src/folderview.c:1266 src/prefs_folder_item.c:237
 msgid "Drafts"
 msgstr "Ciorne"
 
-#: src/foldersel.c:593 src/folderview.c:2282 src/folderview.c:2286
+#: src/foldersel.c:599 src/folderview.c:2348 src/folderview.c:2352
 msgid "NewFolder"
 msgstr "Dosar nou"
 
-#: src/foldersel.c:601 src/folderview.c:2296 src/folderview.c:2304
-#: src/folderview.c:2366
+#: src/foldersel.c:607 src/folderview.c:2362 src/folderview.c:2370
+#: src/folderview.c:2432
 #, c-format
 msgid "`%c' can't be included in folder name."
 msgstr "„%c” nu poate fi inclus în numele dosarului."
 
-#: src/foldersel.c:611 src/folderview.c:2315 src/folderview.c:2374
+#: src/foldersel.c:617 src/folderview.c:2381 src/folderview.c:2440
 #: src/query_search.c:1156
 #, c-format
 msgid "The folder `%s' already exists."
 msgstr "Dosarul „%s” există deja."
 
-#: src/foldersel.c:619 src/folderview.c:2322
+#: src/foldersel.c:625 src/folderview.c:2388
 #, c-format
 msgid "Can't create the folder `%s'."
 msgstr "Dosarul „%s” nu a putut fi creat."
 
-#: src/folderview.c:252 src/folderview.c:275
+#: src/folderview.c:253 src/folderview.c:276
 msgid "/Create _new folder..."
 msgstr "/Creează un dosar _nou..."
 
-#: src/folderview.c:253 src/folderview.c:276 src/folderview.c:303
+#: src/folderview.c:254 src/folderview.c:277 src/folderview.c:304
 msgid "/_Rename folder..."
 msgstr "/_Redenumește dosarul..."
 
-#: src/folderview.c:254 src/folderview.c:277
+#: src/folderview.c:255 src/folderview.c:278
 msgid "/_Move folder..."
 msgstr "/_Mută dosarul..."
 
-#: src/folderview.c:255 src/folderview.c:278 src/folderview.c:304
+#: src/folderview.c:256 src/folderview.c:279 src/folderview.c:305
 msgid "/_Delete folder"
 msgstr "/Șterge _dosarul"
 
-#: src/folderview.c:257 src/folderview.c:280
+#: src/folderview.c:258 src/folderview.c:281
 msgid "/Empty _trash"
 msgstr "/_Golește gunoiul"
 
-#: src/folderview.c:259 src/folderview.c:284 src/folderview.c:308
+#: src/folderview.c:260 src/folderview.c:285 src/folderview.c:309
 msgid "/_Check for new messages"
 msgstr "/Verifi_că pentru mesaje noi"
 
 # hm ? sau la singular ?
-#: src/folderview.c:261 src/folderview.c:286
+#: src/folderview.c:262 src/folderview.c:287
 msgid "/R_ebuild folder tree"
 msgstr "/R_econstruiește arborele de dosare"
 
-#: src/folderview.c:262 src/folderview.c:287 src/folderview.c:310
+#: src/folderview.c:263 src/folderview.c:288 src/folderview.c:311
 msgid "/_Update summary"
 msgstr "/Act_ualizează sumarul mesajelor"
 
-#: src/folderview.c:264 src/folderview.c:289 src/folderview.c:312
+#: src/folderview.c:265 src/folderview.c:290 src/folderview.c:313
 msgid "/Mar_k all read"
 msgstr "/Marc_hează totul ca citit"
 
-#: src/folderview.c:265 src/folderview.c:290
+#: src/folderview.c:266 src/folderview.c:291
 msgid "/Send _queued messages"
 msgstr "/_Trimite mesajele de la coadă"
 
-#: src/folderview.c:267 src/folderview.c:292 src/folderview.c:314
+#: src/folderview.c:268 src/folderview.c:293 src/folderview.c:315
 msgid "/_Search messages..."
 msgstr "/Caută me_saje..."
 
-#: src/folderview.c:268 src/folderview.c:293 src/folderview.c:315
+#: src/folderview.c:269 src/folderview.c:294 src/folderview.c:316
 msgid "/Ed_it search condition..."
 msgstr "/Ed_itează condiția de căutare..."
 
-#: src/folderview.c:282 src/folderview.c:306
+#: src/folderview.c:283 src/folderview.c:307
 msgid "/Down_load"
 msgstr "/Desc_arcă"
 
-#: src/folderview.c:300
+#: src/folderview.c:301
 msgid "/Su_bscribe to newsgroup..."
 msgstr "/Su_bscrie la grupul de știri..."
 
-#: src/folderview.c:302
+#: src/folderview.c:303
 msgid "/_Remove newsgroup"
 msgstr "/Ște_rge grupul de știri"
 
-#: src/folderview.c:338
+#: src/folderview.c:340
 msgid "Creating folder view...\n"
 msgstr "Creare vizualizare dosar...\n"
 
-#: src/folderview.c:415 src/prefs_common_dialog.c:1588
+#: src/folderview.c:422 src/prefs_common_dialog.c:1592
 msgid "New"
 msgstr "Nou"
 
 # comun și când search și în dropdown-ul din fereastra principală
 #. S_COL_MARK
-#: src/folderview.c:431 src/prefs_common_dialog.c:1589
+#: src/folderview.c:438 src/prefs_common_dialog.c:1593
 #: src/prefs_filter_edit.c:511 src/prefs_summary_column.c:67
 #: src/quick_search.c:110
 msgid "Unread"
 msgstr "Necitit"
 
-#: src/folderview.c:447 src/prefs_common_dialog.c:1590
+#: src/folderview.c:454 src/prefs_common_dialog.c:1594
 msgid "Total"
 msgstr "Total"
 
-#: src/folderview.c:580
+#: src/folderview.c:598
 msgid "Setting folder info...\n"
-msgstr "Setare informații dosar...\n"
+msgstr "Configurare informații dosar...\n"
 
-#: src/folderview.c:581
+#: src/folderview.c:599
 msgid "Setting folder info..."
-msgstr "Setare informații dosar..."
+msgstr "Configurare informații dosar..."
 
-#: src/folderview.c:889 src/mainwindow.c:4078 src/setup.c:298
+#: src/folderview.c:907 src/mainwindow.c:4102 src/setup.c:298
 #, c-format
 msgid "Scanning folder %s%c%s ..."
 msgstr "Scanare dosar %s%c%s ..."
 
-#: src/folderview.c:893 src/mainwindow.c:4083 src/setup.c:303
+#: src/folderview.c:911 src/mainwindow.c:4107 src/setup.c:303
 #, c-format
 msgid "Scanning folder %s ..."
 msgstr "Scanare dosar %s ..."
 
 # hm ? sau la singular ?
-#: src/folderview.c:937
+#: src/folderview.c:955
 msgid "Rebuild folder tree"
 msgstr "Reconstruire arbore de dosare"
 
 # hm ? sau la singular ?
-#: src/folderview.c:938
+#: src/folderview.c:956
 msgid "The folder tree will be rebuilt. Continue?"
 msgstr "Arborele de dosare va fi reconstruit. Continuați ?"
 
 # hm ? sau la singular ?
-#: src/folderview.c:947
+#: src/folderview.c:965
 msgid "Rebuilding folder tree..."
 msgstr "Reconstruire arbore de dosare..."
 
 # hm ? sau la singular ?
-#: src/folderview.c:954
+#: src/folderview.c:972
 msgid "Rebuilding of the folder tree failed."
 msgstr "Reconstruirea arborelui de dosare a eșuat."
 
 # nu este clar unde apare
 # (IMAP ?)
-#: src/folderview.c:1088
+#: src/folderview.c:1106
 msgid "Checking for new messages in all folders..."
 msgstr "Verifică pentru mesaje noi în toate dosarele..."
 
-#: src/folderview.c:1256 src/prefs_common_dialog.c:2091 src/prefs_toolbar.c:68
+#: src/folderview.c:1274 src/prefs_common_dialog.c:2108 src/prefs_toolbar.c:68
 msgid "Junk"
 msgstr "Spam"
 
-#: src/folderview.c:1939
+#: src/folderview.c:2005
 #, c-format
 msgid "Folder %s is selected\n"
 msgstr "Este selectat dosarul %s\n"
 
-#: src/folderview.c:2094
+#: src/folderview.c:2160
 #, c-format
 msgid "Downloading messages in %s ..."
 msgstr "Descărcare mesaje în %s ..."
 
 # hm ?
-#: src/folderview.c:2122
+#: src/folderview.c:2188
 #, c-format
 msgid "Download all messages under '%s' ?"
 msgstr "Descărcați toate mesajele din „%s” ?"
 
-#: src/folderview.c:2125
+#: src/folderview.c:2191
 msgid "Download all messages"
 msgstr "Descarcă toate mesajele"
 
-#: src/folderview.c:2174
+#: src/folderview.c:2240
 #, c-format
 msgid "Error occurred while downloading messages in `%s'."
 msgstr "A apărut o eroare în timpul descărcării mesajelor în „%s”."
 
-#: src/folderview.c:2279
+#: src/folderview.c:2345
 msgid ""
 "Input the name of new folder:\n"
 "(if you want to create a folder to store subfolders,\n"
@@ -2496,26 +2521,26 @@ msgstr ""
 "(dacă vreți să creați un dosar care să conțină subdosare,\n"
 " adăugați „/” la sfârșitul numelui)"
 
-#: src/folderview.c:2354
+#: src/folderview.c:2420
 #, c-format
 msgid "Input new name for `%s':"
 msgstr "Introduceți noul nume pentru „%s”:"
 
-#: src/folderview.c:2355
+#: src/folderview.c:2421
 msgid "Rename folder"
 msgstr "Redenumește dosarul"
 
-#: src/folderview.c:2386 src/folderview.c:2394
+#: src/folderview.c:2452 src/folderview.c:2460
 #, c-format
 msgid "Can't rename the folder '%s'."
 msgstr "Nu se poate redenumi dosarul „%s”."
 
-#: src/folderview.c:2467
+#: src/folderview.c:2533
 #, c-format
 msgid "Can't move the folder `%s'."
 msgstr "Nu se poate muta dosarul „%s”."
 
-#: src/folderview.c:2536
+#: src/folderview.c:2602
 #, c-format
 msgid ""
 "Delete the search folder '%s' ?\n"
@@ -2524,11 +2549,11 @@ msgstr ""
 "Ștergeți dosarul de căutare „%s” ?\n"
 "Mesajele reale NU sunt șterse de pe disc."
 
-#: src/folderview.c:2538
+#: src/folderview.c:2604
 msgid "Delete search folder"
 msgstr "Șterge dosarul pentru căutare"
 
-#: src/folderview.c:2543
+#: src/folderview.c:2609
 #, c-format
 msgid ""
 "All folders and messages under '%s' will be permanently deleted.\n"
@@ -2541,20 +2566,20 @@ msgstr ""
 "\n"
 "Chiar vreți să ștergeți ?"
 
-#: src/folderview.c:2575 src/folderview.c:2581
+#: src/folderview.c:2641 src/folderview.c:2647
 #, c-format
 msgid "Can't remove the folder '%s'."
 msgstr "Nu se poate șterge dosarul „%s”."
 
-#: src/folderview.c:2617
+#: src/folderview.c:2683
 msgid "Empty trash"
 msgstr "Golire gunoi"
 
-#: src/folderview.c:2618
+#: src/folderview.c:2684
 msgid "Delete all messages in the trash folder?"
 msgstr "Ștergeți toate mesajele din dosarul de gunoi ?"
 
-#: src/folderview.c:2659
+#: src/folderview.c:2725
 #, c-format
 msgid ""
 "Really remove the mailbox `%s' ?\n"
@@ -2563,34 +2588,34 @@ msgstr ""
 "Sigur doriți să eliminați căsuța poștală „%s” ?\n"
 "(Mesajele NU sunt șterse de pe disc)"
 
-#: src/folderview.c:2661
+#: src/folderview.c:2727
 msgid "Remove mailbox"
 msgstr "Ștergere căsuță poștală"
 
-#: src/folderview.c:2711
+#: src/folderview.c:2777
 #, c-format
 msgid "Really delete IMAP4 account `%s'?"
 msgstr "Sigur doriți să ștergeți contul IMAP4 „%s” ?"
 
-#: src/folderview.c:2712
+#: src/folderview.c:2778
 msgid "Delete IMAP4 account"
 msgstr "Ștergere cont IMAP4"
 
-#: src/folderview.c:2865
+#: src/folderview.c:2931
 #, c-format
 msgid "Really delete newsgroup `%s'?"
 msgstr "Sigur doriți să ștergeți grupul de știri „%s” ?"
 
-#: src/folderview.c:2866
+#: src/folderview.c:2932
 msgid "Delete newsgroup"
 msgstr "Ștergere grup de știri"
 
-#: src/folderview.c:2916
+#: src/folderview.c:2982
 #, c-format
 msgid "Really delete news account `%s'?"
 msgstr "Sigur doriți să ștergeți contul de știri „%s” ?"
 
-#: src/folderview.c:2917
+#: src/folderview.c:2983
 msgid "Delete news account"
 msgstr "Ștergere cont de știri"
 
@@ -2603,7 +2628,7 @@ msgid "Creating header view...\n"
 msgstr "Creare vizualizare antet...\n"
 
 #: src/headerview.c:212 src/query_search.c:791 src/rpop3.c:668
-#: src/summaryview.c:2300
+#: src/summaryview.c:2379
 msgid "(No From)"
 msgstr "(Fără expeditor)"
 
@@ -2834,152 +2859,152 @@ msgstr "Atribute"
 msgid "Sylpheed: %d new messages"
 msgstr "Sylpheed: %d mesaje noi"
 
-#: src/inc.c:478
+#: src/inc.c:481
 msgid "Authenticating with POP3"
 msgstr "Autentificare cu POP3"
 
-#: src/inc.c:504
+#: src/inc.c:507
 msgid "Retrieving new messages"
 msgstr "Recepționare mesaje noi"
 
-#: src/inc.c:547
+#: src/inc.c:550
 msgid "Standby"
 msgstr "Așteptare"
 
-#: src/inc.c:690 src/inc.c:740
+#: src/inc.c:693 src/inc.c:743
 msgid "Cancelled"
 msgstr "Anulat"
 
-#: src/inc.c:701
+#: src/inc.c:704
 msgid "Retrieving"
 msgstr "Recepționare"
 
-#: src/inc.c:710 src/inc.c:1019
+#: src/inc.c:713 src/inc.c:1022
 #, c-format
 msgid "%d message(s) (%s) received"
 msgstr "%d mesaj(e) (%s) primit(e)"
 
-#: src/inc.c:714
+#: src/inc.c:717
 #, c-format
 msgid "no new messages"
 msgstr "nu sunt mesaje noi"
 
-#: src/inc.c:715
+#: src/inc.c:718
 msgid "Done"
 msgstr "Gata"
 
-#: src/inc.c:720
+#: src/inc.c:723
 msgid "Connection failed"
 msgstr "Conexiunea a eșuat"
 
-#: src/inc.c:723
+#: src/inc.c:726
 msgid "Auth failed"
 msgstr "Autentificarea a eșuat"
 
-#: src/inc.c:727
+#: src/inc.c:730
 msgid "Locked"
 msgstr "Blocat"
 
-#: src/inc.c:737
+#: src/inc.c:740
 msgid "Timeout"
 msgstr "Timp expirat"
 
-#: src/inc.c:784
+#: src/inc.c:787
 #, c-format
 msgid "Finished (%d new message(s))"
 msgstr "Terminat (%d mesaj(e) noi)"
 
-#: src/inc.c:787
+#: src/inc.c:790
 #, c-format
 msgid "Finished (no new messages)"
 msgstr "Terminat (nu sunt mesaje noi)"
 
-#: src/inc.c:796
+#: src/inc.c:799
 msgid "Some errors occurred while getting mail."
 msgstr "Au apărut unele erori în timpul obținerii mail-ului."
 
-#: src/inc.c:830
+#: src/inc.c:833
 #, c-format
 msgid "getting new messages of account %s...\n"
 msgstr "obținere mesaje noi pentru contul %s...\n"
 
-#: src/inc.c:834
+#: src/inc.c:837
 #, c-format
 msgid "%s: Authenticating with POP3"
 msgstr "%s: Autentificare cu POP3"
 
-#: src/inc.c:837
+#: src/inc.c:840
 #, c-format
 msgid "%s: Retrieving new messages"
 msgstr "%s: recepționare mesaje noi"
 
-#: src/inc.c:842
+#: src/inc.c:845
 #, c-format
 msgid "Connecting to POP3 server: %s..."
 msgstr "Conectare la serverul POP3: %s ..."
 
-#: src/inc.c:856
+#: src/inc.c:859
 #, c-format
 msgid "Can't connect to POP3 server: %s:%d\n"
 msgstr "Nu se poate efectua conexiunea la serverul POP3: %s:%d\n"
 
-#: src/inc.c:938 src/rpop3.c:827 src/send_message.c:817
+#: src/inc.c:941 src/rpop3.c:827 src/send_message.c:817
 #, c-format
 msgid "Authenticating..."
 msgstr "Autentificare..."
 
-#: src/inc.c:939
+#: src/inc.c:942
 #, c-format
 msgid "Retrieving messages from %s..."
 msgstr "Recepționare mesaje de la %s..."
 
-#: src/inc.c:944
+#: src/inc.c:947
 msgid "Getting the number of new messages (STAT)..."
 msgstr "Obținerea numărului de mesaje noi (STAT)..."
 
-#: src/inc.c:948
+#: src/inc.c:951
 msgid "Getting the number of new messages (LAST)..."
 msgstr "Obținerea numărului de mesaje noi (LAST)..."
 
-#: src/inc.c:952
+#: src/inc.c:955
 msgid "Getting the number of new messages (UIDL)..."
 msgstr "Obținerea numărului de mesaje noi (UIDL)..."
 
-#: src/inc.c:956
+#: src/inc.c:959
 msgid "Getting the size of messages (LIST)..."
 msgstr "Obținerea dimensiunii mesajelor (LIST)..."
 
-#: src/inc.c:966
+#: src/inc.c:969
 #, c-format
 msgid "Deleting message %d"
 msgstr "Ștergere mesaje %d"
 
-#: src/inc.c:973 src/send_message.c:835
+#: src/inc.c:976 src/send_message.c:835
 msgid "Quitting"
 msgstr "Părăsire"
 
-#: src/inc.c:998
+#: src/inc.c:1001
 #, c-format
 msgid "Retrieving message (%d / %d) (%s / %s)"
 msgstr "Recepționare mesaje (%d / %d) (%s / %s)"
 
-#: src/inc.c:1233 src/inc.c:1256 src/summaryview.c:4557
+#: src/inc.c:1241 src/inc.c:1264 src/summaryview.c:4636
 msgid ""
 "Execution of the junk filter command failed.\n"
 "Please check the junk mail control setting."
 msgstr ""
 "Execuția comenzii filtrului de spam a eșuat.\n"
-"Verificați setările controlului de spam."
+"Verificați configurările controlului de spam."
 
-#: src/inc.c:1315
+#: src/inc.c:1323
 msgid "Connection failed."
 msgstr "Conexiunea a eșuat"
 
-#: src/inc.c:1321
+#: src/inc.c:1329
 msgid "Error occurred while processing mail."
 msgstr "A apărut o eroare în timpul procesării mail-ului."
 
-#: src/inc.c:1326
+#: src/inc.c:1334
 #, c-format
 msgid ""
 "Error occurred while processing mail:\n"
@@ -2988,29 +3013,29 @@ msgstr ""
 "A apărut o eroare în timpul procesării mail-ului.\n"
 "%s"
 
-#: src/inc.c:1332
+#: src/inc.c:1340
 msgid "No disk space left."
 msgstr "Nu mai este spațiu pe disc."
 
-#: src/inc.c:1337
+#: src/inc.c:1345
 msgid "Can't write file."
 msgstr "Nu se poate scrie fișierul."
 
-#: src/inc.c:1342
+#: src/inc.c:1350
 msgid "Socket error."
 msgstr "Eroare socket."
 
 #. consider EOF right after QUIT successful
-#: src/inc.c:1348 src/rpop3.c:544 src/rpop3.c:545 src/send_message.c:761
+#: src/inc.c:1356 src/rpop3.c:544 src/rpop3.c:545 src/send_message.c:761
 #: src/send_message.c:978
 msgid "Connection closed by the remote host."
 msgstr "Conexiune închisă de serverul de la distanță."
 
-#: src/inc.c:1354
+#: src/inc.c:1362
 msgid "Mailbox is locked."
 msgstr "Căsuța poștală este blocată"
 
-#: src/inc.c:1358
+#: src/inc.c:1366
 #, c-format
 msgid ""
 "Mailbox is locked:\n"
@@ -3019,11 +3044,11 @@ msgstr ""
 "Căsuța poștală este blocată:\n"
 "%s"
 
-#: src/inc.c:1364 src/rpop3.c:519 src/rpop3.c:524 src/send_message.c:958
+#: src/inc.c:1372 src/rpop3.c:519 src/rpop3.c:524 src/send_message.c:958
 msgid "Authentication failed."
 msgstr "Autentificarea a eșuat."
 
-#: src/inc.c:1369 src/rpop3.c:521 src/send_message.c:961
+#: src/inc.c:1377 src/rpop3.c:521 src/send_message.c:961
 #, c-format
 msgid ""
 "Authentication failed:\n"
@@ -3032,15 +3057,15 @@ msgstr ""
 "Autentificarea a eșuat:\n"
 "%s"
 
-#: src/inc.c:1374 src/rpop3.c:549 src/rpop3.c:550 src/send_message.c:982
+#: src/inc.c:1382 src/rpop3.c:549 src/rpop3.c:550 src/send_message.c:982
 msgid "Session timed out."
 msgstr "Timpul sesiunii a expirat."
 
-#: src/inc.c:1415
+#: src/inc.c:1423
 msgid "Incorporation cancelled\n"
 msgstr "Încorporarea a fost anulată\n"
 
-#: src/inc.c:1517
+#: src/inc.c:1525
 #, c-format
 msgid "Getting new messages from %s into %s...\n"
 msgstr "Obținere mesaje noi de la %s în %s...\n"
@@ -3058,16 +3083,16 @@ msgstr "Introduceți parola"
 msgid "Protocol log"
 msgstr "Log protocol"
 
-#: src/main.c:556
+#: src/main.c:572
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Utilizare: %s [OPȚIUNE]...\n"
 
-#: src/main.c:559
+#: src/main.c:575
 msgid "  --compose [address]    open composition window"
 msgstr "  --compose [address]    deschide fereastra de compoziție"
 
-#: src/main.c:560
+#: src/main.c:576
 msgid ""
 "  --attach file1 [file2]...\n"
 "                         open composition window with specified files\n"
@@ -3077,23 +3102,23 @@ msgstr ""
 "                         deschide fereastra de compoziție cu fișierele\n"
 "                         specificate atașate"
 
-#: src/main.c:563
+#: src/main.c:579
 msgid "  --receive              receive new messages"
 msgstr "  --receive              primește mesaje noi"
 
-#: src/main.c:564
+#: src/main.c:580
 msgid "  --receive-all          receive new messages of all accounts"
 msgstr "  --receive-all          primește mesaje noi pentru toate conturile"
 
-#: src/main.c:565
+#: src/main.c:581
 msgid "  --send                 send all queued messages"
 msgstr "  --send                 trimite toate mesajele din coada de așteptare"
 
-#: src/main.c:566
+#: src/main.c:582
 msgid "  --status [folder]...   show the total number of messages"
 msgstr "  --status [folder]...   arată numărul total de mesaje"
 
-#: src/main.c:567
+#: src/main.c:583
 msgid ""
 "  --status-full [folder]...\n"
 "                         show the status of each folder"
@@ -3101,48 +3126,48 @@ msgstr ""
 "  --status-full [folder]...\n"
 "                         arată starea fiecărui dosar"
 
-#: src/main.c:569
+#: src/main.c:585
 msgid "  --open folderid/msgnum open message in new window"
 msgstr "  --open folderid/msgnum deschide mesajul în fereastră nouă"
 
-#: src/main.c:570
+#: src/main.c:586
 msgid ""
 "  --configdir dirname    specify directory which stores configuration files"
 msgstr ""
 "  --configdir dirname    specifică directorul care conține fișierele de "
 "configurare"
 
-#: src/main.c:572
+#: src/main.c:588
 msgid "  --ipcport portnum      specify port for IPC remote commands"
 msgstr ""
 "  --ipcport portnum      specifică portul pentru comenzi la distanță IPC"
 
-#: src/main.c:574
+#: src/main.c:590
 msgid "  --exit                 exit Sylpheed"
 msgstr "  --exit                 ieșire Sylpheed"
 
-#: src/main.c:575
+#: src/main.c:591
 msgid "  --debug                debug mode"
 msgstr "  --debug                mod debug"
 
-#: src/main.c:576
+#: src/main.c:592
 msgid "  --help                 display this help and exit"
 msgstr "  --help                 afișează acest ajutor și ieși"
 
-#: src/main.c:577
+#: src/main.c:593
 msgid "  --version              output version information and exit"
 msgstr "  --version              afișează versiunea și ieși"
 
-#: src/main.c:581
+#: src/main.c:597
 #, c-format
 msgid "Press any key..."
 msgstr "Apăsați orice tastă..."
 
-#: src/main.c:712
+#: src/main.c:728
 msgid "Filename encoding"
 msgstr "Codare de nume fișier"
 
-#: src/main.c:713
+#: src/main.c:729
 msgid ""
 "The locale encoding is not UTF-8, but the environmental variable "
 "G_FILENAME_ENCODING is not set.\n"
@@ -3167,24 +3192,24 @@ msgstr ""
 "Continuați ?"
 
 # hm ? sigur cu \n
-#: src/main.c:752
+#: src/main.c:768
 msgid "Composing message exists. Really quit?"
 msgstr ""
 "Există cel puțin un mesaj în curs de compunere.\n"
 "Sigur doriți să ieșiți ?"
 
-#: src/main.c:763
+#: src/main.c:779
 msgid "Queued messages"
 msgstr "Mesaje în coada de așteptare"
 
 # hm ? sigur cu \n
-#: src/main.c:764
+#: src/main.c:780
 msgid "Some unsent messages are queued. Exit now?"
 msgstr ""
 "În coada de așteptare se află unul sau mai multe mesaje netrimise.\n"
 "Ieșiți acum ?"
 
-#: src/main.c:872
+#: src/main.c:888
 msgid ""
 "GnuPG is not installed properly, or its version is too old.\n"
 "OpenPGP support disabled."
@@ -3192,20 +3217,20 @@ msgstr ""
 "GnuPG nu este instalat corespunzător, sau versiunea lui este prea veche.\n"
 "Suportul pentru OpenPGP a fost dezactivat."
 
-#: src/main.c:1102
+#: src/main.c:1121
 msgid "Loading plug-ins..."
-msgstr ""
+msgstr "Se încarcă plugin-urile..."
 
 #. remote command mode
-#: src/main.c:1237
+#: src/main.c:1286
 msgid "another Sylpheed is already running.\n"
 msgstr "rulează deja o altă sesiune Sylpheed.\n"
 
-#: src/main.c:1518
+#: src/main.c:1568
 msgid "Migration of configuration"
 msgstr "Migrarea configurației"
 
-#: src/main.c:1519
+#: src/main.c:1569
 msgid ""
 "The previous version of configuration found.\n"
 "Do you want to migrate it?"
@@ -3332,16 +3357,17 @@ msgstr "/_Vizualizare/Arată sau ascun_de/Bară de unel_te"
 
 #: src/mainwindow.c:597
 msgid "/_View/Show or hi_de/_Toolbar/Icon _and text"
-msgstr "/_Vizualizare/Arată sau ascun_de/Bară de unel_te/Iconițe și te_xt"
+msgstr "/_Vizualizare/Arată sau ascun_de/Bară de unel_te/Pictogr_ame și text"
 
 #: src/mainwindow.c:599
 msgid "/_View/Show or hi_de/_Toolbar/Text at the _right of icon"
 msgstr ""
-"/_Vizualizare/Arată sau ascun_de/Bară de unel_te/Text la d_reapta iconițelor"
+"/_Vizualizare/Arată sau ascun_de/Bară de unel_te/Text la d_reapta "
+"pictogramelor"
 
 #: src/mainwindow.c:601
 msgid "/_View/Show or hi_de/_Toolbar/_Icon"
-msgstr "/_Vizualizare/Arată sau ascun_de/Bară de unel_te/_Iconițe"
+msgstr "/_Vizualizare/Arată sau ascun_de/Bară de unel_te/P_ictograme"
 
 #: src/mainwindow.c:603
 msgid "/_View/Show or hi_de/_Toolbar/_Text"
@@ -3418,7 +3444,7 @@ msgstr "/_Vizualizare/_Sortează/după _subiect"
 
 #: src/mainwindow.c:627
 msgid "/_View/_Sort/by _color label"
-msgstr "/_Vizualizare/_Sortează/după etichetă _culoare"
+msgstr "/_Vizualizare/_Sortează/după eticheta de _culoare"
 
 #: src/mainwindow.c:629
 msgid "/_View/_Sort/by _mark"
@@ -3553,15 +3579,15 @@ msgstr "/_Vizualizare/Codare caract_ere/Chinese (ISO-2022-CN)"
 msgid "/_View/Character _encoding/Korean (ISO-2022-KR)"
 msgstr "/_Vizualizare/Codare caract_ere/Korean (ISO-2022-KR)"
 
-#: src/mainwindow.c:773 src/summaryview.c:464
+#: src/mainwindow.c:773 src/summaryview.c:467
 msgid "/_View/Open in new _window"
 msgstr "/_Vizualizare/Deschide în fereastră _nouă"
 
-#: src/mainwindow.c:774 src/messageview.c:259 src/summaryview.c:466
+#: src/mainwindow.c:774 src/messageview.c:259 src/summaryview.c:469
 msgid "/_View/Mess_age source"
 msgstr "/_Vizualizare/S_ursă mesaj"
 
-#: src/mainwindow.c:775 src/messageview.c:260 src/summaryview.c:467
+#: src/mainwindow.c:775 src/messageview.c:260 src/summaryview.c:470
 msgid "/_View/All _headers"
 msgstr "/_Vizualizare/Toate _anteturile"
 
@@ -3657,11 +3683,13 @@ msgid "/_Message/_Mark"
 msgstr "/_Mesaj/_Marcare"
 
 #: src/mainwindow.c:810
-msgid "/_Message/_Mark/_Mark"
+#, fuzzy
+msgid "/_Message/_Mark/Set _flag"
 msgstr "/_Mesaj/_Marcare/_Marchează"
 
 #: src/mainwindow.c:811
-msgid "/_Message/_Mark/_Unmark"
+#, fuzzy
+msgid "/_Message/_Mark/_Unset flag"
 msgstr "/_Mesaj/_Marcare/_Demarchează"
 
 #: src/mainwindow.c:812
@@ -3714,23 +3742,23 @@ msgstr "/_Unelte/Filtrează mesajele _selectate"
 
 #: src/mainwindow.c:836 src/messageview.c:287
 msgid "/_Tools/_Create filter rule"
-msgstr "/_Unelte/_Creează regulă de filtrare"
+msgstr "/_Unelte/_Creează o regulă de filtrare"
 
 #: src/mainwindow.c:837 src/messageview.c:289
 msgid "/_Tools/_Create filter rule/_Automatically"
-msgstr "/_Unelte/_Creează regulă de filtrare/_Automat"
+msgstr "/_Unelte/_Creează o regulă de filtrare/_automat"
 
 #: src/mainwindow.c:839 src/messageview.c:291
 msgid "/_Tools/_Create filter rule/by _From"
-msgstr "/_Unelte/_Creează regulă de filtrare/pe baza câmpului _De la"
+msgstr "/_Unelte/_Creează o regulă de filtrare/pe baza câmpului _De la"
 
 #: src/mainwindow.c:841 src/messageview.c:293
 msgid "/_Tools/_Create filter rule/by _To"
-msgstr "/_Unelte/_Creează regulă de filtrare/pe baza câmpului _Către"
+msgstr "/_Unelte/_Creează o regulă de filtrare/pe baza câmpului _Către"
 
 #: src/mainwindow.c:843 src/messageview.c:295
 msgid "/_Tools/_Create filter rule/by _Subject"
-msgstr "/_Unelte/_Creează regulă de filtrare/pe baza câmpului _Subiect"
+msgstr "/_Unelte/_Creează o regulă de filtrare/pe baza câmpului _Subiect"
 
 #: src/mainwindow.c:846
 msgid "/_Tools/Filter _junk mails in folder"
@@ -3793,7 +3821,7 @@ msgstr "/_Configurație/Creează un cont _nou..."
 msgid "/_Configuration/_Edit accounts..."
 msgstr "/_Configurație/_Editare conturi..."
 
-# hm ? eu zic că e mai bine decît schimbă contul curent
+# hm ? parcă este mai bine decât schimbă contul curent
 #: src/mainwindow.c:880
 msgid "/_Configuration/C_hange current account"
 msgstr "/_Configurație/_Selectează contul curent"
@@ -3855,8 +3883,8 @@ msgstr "Creare fereastră principală...\n"
 msgid "MainWindow: color allocation %d failed\n"
 msgstr "Fereastra principală: alocarea culorii %d a eșuat\n"
 
-#: src/mainwindow.c:1206 src/summaryview.c:2449 src/summaryview.c:2536
-#: src/summaryview.c:4122 src/summaryview.c:4251 src/summaryview.c:4639
+#: src/mainwindow.c:1206 src/summaryview.c:2528 src/summaryview.c:2615
+#: src/summaryview.c:4201 src/summaryview.c:4330 src/summaryview.c:4718
 msgid "done.\n"
 msgstr "gata.\n"
 
@@ -3888,14 +3916,13 @@ msgstr "Ștergeți toate mesajele din dosarele de gunoi ?"
 msgid "Add mailbox"
 msgstr "Adaugă căsuță poștală"
 
-# hm ? sau specificați ? este o explicație sau o comandă ?
 #: src/mainwindow.c:1789
 msgid ""
 "Specify the location of mailbox.\n"
 "If the existing mailbox is specified, it will be\n"
 "scanned automatically."
 msgstr ""
-"Specifică locația căsuței poștale.\n"
+"Specificați locația căsuței poștale.\n"
 "Dacă este specificată căsuța poștală existentă,\n"
 "aceasta va fi scanată automat."
 
@@ -3925,7 +3952,7 @@ msgstr "Sylpheed - Vizualizare dosar"
 msgid "Sylpheed - Message View"
 msgstr "Sylpheed - Vizualizare mesaj"
 
-#: src/mainwindow.c:2543 src/mimeview.c:142 src/summaryview.c:418
+#: src/mainwindow.c:2543 src/mimeview.c:142 src/summaryview.c:421
 msgid "/_Reply"
 msgstr "/_Răspunde"
 
@@ -3941,29 +3968,29 @@ msgstr "/Răspunde _expeditorului"
 msgid "/Reply to mailing _list"
 msgstr "/Răspunde _listei de discuții"
 
-#: src/mainwindow.c:2551 src/summaryview.c:425
+#: src/mainwindow.c:2551 src/summaryview.c:428
 msgid "/_Forward"
 msgstr "/Îna_intează"
 
-#: src/mainwindow.c:2552 src/summaryview.c:426
+#: src/mainwindow.c:2552 src/summaryview.c:429
 msgid "/For_ward as attachment"
 msgstr "/Înaintează ca _atașament"
 
-#: src/mainwindow.c:2553 src/summaryview.c:427
+#: src/mainwindow.c:2553 src/summaryview.c:430
 msgid "/Redirec_t"
 msgstr "/Redirecționea_ză"
 
 #: src/mainwindow.c:3015
 msgid "Icon _and text"
-msgstr "Iconițe și te_xt"
+msgstr "Pictogr_ame și text"
 
 #: src/mainwindow.c:3016
 msgid "Text at the _right of icon"
-msgstr "Text la d_reapta iconițelor"
+msgstr "Text la d_reapta pictogramelor"
 
 #: src/mainwindow.c:3018
 msgid "_Icon"
-msgstr "_Iconițe"
+msgstr "P_ictograme"
 
 #: src/mainwindow.c:3019
 msgid "_Text"
@@ -3975,11 +4002,11 @@ msgstr "_Nimic"
 
 #: src/mainwindow.c:3050
 msgid "You are offline. Click the icon to go online."
-msgstr "Sunteți offline. Clic pe iconiță pentru a trece online."
+msgstr "Sunteți offline. Clic pe pictogramă pentru a trece online."
 
 #: src/mainwindow.c:3061
 msgid "You are online. Click the icon to go offline."
-msgstr "Sunteți online. Clic pe iconiță pentru a trece offline."
+msgstr "Sunteți online. Clic pe pictogramă pentru a trece offline."
 
 #: src/mainwindow.c:3335
 msgid "Exit"
@@ -3993,15 +4020,15 @@ msgstr "Ieșiți din acest program ?"
 msgid "Select folder to open"
 msgstr "Selectați dosarul de deschis"
 
-#: src/mainwindow.c:3986
+#: src/mainwindow.c:3990
 msgid "Command line options"
 msgstr "Opțiuni de line de comandă"
 
-#: src/mainwindow.c:3999
+#: src/mainwindow.c:4003
 msgid "Usage: sylpheed [OPTION]..."
 msgstr "Utilizare: sylpheed [OPȚIUNE]..."
 
-#: src/mainwindow.c:4007
+#: src/mainwindow.c:4011
 msgid ""
 "--compose [address]\n"
 "--attach file1 [file2]...\n"
@@ -4031,7 +4058,7 @@ msgstr ""
 "--help\n"
 "--version"
 
-#: src/mainwindow.c:4024
+#: src/mainwindow.c:4028
 msgid ""
 "open composition window\n"
 "open composition window with specified files attached\n"
@@ -4060,6 +4087,20 @@ msgstr ""
 "mod debug\n"
 "afișează acest ajutor și ieși\n"
 "afișează versiunea și ieși"
+
+#: src/mainwindow.c:4046
+msgid "Windows-only option:"
+msgstr ""
+
+#: src/mainwindow.c:4054
+msgid "--ipcport portnum"
+msgstr ""
+
+#: src/mainwindow.c:4059
+#, fuzzy
+msgid "specify port for IPC remote commands"
+msgstr ""
+"  --ipcport portnum      specifică portul pentru comenzi la distanță IPC"
 
 #: src/message_search.c:120
 msgid "Find in current message"
@@ -4114,14 +4155,10 @@ msgstr "Atașamente"
 msgid "Message View - Sylpheed"
 msgstr "Vizualizare mesaje - Syplheed"
 
-#: src/messageview.c:765 src/summaryview.c:3680
+#: src/messageview.c:765 src/summaryview.c:3759
 #, c-format
 msgid "Can't save the file `%s'."
 msgstr "Nu se poate salva fișierul „%s”."
-
-#: src/mimeview.c:135
-msgid "/_Open"
-msgstr "/_Deschide"
 
 #: src/mimeview.c:136
 msgid "/Open _with..."
@@ -4139,7 +4176,7 @@ msgstr "/_Salvează ca..."
 msgid "/Save _all..."
 msgstr "/Salvează _tot..."
 
-#: src/mimeview.c:140 src/summaryview.c:469
+#: src/mimeview.c:140 src/summaryview.c:472
 msgid "/_Print..."
 msgstr "/Ti_părește..."
 
@@ -4204,20 +4241,20 @@ msgid "_Check signature"
 msgstr "Verifi_că semnătura"
 
 # hm ? este corect selectată ?
-#: src/mimeview.c:1016 src/mimeview.c:1083 src/mimeview.c:1119
-#: src/mimeview.c:1152 src/mimeview.c:1175 src/mimeview.c:1283
+#: src/mimeview.c:1019 src/mimeview.c:1086 src/mimeview.c:1122
+#: src/mimeview.c:1155 src/mimeview.c:1178 src/mimeview.c:1286
 msgid "Can't save the part of multipart message."
 msgstr "Nu se poate salva partea selectată din părțile multiple ale mesajului."
 
-#: src/mimeview.c:1096
+#: src/mimeview.c:1099
 msgid "Can't save the attachments."
 msgstr "Nu se pot salva atașamentele."
 
-#: src/mimeview.c:1185
+#: src/mimeview.c:1188
 msgid "Open with"
 msgstr "Deschidere cu"
 
-#: src/mimeview.c:1186
+#: src/mimeview.c:1189
 #, c-format
 msgid ""
 "Enter the command line to open file:\n"
@@ -4225,22 +4262,6 @@ msgid ""
 msgstr ""
 "Intrați în linia de comandă pentru a deschide fișierul:\n"
 "(„%s” va fi înlocuit cu numele fișierului)"
-
-#: src/mimeview.c:1217
-msgid "Opening executable file"
-msgstr "Deschidere fișier executabil"
-
-#: src/mimeview.c:1218
-msgid ""
-"This is an executable file. Opening executable file is restricted for "
-"security.\n"
-"If you want to launch it, save it to somewhere and make sure it is not an "
-"virus or something like a malicious program."
-msgstr ""
-"Acesta este un fișier executabil. Deschiderea fișierelor executabile este "
-"restricționată din motive de securitate.\n"
-"Dacă vreți să îl lansați în execuție, salvați-l undeva și asigurați-vă că nu "
-"este un virus sau un alt tip de program malițios."
 
 #: src/passphrase.c:95
 msgid "Passphrase"
@@ -4317,23 +4338,23 @@ msgid "Creating account preferences window...\n"
 msgstr "Creare fereastră de preferințe cont...\n"
 
 # obs: tab-ul din common preferences și edit accounts
-#: src/prefs_account_dialog.c:554 src/prefs_common_dialog.c:752
+#: src/prefs_account_dialog.c:554 src/prefs_common_dialog.c:756
 msgid "Receive"
 msgstr "Primire"
 
 # comun și pentru butonul de pe toolbar și pentru tabul din common preferences și edit accounts
-#: src/prefs_account_dialog.c:556 src/prefs_common_dialog.c:754
+#: src/prefs_account_dialog.c:556 src/prefs_common_dialog.c:758
 #: src/prefs_toolbar.c:50 src/prefs_toolbar.c:102
 msgid "Send"
 msgstr "Trimite"
 
 # comun și pentru butonul de pe toolbar și pentru tabul din common preferences și edit accounts
-#: src/prefs_account_dialog.c:558 src/prefs_common_dialog.c:756
+#: src/prefs_account_dialog.c:558 src/prefs_common_dialog.c:760
 #: src/prefs_folder_item.c:140 src/prefs_toolbar.c:53
 msgid "Compose"
 msgstr "Compune"
 
-#: src/prefs_account_dialog.c:561 src/prefs_common_dialog.c:763
+#: src/prefs_account_dialog.c:561 src/prefs_common_dialog.c:767
 msgid "Privacy"
 msgstr "Confidențialitate"
 
@@ -4341,7 +4362,7 @@ msgstr "Confidențialitate"
 msgid "SSL"
 msgstr "SSL"
 
-#: src/prefs_account_dialog.c:568 src/prefs_common_dialog.c:2442
+#: src/prefs_account_dialog.c:568 src/prefs_common_dialog.c:2459
 msgid "Advanced"
 msgstr "Avansat"
 
@@ -4417,7 +4438,7 @@ msgstr "Parolă"
 
 #: src/prefs_account_dialog.c:868
 msgid "Use secure authentication (APOP)"
-msgstr "Folosește autentificare securizată (APOP)"
+msgstr "Folosește autentificarea securizată (APOP)"
 
 #: src/prefs_account_dialog.c:871
 msgid "Remove messages on server when received"
@@ -4446,7 +4467,7 @@ msgstr "Limită dimensiune pentru primire"
 #: src/prefs_account_dialog.c:931 src/prefs_filter_edit.c:592
 #: src/prefs_filter_edit.c:1053
 msgid "KB"
-msgstr "KB"
+msgstr "KiB"
 
 #: src/prefs_account_dialog.c:938
 msgid "Filter messages on receiving"
@@ -4465,7 +4486,8 @@ msgid "Authentication method"
 msgstr "Metodă de autentificare"
 
 #: src/prefs_account_dialog.c:989 src/prefs_account_dialog.c:1148
-#: src/prefs_common_dialog.c:1033 src/prefs_common_dialog.c:2883
+#: src/prefs_common_dialog.c:1037 src/prefs_common_dialog.c:2577
+#: src/prefs_common_dialog.c:2942
 msgid "Automatic"
 msgstr "Automat"
 
@@ -4512,8 +4534,8 @@ msgstr "Generează câmpul „Message-ID”"
 msgid "Add user-defined header"
 msgstr "Adaugă un antet definit de utilizator"
 
-#: src/prefs_account_dialog.c:1105 src/prefs_common_dialog.c:1782
-#: src/prefs_common_dialog.c:1809
+#: src/prefs_account_dialog.c:1105 src/prefs_common_dialog.c:1786
+#: src/prefs_common_dialog.c:1813
 msgid " Edit... "
 msgstr " Editare... "
 
@@ -4538,7 +4560,7 @@ msgid "Authenticate with POP3 before sending"
 msgstr "Autentifică cu POP3 înainte de a trimite"
 
 #. signature
-#: src/prefs_account_dialog.c:1250 src/prefs_common_dialog.c:1150
+#: src/prefs_account_dialog.c:1250 src/prefs_common_dialog.c:1154
 #: src/prefs_toolbar.c:117
 msgid "Signature"
 msgstr "Semnătură"
@@ -4602,7 +4624,7 @@ msgstr "Selectează cheia după adresa de e-mail"
 
 #: src/prefs_account_dialog.c:1442
 msgid "Specify key manually"
-msgstr "Cheia este specificată manual"
+msgstr "Specifică cheia manual"
 
 #: src/prefs_account_dialog.c:1458
 msgid "User or key ID:"
@@ -4611,7 +4633,7 @@ msgstr "Nume utilizator sau ID cheie:"
 #: src/prefs_account_dialog.c:1604 src/prefs_account_dialog.c:1624
 #: src/prefs_account_dialog.c:1643 src/prefs_account_dialog.c:1664
 msgid "Don't use SSL"
-msgstr "Nu utiliza SSL"
+msgstr "Nu folosi SSL"
 
 #: src/prefs_account_dialog.c:1607
 msgid "Use SSL for POP3 connection"
@@ -4653,23 +4675,23 @@ msgstr "Deselectați aici dacă aveți probleme cu conexiunea SSL."
 
 #: src/prefs_account_dialog.c:1774
 msgid "Specify SMTP port"
-msgstr "Port SMTP"
+msgstr "Specifică portul SMTP"
 
 #: src/prefs_account_dialog.c:1780
 msgid "Specify POP3 port"
-msgstr "Port POP3"
+msgstr "Specifică portul POP3"
 
 #: src/prefs_account_dialog.c:1786
 msgid "Specify IMAP4 port"
-msgstr "Specifică port IMAP4"
+msgstr "Specifică portul IMAP4"
 
 #: src/prefs_account_dialog.c:1792
 msgid "Specify NNTP port"
-msgstr "Specifică port NNTP"
+msgstr "Specifică portul NNTP"
 
 #: src/prefs_account_dialog.c:1797
 msgid "Specify domain name"
-msgstr "Nume domeniu"
+msgstr "Specifică numele de domeniu"
 
 #: src/prefs_account_dialog.c:1818
 msgid "IMAP server directory"
@@ -4849,94 +4871,93 @@ msgstr "Șterge acțiune"
 msgid "Do you really want to delete this action?"
 msgstr "Chiar vreți să ștergeți această acțiune ?"
 
-#: src/prefs_common_dialog.c:732
+#: src/prefs_common_dialog.c:736
 msgid "Creating common preferences window...\n"
 msgstr "Creare fereastră preferințe comune...\n"
 
-#: src/prefs_common_dialog.c:736
+#: src/prefs_common_dialog.c:740
 msgid "Common Preferences"
 msgstr "Preferințe comune"
 
-#: src/prefs_common_dialog.c:758
+#: src/prefs_common_dialog.c:762
 msgid "Display"
 msgstr "Afișare"
 
-#: src/prefs_common_dialog.c:760
+#: src/prefs_common_dialog.c:764
 msgid "Junk mail"
 msgstr "Spam"
 
-#: src/prefs_common_dialog.c:766
+#: src/prefs_common_dialog.c:770
 msgid "Details"
 msgstr "Detalii"
 
-#: src/prefs_common_dialog.c:816
+#: src/prefs_common_dialog.c:820
 msgid "Auto-check new mail"
 msgstr "Verifică automat pentru eventuale mesaje noi"
 
-#: src/prefs_common_dialog.c:818 src/prefs_common_dialog.c:1268
+#: src/prefs_common_dialog.c:822 src/prefs_common_dialog.c:1272
 msgid "every"
 msgstr "la fiecare"
 
-#: src/prefs_common_dialog.c:830 src/prefs_common_dialog.c:1282
+#: src/prefs_common_dialog.c:834 src/prefs_common_dialog.c:1286
 msgid "minute(s)"
 msgstr "minut(e)"
 
-#: src/prefs_common_dialog.c:839
+#: src/prefs_common_dialog.c:843
 msgid "Check new mail on startup"
 msgstr "Verifică pentru eventuale mesaje noi la pornirea programului"
 
-#: src/prefs_common_dialog.c:841
+#: src/prefs_common_dialog.c:845
 msgid "Update all local folders after incorporation"
 msgstr "Actualizează toate dosarele locale după încorporare"
 
-#: src/prefs_common_dialog.c:846
+#: src/prefs_common_dialog.c:850
 msgid "Execute command when new messages arrived"
 msgstr "Execută o comandă la primirea de noi mesaje"
 
-#: src/prefs_common_dialog.c:858 src/prefs_common_dialog.c:2690
-#: src/prefs_common_dialog.c:2712 src/prefs_common_dialog.c:2734
+#: src/prefs_common_dialog.c:862 src/prefs_common_dialog.c:2749
+#: src/prefs_common_dialog.c:2771 src/prefs_common_dialog.c:2793
 msgid "Command"
 msgstr "Comandă"
 
 # adică cum ?
-#: src/prefs_common_dialog.c:869
+#: src/prefs_common_dialog.c:873
 #, c-format
 msgid "`%d' will be replaced with the number of new messages."
 msgstr "„%d” va fi înlocuit cu numărul noilor mesaje."
 
 # hm ?
-#: src/prefs_common_dialog.c:873
+#: src/prefs_common_dialog.c:877
 msgid "Incorporate from local spool"
 msgstr "Încorporează din spool-ul local"
 
-#: src/prefs_common_dialog.c:886
+#: src/prefs_common_dialog.c:890
 msgid "Filter on incorporation"
 msgstr "Filtru la încorporare"
 
-#: src/prefs_common_dialog.c:892
+#: src/prefs_common_dialog.c:896
 msgid "Spool path"
 msgstr "Cale spool"
 
-#: src/prefs_common_dialog.c:953 src/prefs_common_dialog.c:1146
-#: src/prefs_common_dialog.c:1543 src/prefs_folder_item.c:139
+#: src/prefs_common_dialog.c:957 src/prefs_common_dialog.c:1150
+#: src/prefs_common_dialog.c:1547 src/prefs_folder_item.c:139
 msgid "General"
 msgstr "General"
 
 # !!! dependent de traducerea lui Outbox !!!
-#: src/prefs_common_dialog.c:960
+#: src/prefs_common_dialog.c:964
 msgid "Save sent messages to outbox"
 msgstr "Salvează mesajele trimise în dosarul „Trimise”"
 
-#: src/prefs_common_dialog.c:962
+#: src/prefs_common_dialog.c:966
 msgid "Apply filter rules to sent messages"
 msgstr "Aplică regulile de filtrare pentru mesajele trimise"
 
-#: src/prefs_common_dialog.c:965
-#, fuzzy
+#: src/prefs_common_dialog.c:969
 msgid "Automatically add recipients to address book"
-msgstr "Completare automată a următoarelor câmpuri de adrese"
+msgstr "Adaugă automat destinatarii în agendă"
 
-#: src/prefs_common_dialog.c:972
+#: src/prefs_common_dialog.c:976
 msgid ""
 "Notify for missing attachments when the following strings (comma-separated) "
 "are found in the message body"
@@ -4944,23 +4965,23 @@ msgstr ""
 "Notifică despre lipsa atașamentelor atunci când următoarele șiruri (separate "
 "prin virgulă) sunt găsite în corpul mesajului:"
 
-#: src/prefs_common_dialog.c:983
+#: src/prefs_common_dialog.c:987
 msgid "(Ex: attach)"
 msgstr "(De ex.: attach)"
 
-#: src/prefs_common_dialog.c:994
+#: src/prefs_common_dialog.c:998
 msgid "Confirm recipients before sending"
 msgstr "Cere confirmarea destinatarilor înainte de a trimite"
 
-#: src/prefs_common_dialog.c:1000
+#: src/prefs_common_dialog.c:1004
 msgid "Excluded addresses/domains (comma-separated):"
-msgstr "Adrese/domenii excluse (separate prin virgulă):"
+msgstr "Adrese sau domenii excluse (separate prin virgulă):"
 
-#: src/prefs_common_dialog.c:1019
+#: src/prefs_common_dialog.c:1023
 msgid "Transfer encoding"
 msgstr "Codare de transfer"
 
-#: src/prefs_common_dialog.c:1042
+#: src/prefs_common_dialog.c:1046
 msgid ""
 "Specify Content-Transfer-Encoding used when message body contains non-ASCII "
 "characters."
@@ -4968,15 +4989,15 @@ msgstr ""
 "Specifică „Content-Transfer-Encoding”-ul folosit atunci când corpul "
 "mesajului conține caractere non-ASCII."
 
-#: src/prefs_common_dialog.c:1049
+#: src/prefs_common_dialog.c:1053
 msgid "MIME filename encoding"
 msgstr "Codare de nume fișier MIME"
 
-#: src/prefs_common_dialog.c:1060
+#: src/prefs_common_dialog.c:1064
 msgid "MIME header"
 msgstr "Antet MIME"
 
-#: src/prefs_common_dialog.c:1070
+#: src/prefs_common_dialog.c:1074
 msgid ""
 "Specify encoding method for MIME filename with non-ASCII characters.\n"
 "MIME header: most popular, but violates RFC 2047\n"
@@ -4987,184 +5008,182 @@ msgstr ""
 "Antet MIME: cel mai popular, dar violează RFC 2047\n"
 "RFC 2231: conform standardului, dar nepopular"
 
-#: src/prefs_common_dialog.c:1161
+#: src/prefs_common_dialog.c:1165
 msgid "Signature separator"
 msgstr "Separator de semnătură"
 
-#: src/prefs_common_dialog.c:1170
+#: src/prefs_common_dialog.c:1174
 msgid "Insert automatically"
 msgstr "Inserează automat"
 
 # comun și pentru butonul de pe toolbar și pentru chenarul din common preferencews... -> compose -> general
-#: src/prefs_common_dialog.c:1172 src/prefs_toolbar.c:56
+#: src/prefs_common_dialog.c:1176 src/prefs_toolbar.c:56
 msgid "Reply"
 msgstr "Răspunde"
 
-#: src/prefs_common_dialog.c:1180
+#: src/prefs_common_dialog.c:1184
 msgid "Automatically select account for replies"
 msgstr "Selecteză automat contul pentru răspunsuri"
 
-#: src/prefs_common_dialog.c:1182
+#: src/prefs_common_dialog.c:1186
 msgid "Quote message when replying"
 msgstr "Citează mesajul la care se răspunde"
 
-#: src/prefs_common_dialog.c:1184
-#, fuzzy
+#: src/prefs_common_dialog.c:1188
 msgid "Reply to mailing list by Reply button"
-msgstr "/Răspunde _listei de discuții"
+msgstr "Răspunde la lista de discuții prin butonul Răspunde"
 
-#: src/prefs_common_dialog.c:1186
+#: src/prefs_common_dialog.c:1190
 msgid "Inherit recipients on reply to self messages"
 msgstr "Păstrează destinatarii inițiali când se răspunde la mesaje proprii"
 
-#: src/prefs_common_dialog.c:1188
+#: src/prefs_common_dialog.c:1192
 msgid "Set only mail address of recipients when replying"
 msgstr ""
+"Completează numai adresa de corespondență a destinatarului atunci când se "
+"răspunde"
 
 #. editor
-#: src/prefs_common_dialog.c:1192 src/prefs_common_dialog.c:2653
+#: src/prefs_common_dialog.c:1196 src/prefs_common_dialog.c:2712
 #: src/prefs_toolbar.c:120
 msgid "Editor"
 msgstr "Editor"
 
-#: src/prefs_common_dialog.c:1199
+#: src/prefs_common_dialog.c:1203
 msgid "Automatically launch the external editor"
 msgstr "Lansează automat editorul extern"
 
-#: src/prefs_common_dialog.c:1209
+#: src/prefs_common_dialog.c:1213
 msgid "Undo level"
 msgstr "Nivele de anulare"
 
-#: src/prefs_common_dialog.c:1229
+#: src/prefs_common_dialog.c:1233
 msgid "Wrap messages at"
 msgstr "Desparte liniile mesajelor la"
 
-#: src/prefs_common_dialog.c:1241
+#: src/prefs_common_dialog.c:1245
 msgid "characters"
 msgstr "caractere"
 
-#: src/prefs_common_dialog.c:1251
+#: src/prefs_common_dialog.c:1255
 msgid "Wrap quotation"
 msgstr "Desparte liniile lungi citate"
 
-#: src/prefs_common_dialog.c:1257
+#: src/prefs_common_dialog.c:1261
 msgid "Wrap on input"
 msgstr "Desparte liniile lungi în timpul compunerii"
 
-#: src/prefs_common_dialog.c:1266
+#: src/prefs_common_dialog.c:1270
 msgid "Auto-save to draft"
 msgstr "Salvează automat în ciorne"
 
-#: src/prefs_common_dialog.c:1291
+#: src/prefs_common_dialog.c:1295
 msgid "Format"
 msgstr "Format"
 
-#: src/prefs_common_dialog.c:1296
+#: src/prefs_common_dialog.c:1300
 msgid "Spell checking"
 msgstr "Verificare ortografică"
 
 #. reply
-#: src/prefs_common_dialog.c:1349
+#: src/prefs_common_dialog.c:1353
 msgid "Reply format"
 msgstr "Format de răspuns"
 
-#: src/prefs_common_dialog.c:1364 src/prefs_common_dialog.c:1406
+#: src/prefs_common_dialog.c:1368 src/prefs_common_dialog.c:1410
 msgid "Quotation mark"
 msgstr "Semn de citare"
 
 #. forward
-#: src/prefs_common_dialog.c:1391
+#: src/prefs_common_dialog.c:1395
 msgid "Forward format"
 msgstr "Format de înaintare"
 
-#: src/prefs_common_dialog.c:1438
+#: src/prefs_common_dialog.c:1442
 msgid " Description of symbols "
 msgstr " Descriere simboluri "
 
-#: src/prefs_common_dialog.c:1467
+#: src/prefs_common_dialog.c:1471
 msgid "Enable Spell checking"
 msgstr "Activează verificarea ortografică"
 
-#: src/prefs_common_dialog.c:1479
+#: src/prefs_common_dialog.c:1483
 msgid "Default language:"
 msgstr "Limbă implicită:"
 
-#: src/prefs_common_dialog.c:1551
+#: src/prefs_common_dialog.c:1555
 msgid "Text font"
 msgstr "Font text"
 
 #. ---- Folder View ----
-#: src/prefs_common_dialog.c:1563
+#: src/prefs_common_dialog.c:1567
 msgid "Folder View"
 msgstr "Vizualizare dosare"
 
-#: src/prefs_common_dialog.c:1571
+#: src/prefs_common_dialog.c:1575
 msgid "Display unread number next to folder name"
 msgstr "Afișează numărul de mesaje necitite lângă numele dosarului"
 
-# hm ?
-#: src/prefs_common_dialog.c:1575
-#, fuzzy
+#: src/prefs_common_dialog.c:1579
 msgid "Displaying message number columns in the folder view:"
-msgstr "Afișează coloanele cu numerele de mesaje"
+msgstr "Afișare de coloane cu numărul de mesaje în vizualizarea dosarelor:"
 
-#: src/prefs_common_dialog.c:1599
+#: src/prefs_common_dialog.c:1603
 msgid "Abbreviate newsgroups longer than"
 msgstr "Abreviază grupurile de știri mai lungi decât"
 
-#: src/prefs_common_dialog.c:1614
+#: src/prefs_common_dialog.c:1618
 msgid "letters"
 msgstr "litere"
 
 #. ---- Summary ----
-#: src/prefs_common_dialog.c:1620
+#: src/prefs_common_dialog.c:1624
 msgid "Summary View"
 msgstr "Vizualizare sumară"
 
 # hm ? sensul original poate fi incorect în anumite situații; ar trebui ceva de genul dacă expeditorul este totuna cu proprietarul contului
-#: src/prefs_common_dialog.c:1629
+#: src/prefs_common_dialog.c:1633
 msgid "Display recipient on `From' column if sender is yourself"
 msgstr ""
 "Afișează destinatarul în coloana „Expeditor”, dacă expeditorul sunteți "
 "dumneavoastră"
 
-#: src/prefs_common_dialog.c:1631
+#: src/prefs_common_dialog.c:1635
 msgid "Expand threads"
 msgstr "Desfășoară firul discuțiilor"
 
-#: src/prefs_common_dialog.c:1639 src/prefs_common_dialog.c:3126
-#: src/prefs_common_dialog.c:3164
+#: src/prefs_common_dialog.c:1643 src/prefs_common_dialog.c:3185
+#: src/prefs_common_dialog.c:3223
 msgid "Date format"
 msgstr "Format dată"
 
-#: src/prefs_common_dialog.c:1660
+#: src/prefs_common_dialog.c:1664
 msgid " Set display item of summary... "
-msgstr " Alegere elemente afișate ale sumarului... "
+msgstr " Alegeți elementele afișate ale sumarului... "
 
-#: src/prefs_common_dialog.c:1666
+#: src/prefs_common_dialog.c:1670
 msgid "Message"
 msgstr "Mesaj"
 
-#: src/prefs_common_dialog.c:1670
-#, fuzzy
+#: src/prefs_common_dialog.c:1674
 msgid "Color label"
-msgstr "/Culoare etic_hetă"
+msgstr "Culoare etichetă"
 
-#: src/prefs_common_dialog.c:1680
+#: src/prefs_common_dialog.c:1684
 msgid "Default character encoding"
 msgstr "Codare implicită de caractere"
 
-#: src/prefs_common_dialog.c:1694
+#: src/prefs_common_dialog.c:1698
 msgid "This is used when displaying messages with missing character encoding."
 msgstr ""
 "Se utilizează la afișarea mesajelor cărora la lipsește informația de codare "
 "a caracterelor."
 
-#: src/prefs_common_dialog.c:1700
+#: src/prefs_common_dialog.c:1704
 msgid "Outgoing character encoding"
 msgstr "Codare de caractere la trimitere"
 
-#: src/prefs_common_dialog.c:1714
+#: src/prefs_common_dialog.c:1718
 msgid ""
 "If `Automatic' is selected, the optimal encoding for the current locale will "
 "be used."
@@ -5172,11 +5191,11 @@ msgstr ""
 "Dacă este selectat „Automat”, se va utiliza codarea optimă pentru localele "
 "curente."
 
-#: src/prefs_common_dialog.c:1778
+#: src/prefs_common_dialog.c:1782
 msgid "Enable coloration of message"
 msgstr "Activează colorarea mesajelor"
 
-#: src/prefs_common_dialog.c:1793
+#: src/prefs_common_dialog.c:1797
 msgid ""
 "Display multi-byte alphabet and numeric as\n"
 "ASCII character (Japanese only)"
@@ -5184,83 +5203,87 @@ msgstr ""
 "Afișează alafbetul și numerele de tip octet multiplu\n"
 "ca caractere ASCII (numai japoneză)"
 
-#: src/prefs_common_dialog.c:1800
+#: src/prefs_common_dialog.c:1804
 msgid "Display header pane above message view"
 msgstr "Afișează panou de antet deasupra ferestrei de vizualizare a mesajului"
 
-#: src/prefs_common_dialog.c:1807
+#: src/prefs_common_dialog.c:1811
 msgid "Display short headers on message view"
 msgstr "Afișează antet scurt în fereastra de vizualizare a mesajului"
 
-#: src/prefs_common_dialog.c:1819
+#: src/prefs_common_dialog.c:1823
 msgid "Render HTML messages as text"
 msgstr "Randează mesajele HTML ca text"
 
-#: src/prefs_common_dialog.c:1821
+#: src/prefs_common_dialog.c:1825
 msgid "Treat HTML only messages as attachment"
 msgstr "Tratează mesajele doar HTML ca atașament"
 
-#: src/prefs_common_dialog.c:1825
+#: src/prefs_common_dialog.c:1829
 msgid "Display cursor in message view"
 msgstr "Afișează cursorul în vizualizarea mesajului"
 
-#: src/prefs_common_dialog.c:1838
+#: src/prefs_common_dialog.c:1842
 msgid "Line space"
 msgstr "Spațiere linii"
 
-#: src/prefs_common_dialog.c:1852 src/prefs_common_dialog.c:1890
+#: src/prefs_common_dialog.c:1856 src/prefs_common_dialog.c:1894
 msgid "pixel(s)"
 msgstr "pixel(i)"
 
-#: src/prefs_common_dialog.c:1857
+#: src/prefs_common_dialog.c:1861
 msgid "Scroll"
 msgstr "Derulare"
 
-#: src/prefs_common_dialog.c:1864
+#: src/prefs_common_dialog.c:1868
 msgid "Half page"
 msgstr "Jumătate de pagină"
 
-#: src/prefs_common_dialog.c:1870
+#: src/prefs_common_dialog.c:1874
 msgid "Smooth scroll"
 msgstr "Derulare lină"
 
-#: src/prefs_common_dialog.c:1876
+#: src/prefs_common_dialog.c:1880
 msgid "Step"
 msgstr "Pas"
 
-#: src/prefs_common_dialog.c:1896
+#: src/prefs_common_dialog.c:1900
 msgid "Images"
 msgstr "Imagini"
 
-#: src/prefs_common_dialog.c:1904
+#: src/prefs_common_dialog.c:1908
 msgid "Resize attached large images to fit in the window"
 msgstr "Redimensionează imaginile atașate pentru a încăpea în fereastră"
 
-#: src/prefs_common_dialog.c:1906
+#: src/prefs_common_dialog.c:1910
 msgid "Display images as inline"
 msgstr "Afișează imaginile intercalat"
 
-#: src/prefs_common_dialog.c:2057
+#: src/prefs_common_dialog.c:1949
+msgid "You can specify label names for each color (Work, TODO etc.)."
+msgstr ""
+
+#: src/prefs_common_dialog.c:2074
 msgid "Enable Junk mail control"
 msgstr "Activează controlul mesajelor spam"
 
-#: src/prefs_common_dialog.c:2069
+#: src/prefs_common_dialog.c:2086
 msgid "Learning command:"
-msgstr "Învățare comandă:"
+msgstr "Comandă de învățare:"
 
-#: src/prefs_common_dialog.c:2078
+#: src/prefs_common_dialog.c:2095
 msgid "(Select preset)"
-msgstr "(Selectează predefinit)"
+msgstr "selecție predefinită"
 
-#: src/prefs_common_dialog.c:2103
+#: src/prefs_common_dialog.c:2120
 msgid "Not Junk"
-msgstr "Nu e spam"
+msgstr "Nu este spam"
 
-#: src/prefs_common_dialog.c:2118
+#: src/prefs_common_dialog.c:2135
 msgid "Classifying command"
 msgstr "Comandă de clasificare"
 
-#: src/prefs_common_dialog.c:2129
+#: src/prefs_common_dialog.c:2146
 msgid ""
 "To classify junk mails automatically, both junk and not junk mails must be "
 "learned manually to a certain extent."
@@ -5268,233 +5291,242 @@ msgstr ""
 "Pentru a clasifica mesajele ca spam în mod automat, și mesajele spam și "
 "mesajele utile trebuie învățate manual într-o anumită măsură."
 
-#: src/prefs_common_dialog.c:2139
+#: src/prefs_common_dialog.c:2156
 msgid "Junk folder"
 msgstr "Dosar de spam"
 
-#: src/prefs_common_dialog.c:2157
+#: src/prefs_common_dialog.c:2174
 msgid "The messages which are set as junk mail will be moved to this folder."
 msgstr "Mesajele care sunt marcate ca spam vor fi mutate în acest dosar."
 
-#: src/prefs_common_dialog.c:2168
+#: src/prefs_common_dialog.c:2185
 msgid "Filter messages classified as junk on receiving"
 msgstr "Filtrează la primire mesajele clasificate ca spam"
 
-#: src/prefs_common_dialog.c:2171
+#: src/prefs_common_dialog.c:2188
 msgid "Filter junk mails before normal filtering"
 msgstr "Filtrează mesajele spam înaintea filtrării normale"
 
-#: src/prefs_common_dialog.c:2174
+#: src/prefs_common_dialog.c:2191
 msgid "Delete junk mails from server on receiving"
 msgstr "Șterge mesajele spam de pe server la primire"
 
-#: src/prefs_common_dialog.c:2179
+#: src/prefs_common_dialog.c:2196
 msgid "Mark filtered junk mails as read"
 msgstr "Marchează mesajele spam filtrate ca fiind citite"
 
-#: src/prefs_common_dialog.c:2221
+#: src/prefs_common_dialog.c:2238
 msgid "Automatically check signatures"
 msgstr "Verifică semnăturile automat"
 
-#: src/prefs_common_dialog.c:2224
+#: src/prefs_common_dialog.c:2241
 msgid "Show signature check result in a popup window"
 msgstr "Arată rezultatul verificării semnăturii într-o fereastră de tip popup"
 
-#: src/prefs_common_dialog.c:2227
+#: src/prefs_common_dialog.c:2244
 msgid "Store passphrase in memory temporarily"
-msgstr "Stochează temporar fraza secretă în memorie"
+msgstr "Stochează fraza secretă temporar în memorie"
 
-#: src/prefs_common_dialog.c:2242
+#: src/prefs_common_dialog.c:2259
 msgid "Expired after"
 msgstr "Expiră după"
 
-#: src/prefs_common_dialog.c:2255
+#: src/prefs_common_dialog.c:2272
 msgid "minute(s) "
 msgstr "minut(e)"
 
-#: src/prefs_common_dialog.c:2269
+#: src/prefs_common_dialog.c:2286
 msgid "Setting to '0' will store the passphrase for the whole session."
 msgstr ""
 "Selectarea valorii „0” determină memorarea frazei secrete pentru întreaga "
 "sesiune."
 
 # hm ?
-#: src/prefs_common_dialog.c:2278
+#: src/prefs_common_dialog.c:2295
 msgid "Grab input while entering a passphrase"
 msgstr "Ascunde intrarea în timp ce se introduce fraza secretă"
 
-#: src/prefs_common_dialog.c:2283
+#: src/prefs_common_dialog.c:2300
 msgid "Display warning on startup if GnuPG doesn't work"
 msgstr "Avertizează la pornire dacă GnuPG nu funcționează"
 
-#: src/prefs_common_dialog.c:2355
+#: src/prefs_common_dialog.c:2372
 msgid "Always open messages in summary when selected"
 msgstr "Deschide totdeauna mesajele în mod sumar când sunt selectate"
 
-#: src/prefs_common_dialog.c:2359
+#: src/prefs_common_dialog.c:2376
 msgid "Open first unread message when a folder is opened"
 msgstr "Deschide primul mesaj necitit la deschiderea unui dosar"
 
-#: src/prefs_common_dialog.c:2366
+#: src/prefs_common_dialog.c:2383
 msgid "Remember last selected message"
 msgstr "Ține minte ultimul mesaj selectat"
 
-#: src/prefs_common_dialog.c:2370
+#: src/prefs_common_dialog.c:2387
 msgid "Only mark message as read when opened in new window"
 msgstr ""
 "Marchează mesajul ca fiind citit doar când este deschis în fereastră nouă"
 
-#: src/prefs_common_dialog.c:2374
+#: src/prefs_common_dialog.c:2391
 msgid "Open inbox after receiving new mail"
 msgstr "Deschide dosarul „Primite (Inbox)” după primirea de mesaje noi"
 
-#: src/prefs_common_dialog.c:2376
+#: src/prefs_common_dialog.c:2393
 msgid "Open inbox on startup"
 msgstr "Deschide dosarul „Primite (Inbox)” la pornirea programului"
 
-#: src/prefs_common_dialog.c:2384
+#: src/prefs_common_dialog.c:2401
 msgid "Execute immediately when moving or deleting messages"
 msgstr "Execută imediat când se mută sau se șterg mesajele"
 
-#: src/prefs_common_dialog.c:2396
+#: src/prefs_common_dialog.c:2413
 msgid "Messages will be marked until execution if this is turned off."
 msgstr "Dacă opțiunea este deselectată, mesajele vor fi mai întâi marcate."
 
-#: src/prefs_common_dialog.c:2405
+#: src/prefs_common_dialog.c:2422
 msgid "Make the order of buttons comply with GNOME HIG"
 msgstr "Determină ordinea butoanelor să fie în concordanță cu GNOME HIG"
 
-#: src/prefs_common_dialog.c:2408
+#: src/prefs_common_dialog.c:2425
 msgid "Display tray icon"
-msgstr "Afișează iconiță în zona de notificare"
+msgstr "Afișează o pictogramă în zona de notificare"
 
-#: src/prefs_common_dialog.c:2410
+#: src/prefs_common_dialog.c:2427
 msgid "Minimize to tray icon"
-msgstr "Minimizează pe iconița din zona de notificare"
+msgstr "Minimizează pe pictograma din zona de notificare"
 
-#: src/prefs_common_dialog.c:2412
+#: src/prefs_common_dialog.c:2429
 msgid "Toggle window on trayicon click"
-msgstr "Comută fereastra la clic pe iconița din zona de notificare"
+msgstr "Comută fereastra la clic pe pictograma din zona de notificare"
 
-#: src/prefs_common_dialog.c:2422
+#: src/prefs_common_dialog.c:2439
 msgid " Set key bindings... "
-msgstr " Alegere temă de combinații de taste... "
+msgstr " Alegeți tema de combinații de taste... "
 
-#: src/prefs_common_dialog.c:2428 src/select-keys.c:337
+#: src/prefs_common_dialog.c:2445 src/select-keys.c:337
 msgid "Other"
 msgstr "Altele"
 
-#: src/prefs_common_dialog.c:2432
+#: src/prefs_common_dialog.c:2449
 msgid "External commands"
 msgstr "Comenzi externe"
 
-#: src/prefs_common_dialog.c:2437
+#: src/prefs_common_dialog.c:2454
 msgid "Update"
 msgstr "Actualizare"
 
-#: src/prefs_common_dialog.c:2492
+#: src/prefs_common_dialog.c:2513
 msgid "Receive dialog"
 msgstr "Dialog de primire"
 
-#: src/prefs_common_dialog.c:2502
+#: src/prefs_common_dialog.c:2523
 msgid "Show receive dialog"
 msgstr "Arată dialogul de primire"
 
-#: src/prefs_common_dialog.c:2512
+#: src/prefs_common_dialog.c:2533
 msgid "Always"
 msgstr "Întotdeauna"
 
-#: src/prefs_common_dialog.c:2513
+#: src/prefs_common_dialog.c:2534
 msgid "Only on manual receiving"
 msgstr "Numai la primire manuală"
 
-#: src/prefs_common_dialog.c:2515
+#: src/prefs_common_dialog.c:2536
 msgid "Never"
 msgstr "Niciodată"
 
-#: src/prefs_common_dialog.c:2520
+#: src/prefs_common_dialog.c:2541
 msgid "Don't popup error dialog on receive error"
 msgstr "Nu deschide dialog de eroare de tip popup în caz de eroare la primire"
 
-#: src/prefs_common_dialog.c:2523
+#: src/prefs_common_dialog.c:2544
 msgid "Close receive dialog when finished"
 msgstr "Închide dialogul de primire la terminarea operației"
 
-#: src/prefs_common_dialog.c:2534
+#: src/prefs_common_dialog.c:2555
 msgid "Add address to destination when double-clicked"
 msgstr "Adaugă adresa la destinație atunci când se face dublu clic pe ea"
 
-#: src/prefs_common_dialog.c:2537
-msgid "Enable address auto-completion"
+#: src/prefs_common_dialog.c:2563
+#, fuzzy
+msgid "Address auto-completion:"
+msgstr "Activează completarea automată a adresei"
+
+#: src/prefs_common_dialog.c:2585
+msgid "Start with Tab"
 msgstr ""
 
-#: src/prefs_common_dialog.c:2539
+#: src/prefs_common_dialog.c:2593
+msgid "Disable"
+msgstr ""
+
+#: src/prefs_common_dialog.c:2600
 msgid "On exit"
 msgstr "La ieșire"
 
-#: src/prefs_common_dialog.c:2547
+#: src/prefs_common_dialog.c:2608
 msgid "Confirm on exit"
 msgstr "Cere confirmare de închidere a programului"
 
-#: src/prefs_common_dialog.c:2554
+#: src/prefs_common_dialog.c:2615
 msgid "Empty trash on exit"
 msgstr "Golește gunoiul la ieșire"
 
-#: src/prefs_common_dialog.c:2556
+#: src/prefs_common_dialog.c:2617
 msgid "Ask before emptying"
 msgstr "Cere confirmare înainte de golire"
 
-#: src/prefs_common_dialog.c:2560
+#: src/prefs_common_dialog.c:2621
 msgid "Warn if there are queued messages"
 msgstr "Avertizează dacă sunt mesaje la coadă"
 
-#: src/prefs_common_dialog.c:2616
+#: src/prefs_common_dialog.c:2677
 #, c-format
 msgid "External commands (%s will be replaced with file name / URI)"
 msgstr "Comenzi externe (%s va fi înlocuit de nume fișier / URI)"
 
-#: src/prefs_common_dialog.c:2625
+#: src/prefs_common_dialog.c:2686
 msgid "Web browser"
 msgstr "Navigator Web"
 
-#: src/prefs_common_dialog.c:2637 src/prefs_common_dialog.c:4139
-#: src/prefs_common_dialog.c:4160
+#: src/prefs_common_dialog.c:2698 src/prefs_common_dialog.c:4198
+#: src/prefs_common_dialog.c:4219
 msgid "(Default browser)"
 msgstr "(Navigator implicit)"
 
-#: src/prefs_common_dialog.c:2678
+#: src/prefs_common_dialog.c:2737
 msgid "Use external program for printing"
 msgstr "Folosește un program extern pentru tipărire"
 
-#: src/prefs_common_dialog.c:2700
+#: src/prefs_common_dialog.c:2759
 msgid "Use external program for incorporation"
 msgstr "Folosește un program extern pentru încorporare"
 
-#: src/prefs_common_dialog.c:2722
+#: src/prefs_common_dialog.c:2781
 msgid "Use external program for sending"
 msgstr "Folosește un program extern pentru trimitere"
 
-#: src/prefs_common_dialog.c:2774
+#: src/prefs_common_dialog.c:2833
 msgid "Update check requires 'curl' command."
 msgstr "Căutarea eventualelor actualizări necesită comanda „curl”."
 
-#: src/prefs_common_dialog.c:2785
+#: src/prefs_common_dialog.c:2844
 msgid "Enable auto update check"
 msgstr "Activează actualizarea automată"
 
-#: src/prefs_common_dialog.c:2787
+#: src/prefs_common_dialog.c:2846
 msgid "Use HTTP proxy"
 msgstr "Folosește proxy HTTP"
 
-#: src/prefs_common_dialog.c:2789
+#: src/prefs_common_dialog.c:2848
 msgid "HTTP proxy host (hostname:port):"
 msgstr "Gazdă proxy HTTP (numegazdă:port):"
 
-#: src/prefs_common_dialog.c:2830
+#: src/prefs_common_dialog.c:2889
 msgid "Enable strict checking of the integrity of summary caches"
 msgstr "Activează verificarea strictă a integrității cache-ului sumarului"
 
-#: src/prefs_common_dialog.c:2833
+#: src/prefs_common_dialog.c:2892
 msgid ""
 "Enable this if the contents of folders have the possibility of modification "
 "by other applications.\n"
@@ -5504,275 +5536,275 @@ msgstr ""
 "modificat de alte aplicații.\n"
 "Această opțiune va degrada performanța de afișare a sumarului."
 
-#: src/prefs_common_dialog.c:2840
+#: src/prefs_common_dialog.c:2899
 msgid "Socket I/O timeout:"
 msgstr "Timpul Socket I/O a expirat:"
 
-#: src/prefs_common_dialog.c:2853
+#: src/prefs_common_dialog.c:2912
 msgid "second(s)"
 msgstr "secundă(e)"
 
-#: src/prefs_common_dialog.c:2881
+#: src/prefs_common_dialog.c:2940
 msgid "Automatic (Recommended)"
 msgstr "Automat (recomandat)"
 
-#: src/prefs_common_dialog.c:2886
+#: src/prefs_common_dialog.c:2945
 msgid "7bit ascii (US-ASCII)"
 msgstr "7bit ASCII (US-ASCII)"
 
-#: src/prefs_common_dialog.c:2888
+#: src/prefs_common_dialog.c:2947
 msgid "Unicode (UTF-8)"
 msgstr "Unicode (UTF-8)"
 
-#: src/prefs_common_dialog.c:2890
+#: src/prefs_common_dialog.c:2949
 msgid "Western European (ISO-8859-1)"
 msgstr "Western European (ISO-8859-1)"
 
-#: src/prefs_common_dialog.c:2891
+#: src/prefs_common_dialog.c:2950
 msgid "Western European (ISO-8859-15)"
 msgstr "Western European (ISO-8859-15)"
 
-#: src/prefs_common_dialog.c:2893
+#: src/prefs_common_dialog.c:2952
 msgid "Western European (Windows-1252)"
 msgstr "Western European (Windows-1252)"
 
-#: src/prefs_common_dialog.c:2897
+#: src/prefs_common_dialog.c:2956
 msgid "Central European (ISO-8859-2)"
 msgstr "Central European (ISO-8859-2)"
 
-#: src/prefs_common_dialog.c:2899
+#: src/prefs_common_dialog.c:2958
 msgid "Baltic (ISO-8859-13)"
 msgstr "Baltic (ISO-8859-13)"
 
-#: src/prefs_common_dialog.c:2900
+#: src/prefs_common_dialog.c:2959
 msgid "Baltic (ISO-8859-4)"
 msgstr "Baltic (ISO-8859-4)"
 
-#: src/prefs_common_dialog.c:2901
+#: src/prefs_common_dialog.c:2960
 msgid "Baltic (Windows-1257)"
 msgstr "Baltic (Windows-1257)"
 
-#: src/prefs_common_dialog.c:2903
+#: src/prefs_common_dialog.c:2962
 msgid "Greek (ISO-8859-7)"
 msgstr "Greek (ISO-8859-7)"
 
-#: src/prefs_common_dialog.c:2905
+#: src/prefs_common_dialog.c:2964
 msgid "Arabic (ISO-8859-6)"
 msgstr "Arabic (ISO-8859-6)"
 
-#: src/prefs_common_dialog.c:2906
+#: src/prefs_common_dialog.c:2965
 msgid "Arabic (Windows-1256)"
 msgstr "Arabic (Windows-1256)"
 
-#: src/prefs_common_dialog.c:2908
+#: src/prefs_common_dialog.c:2967
 msgid "Hebrew (ISO-8859-8)"
 msgstr "Hebrew (ISO-8859-8)"
 
-#: src/prefs_common_dialog.c:2909
+#: src/prefs_common_dialog.c:2968
 msgid "Hebrew (Windows-1255)"
 msgstr "Hebrew (Windows-1255)"
 
-#: src/prefs_common_dialog.c:2911
+#: src/prefs_common_dialog.c:2970
 msgid "Turkish (ISO-8859-9)"
 msgstr "Turkish (ISO-8859-9)"
 
-#: src/prefs_common_dialog.c:2913
+#: src/prefs_common_dialog.c:2972
 msgid "Cyrillic (ISO-8859-5)"
 msgstr "Cyrillic (ISO-8859-5)"
 
-#: src/prefs_common_dialog.c:2914
+#: src/prefs_common_dialog.c:2973
 msgid "Cyrillic (KOI8-R)"
 msgstr "Cyrillic (KOI8-R)"
 
-#: src/prefs_common_dialog.c:2915
+#: src/prefs_common_dialog.c:2974
 msgid "Cyrillic (KOI8-U)"
 msgstr "Cyrillic (KOI8-U)"
 
-#: src/prefs_common_dialog.c:2916
+#: src/prefs_common_dialog.c:2975
 msgid "Cyrillic (Windows-1251)"
 msgstr "Cyrillic (Windows-1251)"
 
-#: src/prefs_common_dialog.c:2918
+#: src/prefs_common_dialog.c:2977
 msgid "Japanese (ISO-2022-JP)"
 msgstr "Japanese (ISO-2022-JP)"
 
-#: src/prefs_common_dialog.c:2920
+#: src/prefs_common_dialog.c:2979
 msgid "Japanese (EUC-JP)"
 msgstr "Japanese (EUC-JP)"
 
-#: src/prefs_common_dialog.c:2921
+#: src/prefs_common_dialog.c:2980
 msgid "Japanese (Shift_JIS)"
 msgstr "Japanese (Shift_JIS)"
 
-#: src/prefs_common_dialog.c:2924
+#: src/prefs_common_dialog.c:2983
 msgid "Simplified Chinese (GB2312)"
 msgstr "Simplified Chinese (GB2312)"
 
-#: src/prefs_common_dialog.c:2925
+#: src/prefs_common_dialog.c:2984
 msgid "Simplified Chinese (GBK)"
 msgstr "Simplified Chinese (GBK)"
 
-#: src/prefs_common_dialog.c:2926
+#: src/prefs_common_dialog.c:2985
 msgid "Traditional Chinese (Big5)"
 msgstr "Traditional Chinese (Big5)"
 
-#: src/prefs_common_dialog.c:2928
+#: src/prefs_common_dialog.c:2987
 msgid "Traditional Chinese (EUC-TW)"
 msgstr "Traditional Chinese (EUC-TW)"
 
-#: src/prefs_common_dialog.c:2929
+#: src/prefs_common_dialog.c:2988
 msgid "Chinese (ISO-2022-CN)"
 msgstr "Chinese (ISO-2022-CN)"
 
-#: src/prefs_common_dialog.c:2932
+#: src/prefs_common_dialog.c:2991
 msgid "Korean (EUC-KR)"
 msgstr "Korean (EUC-KR)"
 
-#: src/prefs_common_dialog.c:2934
+#: src/prefs_common_dialog.c:2993
 msgid "Thai (TIS-620)"
 msgstr "Thai (TIS-620)"
 
-#: src/prefs_common_dialog.c:2935
+#: src/prefs_common_dialog.c:2994
 msgid "Thai (Windows-874)"
 msgstr "Thai (Windows-874)"
 
-#: src/prefs_common_dialog.c:3102
+#: src/prefs_common_dialog.c:3161
 msgid "the full abbreviated weekday name"
 msgstr "numele abreviat al zilei săptămânii"
 
-#: src/prefs_common_dialog.c:3103
+#: src/prefs_common_dialog.c:3162
 msgid "the full weekday name"
 msgstr "numele complet al zilei săptămânii"
 
-#: src/prefs_common_dialog.c:3104
+#: src/prefs_common_dialog.c:3163
 msgid "the abbreviated month name"
 msgstr "numele abreviat al lunii"
 
-#: src/prefs_common_dialog.c:3105
+#: src/prefs_common_dialog.c:3164
 msgid "the full month name"
 msgstr "numele complet al lunii"
 
-#: src/prefs_common_dialog.c:3106
+#: src/prefs_common_dialog.c:3165
 msgid "the preferred date and time for the current locale"
 msgstr "data și timpul preferat pentru localele curente"
 
-#: src/prefs_common_dialog.c:3107
+#: src/prefs_common_dialog.c:3166
 msgid "the century number (year/100)"
 msgstr "numărul secolului (an/100)"
 
-#: src/prefs_common_dialog.c:3108
+#: src/prefs_common_dialog.c:3167
 msgid "the day of the month as a decimal number"
 msgstr "ziua săptămânii ca număr zecimal"
 
-#: src/prefs_common_dialog.c:3109
+#: src/prefs_common_dialog.c:3168
 msgid "the hour as a decimal number using a 24-hour clock"
 msgstr "ora ca număr zecimal utilizând formatul de 24 ore"
 
-#: src/prefs_common_dialog.c:3110
+#: src/prefs_common_dialog.c:3169
 msgid "the hour as a decimal number using a 12-hour clock"
 msgstr "ora ca număr zecimal utilizând formatul de 12 ore"
 
-#: src/prefs_common_dialog.c:3111
+#: src/prefs_common_dialog.c:3170
 msgid "the day of the year as a decimal number"
 msgstr "ziua anului ca număr zecimal"
 
-#: src/prefs_common_dialog.c:3112
+#: src/prefs_common_dialog.c:3171
 msgid "the month as a decimal number"
 msgstr "luna ca număr zecimal"
 
-#: src/prefs_common_dialog.c:3113
+#: src/prefs_common_dialog.c:3172
 msgid "the minute as a decimal number"
 msgstr "minutul ca număr zecimal"
 
-#: src/prefs_common_dialog.c:3114
+#: src/prefs_common_dialog.c:3173
 msgid "either AM or PM"
 msgstr "indiferent AM sau PM"
 
-#: src/prefs_common_dialog.c:3115
+#: src/prefs_common_dialog.c:3174
 msgid "the second as a decimal number"
 msgstr "secunda ca număr zecimal"
 
-#: src/prefs_common_dialog.c:3116
+#: src/prefs_common_dialog.c:3175
 msgid "the day of the week as a decimal number"
 msgstr "ziua săptămânii ca număr zecimal"
 
-#: src/prefs_common_dialog.c:3117
+#: src/prefs_common_dialog.c:3176
 msgid "the preferred date for the current locale"
 msgstr "data preferată pentru localele curente"
 
-#: src/prefs_common_dialog.c:3118
+#: src/prefs_common_dialog.c:3177
 msgid "the last two digits of a year"
 msgstr "ultimii doi digiți ai numărului anului"
 
-#: src/prefs_common_dialog.c:3119
+#: src/prefs_common_dialog.c:3178
 msgid "the year as a decimal number"
 msgstr "anul ca număr zecimal"
 
-#: src/prefs_common_dialog.c:3120
+#: src/prefs_common_dialog.c:3179
 msgid "the time zone or name or abbreviation"
 msgstr "timpul zonal sau numele sau abrevierea"
 
-#: src/prefs_common_dialog.c:3141
+#: src/prefs_common_dialog.c:3200
 msgid "Specifier"
 msgstr "Specificator"
 
-#: src/prefs_common_dialog.c:3142
+#: src/prefs_common_dialog.c:3201
 msgid "Description"
 msgstr "Descriere"
 
-#: src/prefs_common_dialog.c:3182
+#: src/prefs_common_dialog.c:3241
 msgid "Example"
 msgstr "Exemplu"
 
-#: src/prefs_common_dialog.c:3263
+#: src/prefs_common_dialog.c:3322
 msgid "Set message colors"
 msgstr "Stabilire culori mesaj"
 
-#: src/prefs_common_dialog.c:3271
+#: src/prefs_common_dialog.c:3330
 msgid "Colors"
 msgstr "Culori"
 
-#: src/prefs_common_dialog.c:3305
+#: src/prefs_common_dialog.c:3364
 msgid "Quoted Text - First Level"
 msgstr "Citat - primul nivel"
 
-#: src/prefs_common_dialog.c:3311
+#: src/prefs_common_dialog.c:3370
 msgid "Quoted Text - Second Level"
 msgstr "Citat - nivelul al doilea"
 
-#: src/prefs_common_dialog.c:3317
+#: src/prefs_common_dialog.c:3376
 msgid "Quoted Text - Third Level"
 msgstr "Citat - nivelul al treilea"
 
-#: src/prefs_common_dialog.c:3323
+#: src/prefs_common_dialog.c:3382
 msgid "URI link"
 msgstr "Legătură URI"
 
-#: src/prefs_common_dialog.c:3330
+#: src/prefs_common_dialog.c:3389
 msgid "Recycle quote colors"
 msgstr "Reciclează culori citat"
 
-#: src/prefs_common_dialog.c:3397
+#: src/prefs_common_dialog.c:3456
 msgid "Pick color for quotation level 1"
 msgstr "Alege culoarea pentru citatul de nivel 1"
 
-#: src/prefs_common_dialog.c:3400
+#: src/prefs_common_dialog.c:3459
 msgid "Pick color for quotation level 2"
 msgstr "Alege culoarea pentru citatul de nivel 2"
 
-#: src/prefs_common_dialog.c:3403
+#: src/prefs_common_dialog.c:3462
 msgid "Pick color for quotation level 3"
 msgstr "Alege culoarea pentru citatul de nivel 3"
 
-#: src/prefs_common_dialog.c:3406
+#: src/prefs_common_dialog.c:3465
 msgid "Pick color for URI"
 msgstr "Alege culoarea pentru URI"
 
-#: src/prefs_common_dialog.c:3546
+#: src/prefs_common_dialog.c:3605
 msgid "Description of symbols"
 msgstr "Descriere simboluri"
 
-#: src/prefs_common_dialog.c:3602
+#: src/prefs_common_dialog.c:3661
 msgid ""
 "Date\n"
 "From\n"
@@ -5797,11 +5829,11 @@ msgstr ""
 "ID-mesaj"
 
 # ???
-#: src/prefs_common_dialog.c:3615
+#: src/prefs_common_dialog.c:3674
 msgid "If x is set, displays expr"
 msgstr "Dacă x este setat, afișează expr"
 
-#: src/prefs_common_dialog.c:3619
+#: src/prefs_common_dialog.c:3678
 msgid ""
 "Message body\n"
 "Quoted message body\n"
@@ -5816,7 +5848,7 @@ msgstr ""
 "Caracterul %"
 
 # sau linie ?
-#: src/prefs_common_dialog.c:3627
+#: src/prefs_common_dialog.c:3686
 msgid ""
 "Literal backslash\n"
 "Literal question mark\n"
@@ -5828,25 +5860,25 @@ msgstr ""
 "Caracterul {\n"
 "Caracterul }"
 
-#: src/prefs_common_dialog.c:3681
+#: src/prefs_common_dialog.c:3740
 msgid "Key bindings"
 msgstr "Combinații de taste"
 
-#: src/prefs_common_dialog.c:3694
+#: src/prefs_common_dialog.c:3753
 msgid "Select the preset of key bindings."
 msgstr "Selectați tema predefinită pentru combinațiile de taste."
 
-#: src/prefs_common_dialog.c:3704 src/prefs_common_dialog.c:4028
+#: src/prefs_common_dialog.c:3763 src/prefs_common_dialog.c:4087
 msgid "Default"
 msgstr "Implicit"
 
-#: src/prefs_common_dialog.c:3707 src/prefs_common_dialog.c:4037
+#: src/prefs_common_dialog.c:3766 src/prefs_common_dialog.c:4096
 msgid "Old Sylpheed"
 msgstr "Sylpheed vechi"
 
 #: src/prefs_customheader.c:161
 msgid "Custom header setting"
-msgstr "Setare antet personalizat"
+msgstr "Configurare antet personalizat"
 
 #: src/prefs_customheader.c:238 src/prefs_filter_edit.c:1606
 msgid " Delete "
@@ -5870,11 +5902,11 @@ msgstr "Chiar vreți să ștergeți acest antet ?"
 
 #: src/prefs_display_header.c:179
 msgid "Creating display header setting window...\n"
-msgstr "Creare fereastră setare afișare antet...\n"
+msgstr "Se creează fereastra de afișare a configurării antetului...\n"
 
 #: src/prefs_display_header.c:203
 msgid "Display header setting"
-msgstr "Afișare setări antet"
+msgstr "Afișare configurare antet"
 
 #: src/prefs_display_header.c:223
 msgid "Header name"
@@ -5906,7 +5938,7 @@ msgstr "Acest antet este deja în listă."
 
 #: src/prefs_display_items.c:119
 msgid "Display items setting"
-msgstr "Stabilire elemente afișate"
+msgstr "Configurare elemente afișate"
 
 #: src/prefs_display_items.c:159 src/prefs_summary_column.c:234
 msgid "Available items"
@@ -5923,7 +5955,7 @@ msgstr " Revino la predefinit "
 
 #: src/prefs_filter.c:208
 msgid "Filter settings"
-msgstr "Setări filtre"
+msgstr "Configurări filtre"
 
 #: src/prefs_filter.c:252
 msgid "Enabled"
@@ -6019,16 +6051,13 @@ msgstr "potrivire cu expresie regulară"
 msgid "doesn't match to regex"
 msgstr "nepotrivire cu expresie regulară"
 
-# tooltip peste butonul Agendă
 #: src/prefs_filter_edit.c:542
-#, fuzzy
 msgid "is in addressbook"
-msgstr "Agendă"
+msgstr "este în agendă"
 
 #: src/prefs_filter_edit.c:544
-#, fuzzy
 msgid "is not in addressbook"
-msgstr "Adăugă în a_gendă..."
+msgstr "nu este în agendă"
 
 #: src/prefs_filter_edit.c:556
 msgid "is larger than"
@@ -6105,7 +6134,7 @@ msgstr "Oprește evaluarea de regulă"
 
 #: src/prefs_filter_edit.c:709 src/prefs_filter_edit.c:1102
 msgid "folder:"
-msgstr "dosar:"
+msgstr "dosarul:"
 
 #: src/prefs_filter_edit.c:1063
 msgid "day(s)"
@@ -6230,19 +6259,19 @@ msgstr "Atașament"
 
 #. S_COL_MIME
 #: src/prefs_summary_column.c:69 src/query_search.c:401 src/rpop3.c:415
-#: src/summaryview.c:5157
+#: src/summaryview.c:5236
 msgid "Subject"
 msgstr "Subiect"
 
 #. S_COL_SUBJECT
 #: src/prefs_summary_column.c:70 src/query_search.c:402 src/rpop3.c:416
-#: src/summaryview.c:5160
+#: src/summaryview.c:5239
 msgid "From"
 msgstr "Expeditor"
 
 #. S_COL_FROM
 #: src/prefs_summary_column.c:71 src/query_search.c:403 src/rpop3.c:417
-#: src/summaryview.c:5162
+#: src/summaryview.c:5241
 msgid "Date"
 msgstr "Dată"
 
@@ -6252,17 +6281,17 @@ msgid "Number"
 msgstr "Număr"
 
 #. S_COL_NUMBER
-#: src/prefs_summary_column.c:74 src/summaryview.c:5168
+#: src/prefs_summary_column.c:74 src/summaryview.c:5247
 msgid "To"
 msgstr "Către"
 
 #: src/prefs_summary_column.c:183
 msgid "Creating summary column setting window...\n"
-msgstr "Creare fereastră de alegere a coloanelor sumarului...\n"
+msgstr "Se creează fereastra de configurare a coloanelor sumarului...\n"
 
 #: src/prefs_summary_column.c:192
 msgid "Summary display item setting"
-msgstr "Setare elemente afișate ale sumarului"
+msgstr "Configurare elemente afișate ale sumarului"
 
 #: src/prefs_summary_column.c:207
 msgid ""
@@ -6380,7 +6409,7 @@ msgstr "Marchează ca spam"
 
 #: src/prefs_toolbar.c:71
 msgid "Not junk"
-msgstr "Nu e spam"
+msgstr "Nu este spam"
 
 #: src/prefs_toolbar.c:72
 msgid "Set as not junk mail"
@@ -6457,7 +6486,7 @@ msgstr "Inserează"
 
 #: src/prefs_toolbar.c:112
 msgid "Insert file"
-msgstr "Iserează fișier"
+msgstr "Inserează un fișier"
 
 #: src/prefs_toolbar.c:114
 msgid "Attach"
@@ -6469,11 +6498,11 @@ msgstr "Atașează un fișier"
 
 #: src/prefs_toolbar.c:118
 msgid "Append signature"
-msgstr "Adaugă semnătură"
+msgstr "Adaugă o semnătură"
 
 #: src/prefs_toolbar.c:121
 msgid "Edit with external editor"
-msgstr "Editare cu editor extern"
+msgstr "Editează cu un editor extern"
 
 #: src/prefs_toolbar.c:127
 msgid "Linewrap"
@@ -6549,7 +6578,7 @@ msgstr "Căutare %s (%d / %d)..."
 msgid "Searching %s ..."
 msgstr "Căutare %s ..."
 
-#: src/query_search.c:799 src/rpop3.c:676 src/summaryview.c:2221
+#: src/query_search.c:799 src/rpop3.c:676 src/summaryview.c:2300
 msgid "(No Date)"
 msgstr "(Fără Dată)"
 
@@ -6565,52 +6594,55 @@ msgstr "Locație:"
 msgid "Folder name:"
 msgstr "Nume dosar:"
 
+# dropdown la căutarea rapidă
 #: src/quick_search.c:109
 msgid "All"
 msgstr "Tot"
 
-# hm ?
+# dropdown la căutarea rapidă
 #: src/quick_search.c:112
 msgid "Have color label"
 msgstr "Cu etichetă de culoare"
 
-# hm ?
+# dropdown la căutarea rapidă
 #: src/quick_search.c:113
 msgid "Have attachment"
 msgstr "Cu atașament"
 
+# dropdown la căutarea rapidă
 #: src/quick_search.c:115
 msgid "Within 1 day"
 msgstr "Din ultima zi"
 
+# dropdown la căutarea rapidă
 #: src/quick_search.c:116
 msgid "Last 5 days"
 msgstr "Din ultimele 5 zile"
 
+# dropdown la căutarea rapidă
 #: src/quick_search.c:117
-#, fuzzy
 msgid "Last 7 days"
-msgstr "Din ultimele 5 zile"
+msgstr "Din ultimele 7 zile"
 
-# tooltip peste butonul Agendă
 #: src/quick_search.c:119
-#, fuzzy
 msgid "In addressbook"
-msgstr "Agendă"
+msgstr "În agendă"
 
-#: src/quick_search.c:150 src/quick_search.c:378
+# în câmpul de căutare rapidă
+#: src/quick_search.c:150 src/quick_search.c:383
 msgid "Search for Subject or From"
-msgstr "Caută după câmpul Subiect sau De la"
+msgstr "Căutare după câmpul Subiect sau De la"
 
-#: src/quick_search.c:333
+# hm ?
+#: src/quick_search.c:338
 #, c-format
 msgid "%1$d in %2$d matched"
-msgstr ""
+msgstr "S-au potrivit %1$d în %2$d"
 
-#: src/quick_search.c:336
-#, fuzzy, c-format
+#: src/quick_search.c:341
+#, c-format
 msgid "No messages matched"
-msgstr "Nu sunt mesaje"
+msgstr "Nu s-a potrivit niciun mesaj"
 
 #: src/rfc2015.c:144
 msgid "Cannot find user ID for this key."
@@ -6652,7 +6684,7 @@ msgstr "_Despre"
 msgid "%s - POP3 Remote mailbox"
 msgstr "%s -  Căsuță poștală POP3 la distanță"
 
-#: src/rpop3.c:414 src/summaryview.c:5166
+#: src/rpop3.c:414 src/summaryview.c:5245
 msgid "No."
 msgstr "Nr."
 
@@ -6890,44 +6922,46 @@ msgstr "Nu se poate efectua conexiunea la serverul SMTP: %s:%d"
 
 #: src/setup.c:116 src/setup.c:140
 msgid "Mailbox setting"
-msgstr "Setări căsuță poștală"
+msgstr "Configurare căsuță poștală"
 
 #: src/setup.c:159
 msgid "This dialog will make initial setup of mailbox."
-msgstr ""
+msgstr "Acest dialog va face configurarea inițială a căsuței poștale."
 
 #: src/setup.c:173
-#, fuzzy
 msgid "Create mailbox at the following default location:"
-msgstr "Execută următoarele acțiuni:"
+msgstr "Creează căsuța poștală în această locație implicită:"
 
 #: src/setup.c:193
 msgid ""
 "Create mailbox at the following location:\n"
 "(enter folder name or full folder path)"
 msgstr ""
+"Creează căsuța poștală în următoarea locație:\n"
+"(introduceți numele sau calea completă a dosarului)"
 
 #: src/setup.c:211
 msgid ""
 "If you want to add a mailbox at another location afterward, please select "
 "'File - Mailbox - Add mailbox...' in the menu."
 msgstr ""
+"Dacă vreți să adăugați ulterior o căsuță poștală la o altă locație, "
+"selectați „Fișier -> Căsuță poștală -> Adaugă o căsuță poștală...” în meniu."
 
-#: src/setup.c:234 src/setup.c:470
-#, fuzzy
+#: src/setup.c:234 src/setup.c:467
 msgid "Cancel"
-msgstr "Anulat"
+msgstr "Anulare"
 
 #: src/setup.c:234
 msgid "Continue without creating mailbox?"
-msgstr ""
+msgstr "Continuați fără crearea unei căsuțe poștale ?"
 
 #: src/setup.c:244
 msgid "Please input folder name or full folder path."
-msgstr ""
+msgstr "Introduceți numele dosarului sau calea completă a dosarului."
 
 #: src/setup.c:253
-#, fuzzy, c-format
+#, c-format
 msgid "The mailbox '%s' already exists."
 msgstr "Căsuța poștală „%s” există deja."
 
@@ -6935,96 +6969,88 @@ msgstr "Căsuța poștală „%s” există deja."
 #, c-format
 msgid ""
 "The location '%s' includes settings folder. Please specify another location."
-msgstr ""
+msgstr "Locația „%s” include dosarul de configurări. Specificați altă locație."
 
-#: src/setup.c:470
-#, fuzzy
+#: src/setup.c:467
 msgid "Cancel mail account setup?"
-msgstr "Editare conturi"
+msgstr "Anulați configurarea contului de corespondență ?"
 
-#: src/setup.c:490 src/setup.c:498
-#, fuzzy
+#: src/setup.c:487 src/setup.c:495
 msgid "Input value is not valid."
-msgstr "Nu este stabilit numele meniului."
+msgstr "Valoarea de intrare nu este validă."
 
-#: src/setup.c:529 src/setup.c:544 src/setup.c:580 src/setup.c:602
-#: src/setup.c:823 src/setup.c:905
-#, fuzzy
+#: src/setup.c:525 src/setup.c:540 src/setup.c:576 src/setup.c:598
+#: src/setup.c:819 src/setup.c:901
 msgid "POP3 server:"
-msgstr "Server LDAP"
+msgstr "Server POP3:"
 
-#: src/setup.c:535 src/setup.c:554 src/setup.c:593 src/setup.c:610
-#, fuzzy
+#: src/setup.c:531 src/setup.c:550 src/setup.c:589 src/setup.c:606
 msgid "IMAP4 server:"
-msgstr "Server LDAP"
+msgstr "Server IMAP4:"
 
-#: src/setup.c:669 src/setup.c:705
-#, fuzzy
+#: src/setup.c:665 src/setup.c:701
 msgid "New account setup"
-msgstr "Editare conturi"
+msgstr "Configurare cont nou"
 
-#: src/setup.c:724
+#: src/setup.c:720
 msgid "This dialog will make initial setup of new mail account."
 msgstr ""
+"Acest dialog va face configurarea inițială a noului cont de corespondență."
 
-#: src/setup.c:747
-#, fuzzy
+#: src/setup.c:743
 msgid "Select account type:"
-msgstr "Șterge cont"
+msgstr "Selectați tipul de cont:"
 
-#: src/setup.c:770
-#, fuzzy
+#: src/setup.c:766
 msgid "Input your name and mail address:"
-msgstr "Selectează cheia după adresa de e-mail"
+msgstr "Introduceți numele dumneavoastră și adresa de corespondență:"
+
+#: src/setup.c:775 src/setup.c:889
+msgid "Display name:"
+msgstr "Nume afișat:"
 
 #: src/setup.c:779 src/setup.c:893
-#, fuzzy
-msgid "Display name:"
-msgstr "Nume afișat"
-
-#: src/setup.c:783 src/setup.c:897
-#, fuzzy
 msgid "E-mail address:"
-msgstr "Adresă de e-mail"
+msgstr "Adresă de e-mail:"
 
-#: src/setup.c:799
+#: src/setup.c:795
 msgid "This name will be seen at the side of recipients (e.g. John Doe)"
-msgstr ""
+msgstr "Acest nume va fi văzut de către destinatari (de exemplu: Ion Popescu) "
 
-#: src/setup.c:810
+#: src/setup.c:806
 msgid "Input user ID and mail server:"
-msgstr ""
+msgstr "Introduceți ID-ul utilizatorului și serverul de corespondență:"
 
-#: src/setup.c:819 src/setup.c:901
-#, fuzzy
+#: src/setup.c:815 src/setup.c:897
 msgid "User ID:"
-msgstr "ID utilizator"
+msgstr "ID utilizator:"
 
-#: src/setup.c:828 src/setup.c:909
-#, fuzzy
+#: src/setup.c:824 src/setup.c:905
 msgid "SMTP server:"
-msgstr "Server SMTP (trimitere)"
+msgstr "Server SMTP:"
 
-#: src/setup.c:853 src/setup.c:865
-#, fuzzy
+#: src/setup.c:849 src/setup.c:861
 msgid "Use SSL"
-msgstr "SSL"
+msgstr "Folosește SSL"
 
-#: src/setup.c:861
-#, fuzzy
+#: src/setup.c:857
 msgid "Use SMTP authentication"
-msgstr "Autentificare"
+msgstr "Folosește autentificare SMTP"
 
-#: src/setup.c:878
-msgid "Your new mail accout has been set up with the following setting."
-msgstr ""
+# hm ? cu punct sau două puncte ?
+#: src/setup.c:874
+msgid "Your new mail account has been set up with the following settings."
+msgstr "Noul cont de corespondență a fost creat cu următoarele configurări:"
 
-#: src/setup.c:881
+#: src/setup.c:877
 msgid ""
 "If you want to modify the settings, select\n"
 "'Configuration - Preferences for current account' or\n"
 "'Configuration - Edit accounts' in the main menu."
 msgstr ""
+"Dacă vreți să modificați configurările, selectați\n"
+"„Configurare -> Preferințe pentru contul curent...” sau\n"
+"„Configurare -> Editare conturi...” în meniul principal."
 
 #: src/sigstatus.c:116
 msgid "Signature check result"
@@ -7119,66 +7145,59 @@ msgstr "Afișarea sursei pentru %s ...\n"
 msgid "%s - Source"
 msgstr "%s - Sursă"
 
-#: src/sslmanager.c:67
+#: src/sslmanager.c:69
 msgid "SSL certificate verify failed"
 msgstr "Verificarea certificatului SSL a eșuat"
 
-#: src/sslmanager.c:99
-#, fuzzy, c-format
-msgid "The SSL certificate of %s cannot be verified by the following reason:"
-msgstr ""
-"Certificatul SSL aparținând %s nu poate fi verificat din următorul motiv:\n"
-"  %s\n"
-"\n"
-"Certificat server:\n"
-"  Subiect: %s\n"
-"  Emitent: %s\n"
-"\n"
-"Acceptați acest certificat ?"
-
 #: src/sslmanager.c:101
-#, fuzzy, c-format
-msgid "Subject: %s\n"
-msgstr "  Subiect: %s\n"
-
-#: src/sslmanager.c:102
-#, fuzzy, c-format
-msgid "Issuer: %s\n"
-msgstr "  Emitent: %s\n"
+#, c-format
+msgid "The SSL certificate of %s cannot be verified by the following reason:"
+msgstr "Certificatul SSL al lui %s nu poate fi verificat, deoarece:"
 
 #: src/sslmanager.c:103
-#, fuzzy, c-format
-msgid "Issued date: %s\n"
-msgstr "  Emitent: %s\n"
+#, c-format
+msgid "Subject: %s\n"
+msgstr "Subiect: %s\n"
 
 #: src/sslmanager.c:104
-#, fuzzy, c-format
-msgid "Expire date: %s\n"
-msgstr "Expiră după"
+#, c-format
+msgid "Issuer: %s\n"
+msgstr "Emitent: %s\n"
+
+# hm ?
+#: src/sslmanager.c:105
+#, c-format
+msgid "Issued date: %s\n"
+msgstr "Data de emitere: %s\n"
 
 #: src/sslmanager.c:106
 #, c-format
-msgid "SHA1 fingerprint: %s\n"
-msgstr ""
+msgid "Expire date: %s\n"
+msgstr "Data de expirare: %s\n"
 
-#: src/sslmanager.c:107
+#: src/sslmanager.c:108
 #, c-format
-msgid "MD5 fingerprint: %s\n"
-msgstr ""
+msgid "SHA1 fingerprint: %s\n"
+msgstr "Amprentă SHA1: %s\n"
 
 #: src/sslmanager.c:109
-msgid "Do you accept this certificate?"
-msgstr ""
+#, c-format
+msgid "MD5 fingerprint: %s\n"
+msgstr "Amprentă MD5: %s\n"
 
-#: src/sslmanager.c:184 src/sslmanager.c:192
+#: src/sslmanager.c:111
+msgid "Do you accept this certificate?"
+msgstr "Acceptați acest certificat ?"
+
+#: src/sslmanager.c:186 src/sslmanager.c:194
 msgid "_Reject"
 msgstr "_Respinge"
 
-#: src/sslmanager.c:185 src/sslmanager.c:191
+#: src/sslmanager.c:187 src/sslmanager.c:193
 msgid "_Temporarily accept"
 msgstr "Acceptă _temporar"
 
-#: src/sslmanager.c:186 src/sslmanager.c:190
+#: src/sslmanager.c:188 src/sslmanager.c:192
 msgid "Always _accept"
 msgstr "_Acceptă întotdeauna"
 
@@ -7226,7 +7245,7 @@ msgstr "Obținere listă grup de știri..."
 msgid "Can't retrieve newsgroup list."
 msgstr "Nu se poate recepționa lista de grup de știri."
 
-#: src/subscribedialog.c:526 src/summaryview.c:909
+#: src/subscribedialog.c:526 src/summaryview.c:912
 msgid "Done."
 msgstr "Gata."
 
@@ -7235,335 +7254,344 @@ msgstr "Gata."
 msgid "%d newsgroups received (%s read)"
 msgstr "%d grupuri de știri primite (%s citite)"
 
-#: src/summaryview.c:419
+#: src/summaryview.c:422
 msgid "/Repl_y to"
 msgstr "/Răsp_uns"
 
-#: src/summaryview.c:420
+#: src/summaryview.c:423
 msgid "/Repl_y to/_all"
 msgstr "/Răsp_uns/Răspunde _tuturor"
 
-#: src/summaryview.c:421
+#: src/summaryview.c:424
 msgid "/Repl_y to/_sender"
 msgstr "/Răsp_uns/Răspunde _expeditorului"
 
-#: src/summaryview.c:422
+#: src/summaryview.c:425
 msgid "/Repl_y to/mailing _list"
 msgstr "/Răsp_uns/Răspunde _listei de discuții"
 
-#: src/summaryview.c:429
+#: src/summaryview.c:432
 msgid "/M_ove..."
 msgstr "/Mu_tă..."
 
-#: src/summaryview.c:430
+#: src/summaryview.c:433
 msgid "/_Copy..."
 msgstr "/_Copiază..."
 
-#: src/summaryview.c:432
+#: src/summaryview.c:435
 msgid "/_Mark"
 msgstr "/_Marcare"
 
-#: src/summaryview.c:433
-msgid "/_Mark/_Mark"
+#: src/summaryview.c:436
+#, fuzzy
+msgid "/_Mark/Set _flag"
 msgstr "/_Marcare/_Marchează"
 
-#: src/summaryview.c:434
-msgid "/_Mark/_Unmark"
+#: src/summaryview.c:437
+#, fuzzy
+msgid "/_Mark/_Unset flag"
 msgstr "/_Marcare/_Demarchează"
 
-#: src/summaryview.c:435
+#: src/summaryview.c:438
 msgid "/_Mark/---"
 msgstr "/_Marcare/---"
 
-#: src/summaryview.c:436
+#: src/summaryview.c:439
 msgid "/_Mark/Mark as unr_ead"
 msgstr "/_Marcare/Marchează ca _necitit"
 
-#: src/summaryview.c:437
+#: src/summaryview.c:440
 msgid "/_Mark/Mark as rea_d"
 msgstr "/_Marcare/Marchează ca _citit"
 
-#: src/summaryview.c:439
+#: src/summaryview.c:442
 msgid "/_Mark/Mark _thread as read"
 msgstr "/_Marcare/Marchează _firul de discuție ca citit"
 
-#: src/summaryview.c:441
+#: src/summaryview.c:444
 msgid "/_Mark/Mark all _read"
 msgstr "/_Marcare/Marchează _totul ca citit"
 
-#: src/summaryview.c:442
+#: src/summaryview.c:445
 msgid "/Color la_bel"
 msgstr "/Culoare etic_hetă"
 
-#: src/summaryview.c:446
+#: src/summaryview.c:449
 msgid "/Set as _junk mail"
 msgstr "/Marchează ca _spam"
 
-#: src/summaryview.c:447
+#: src/summaryview.c:450
 msgid "/Set as not j_unk mail"
 msgstr "/Marchează ca _util"
 
-#: src/summaryview.c:449
+#: src/summaryview.c:452
 msgid "/Re-_edit"
 msgstr "/Re_editează"
 
-#: src/summaryview.c:451
+#: src/summaryview.c:454
 msgid "/Add sender to address boo_k..."
 msgstr "/Adaugă _expeditorul în agendă..."
 
-#: src/summaryview.c:453
-msgid "/Create f_ilter rule"
-msgstr "/Creează regulă de f_iltrare"
-
-#: src/summaryview.c:454
-msgid "/Create f_ilter rule/_Automatically"
-msgstr "/Creează regulă de f_iltrare/_Automat"
-
 #: src/summaryview.c:456
+msgid "/Create f_ilter rule"
+msgstr "/Creează o regulă de f_iltrare"
+
+#: src/summaryview.c:457
+msgid "/Create f_ilter rule/_Automatically"
+msgstr "/Creează o regulă de f_iltrare/_Automat"
+
+#: src/summaryview.c:459
 msgid "/Create f_ilter rule/by _From"
-msgstr "/Creează regulă de f_iltrare/pe baza câmpului _De la"
+msgstr "/Creează o regulă de f_iltrare/pe baza câmpului _De la"
 
-#: src/summaryview.c:458
+#: src/summaryview.c:461
 msgid "/Create f_ilter rule/by _To"
-msgstr "/Creează regulă de f_iltrare/pe baza câmpului _Către"
+msgstr "/Creează o regulă de f_iltrare/pe baza câmpului _Către"
 
-#: src/summaryview.c:460
+#: src/summaryview.c:463
 msgid "/Create f_ilter rule/by _Subject"
-msgstr "/Creează regulă de f_iltrare/pe baza câmpului _Subiect"
+msgstr "/Creează o regulă de f_iltrare/pe baza câmpului _Subiect"
 
-#: src/summaryview.c:492
+#: src/summaryview.c:495
 msgid "Creating summary view...\n"
 msgstr "Creare vizualizare sumară...\n"
 
-#: src/summaryview.c:644
-#, fuzzy, c-format
+#: src/summaryview.c:647
+#, c-format
 msgid "Scanning folder (%s) (%d)..."
-msgstr "Scanare dosar (%s)..."
+msgstr "Se scanează dosarul (%s) (%d)..."
 
-#: src/summaryview.c:697
+#: src/summaryview.c:700
 msgid "Process mark"
 msgstr "Procesare marcaje"
 
-#: src/summaryview.c:698
+#: src/summaryview.c:701
 msgid "Some marks are left. Process it?"
 msgstr "Au rămas unele marcaje. Doriți să fie procesate ?"
 
-#: src/summaryview.c:754
+#: src/summaryview.c:757
 #, c-format
 msgid "Scanning folder (%s)..."
 msgstr "Scanare dosar (%s)..."
 
-#: src/summaryview.c:1416
+#: src/summaryview.c:919
+#, fuzzy
+msgid "Could not establish a connection to the server."
+msgstr "Nu s-a putut stabili conexiunea IMAP.\n"
+
+#: src/summaryview.c:1495
 msgid "_Search again"
 msgstr "_Caută din nou"
 
-#: src/summaryview.c:1437 src/summaryview.c:1446
+#: src/summaryview.c:1516 src/summaryview.c:1525
 msgid "No more unread messages"
 msgstr "Nu mai sunt mesaje necitite"
 
-#: src/summaryview.c:1438
+#: src/summaryview.c:1517
 msgid "No unread message found. Search from the end?"
 msgstr "Nu s-a găsit nici un mesaj necitit. Căutați de la sfârșit ?"
 
-#: src/summaryview.c:1440
+#: src/summaryview.c:1519
 msgid "No unread messages."
 msgstr "Nu sunt mesaje necitite."
 
-#: src/summaryview.c:1447
-msgid "No unread message found. Go to next folder?"
+#: src/summaryview.c:1526
+#, fuzzy
+msgid "No unread message found. Go to next unread folder?"
 msgstr "Nu s-a găsit nici un mesaj necitit. Mergeți la dosarul următor ?"
 
-#: src/summaryview.c:1455 src/summaryview.c:1464
+#: src/summaryview.c:1534 src/summaryview.c:1543
 msgid "No more new messages"
 msgstr "Nu mai sunt mesaje noi"
 
-#: src/summaryview.c:1456
+#: src/summaryview.c:1535
 msgid "No new message found. Search from the end?"
 msgstr "Nu s-a găsit nici un mesaj nou. Căutați de la sfârșit ?"
 
-#: src/summaryview.c:1458
+#: src/summaryview.c:1537
 msgid "No new messages."
 msgstr "Nu sunt mesaje noi."
 
-#: src/summaryview.c:1465
-msgid "No new message found. Go to next folder?"
+#: src/summaryview.c:1544
+#, fuzzy
+msgid "No new message found. Go to next folder which has new messages?"
 msgstr "Nu s-a găsit nici un mesaj nou. Mergeți la dosarul următor ?"
 
-#: src/summaryview.c:1473 src/summaryview.c:1482
+#: src/summaryview.c:1552 src/summaryview.c:1561
 msgid "No more marked messages"
 msgstr "Nu mai sunt mesaje marcate"
 
-#: src/summaryview.c:1474
+#: src/summaryview.c:1553
 msgid "No marked message found. Search from the end?"
 msgstr "Nu s-a găsit nici un mesaj marcat. Căutați de la sfârșit ?"
 
-#: src/summaryview.c:1476 src/summaryview.c:1485
+#: src/summaryview.c:1555 src/summaryview.c:1564
 msgid "No marked messages."
 msgstr "Nu sunt mesaje marcate."
 
-#: src/summaryview.c:1483
+#: src/summaryview.c:1562
 msgid "No marked message found. Search from the beginning?"
 msgstr "Nu s-a găsit nici un mesaj marcat. Căutați de la început ?"
 
-#: src/summaryview.c:1491 src/summaryview.c:1500
+#: src/summaryview.c:1570 src/summaryview.c:1579
 msgid "No more labeled messages"
 msgstr "Nu mai sunt mesaje etichetate"
 
-#: src/summaryview.c:1492
+#: src/summaryview.c:1571
 msgid "No labeled message found. Search from the end?"
 msgstr "Nu s-a găsit nici un mesaj etichetat. Căutați de la sfârșit ?"
 
-#: src/summaryview.c:1494 src/summaryview.c:1503
+#: src/summaryview.c:1573 src/summaryview.c:1582
 msgid "No labeled messages."
 msgstr "Nu sunt mesaje etichetate"
 
-#: src/summaryview.c:1501
+#: src/summaryview.c:1580
 msgid "No labeled message found. Search from the beginning?"
 msgstr "Nu s-a găsit nici un mesaje etichetat. Căutați de la început ?"
 
-#: src/summaryview.c:1848
+#: src/summaryview.c:1927
 msgid "Attracting messages by subject..."
 msgstr "Atracție mesaje după subiect..."
 
-#: src/summaryview.c:2042
+#: src/summaryview.c:2121
 #, c-format
 msgid "%d deleted"
 msgstr "%d șters(e)"
 
-#: src/summaryview.c:2046
+#: src/summaryview.c:2125
 #, c-format
 msgid "%s%d moved"
 msgstr "%s%d mutat(e)"
 
-#: src/summaryview.c:2047 src/summaryview.c:2052
+#: src/summaryview.c:2126 src/summaryview.c:2131
 msgid ", "
 msgstr ", "
 
-#: src/summaryview.c:2051
+#: src/summaryview.c:2130
 #, c-format
 msgid "%s%d copied"
 msgstr "%s%d copiat(e)"
 
-#: src/summaryview.c:2066
+#: src/summaryview.c:2145
 msgid " item(s) selected"
 msgstr " element(e) selectat(e)"
 
-#: src/summaryview.c:2088
+#: src/summaryview.c:2167
 #, c-format
 msgid "%d new, %d unread, %d total (%s)"
 msgstr "%d noi, %d necitite, %d în total (%s)"
 
-#: src/summaryview.c:2092
+#: src/summaryview.c:2171
 #, c-format
 msgid "%d new, %d unread, %d total"
 msgstr "%d nou(i), %d necitit(e), %d în total"
 
-#: src/summaryview.c:2128
+#: src/summaryview.c:2207
 msgid "Sorting summary..."
 msgstr "Sortare sumar..."
 
-#: src/summaryview.c:2384
+#: src/summaryview.c:2463
 msgid "\tSetting summary from message data..."
-msgstr "\tStabilire sumar din datele din mesaj..."
+msgstr "\tSe configurează sumarul din datele de mesaj..."
 
-#: src/summaryview.c:2386
+#: src/summaryview.c:2465
 msgid "Setting summary from message data..."
-msgstr "Stabilire sumar din datele din mesaj..."
+msgstr "Se configurează sumarul din datele de mesaj..."
 
-#: src/summaryview.c:2493
+#: src/summaryview.c:2572
 #, c-format
 msgid "Writing summary cache (%s)..."
 msgstr "Scriere cache sumar (%s)..."
 
-#: src/summaryview.c:2855
+#: src/summaryview.c:2934
 #, c-format
 msgid "Message %d is marked\n"
 msgstr "Mesajul %d este marcat\n"
 
-#: src/summaryview.c:2927
+#: src/summaryview.c:3006
 #, c-format
 msgid "Message %d is marked as being read\n"
 msgstr "Mesajul %d este marcat ca citit\n"
 
-#: src/summaryview.c:3140
+#: src/summaryview.c:3219
 #, c-format
 msgid "Message %d is marked as unread\n"
 msgstr "Mesajul %d este marcat ca necitit\n"
 
-#: src/summaryview.c:3205
+#: src/summaryview.c:3284
 #, c-format
 msgid "Message %s/%d is set to delete\n"
 msgstr "Mesajul %s/%d este marcat pentru ștergere\n"
 
-#: src/summaryview.c:3233
+#: src/summaryview.c:3312
 msgid "Delete message(s)"
 msgstr "Ștergere mesaj(e)"
 
-#: src/summaryview.c:3234
+#: src/summaryview.c:3313
 msgid "Do you really want to delete message(s) from the trash?"
-msgstr "Chiar vreți să ștergeți mesajul (mesajele) de la gunoi ?"
+msgstr "Chiar vreți să ștergeți mesajul (sau mesajele) din gunoi ?"
 
-#: src/summaryview.c:3310
+#: src/summaryview.c:3389
 msgid "Deleting duplicated messages..."
 msgstr "Ștergere mesaje duplicate..."
 
-#: src/summaryview.c:3348
+#: src/summaryview.c:3427
 #, c-format
 msgid "Message %s/%d is unmarked\n"
 msgstr "Mesajul %s/%d este demarcat\n"
 
-#: src/summaryview.c:3412
+#: src/summaryview.c:3491
 #, c-format
 msgid "Message %d is set to move to %s\n"
 msgstr "Mesajul %d este marcat pentru mutare în %s\n"
 
-#: src/summaryview.c:3444
+#: src/summaryview.c:3523
 msgid "Destination is same as current folder."
 msgstr "Destinația este aceeași cu dosarul curent."
 
-#: src/summaryview.c:3481
+#: src/summaryview.c:3560
 msgid "Select folder to move"
 msgstr "Selectați dosarul de mutat"
 
-#: src/summaryview.c:3511
+#: src/summaryview.c:3590
 #, c-format
 msgid "Message %d is set to copy to %s\n"
 msgstr "Mesajul %d este setat pentru copiere în %s\n"
 
-#: src/summaryview.c:3542
+#: src/summaryview.c:3621
 msgid "Destination for copy is same as current folder."
 msgstr "Destinația pentru copiere este aceeași cu dosarul curent."
 
-#: src/summaryview.c:3578
+#: src/summaryview.c:3657
 msgid "Select folder to copy"
 msgstr "Selectați dosarul de copiat"
 
-#: src/summaryview.c:3723
+#: src/summaryview.c:3802
 msgid "Error occurred while processing messages."
 msgstr "A apărut o eroare în timpul procesării mesajelor."
 
-#: src/summaryview.c:4029 src/summaryview.c:4030
+#: src/summaryview.c:4108 src/summaryview.c:4109
 msgid "Building threads..."
 msgstr "Construire fire de discuție..."
 
-#: src/summaryview.c:4180 src/summaryview.c:4181
+#: src/summaryview.c:4259 src/summaryview.c:4260
 msgid "Unthreading..."
 msgstr "Distrugere fire de discuție..."
 
-#: src/summaryview.c:4474 src/summaryview.c:4535
+#: src/summaryview.c:4553 src/summaryview.c:4614
 #, c-format
 msgid "Filtering (%d / %d)..."
 msgstr "Filtrare (%d / %d)..."
 
-#: src/summaryview.c:4600
+#: src/summaryview.c:4679
 msgid "filtering..."
 msgstr "filtrare..."
 
-#: src/summaryview.c:4601
+#: src/summaryview.c:4680
 msgid "Filtering..."
 msgstr "Filtrare..."
 
-#: src/summaryview.c:4646
+#: src/summaryview.c:4725
 #, c-format
 msgid "%d message(s) have been filtered."
 msgstr "%d messaj(e) au fost filtrate."
@@ -7659,35 +7687,44 @@ msgstr "_Ieșire"
 msgid "Sylpheed"
 msgstr "Sylpheed"
 
-#: src/update_check.c:116 src/update_check.c:121
+#: src/update_check.c:123 src/update_check.c:128 src/update_check.c:133
 msgid ""
-"The newer version of Sylpheed found.\n"
+"A newer version of Sylpheed has been found.\n"
 "Upgrade now?"
 msgstr ""
-"A fost găsită versiunea Sylpheed mai nouă.\n"
+"Există o versiune Sylpheed mai nouă.\n"
 "Actualizați acum ?"
 
-#: src/update_check.c:124
+#: src/update_check.c:136
 msgid "New version found"
-msgstr "A fost găsită o versiune nouă"
+msgstr "Există o versiune mai nouă"
 
-#: src/update_check.c:223
+#: src/update_check.c:251
 msgid "Information"
 msgstr "Informații"
 
-#: src/update_check.c:224
+#: src/update_check.c:252
 msgid "Sylpheed is already the latest version."
-msgstr "Versiunea Sylpheed este deja cea mai recentă."
+msgstr "Sylpheed este deja la versiunea cea mai recentă."
 
-#: src/update_check.c:227
+#: src/update_check.c:255
 msgid "Couldn't get the version information."
 msgstr "Nu s-a putut obține informația despre versiune."
 
-#~ msgid "Reply button invokes mailing list reply"
-#~ msgstr "Butonul de răspuns invocă răspuns la lista de discuții"
+#~ msgid "Can't open mark file.\n"
+#~ msgstr "Nu se poate deschide fișierul de marcaj.\n"
+
+#~ msgid "Lookup"
+#~ msgstr "Căutare"
 
 #~ msgid "Select directory"
 #~ msgstr "Selectare director"
+
+#~ msgid "g_thread is not supported by glib.\n"
+#~ msgstr "g_thread nu este suportat de glib.\n"
+
+#~ msgid "Reply button invokes mailing list reply"
+#~ msgstr "Butonul de răspuns invocă răspuns la lista de discuții"
 
 #~ msgid ""
 #~ "Specify the location of mailbox.\n"
@@ -7695,15 +7732,6 @@ msgstr "Nu s-a putut obține informația despre versiune."
 #~ msgstr ""
 #~ "Specificați locația căsuței poștale.\n"
 #~ "Dacă sunteți nesigur, selectați doar OK."
-
-#~ msgid "Lookup"
-#~ msgstr "Căutare"
-
-#~ msgid "Can't open mark file.\n"
-#~ msgstr "Nu se poate deschide fișierul de marcaj.\n"
-
-#~ msgid "g_thread is not supported by glib.\n"
-#~ msgstr "g_thread nu este suportat de glib.\n"
 
 #~ msgid "Specify target folder and mbox file."
 #~ msgstr "Specificați dosarul sursă și fișierul mbox."

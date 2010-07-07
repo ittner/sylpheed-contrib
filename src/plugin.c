@@ -1,6 +1,6 @@
 /*
  * Sylpheed -- a GTK+ based, lightweight, and fast e-mail client
- * Copyright (C) 1999-2009 Hiroyuki Yamamoto
+ * Copyright (C) 1999-2010 Hiroyuki Yamamoto
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,10 +31,13 @@ enum {
 	PLUGIN_LOAD,
 	PLUGIN_UNLOAD,
 	FOLDERVIEW_MENU_POPUP,
+	SUMMARYVIEW_MENU_POPUP,
 	COMPOSE_CREATED,
 	COMPOSE_DESTROY,
 	LAST_SIGNAL
 };
+
+#define GETFUNC(sym)	{ func = syl_plugin_lookup_symbol(sym); }
 
 #define SAFE_CALL(func_ptr)		{ if (func_ptr) func_ptr(); }
 #define SAFE_CALL_RET(func_ptr)		(func_ptr ? func_ptr() : NULL)
@@ -100,6 +103,17 @@ static void syl_plugin_class_init(SylPluginClass *klass)
 			     G_SIGNAL_RUN_FIRST,
 			     G_STRUCT_OFFSET(SylPluginClass,
 					     folderview_menu_popup),
+			     NULL, NULL,
+			     g_cclosure_marshal_VOID__POINTER,
+			     G_TYPE_NONE,
+			     1,
+			     G_TYPE_POINTER);
+	plugin_signals[SUMMARYVIEW_MENU_POPUP] =
+		g_signal_new("summaryview-menu-popup",
+			     G_TYPE_FROM_CLASS(gobject_class),
+			     G_SIGNAL_RUN_FIRST,
+			     G_STRUCT_OFFSET(SylPluginClass,
+					     summaryview_menu_popup),
 			     NULL, NULL,
 			     g_cclosure_marshal_VOID__POINTER,
 			     G_TYPE_NONE,
@@ -431,6 +445,8 @@ static GtkItemFactory *get_item_factory(const gchar *path)
 		ifactory = syl_plugin_lookup_symbol("folderview_imap_popup_factory");
 	else if (strncmp(path, "<NewsFolder>", 12) == 0)
 		ifactory = syl_plugin_lookup_symbol("folderview_news_popup_factory");
+	else if (strncmp(path, "<SummaryView>", 13) == 0)
+		ifactory = syl_plugin_lookup_symbol("summaryview_popup_factory");
 	else
 		ifactory = syl_plugin_lookup_symbol("main_window_menu_factory");
 
@@ -542,10 +558,57 @@ void syl_plugin_menu_set_active(const gchar *path, gboolean is_active)
 
 gpointer syl_plugin_folderview_get(void)
 {
-	gpointer sym;
+	gpointer (*func)(void);
+	GETFUNC("folderview_get");
+	return SAFE_CALL_RET(func);
+}
 
-	sym = syl_plugin_lookup_symbol("folderview");
-	return sym;
+void syl_plugin_folderview_add_sub_widget(GtkWidget *widget)
+{
+	void (*func)(gpointer, GtkWidget *);
+	gpointer folderview;
+
+	folderview = syl_plugin_folderview_get();
+	if (folderview) {
+		GETFUNC("folderview_add_sub_widget");
+		SAFE_CALL_ARG2(func, folderview, widget);
+	}
+}
+
+void syl_plugin_folderview_select(FolderItem *item)
+{
+	void (*func)(gpointer, FolderItem *);
+	gpointer folderview;
+
+	folderview = syl_plugin_folderview_get();
+	if (folderview) {
+		GETFUNC("folderview_select");
+		SAFE_CALL_ARG2(func, folderview, item);
+	}
+}
+
+void syl_plugin_folderview_unselect(void)
+{
+	void (*func)(gpointer);
+	gpointer folderview;
+
+	folderview = syl_plugin_folderview_get();
+	if (folderview) {
+		GETFUNC("folderview_unselect");
+		SAFE_CALL_ARG1(func, folderview);
+	}
+}
+
+void syl_plugin_folderview_select_next_unread(void)
+{
+	void (*func)(gpointer);
+	gpointer folderview;
+
+	folderview = syl_plugin_folderview_get();
+	if (folderview) {
+		GETFUNC("folderview_select_next_unread");
+		SAFE_CALL_ARG1(func, folderview);
+	}
 }
 
 FolderItem *syl_plugin_folderview_get_selected_item(void)
@@ -555,11 +618,67 @@ FolderItem *syl_plugin_folderview_get_selected_item(void)
 
 	folderview = syl_plugin_folderview_get();
 	if (folderview) {
-		func = syl_plugin_lookup_symbol("folderview_get_selected_item");
+		GETFUNC("folderview_get_selected_item");
 		return SAFE_CALL_ARG1_RET(func, folderview);
 	}
 
 	return NULL;
+}
+
+gint syl_plugin_folderview_check_new(Folder *folder)
+{
+	gint (*func)(Folder *);
+	GETFUNC("folderview_check_new");
+	return SAFE_CALL_ARG1_RET_VAL(func, folder, FALSE);
+}
+
+gint syl_plugin_folderview_check_new_item(FolderItem *item)
+{
+	gint (*func)(FolderItem *);
+	GETFUNC("folderview_check_new_item");
+	return SAFE_CALL_ARG1_RET_VAL(func, item, FALSE);
+}
+
+gint syl_plugin_folderview_check_new_all(void)
+{
+	gint (*func)(void);
+	GETFUNC("folderview_check_new_all");
+	return SAFE_CALL_RET_VAL(func, FALSE);
+}
+
+void syl_plugin_folderview_update_item(FolderItem *item,
+				       gboolean update_summary)
+{
+	void (*func)(FolderItem *, gboolean);
+	GETFUNC("folderview_update_item");
+	SAFE_CALL_ARG2(func, item, update_summary);
+}
+
+void syl_plugin_folderview_update_item_foreach(GHashTable *table,
+					       gboolean update_summary)
+{
+	void (*func)(GHashTable *, gboolean);
+	GETFUNC("folderview_update_item_foreach");
+	SAFE_CALL_ARG2(func, table, update_summary);
+}
+
+void syl_plugin_folderview_update_all_updated(gboolean update_summary)
+{
+	void (*func)(gboolean);
+	GETFUNC("folderview_update_all_updated");
+	SAFE_CALL_ARG1(func, update_summary);
+}
+
+void syl_plugin_folderview_check_new_selected(void)
+{
+	void (*func)(gpointer);
+	gpointer folderview;
+
+	folderview = syl_plugin_folderview_get();
+	if (folderview) {
+		GETFUNC("folderview_check_new_selected");
+		SAFE_CALL_ARG1(func, folderview);
+	}
 }
 
 gpointer syl_plugin_summary_view_get(void)
@@ -619,7 +738,7 @@ void syl_plugin_summary_lock(void)
 
 	summary = syl_plugin_summary_view_get();
 	if (summary) {
-		func = syl_plugin_lookup_symbol("summary_lock");
+		GETFUNC("summary_lock");
 		SAFE_CALL_ARG1(func, summary);
 	}
 }
@@ -631,7 +750,7 @@ void syl_plugin_summary_unlock(void)
 
 	summary = syl_plugin_summary_view_get();
 	if (summary) {
-		func = syl_plugin_lookup_symbol("summary_unlock");
+		GETFUNC("summary_unlock");
 		SAFE_CALL_ARG1(func, summary);
 	}
 }
@@ -643,11 +762,105 @@ gboolean syl_plugin_summary_is_locked(void)
 
 	summary = syl_plugin_summary_view_get();
 	if (summary) {
-		func = syl_plugin_lookup_symbol("summary_is_locked");
+		GETFUNC("summary_is_locked");
 		return SAFE_CALL_ARG1_RET_VAL(func, summary, FALSE);
 	}
 
 	return FALSE;
+}
+
+gboolean syl_plugin_summary_is_read_locked(void)
+{
+	gboolean (*func)(gpointer);
+	gpointer summary;
+
+	summary = syl_plugin_summary_view_get();
+	if (summary) {
+		GETFUNC("summary_is_read_locked");
+		return SAFE_CALL_ARG1_RET_VAL(func, summary, FALSE);
+	}
+
+	return FALSE;
+}
+
+void syl_plugin_summary_write_lock(void)
+{
+	void (*func)(gpointer);
+	gpointer summary;
+
+	summary = syl_plugin_summary_view_get();
+	if (summary) {
+		GETFUNC("summary_write_lock");
+		SAFE_CALL_ARG1(func, summary);
+	}
+}
+
+void syl_plugin_summary_write_unlock(void)
+{
+	void (*func)(gpointer);
+	gpointer summary;
+
+	summary = syl_plugin_summary_view_get();
+	if (summary) {
+		GETFUNC("summary_write_unlock");
+		SAFE_CALL_ARG1(func, summary);
+	}
+}
+
+gboolean syl_plugin_summary_is_write_locked(void)
+{
+	gboolean (*func)(gpointer);
+	gpointer summary;
+
+	summary = syl_plugin_summary_view_get();
+	if (summary) {
+		GETFUNC("summary_is_write_locked");
+		return SAFE_CALL_ARG1_RET_VAL(func, summary, FALSE);
+	}
+
+	return FALSE;
+}
+
+gint syl_plugin_summary_get_selection_type(void)
+{
+	gint (*func)(gpointer);
+	gpointer summary;
+
+	summary = syl_plugin_summary_view_get();
+	if (summary) {
+		GETFUNC("summary_get_selection_type");
+		return SAFE_CALL_ARG1_RET_VAL(func, summary, 0);
+	}
+
+	return 0;
+}
+
+GSList *syl_plugin_summary_get_selected_msg_list(void)
+{
+	GSList * (*func)(gpointer);
+	gpointer summary;
+
+	summary = syl_plugin_summary_view_get();
+	if (summary) {
+		GETFUNC("summary_get_selected_msg_list");
+		return SAFE_CALL_ARG1_RET(func, summary);
+	}
+
+	return NULL;
+}
+
+GSList *syl_plugin_summary_get_msg_list(void)
+{
+	GSList * (*func)(gpointer);
+	gpointer summary;
+
+	summary = syl_plugin_summary_view_get();
+	if (summary) {
+		GETFUNC("summary_get_msg_list");
+		return SAFE_CALL_ARG1_RET(func, summary);
+	}
+
+	return NULL;
 }
 
 gpointer syl_plugin_messageview_create_with_new_window(void)
@@ -817,4 +1030,44 @@ void syl_plugin_inc_unlock(void)
 
 	func = syl_plugin_lookup_symbol("inc_unlock");
 	SAFE_CALL(func);
+}
+
+void syl_plugin_update_check(gboolean show_dialog_always)
+{
+	void (*func)(gboolean);
+
+	func = syl_plugin_lookup_symbol("update_check");
+	SAFE_CALL_ARG1(func, show_dialog_always);
+}
+
+void syl_plugin_update_check_set_check_url(const gchar *url)
+{
+	void (*func)(const gchar *);
+
+	func = syl_plugin_lookup_symbol("update_check_set_check_url");
+	SAFE_CALL_ARG1(func, url);
+}
+
+const gchar *syl_plugin_update_check_get_check_url(void)
+{
+	const gchar * (*func)(void);
+
+	func = syl_plugin_lookup_symbol("update_check_get_check_url");
+	return SAFE_CALL_RET(func);
+}
+
+void syl_plugin_update_check_set_jump_url(const gchar *url)
+{
+	void (*func)(const gchar *);
+
+	func = syl_plugin_lookup_symbol("update_check_set_jump_url");
+	SAFE_CALL_ARG1(func, url);
+}
+
+const gchar *syl_plugin_update_check_get_jump_url(void)
+{
+	const gchar * (*func)(void);
+
+	func = syl_plugin_lookup_symbol("update_check_get_jump_url");
+	return SAFE_CALL_RET(func);
 }
