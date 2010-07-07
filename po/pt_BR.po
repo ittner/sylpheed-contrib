@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: sylpheed\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-02 16:05+0900\n"
-"PO-Revision-Date: 2010-02-22 15:47-0300\n"
+"PO-Revision-Date: 2010-07-07 19:52-0300\n"
 "Last-Translator: Alexandre Erwin Ittner <alexandre@ittner.com.br>\n"
 "Language-Team: Portuguese/Brazil <(none)>\n"
 "MIME-Version: 1.0\n"
@@ -1853,9 +1853,8 @@ msgid "File name"
 msgstr "Nome do arquivo"
 
 #: src/compose.c:6596
-#, fuzzy
 msgid "File not exist."
-msgstr "%s: o arquivo não existe\n"
+msgstr "O arquivo não existe."
 
 #: src/compose.c:6606 src/mimeview.c:1220
 msgid "Opening executable file"
@@ -3632,12 +3631,10 @@ msgid "/_Message/_Mark"
 msgstr "/_Mensagem/_Marcar"
 
 #: src/mainwindow.c:810
-#, fuzzy
 msgid "/_Message/_Mark/Set _flag"
 msgstr "/_Mensagem/_Marcar/_Marcar"
 
 #: src/mainwindow.c:811
-#, fuzzy
 msgid "/_Message/_Mark/_Unset flag"
 msgstr "/_Mensagem/_Marcar/_Desmarcar"
 
@@ -4038,16 +4035,15 @@ msgstr ""
 
 #: src/mainwindow.c:4046
 msgid "Windows-only option:"
-msgstr ""
+msgstr "Opção para Windows apenas:"
 
 #: src/mainwindow.c:4054
 msgid "--ipcport portnum"
-msgstr ""
+msgstr "--ipcport portnum"
 
 #: src/mainwindow.c:4059
-#, fuzzy
 msgid "specify port for IPC remote commands"
-msgstr "  --ipcport porta        número da porta para comandos remotos via IPC"
+msgstr "Indique a porta para comandos IPC remotos"
 
 #: src/message_search.c:120
 msgid "Find in current message"
@@ -5188,7 +5184,7 @@ msgstr "Exibir imagens junto ao texto"
 
 #: src/prefs_common_dialog.c:1949
 msgid "You can specify label names for each color (Work, TODO etc.)."
-msgstr ""
+msgstr "Você pode indicar nomes para cada cor (trabalho, pendente, etc.)."
 
 #: src/prefs_common_dialog.c:2074
 msgid "Enable Junk mail control"
@@ -5373,17 +5369,16 @@ msgid "Add address to destination when double-clicked"
 msgstr "Adicionar endereço para o destinatário com duplo-clique"
 
 #: src/prefs_common_dialog.c:2563
-#, fuzzy
 msgid "Address auto-completion:"
-msgstr "Completar endereços automaticamente"
+msgstr "Completar endereços automaticamente:"
 
 #: src/prefs_common_dialog.c:2585
 msgid "Start with Tab"
-msgstr ""
+msgstr "Iniciar com \"Tab\""
 
 #: src/prefs_common_dialog.c:2593
 msgid "Disable"
-msgstr ""
+msgstr "Desativar"
 
 #: src/prefs_common_dialog.c:2600
 msgid "On exit"
@@ -6942,7 +6937,6 @@ msgid "Use SMTP authentication"
 msgstr "Usar autenticação SMTP"
 
 #: src/setup.c:874
-#, fuzzy
 msgid "Your new mail account has been set up with the following settings."
 msgstr "Sua nova conta foi configurada com as opções a seguir."
 
@@ -7186,12 +7180,10 @@ msgid "/_Mark"
 msgstr "/_Marcar"
 
 #: src/summaryview.c:436
-#, fuzzy
 msgid "/_Mark/Set _flag"
 msgstr "/_Marcar/_Marcar"
 
 #: src/summaryview.c:437
-#, fuzzy
 msgid "/_Mark/_Unset flag"
 msgstr "/_Marcar/_Desmarcar"
 
@@ -7278,9 +7270,8 @@ msgid "Scanning folder (%s)..."
 msgstr "Revisando pasta (%s)..."
 
 #: src/summaryview.c:919
-#, fuzzy
 msgid "Could not establish a connection to the server."
-msgstr "Não foi possível estabelecer uma conexão IMAP.\n"
+msgstr "Não foi possível estabelecer uma conexão com o servidor."
 
 #: src/summaryview.c:1495
 msgid "_Search again"
@@ -7299,7 +7290,6 @@ msgid "No unread messages."
 msgstr "Não há mensagens não lidas."
 
 #: src/summaryview.c:1526
-#, fuzzy
 msgid "No unread message found. Go to next unread folder?"
 msgstr "Não há mensagens não lidas. Ir para a próxima pasta?"
 
@@ -7316,9 +7306,8 @@ msgid "No new messages."
 msgstr "Não há mensagens novas."
 
 #: src/summaryview.c:1544
-#, fuzzy
 msgid "No new message found. Go to next folder which has new messages?"
-msgstr "Não há mensagens novas. Ir para a próxima pasta?"
+msgstr "Nenhuma nova mensagem foi localizada. Ir para a próxima pasta?"
 
 #: src/summaryview.c:1552 src/summaryview.c:1561
 msgid "No more marked messages"
@@ -7590,12 +7579,11 @@ msgid "Sylpheed"
 msgstr "Sylpheed"
 
 #: src/update_check.c:123 src/update_check.c:128 src/update_check.c:133
-#, fuzzy
 msgid ""
 "A newer version of Sylpheed has been found.\n"
 "Upgrade now?"
 msgstr ""
-"Existe uma versão nova do Sylpheed.\n"
+"Uma nova versão do Sylpheed foi localizada.\n"
 "Você deseja atualizar agora?"
 
 #: src/update_check.c:136
