@@ -1,7 +1,7 @@
 /*
  * Sylpheed templates subsystem 
  * Copyright (C) 2001 Alexander Barinov
- * Copyright (C) 2001-2006 Hiroyuki Yamamoto
+ * Copyright (C) 2001-2010 Hiroyuki Yamamoto
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -55,6 +55,9 @@ static struct Templates {
 	GtkWidget *confirm_area;
 	GtkWidget *ok_btn;
 	GtkWidget *cancel_btn;
+
+	gboolean entry_modified;
+	gboolean list_modified;
 } templates;
 
 /* widget creating functions */
@@ -71,6 +74,8 @@ static gint prefs_template_deleted_cb		(GtkWidget	*widget,
 static gboolean prefs_template_key_pressed_cb	(GtkWidget	*widget,
 						 GdkEventKey	*event,
 						 gpointer	 data);
+static void prefs_template_changed_cb		(GtkEditable	*editable,
+						 gpointer	 data);
 static void prefs_template_cancel_cb		(void);
 static void prefs_template_ok_cb		(void);
 static void prefs_template_select_cb		(GtkCList	*clist,
@@ -80,6 +85,8 @@ static void prefs_template_select_cb		(GtkCList	*clist,
 static void prefs_template_register_cb		(void);
 static void prefs_template_substitute_cb	(void);
 static void prefs_template_delete_cb		(void);
+static void prefs_template_up_cb		(void);
+static void prefs_template_down_cb		(void);
 
 /* Called from mainwindow.c */
 void prefs_template_open(void)
@@ -105,6 +112,8 @@ void prefs_template_open(void)
 	gtk_widget_show(entry); \
 	gtk_table_attach(GTK_TABLE(table), entry, 1, 2, row, (row + 1), \
 			 GTK_EXPAND|GTK_SHRINK|GTK_FILL, 0, 0, 0); \
+	g_signal_connect(G_OBJECT(entry), "changed", \
+			 G_CALLBACK(prefs_template_changed_cb), NULL); \
 }
 
 static void prefs_template_window_create(void)
@@ -132,11 +141,18 @@ static void prefs_template_window_create(void)
 	GtkWidget           *subst_btn;
 	GtkWidget           *del_btn;
 	GtkWidget         *desc_btn;
-	GtkWidget       *scroll1;
-	GtkWidget         *clist_tmpls;
+	GtkWidget       *hbox4;
+	GtkWidget         *scroll1;
+	GtkWidget           *clist_tmpls;
+	GtkWidget         *vbox3;
+	GtkWidget           *vbox4;
+	GtkWidget             *up_btn;
+	GtkWidget             *down_btn;
 	GtkWidget       *confirm_area;
 	GtkWidget         *ok_btn;
 	GtkWidget         *cancel_btn;
+
+	GtkTextBuffer *buffer;
 
 	gchar *title[1];
 
@@ -168,6 +184,8 @@ static void prefs_template_window_create(void)
 	entry_name = gtk_entry_new();
 	gtk_widget_show(entry_name);
 	gtk_box_pack_start(GTK_BOX(hbox1), entry_name, TRUE, TRUE, 0);
+	g_signal_connect(G_OBJECT(entry_name), "changed",
+			 G_CALLBACK(prefs_template_changed_cb), NULL);
 
 	/* table for headers */
 	table = gtk_table_new(5, 2, FALSE);
@@ -203,6 +221,9 @@ static void prefs_template_window_create(void)
 	gtk_widget_set_size_request(text_value, 360, 120);
 	gtk_container_add(GTK_CONTAINER(scroll2), text_value);
 	gtk_text_view_set_editable(GTK_TEXT_VIEW(text_value), TRUE);
+	buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(text_value));
+	g_signal_connect(G_OBJECT(buffer), "changed",
+			 G_CALLBACK(prefs_template_changed_cb), NULL);
 
 	/* vbox for buttons and templates list */
 	vbox2 = gtk_vbox_new(FALSE, 6);
@@ -249,9 +270,13 @@ static void prefs_template_window_create(void)
 			 G_CALLBACK(prefs_quote_description), NULL);
 
 	/* templates list */
+	hbox4 = gtk_hbox_new(FALSE, 8);
+	gtk_widget_show(hbox4);
+	gtk_box_pack_start(GTK_BOX(vbox2), hbox4, TRUE, TRUE, 0);
+
 	scroll1 = gtk_scrolled_window_new(NULL, NULL);
 	gtk_widget_show(scroll1);
-	gtk_box_pack_start(GTK_BOX(vbox2), scroll1, TRUE, TRUE, 0);
+	gtk_box_pack_start(GTK_BOX(hbox4), scroll1, TRUE, TRUE, 0);
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scroll1),
 				       GTK_POLICY_AUTOMATIC,
 				       GTK_POLICY_AUTOMATIC);
@@ -269,6 +294,26 @@ static void prefs_template_window_create(void)
 			       GTK_CAN_FOCUS);
 	g_signal_connect(G_OBJECT (clist_tmpls), "select_row",
 			 G_CALLBACK (prefs_template_select_cb), NULL);
+
+	vbox3 = gtk_vbox_new(TRUE, 0);
+	gtk_widget_show(vbox3);
+	gtk_box_pack_start(GTK_BOX(hbox4), vbox3, FALSE, FALSE, 0);
+
+	vbox4 = gtk_vbox_new(TRUE, 8);
+	gtk_widget_show(vbox4);
+	gtk_box_pack_start(GTK_BOX(vbox3), vbox4, TRUE, FALSE, 0);
+
+	up_btn = gtk_button_new_with_label(_("Up"));
+	gtk_widget_show(up_btn);
+	gtk_box_pack_start(GTK_BOX(vbox4), up_btn, FALSE, FALSE, 0);
+	g_signal_connect(G_OBJECT (up_btn), "clicked",
+			 G_CALLBACK (prefs_template_up_cb), NULL);
+
+	down_btn = gtk_button_new_with_label(_("Down"));
+	gtk_widget_show(down_btn);
+	gtk_box_pack_start(GTK_BOX(vbox4), down_btn, FALSE, FALSE, 0);
+	g_signal_connect(G_OBJECT (down_btn), "clicked",
+			 G_CALLBACK (prefs_template_down_cb), NULL);
 
 	/* ok | cancel */
 	gtkut_stock_button_set_create(&confirm_area, &ok_btn, GTK_STOCK_OK,
@@ -304,6 +349,8 @@ static void prefs_template_window_create(void)
 	templates.confirm_area = confirm_area;
 	templates.ok_btn = ok_btn;
 	templates.cancel_btn = cancel_btn;
+	templates.entry_modified = FALSE;
+	templates.list_modified = FALSE;
 }
 
 static void prefs_template_window_setup(void)
@@ -339,6 +386,9 @@ static void prefs_template_window_setup(void)
 	g_slist_free(tmpl_list);
 
 	gtk_clist_thaw(clist);
+
+	templates.entry_modified = FALSE;
+	templates.list_modified = FALSE;
 }
 
 static void prefs_template_clear(void)
@@ -370,9 +420,22 @@ static gboolean prefs_template_key_pressed_cb(GtkWidget *widget,
 	return FALSE;
 }
 
+static void prefs_template_changed_cb(GtkEditable *editable, gpointer data)
+{
+	templates.entry_modified = TRUE;
+}
+
 static void prefs_template_ok_cb(void)
 {
 	GSList *tmpl_list;
+
+	if (templates.entry_modified) {
+		if (alertpanel(_("Template is modified"),
+			       _("Current modification is not applied. Finish without saving it?"),
+			       GTK_STOCK_YES, GTK_STOCK_NO, NULL)
+		    != G_ALERTDEFAULT)
+			return;
+	}
 
 	tmpl_list = prefs_template_get_list();
 	template_set_config(tmpl_list);
@@ -385,6 +448,14 @@ static void prefs_template_ok_cb(void)
 
 static void prefs_template_cancel_cb(void)
 {
+	if (templates.entry_modified || templates.list_modified) {
+		if (alertpanel(_("Templates are modified"),
+			       _("Really discard modification to templates?"),
+			       GTK_STOCK_YES, GTK_STOCK_NO, NULL)
+		    != G_ALERTDEFAULT)
+			return;
+	}
+
 	prefs_template_clear();
 	gtk_widget_hide(templates.window);
 	main_window_popup(main_window_get());
@@ -426,6 +497,8 @@ static void prefs_template_select_cb(GtkCList *clist, gint row, gint column,
 	gtk_text_buffer_set_text(buffer, "", 0);
 	gtk_text_buffer_get_start_iter(buffer, &iter);
 	gtk_text_buffer_insert(buffer, &iter, tmpl->value, -1);
+
+	templates.entry_modified = FALSE;
 }
 
 static GSList *prefs_template_get_list(void)
@@ -527,6 +600,9 @@ static gint prefs_template_clist_set_row(gint row)
 	}
 
 	gtk_clist_set_row_data(clist, row, tmpl);
+	templates.entry_modified = FALSE;
+	templates.list_modified = TRUE;
+
 	return row;
 }
 
@@ -570,4 +646,31 @@ static void prefs_template_delete_cb(void)
 	tmpl = gtk_clist_get_row_data(clist, row);
 	template_free(tmpl);
 	gtk_clist_remove(clist, row);
+	templates.list_modified = TRUE;
+}
+
+static void prefs_template_up_cb(void)
+{
+	GtkCList *clist = GTK_CLIST(templates.clist_tmpls);
+	gint row;
+
+	if (!clist->selection) return;
+	row = GPOINTER_TO_INT(clist->selection->data);
+	if (row > 1) {
+		gtk_clist_row_move(clist, row, row - 1);
+		templates.list_modified = TRUE;
+	}
+}
+
+static void prefs_template_down_cb(void)
+{
+	GtkCList *clist = GTK_CLIST(templates.clist_tmpls);
+	gint row;
+
+	if (!clist->selection) return;
+	row = GPOINTER_TO_INT(clist->selection->data);
+	if (row > 0 && row < clist->rows - 1) {
+		gtk_clist_row_move(clist, row, row + 1);
+		templates.list_modified = TRUE;
+	}
 }

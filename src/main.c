@@ -64,7 +64,6 @@
 #include "filter.h"
 #include "send_message.h"
 #include "inc.h"
-#include "import.h"
 #include "manage_window.h"
 #include "alertpanel.h"
 #include "inputdialog.h"
@@ -214,6 +213,7 @@ int main(int argc, char *argv[])
 #endif
 	GObject *syl_app;
 	PrefsAccount *new_account = NULL;
+	gboolean first_run = FALSE;
 
 	app_init();
 	parse_cmd_opt(argc, argv);
@@ -253,6 +253,7 @@ int main(int argc, char *argv[])
 	set_progress_func(main_window_progress_show);
 	set_input_query_password_func(input_dialog_query_password);
 #if USE_SSL
+	ssl_init();
 	ssl_set_verify_func(ssl_manager_verify_cert);
 #endif
 
@@ -338,12 +339,15 @@ int main(int argc, char *argv[])
 	main_window_reflect_prefs_all();
 
 	if (folder_read_list() < 0) {
+		first_run = TRUE;
 		setup_mailbox();
 		folder_write_list();
 	}
 	if (!account_get_list()) {
 		new_account = setup_account();
 	}
+
+	prefs_common_junk_filter_list_set();
 
 	account_set_menu();
 	main_window_reflect_prefs_all();
@@ -363,6 +367,10 @@ int main(int argc, char *argv[])
 	plugin_init();
 
 	g_signal_emit_by_name(syl_app, "init-done");
+
+	if (first_run) {
+		setup_import_data();
+	}
 
 	remote_command_exec();
 
@@ -817,6 +825,9 @@ void app_will_exit(gboolean force)
 	g_free(filename);
 
 	/* remove temporary files, close log file, socket cleanup */
+#if USE_SSL
+	ssl_done();
+#endif
 	syl_cleanup();
 	lock_socket_remove();
 
@@ -1171,9 +1182,17 @@ static void plugin_init(void)
 	ADD_SYM(summary_write_lock);
 	ADD_SYM(summary_write_unlock);
 	ADD_SYM(summary_is_write_locked);
+	ADD_SYM(summary_get_current_folder);
 	ADD_SYM(summary_get_selection_type);
 	ADD_SYM(summary_get_selected_msg_list);
 	ADD_SYM(summary_get_msg_list);
+	ADD_SYM(summary_show_queued_msgs);
+	ADD_SYM(summary_redisplay_msg);
+	ADD_SYM(summary_open_msg);
+	ADD_SYM(summary_view_source);
+	ADD_SYM(summary_reedit);
+	ADD_SYM(summary_update_selected_rows);
+	ADD_SYM(summary_update_by_msgnum);
 
 	ADD_SYM(messageview_create_with_new_window);
 	ADD_SYM(messageview_show);
@@ -1207,6 +1226,11 @@ static void plugin_init(void)
 	ADD_SYM(update_check_set_jump_url);
 	ADD_SYM(update_check_get_jump_url);
 #endif
+
+	ADD_SYM(alertpanel_full);
+	ADD_SYM(alertpanel);
+	ADD_SYM(alertpanel_message);
+	ADD_SYM(alertpanel_message_with_disable);
 
 	syl_plugin_signal_connect("plugin-load", G_CALLBACK(load_cb), NULL);
 

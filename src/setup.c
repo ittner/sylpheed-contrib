@@ -25,6 +25,12 @@
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
+#ifdef G_OS_WIN32
+#  include <windows.h>
+#  include <winreg.h>
+#  include <wchar.h>
+#endif
+
 #include "inputdialog.h"
 #include "alertpanel.h"
 #include "mainwindow.h"
@@ -36,6 +42,7 @@
 #include "prefs_common.h"
 #include "stock_pixmap.h"
 #include "account.h"
+#include "addressbook.h"
 #if USE_SSL
 #  include "ssl.h"
 #endif
@@ -1015,4 +1022,260 @@ PrefsAccount *setup_account(void)
 	memset(&setupac, 0, sizeof(setupac));
 
 	return ac;
+}
+
+#ifdef G_OS_WIN32
+struct Identity
+{
+	gchar *name;
+	gchar *path;
+};
+
+static GSList *get_dbx_source(void)
+{
+	HKEY reg_key, hkey, hkey2;
+	wchar_t name[1024];
+	DWORD size, type, i;
+	LPWSTR username, store, path;
+	GSList *src_list = NULL;
+
+	if (RegOpenKeyExW(HKEY_CURRENT_USER, L"Identities", 0, KEY_READ, &reg_key) != ERROR_SUCCESS)
+		return NULL;
+
+	for (i = 0; ; i++) {
+		size = sizeof(name);
+		if (RegEnumKeyExW(reg_key, i, name, &size, 0, 0, 0, 0) != ERROR_SUCCESS)
+			break;
+		if (RegOpenKeyExW(reg_key, name, 0, KEY_READ, &hkey) != ERROR_SUCCESS)
+			continue;
+
+		do {
+			if (RegQueryValueExW(hkey, L"UserName", 0, &type, 0, &size) != ERROR_SUCCESS)
+				break;
+			if (type != REG_SZ)
+				break;
+			++size;
+			username = g_malloc(size);
+			if (RegQueryValueExW(hkey, L"UserName", 0, &type, (LPBYTE)username, &size) != ERROR_SUCCESS) {
+				g_free(username);
+				break;
+			}
+
+			if (RegOpenKeyExW(hkey, L"Software\\Microsoft\\Outlook Express\\5.0", 0, KEY_READ, &hkey2) != ERROR_SUCCESS) {
+				g_free(username);
+				break;
+			}
+
+			do {
+				if (RegQueryValueExW(hkey2, L"Store Root", 0, &type, 0, &size) != ERROR_SUCCESS)
+					break;
+				if (type != REG_SZ && type != REG_EXPAND_SZ)
+					break;
+
+				++size;
+				store = g_malloc(size);
+				if (RegQueryValueExW(hkey2, L"Store Root", 0, &type, (LPBYTE)store, &size) != ERROR_SUCCESS) {
+					g_free(store);
+					break;
+				}
+
+				if (type == REG_EXPAND_SZ) {
+					size = MAX_PATH * 2;
+					path = g_malloc(size);
+					if (!ExpandEnvironmentStringsW(store, path, size)) {
+						g_free(path);
+						path = NULL;
+					}
+				} else {
+					path = store;
+					store = NULL;
+				}
+
+				if (path) {
+					struct Identity *ident;
+
+					ident = g_new(struct Identity, 1);
+					ident->name = g_utf16_to_utf8(username, -1, NULL, NULL, NULL);
+					ident->path = g_utf16_to_utf8(path, -1, NULL, NULL, NULL);
+					src_list = g_slist_append(src_list, ident);
+					debug_print("get_dbx_source: username = %s , path = %s\n", ident->name, ident->path);
+					g_free(path);
+				}
+				g_free(store);
+			} while (0);
+			g_free(username);
+			RegCloseKey(hkey2);
+		} while (0);
+		RegCloseKey(hkey);
+	}
+
+	RegCloseKey(reg_key);
+
+	return src_list;
+}
+#endif /* G_OS_WIN32 */
+
+gint setup_import_data(void)
+{
+#ifdef G_OS_WIN32
+	AlertValue val;
+	GSList *src_list, *cur;
+	struct Identity *ident;
+	gchar *src;
+	Folder *folder;
+	FolderItem *parent, *dest;
+	gint ok = 0;
+
+	debug_print("setup_import_data\n");
+
+	src_list = get_dbx_source();
+	if (!src_list)
+		return 0;
+
+	val = alertpanel(_("Importing mail data"), _("The mail store of Outlook Express was found. Do you want to import the mail data of Outlook Express?\n\n(The folder structure will not be reproduced)"), GTK_STOCK_YES, GTK_STOCK_NO, NULL);
+	if (val != G_ALERTDEFAULT) {
+		goto finish;
+	}
+
+	folder = folder_get_default_folder();
+	if (!folder) {
+		g_warning("Cannot get default folder");
+		ok = -1;
+		goto finish;
+	}
+	parent = FOLDER_ITEM(folder->node->data);
+	if (!parent) {
+		g_warning("Cannot get root folder");
+		ok = -1;
+		goto finish;
+	}
+	dest = folder_find_child_item_by_name(parent, _("Imported"));
+	if (!dest) {
+		dest = folder->klass->create_folder(folder, parent, _("Imported"));
+	}
+	if (!dest) {
+		g_warning("Cannot create a folder");
+		ok = -1;
+		goto finish;
+	}
+	parent = dest;
+	folderview_append_item(folderview_get(), NULL, parent, TRUE);
+	folder_write_list();
+
+	for (cur = src_list; cur != NULL; cur = cur->next) {
+		ident = (struct Identity *)cur->data;
+		dest = folder_find_child_item_by_name(parent, ident->name);
+		if (!dest)
+			dest = folder->klass->create_folder(folder, parent, ident->name);
+		if (!dest)
+			continue;
+		folderview_append_item(folderview_get(), NULL, dest, TRUE);
+		folder_write_list();
+		ok = import_dbx_folders(dest, ident->path);
+		if (ok < 0)
+			break;
+	}
+
+finish:
+	for (cur = src_list; cur != NULL; cur = cur->next) {
+		ident = (struct Identity *)cur->data;
+		g_free(ident->name);
+		g_free(ident->path);
+		g_free(ident);
+	}
+	g_slist_free(src_list);
+
+	if (ok == -1)
+		alertpanel_error(_("Failed to import the mail data."));
+
+	return ok;
+#else /* G_OS_WIN32 */
+	return 0;
+#endif /* G_OS_WIN32 */
+}
+
+#ifdef G_OS_WIN32
+static gchar *get_wab_file(void)
+{
+	HKEY reg_key;
+	DWORD type, nbytes;
+	wchar_t *tmp;
+	gchar *result = NULL;
+
+	if (RegOpenKeyExW(HKEY_CURRENT_USER, L"Software\\Microsoft\\WAB\\WAB4\\Wab File Name", 0, KEY_QUERY_VALUE, &reg_key) != ERROR_SUCCESS)
+		return NULL;
+	if (RegQueryValueExW(reg_key, L"", 0, &type, NULL, &nbytes) == ERROR_SUCCESS && type == REG_SZ) {
+		tmp = g_new(wchar_t, (nbytes + 1) / 2 + 1);
+		RegQueryValueExW(reg_key, L"", 0, &type, (LPBYTE)tmp, &nbytes);
+		tmp[nbytes / 2] = '\0';
+		result = g_utf16_to_utf8(tmp, -1, NULL, NULL, NULL);
+		g_free(tmp);
+	}
+	RegCloseKey(reg_key);
+
+	return result;
+}
+#endif /* G_OS_WIN32 */
+
+gint setup_import_addressbook(void)
+{
+#ifdef G_OS_WIN32
+	AlertValue val;
+	gchar *appdata;
+	gchar *wabfile, *ldiffile;
+	gchar cmdline[MAX_PATH + 1];
+	gchar *cpcmdline;
+	gint ret = 0;
+
+	debug_print("setup_import_addressbook\n");
+
+	wabfile = get_wab_file();
+	if (!wabfile || !is_file_exist(wabfile)) {
+		g_free(wabfile);
+		return 0;
+	}
+
+	val = alertpanel(_("Importing address book"), _("The Windows address book was found. Do you want to import the address book?"), GTK_STOCK_YES, GTK_STOCK_NO, NULL);
+	if (val != G_ALERTDEFAULT) {
+		g_free(wabfile);
+		return 0;
+	}
+
+	ldiffile = g_strconcat(get_tmp_dir(), G_DIR_SEPARATOR_S, "impwab.ldif",
+			       NULL);
+	g_snprintf(cmdline, sizeof(cmdline), "wabread \"%s\" > \"%s\"",
+		   wabfile, ldiffile);
+	debug_print("setup_import_addressbook: cmdline: %s\n", cmdline);
+	cpcmdline = g_win32_locale_filename_from_utf8(cmdline);
+	if (!cpcmdline) {
+		g_warning("g_win32_locale_filename_from_utf8() failed");
+		g_free(ldiffile);
+		g_free(wabfile);
+		return -1;
+	}
+	ret = system(cpcmdline);
+	g_free(cpcmdline);
+	g_free(wabfile);
+	if (ret != 0 || !is_file_exist(ldiffile)) {
+		g_warning("system() failed");
+		ret = -1;
+		goto finish;
+	}
+
+	if (!addressbook_import_ldif_file(ldiffile, _("Imported"))) {
+		g_warning("setup_import_addressbook: import failed");
+		ret = -1;
+		goto finish;
+	}
+
+finish:
+	g_unlink(ldiffile);
+	g_free(ldiffile);
+	if (ret < 0)
+		alertpanel_error(_("Failed to import the address book."));
+
+	return ret;
+#else /* G_OS_WIN32 */
+	return 0;
+#endif /* G_OS_WIN32 */
 }

@@ -111,6 +111,7 @@ static GdkPixbuf *folderopen_pixbuf;
 static GdkPixbuf *foldernoselect_pixbuf;
 static GdkPixbuf *draft_pixbuf;
 static GdkPixbuf *trash_pixbuf;
+static GdkPixbuf *junk_pixbuf;
 static GdkPixbuf *virtual_pixbuf;
 
 static void folderview_set_columns	(FolderView	*folderview);
@@ -255,6 +256,7 @@ static GtkItemFactoryEntry folderview_mail_popup_entries[] =
 	{N_("/_Move folder..."),	NULL, folderview_move_folder_cb, 0, NULL},
 	{N_("/_Delete folder"),		NULL, folderview_delete_folder_cb, 0, NULL},
 	{N_("/---"),			NULL, NULL, 0, "<Separator>"},
+	{N_("/Empty _junk"),		NULL, folderview_empty_trash_cb, 0, NULL},
 	{N_("/Empty _trash"),		NULL, folderview_empty_trash_cb, 0, NULL},
 	{N_("/---"),			NULL, NULL, 0, "<Separator>"},
 	{N_("/_Check for new messages"),
@@ -278,6 +280,7 @@ static GtkItemFactoryEntry folderview_imap_popup_entries[] =
 	{N_("/_Move folder..."),	NULL, folderview_move_folder_cb, 0, NULL},
 	{N_("/_Delete folder"),		NULL, folderview_delete_folder_cb, 0, NULL},
 	{N_("/---"),			NULL, NULL, 0, "<Separator>"},
+	{N_("/Empty _junk"),		NULL, folderview_empty_trash_cb, 0, NULL},
 	{N_("/Empty _trash"),		NULL, folderview_empty_trash_cb, 0, NULL},
 	{N_("/---"),			NULL, NULL, 0, "<Separator>"},
 	{N_("/Down_load"),		NULL, folderview_download_cb, 0, NULL},
@@ -561,6 +564,7 @@ void folderview_init(FolderView *folderview)
 			 &foldernoselect_pixbuf);
 	stock_pixbuf_gdk(treeview, STOCK_PIXMAP_DRAFT, &draft_pixbuf);
 	stock_pixbuf_gdk(treeview, STOCK_PIXMAP_TRASH, &trash_pixbuf);
+	stock_pixbuf_gdk(treeview, STOCK_PIXMAP_SPAM_SMALL, &junk_pixbuf);
 	stock_pixbuf_gdk(treeview, STOCK_PIXMAP_FOLDER_SEARCH, &virtual_pixbuf);
 }
 
@@ -1266,15 +1270,12 @@ static void folderview_update_row(FolderView *folderview, GtkTreeIter *iter)
 				!strcmp2(item->name, DRAFT_DIR) ? _("Drafts") :
 				item->name);
 		break;
-#if 0
 	case F_JUNK:
-		pixbuf = folder_pixbuf;
-		open_pixbuf = folderopen_pixbuf;
+		pixbuf = open_pixbuf = junk_pixbuf;
 		name = g_strdup(FOLDER_IS_LOCAL(item->folder) &&
 				!strcmp2(item->name, JUNK_DIR) ? _("Junk") :
 				item->name);
 		break;
-#endif
 	case F_VIRTUAL:
 		pixbuf = open_pixbuf = virtual_pixbuf;
 		name = g_strdup(item->name);
@@ -1547,7 +1548,7 @@ void folderview_move_folder(FolderView *folderview)
 	g_return_if_fail(item->folder != NULL);
 
 	if (!item->path) return;
-	if (item->stype != F_NORMAL) return;
+	if (item->stype != F_NORMAL || item->stype != F_VIRTUAL) return;
 
 	if (item->folder->klass->move_folder)
 		folderview_move_folder_cb(folderview, 0, NULL);
@@ -1641,6 +1642,7 @@ static gboolean folderview_menu_popup(FolderView *folderview,
 	gboolean rename_folder   = FALSE;
 	gboolean move_folder     = FALSE;
 	gboolean delete_folder   = FALSE;
+	gboolean empty_junk      = FALSE;
 	gboolean empty_trash     = FALSE;
 	gboolean download_msg    = FALSE;
 	gboolean update_tree     = FALSE;
@@ -1691,6 +1693,9 @@ static gboolean folderview_menu_popup(FolderView *folderview,
 			} else if (item->stype == F_TRASH) {
 				if (item->total > 0)
 					empty_trash = TRUE;
+			} else if (item->stype == F_JUNK) {
+				if (item->total > 0)
+					empty_junk = TRUE;
 			} else if (item->stype == F_QUEUE) {
 				if (item->total > 0)
 					send_queue = TRUE;
@@ -1701,7 +1706,7 @@ static gboolean folderview_menu_popup(FolderView *folderview,
 		}
 		if (item->stype == F_VIRTUAL) {
 			new_folder = FALSE;
-			rename_folder = delete_folder = TRUE;
+			move_folder = rename_folder = delete_folder = TRUE;
 		}
 		if (FOLDER_TYPE(folder) == F_IMAP ||
 		    FOLDER_TYPE(folder) == F_NEWS) {
@@ -1722,6 +1727,9 @@ static gboolean folderview_menu_popup(FolderView *folderview,
 			if (item->stype == F_TRASH) {
 				if (item->total > 0)
 					empty_trash = TRUE;
+			} else if (item->stype == F_JUNK) {
+				if (item->total > 0)
+					empty_junk = TRUE;
 			}
 		}
 	}
@@ -1746,6 +1754,28 @@ static gboolean folderview_menu_popup(FolderView *folderview,
 	}							\
 }
 
+#define SET_VISIBILITY2(factory, name, visible)			\
+{								\
+	GtkWidget *widget;					\
+	widget = gtk_item_factory_get_item(factory, name);	\
+	if (widget) {						\
+		GList *child;					\
+		GtkWidget *sep = NULL;				\
+								\
+		child = g_list_find				\
+			(GTK_MENU_SHELL(popup)->children, widget); \
+		if (child && child->next)			\
+			sep = GTK_WIDGET(child->next->data);	\
+		if (visible) {					\
+			gtk_widget_show(widget);		\
+			gtk_widget_show(sep);			\
+		} else {					\
+			gtk_widget_hide(widget);		\
+			gtk_widget_hide(sep);			\
+		}						\
+	}							\
+}
+
 	if (FOLDER_IS_LOCAL(folder)) {
 		popup = folderview->mail_popup;
 		ifactory = folderview->mail_factory;
@@ -1764,6 +1794,7 @@ static gboolean folderview_menu_popup(FolderView *folderview,
 	SET_SENS(ifactory, "/Rename folder...", rename_folder);
 	SET_SENS(ifactory, "/Move folder...", move_folder);
 	SET_SENS(ifactory, "/Delete folder", delete_folder);
+	SET_SENS(ifactory, "/Empty junk", empty_junk);
 	SET_SENS(ifactory, "/Empty trash", empty_trash);
 	SET_SENS(ifactory, "/Download", download_msg);
 	SET_SENS(ifactory, "/Check for new messages", update_tree);
@@ -1786,9 +1817,37 @@ static gboolean folderview_menu_popup(FolderView *folderview,
 			       item->stype == F_VIRTUAL);
 	}
 
-	SET_VISIBILITY(ifactory, "/Mark all read", item->stype != F_QUEUE);
-	SET_VISIBILITY(ifactory, "/Send queued messages",
-		       item->stype == F_QUEUE);
+	if (item->stype == F_JUNK) {
+		SET_VISIBILITY(ifactory, "/Empty junk", TRUE);
+		SET_VISIBILITY2(ifactory, "/Empty trash", TRUE);
+		SET_VISIBILITY(ifactory, "/Empty trash", FALSE);
+	} else {
+		SET_VISIBILITY(ifactory, "/Empty junk", FALSE);
+		SET_VISIBILITY2(ifactory, "/Empty trash",
+				item->stype == F_TRASH);
+	}
+
+	SET_VISIBILITY(ifactory, "/Check for new messages",
+		       item->parent == NULL);
+	SET_VISIBILITY(ifactory, "/Rebuild folder tree", item->parent == NULL);
+	SET_VISIBILITY(ifactory, "/Update summary", item->parent != NULL);
+
+	if (FOLDER_TYPE(folder) == F_NEWS) {
+		SET_VISIBILITY2(ifactory, "/Mark all read",
+				item->parent != NULL && item->stype != F_QUEUE);
+	} else {
+		SET_VISIBILITY(ifactory, "/Mark all read",
+			       item->parent != NULL && item->stype != F_QUEUE);
+		if (item->parent != NULL) {
+			SET_VISIBILITY2(ifactory, "/Send queued messages", TRUE);
+			SET_VISIBILITY(ifactory, "/Send queued messages",
+				       item->stype == F_QUEUE);
+		} else {
+			SET_VISIBILITY2(ifactory, "/Send queued messages",
+					item->stype == F_QUEUE);
+		}
+	}
+
 	SET_VISIBILITY(ifactory, "/Search messages...",
 		       item->stype != F_VIRTUAL);
 	SET_VISIBILITY(ifactory, "/Edit search condition...",
@@ -1796,6 +1855,7 @@ static gboolean folderview_menu_popup(FolderView *folderview,
 
 #undef SET_SENS
 #undef SET_VISIBILITY
+#undef SET_VISIBILITY2
 
 	syl_plugin_signal_emit("folderview-menu-popup", ifactory);
 
@@ -2045,6 +2105,20 @@ static void folderview_selection_changed(GtkTreeSelection *selection,
 	gtk_tree_path_free(path);
 
 	folderview->selection_locked = FALSE;
+
+	if (prefs_common.change_account_on_folder_sel) {
+		PrefsAccount *account;
+
+		account = account_find_from_item_property(item);
+		if (!account && item->folder)
+			account = item->folder->account;
+		if (!account)
+			account = account_get_default();
+		if (account && account != cur_account) {
+			cur_account = account;
+			main_window_change_cur_account();
+		}
+	}
 }
 
 static void folderview_row_expanded(GtkTreeView *treeview, GtkTreeIter *iter,
@@ -2675,21 +2749,29 @@ static void folderview_empty_trash_cb(FolderView *folderview, guint action,
 
 	folder = item->folder;
 
-	if (folder->trash != item) return;
-	if (item->stype != F_TRASH) return;
+	if (item->stype != F_TRASH && item->stype != F_JUNK) return;
 
 	sel_path = gtk_tree_row_reference_get_path(folderview->selected);
 
-	if (alertpanel(_("Empty trash"),
-		       _("Delete all messages in the trash folder?"),
-		       GTK_STOCK_YES, GTK_STOCK_NO, NULL) != G_ALERTDEFAULT) {
-		gtk_tree_path_free(sel_path);
-		return;
+	if (item->stype == F_TRASH) {
+		if (alertpanel(_("Empty trash"),
+			       _("Delete all messages in the trash folder?"),
+			       GTK_STOCK_YES, GTK_STOCK_NO, NULL) != G_ALERTDEFAULT) {
+			gtk_tree_path_free(sel_path);
+			return;
+		}
+	} else {
+		if (alertpanel(_("Empty junk"),
+			       _("Delete all messages in the junk folder?"),
+			       GTK_STOCK_YES, GTK_STOCK_NO, NULL) != G_ALERTDEFAULT) {
+			gtk_tree_path_free(sel_path);
+			return;
+		}
 	}
 
-	procmsg_empty_trash(folder->trash);
+	procmsg_empty_trash(item);
 	statusbar_pop_all();
-	folderview_update_item(folder->trash, TRUE);
+	folderview_update_item(item, TRUE);
 	trayicon_set_tooltip(NULL);
 	trayicon_set_notify(FALSE);
 

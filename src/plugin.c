@@ -58,10 +58,26 @@ enum {
 				{ if (func_ptr) func_ptr(arg1, arg2, arg3); }
 #define SAFE_CALL_ARG3_RET(func_ptr, arg1, arg2, arg3) \
 				(func_ptr ? func_ptr(arg1, arg2, arg3) : NULL)
+#define SAFE_CALL_ARG3_RET_VAL(func_ptr, arg1, arg2, arg3, retval) \
+				(func_ptr ? func_ptr(arg1, arg2, arg3) : retval)
 #define SAFE_CALL_ARG4(func_ptr, arg1, arg2, arg3, arg4) \
 				{ if (func_ptr) func_ptr(arg1, arg2, arg3); }
 #define SAFE_CALL_ARG4_RET(func_ptr, arg1, arg2, arg3, arg4) \
 				(func_ptr ? func_ptr(arg1, arg2, arg3, arg4) : NULL)
+#define SAFE_CALL_ARG4_RET_VAL(func_ptr, arg1, arg2, arg3, arg4, retval) \
+				(func_ptr ? func_ptr(arg1, arg2, arg3, arg4) : retval)
+
+#define CALL_VOID_POINTER(getobj, sym)		\
+{						\
+	void (*func)(gpointer);			\
+	gpointer obj;				\
+	obj = getobj();				\
+	if (obj) {				\
+		GETFUNC(sym);			\
+		SAFE_CALL_ARG1(func, obj);	\
+	}					\
+}
+
 
 static guint plugin_signals[LAST_SIGNAL] = { 0 };
 
@@ -376,26 +392,14 @@ const gchar *syl_plugin_get_prog_version(void)
 
 void syl_plugin_main_window_lock(void)
 {
-	void (*func)(gpointer);
-	gpointer mainwin;
-
-	mainwin = syl_plugin_main_window_get();
-	if (mainwin) {
-		func = syl_plugin_lookup_symbol("main_window_lock");
-		SAFE_CALL_ARG1(func, mainwin);
-	}
+	CALL_VOID_POINTER(syl_plugin_main_window_get,
+			  "main_window_lock");
 }
 
 void syl_plugin_main_window_unlock(void)
 {
-	void (*func)(gpointer);
-	gpointer mainwin;
-
-	mainwin = syl_plugin_main_window_get();
-	if (mainwin) {
-		func = syl_plugin_lookup_symbol("main_window_unlock");
-		SAFE_CALL_ARG1(func, mainwin);
-	}
+	CALL_VOID_POINTER(syl_plugin_main_window_get,
+			  "main_window_unlock");
 }
 
 gpointer syl_plugin_main_window_get(void)
@@ -589,26 +593,14 @@ void syl_plugin_folderview_select(FolderItem *item)
 
 void syl_plugin_folderview_unselect(void)
 {
-	void (*func)(gpointer);
-	gpointer folderview;
-
-	folderview = syl_plugin_folderview_get();
-	if (folderview) {
-		GETFUNC("folderview_unselect");
-		SAFE_CALL_ARG1(func, folderview);
-	}
+	CALL_VOID_POINTER(syl_plugin_folderview_get,
+			  "folderview_unselect");
 }
 
 void syl_plugin_folderview_select_next_unread(void)
 {
-	void (*func)(gpointer);
-	gpointer folderview;
-
-	folderview = syl_plugin_folderview_get();
-	if (folderview) {
-		GETFUNC("folderview_select_next_unread");
-		SAFE_CALL_ARG1(func, folderview);
-	}
+	CALL_VOID_POINTER(syl_plugin_folderview_get,
+			  "folderview_select_next_unread");
 }
 
 FolderItem *syl_plugin_folderview_get_selected_item(void)
@@ -671,14 +663,8 @@ void syl_plugin_folderview_update_all_updated(gboolean update_summary)
 
 void syl_plugin_folderview_check_new_selected(void)
 {
-	void (*func)(gpointer);
-	gpointer folderview;
-
-	folderview = syl_plugin_folderview_get();
-	if (folderview) {
-		GETFUNC("folderview_check_new_selected");
-		SAFE_CALL_ARG1(func, folderview);
-	}
+	CALL_VOID_POINTER(syl_plugin_folderview_get,
+			  "folderview_check_new_selected");
 }
 
 gpointer syl_plugin_summary_view_get(void)
@@ -689,7 +675,7 @@ gpointer syl_plugin_summary_view_get(void)
 	return sym;
 }
 
-void syl_plugin_sumary_select_by_msgnum(guint msgnum)
+void syl_plugin_summary_select_by_msgnum(guint msgnum)
 {
 	void (*func)(gpointer, guint);
 	gpointer summary;
@@ -731,28 +717,22 @@ void syl_plugin_open_message(const gchar *folder_id, guint msgnum)
 	}
 }
 
+void syl_plugin_summary_show_queued_msgs(void)
+{
+	CALL_VOID_POINTER(syl_plugin_summary_view_get,
+			  "summary_show_queued_msgs");
+}
+
 void syl_plugin_summary_lock(void)
 {
-	void (*func)(gpointer);
-	gpointer summary;
-
-	summary = syl_plugin_summary_view_get();
-	if (summary) {
-		GETFUNC("summary_lock");
-		SAFE_CALL_ARG1(func, summary);
-	}
+	CALL_VOID_POINTER(syl_plugin_summary_view_get,
+			  "summary_lock");
 }
 
 void syl_plugin_summary_unlock(void)
 {
-	void (*func)(gpointer);
-	gpointer summary;
-
-	summary = syl_plugin_summary_view_get();
-	if (summary) {
-		GETFUNC("summary_unlock");
-		SAFE_CALL_ARG1(func, summary);
-	}
+	CALL_VOID_POINTER(syl_plugin_summary_view_get,
+			  "summary_unlock");
 }
 
 gboolean syl_plugin_summary_is_locked(void)
@@ -785,26 +765,14 @@ gboolean syl_plugin_summary_is_read_locked(void)
 
 void syl_plugin_summary_write_lock(void)
 {
-	void (*func)(gpointer);
-	gpointer summary;
-
-	summary = syl_plugin_summary_view_get();
-	if (summary) {
-		GETFUNC("summary_write_lock");
-		SAFE_CALL_ARG1(func, summary);
-	}
+	CALL_VOID_POINTER(syl_plugin_summary_view_get,
+			  "summary_write_lock");
 }
 
 void syl_plugin_summary_write_unlock(void)
 {
-	void (*func)(gpointer);
-	gpointer summary;
-
-	summary = syl_plugin_summary_view_get();
-	if (summary) {
-		GETFUNC("summary_write_unlock");
-		SAFE_CALL_ARG1(func, summary);
-	}
+	CALL_VOID_POINTER(syl_plugin_summary_view_get,
+			  "summary_write_unlock");
 }
 
 gboolean syl_plugin_summary_is_write_locked(void)
@@ -819,6 +787,20 @@ gboolean syl_plugin_summary_is_write_locked(void)
 	}
 
 	return FALSE;
+}
+
+FolderItem *syl_plugin_summary_get_current_folder(void)
+{
+	FolderItem * (*func)(gpointer);
+	gpointer summary;
+
+	summary = syl_plugin_summary_view_get();
+	if (summary) {
+		GETFUNC("summary_get_current_folder");
+		return SAFE_CALL_ARG1_RET(func, summary);
+	}
+
+	return NULL;
 }
 
 gint syl_plugin_summary_get_selection_type(void)
@@ -861,6 +843,48 @@ GSList *syl_plugin_summary_get_msg_list(void)
 	}
 
 	return NULL;
+}
+
+void syl_plugin_summary_redisplay_msg(void)
+{
+	CALL_VOID_POINTER(syl_plugin_summary_view_get,
+			  "summary_redisplay_msg");
+}
+
+void syl_plugin_summary_open_msg(void)
+{
+	CALL_VOID_POINTER(syl_plugin_summary_view_get,
+			  "summary_open_msg");
+}
+
+void syl_plugin_summary_view_source(void)
+{
+	CALL_VOID_POINTER(syl_plugin_summary_view_get,
+			  "summary_view_source");
+}
+
+void syl_plugin_summary_reedit(void)
+{
+	CALL_VOID_POINTER(syl_plugin_summary_view_get,
+			  "summary_reedit");
+}
+
+void syl_plugin_summary_update_selected_rows(void)
+{
+	CALL_VOID_POINTER(syl_plugin_summary_view_get,
+			  "summary_update_selected_rows");
+}
+
+void syl_plugin_summary_update_by_msgnum(guint msgnum)
+{
+	void (*func)(gpointer, guint);
+	gpointer summary;
+
+	summary = syl_plugin_summary_view_get();
+	if (summary) {
+		func = syl_plugin_lookup_symbol("summary_update_by_msgnum");
+		SAFE_CALL_ARG2(func, summary, msgnum);
+	}
 }
 
 gpointer syl_plugin_messageview_create_with_new_window(void)
@@ -1070,4 +1094,51 @@ const gchar *syl_plugin_update_check_get_jump_url(void)
 
 	func = syl_plugin_lookup_symbol("update_check_get_jump_url");
 	return SAFE_CALL_RET(func);
+}
+
+gint syl_plugin_alertpanel_full(const gchar *title, const gchar *message,
+				gint type, gint default_value,
+				gboolean can_disable,
+				const gchar *btn1_label,
+				const gchar *btn2_label,
+				const gchar *btn3_label)
+{
+	gint (*func)(const gchar *, const gchar *, gint, gint, gboolean,
+			const gchar *, const gchar *, const gchar *);
+
+	GETFUNC("alertpanel_full");
+	return func ? func(title, message, type, default_value, can_disable,
+			   btn1_label, btn2_label, btn3_label) : -1;
+}
+
+gint syl_plugin_alertpanel(const gchar *title, const gchar *message,
+			   const gchar *btn1_label,
+			   const gchar *btn2_label,
+			   const gchar *btn3_label)
+{
+	gint (*func)(const gchar *, const gchar *,
+			const gchar *, const gchar *, const gchar *);
+
+	GETFUNC("alertpanel");
+	return func ? func(title, message, btn1_label, btn2_label, btn3_label)
+		: -1;
+}
+
+void syl_plugin_alertpanel_message(const gchar *title, const gchar *message,
+				   gint type)
+{
+	void (*func)(const gchar *, const gchar *, gint);
+
+	GETFUNC("alertpanel_message");
+	SAFE_CALL_ARG3(func, title, message, type);
+}
+
+gint syl_plugin_alertpanel_message_with_disable(const gchar *title,
+						const gchar *message,
+						gint type)
+{
+	gint (*func)(const gchar *, const gchar *, gint);
+
+	GETFUNC("alertpanel_message_with_disable");
+	return SAFE_CALL_ARG3_RET_VAL(func, title, message, type, 0);
 }

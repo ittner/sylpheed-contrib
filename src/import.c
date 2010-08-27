@@ -1,6 +1,6 @@
 /*
  * Sylpheed -- a GTK+ based, lightweight, and fast e-mail client
- * Copyright (C) 1999-2009 Hiroyuki Yamamoto
+ * Copyright (C) 1999-2010 Hiroyuki Yamamoto
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,6 +15,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+
+/*
+ * DBX file conversion engine is based on OutlookExpress-To by Tietew.
+ * OutlookExpress-To - OE5/6 Multi Converter
+ * Copyright (C) 2002 by Tietew
+ * http://www.tietew.net/
  */
 
 #ifdef HAVE_CONFIG_H
@@ -41,6 +48,8 @@
 #include <gtk/gtkprogressbar.h>
 #include <gtk/gtkmenu.h>
 
+#include <stdio.h>
+
 #include "main.h"
 #include "inc.h"
 #include "mbox.h"
@@ -59,7 +68,8 @@
 enum
 {
 	IMPORT_MBOX,
-	IMPORT_EML_FOLDER
+	IMPORT_EML_FOLDER,
+	IMPORT_DBX
 };
 
 static GtkWidget *window;
@@ -75,11 +85,14 @@ static GtkWidget *cancel_button;
 static gboolean import_finished;
 static gboolean import_ack;
 static ProgressDialog *progress;
+static gboolean import_progress_cancelled;
 
 static void import_create	(void);
 static gint import_do		(void);
 static gint import_eml_folder	(FolderItem	*dest,
 				 const gchar	*path);
+static gint import_dbx		(FolderItem	*dest,
+				 const gchar	*file);
 
 static void import_format_menu_cb	(GtkWidget	*widget,
 					 gpointer	 data);
@@ -98,6 +111,12 @@ static gint delete_event	(GtkWidget	*widget,
 static gboolean key_pressed	(GtkWidget	*widget,
 				 GdkEventKey	*event,
 				 gpointer	 data);
+
+static void import_progress_cancel_cb	(GtkWidget	*widget,
+					 gpointer	 data);
+static gint import_progress_delete_event(GtkWidget	*widget,
+					 GdkEventAny	*event,
+					 gpointer	 data);
 
 
 static void proc_mbox_func(Folder *folder, FolderItem *item, gpointer data)
@@ -140,6 +159,7 @@ gint import_mail(FolderItem *default_dest)
 
 	import_finished = FALSE;
 	import_ack = FALSE;
+	import_progress_cancelled = FALSE;
 
 	inc_lock();
 
@@ -180,7 +200,7 @@ static gint import_do(void)
 
 	filename = g_filename_from_utf8(utf8filename, -1, NULL, NULL, NULL);
 	if (!filename) {
-		g_warning("faild to convert character set.");
+		g_warning("failed to convert character set.");
 		filename = g_strdup(utf8filename);
 	}
 	if (!g_file_test(filename, G_FILE_TEST_EXISTS)) {
@@ -207,18 +227,22 @@ static gint import_do(void)
 	g_free(msg);
 	gtk_window_set_modal(GTK_WINDOW(progress->window), TRUE);
 	manage_window_set_transient(GTK_WINDOW(progress->window));
-	gtk_widget_hide(progress->cancel_btn);
+	g_signal_connect(G_OBJECT(progress->cancel_btn), "clicked",
+			 G_CALLBACK(import_progress_cancel_cb), NULL);
 	g_signal_connect(G_OBJECT(progress->window), "delete_event",
-			 G_CALLBACK(gtk_true), NULL);
+			 G_CALLBACK(import_progress_delete_event), NULL);
 	gtk_widget_show(progress->window);
 	ui_update();
 
 	if (type == IMPORT_MBOX) {
+		gtk_widget_set_sensitive(progress->cancel_btn, FALSE);
 		folder_set_ui_func(dest->folder, proc_mbox_func, NULL);
 		ok = proc_mbox(dest, filename, NULL);
 		folder_set_ui_func(dest->folder, NULL, NULL);
 	} else if (type == IMPORT_EML_FOLDER) {
 		ok = import_eml_folder(dest, filename);
+	} else if (type == IMPORT_DBX) {
+		ok = import_dbx(dest, filename);
 	}
 
 	progress_dialog_set_label(progress, _("Scanning folder..."));
@@ -283,10 +307,272 @@ static gint import_eml_folder(FolderItem *dest, const gchar *path)
 				g_warning("import_eml_folder(): folder_item_add_msg_msginfo() failed.");
 				break;
 			}
+			if (import_progress_cancelled)
+				break;
 		}
 	}
 
 	g_dir_close(dir);
+
+	return ok;
+}
+
+static gint32 read_dword(FILE *fp, off_t offset)
+{
+	gint32 dw;
+
+	if (fseek(fp, offset, SEEK_SET) < 0) {
+		perror("read_dword: fseek");
+		return 0;
+	}
+
+	if (fread(&dw, sizeof(dw), 1, fp) != 1)
+		return 0;
+
+	dw = GINT32_FROM_LE(dw);
+
+	return dw;
+}
+
+static void get_dbx_index(FILE *fp, gint32 table_pos, GArray *array)
+{
+	gint32 another_pos, data_pos;
+	gint32 num_index, num_elems;
+	gint i;
+
+	debug_print("get_dbx_index(%08x)\n", table_pos);
+
+	another_pos = read_dword(fp, table_pos + 0x08);
+	num_elems = read_dword(fp, table_pos + 0x11) & 0x00ffffff;
+	num_index = read_dword(fp, table_pos + 0x14);
+	debug_print("table_pos: %08x another_pos: %08x num_elems: %08x num_index: %08x\n", table_pos, another_pos, num_elems, num_index);
+	if (another_pos > 0 && num_index > 0)
+		get_dbx_index(fp, another_pos, array);
+
+	table_pos += 0x18;
+	for (i = 0; i < num_elems; i++) {
+		data_pos = read_dword(fp, table_pos);
+		if (data_pos == 0) {
+			g_warning("get_dbx_index: null data_pos at %08x",
+				  table_pos);
+			break;
+		}
+		g_array_append_val(array, data_pos);
+		another_pos = read_dword(fp, table_pos + 0x04);
+		num_index = read_dword(fp, table_pos + 0x08);
+		debug_print("data_pos: %08x another_pos: %08x num_index: %08x\n", data_pos, another_pos, num_index);
+		table_pos += 0x0c;
+		if (another_pos > 0 && num_index > 0)
+			get_dbx_index(fp, another_pos, array);
+	}
+
+	debug_print("get_dbx_index end\n");
+}
+
+static gint get_dbx_data(FILE *fp, gint32 data_pos, FolderItem *dest)
+{
+	gchar *tmp;
+	FILE *outfp;
+	gint32 mail_flag, news_flag;
+	gint32 data_ptr, data_len, next_ptr;
+	MsgFlags flags = {MSG_NEW|MSG_UNREAD, MSG_RECEIVED};
+	gint ok = 0;
+
+	debug_print("get_dbx_data(%08x)\n", data_pos);
+
+	mail_flag = read_dword(fp, data_pos + 0x18);
+	news_flag = read_dword(fp, data_pos + 0x1c);
+	if ((news_flag & 0x0f) == 4)
+		data_ptr = news_flag;
+	else if ((mail_flag & 0x0f) == 4)
+		data_ptr = mail_flag;
+	else
+		return 0;
+
+	if ((data_ptr & 0xff) >= 0x80)
+		data_ptr >>= 8;
+	else {
+		guchar b1 = (guchar)(data_ptr >>= 8);
+		guchar b2 = (guchar)read_dword(fp, data_pos + 0x0a);
+		data_ptr = read_dword(fp, data_pos + 0x0c + b2 * 4 + b1);
+	}
+	if (data_ptr == 0) {
+		g_warning("get_dbx_data(%08x): could not get data_ptr.", data_pos);
+		return 0;
+	}
+
+	tmp = get_tmp_file();
+	if ((outfp = g_fopen(tmp, "wb")) == NULL) {
+		FILE_OP_ERROR(tmp, "fopen");
+		ok = -1;
+		goto finish;
+	}
+
+	while (data_ptr) {
+		data_len = read_dword(fp, data_ptr + 0x08);
+		next_ptr = read_dword(fp, data_ptr + 0x0c);
+		if (append_file_part(fp, data_ptr + 0x10, data_len, outfp) < 0) {
+			fclose(outfp);
+			g_unlink(tmp);
+			ok = -1;
+			goto finish;
+		}
+		data_ptr = next_ptr;
+	}
+
+	if (fclose(outfp) == EOF) {
+		FILE_OP_ERROR(tmp, "fclose");
+		g_unlink(tmp);
+		ok = -1;
+		goto finish;
+	}
+
+	if (folder_item_add_msg(dest, tmp, &flags, TRUE) < 0) {
+		g_warning("get_dbx_data: folder_item_add_msg() failed.");
+		g_unlink(tmp);
+		ok = -1;
+	}
+
+finish:
+	g_free(tmp);
+	return ok;
+}
+
+static gint import_dbx(FolderItem *dest, const gchar *file)
+{
+	FILE *fp;
+	gint32 dw;
+	gint32 table_pos;
+	gint count = 0;
+	GArray *array;
+	gint i;
+
+	g_return_val_if_fail(dest != NULL, -1);
+	g_return_val_if_fail(file != NULL, -1);
+
+	if ((fp = g_fopen(file, "rb")) == NULL) {
+		FILE_OP_ERROR(file, "fopen");
+		return -1;
+	}
+
+	if ((dw = read_dword(fp, 0xc4)) == 0) {
+		fclose(fp);
+		return -1;
+	}
+
+	array = g_array_sized_new(FALSE, FALSE, sizeof(gint32), 1024);
+
+	table_pos = read_dword(fp, 0xe4);
+	if (table_pos > 0)
+		get_dbx_index(fp, table_pos, array);
+
+	for (i = 0; i < array->len; i++) {
+		proc_mbox_func(dest->folder, dest, GINT_TO_POINTER(count + 1));
+		if (get_dbx_data(fp, g_array_index(array, gint32, i), dest) < 0)
+			break;
+		count++;
+		if (import_progress_cancelled)
+			break;
+	}
+
+	debug_print("import_dbx: %d imported\n", count);
+
+	g_array_free(array, TRUE);
+	fclose(fp);
+
+	return 0;
+}
+
+gint import_dbx_folders(FolderItem *dest, const gchar *path)
+{
+	GDir *dir;
+	const gchar *dir_name, *p;
+	gchar *orig_name, *folder_name, *file;
+	gchar *msg;
+	FolderItem *sub_folder;
+	gint count;
+	gint ok = 0;
+
+	g_return_val_if_fail(dest != NULL, -1);
+	g_return_val_if_fail(dest->folder != NULL, -1);
+	g_return_val_if_fail(path != NULL, -1);
+
+	if ((dir = g_dir_open(path, 0, NULL)) == NULL) {
+		g_warning("failed to open directory: %s", path);
+		return -1;
+	}
+
+	import_progress_cancelled = FALSE;
+
+	progress = progress_dialog_simple_create();
+	gtk_window_set_title(GTK_WINDOW(progress->window), _("Importing"));
+	progress_dialog_set_label(progress, _("Importing Outlook Express folders"));
+	gtk_window_set_modal(GTK_WINDOW(progress->window), TRUE);
+	manage_window_set_transient(GTK_WINDOW(progress->window));
+	g_signal_connect(G_OBJECT(progress->cancel_btn), "clicked",
+			 G_CALLBACK(import_progress_cancel_cb), NULL);
+	g_signal_connect(G_OBJECT(progress->window), "delete_event",
+			 G_CALLBACK(import_progress_delete_event), NULL);
+	gtk_widget_show(progress->window);
+	ui_update();
+
+	while ((dir_name = g_dir_read_name(dir)) != NULL) {
+		if ((p = strrchr(dir_name, '.')) &&
+		    !g_ascii_strcasecmp(p + 1, "dbx")) {
+			file = g_strconcat(path, G_DIR_SEPARATOR_S, dir_name,
+					   NULL);
+			orig_name = g_strndup(dir_name, p - dir_name);
+			if (!g_file_test(file, G_FILE_TEST_IS_REGULAR) ||
+			    !g_ascii_strcasecmp(orig_name, "Folders") ||
+			    !g_ascii_strcasecmp(orig_name, "Offline") ||
+			    !g_ascii_strcasecmp(orig_name, "Pop3uidl")) {
+				g_free(orig_name);
+				g_free(file);
+				continue;
+			}
+
+			folder_name = g_strdup(orig_name);
+			count = 1;
+			while (folder_find_child_item_by_name(dest, folder_name)) {
+				g_free(folder_name);
+				folder_name = g_strdup_printf("%s (%d)", orig_name, count++);
+			}
+			debug_print("orig_name: %s , folder_name: %s\n", orig_name, folder_name);
+
+			sub_folder = dest->folder->klass->create_folder(dest->folder, dest, folder_name);
+			if (!sub_folder) {
+				alertpanel_error(_("Cannot create the folder '%s'."), folder_name);
+				ok = -1;
+				break;
+			}
+			folderview_append_item(folderview_get(), NULL, sub_folder, TRUE);
+			folder_write_list();
+			msg = g_strdup_printf(_("Importing %s ..."), orig_name);
+			progress_dialog_set_label(progress, msg);
+			g_free(msg);
+			import_dbx(sub_folder, file);
+
+			progress_dialog_set_label(progress, _("Scanning folder..."));
+			ui_update();
+			folder_item_scan(sub_folder);
+			folderview_update_item(sub_folder, TRUE);
+
+			g_free(folder_name);
+			g_free(orig_name);
+			g_free(file);
+			if (import_progress_cancelled) {
+				ok = -2;
+				break;
+			}
+		}
+	}
+
+	g_dir_close(dir);
+
+	progress_dialog_destroy(progress);
+	progress = NULL;
+
+	folder_write_list();
 
 	return ok;
 }
@@ -356,6 +642,9 @@ static void import_create(void)
 	g_signal_connect(G_OBJECT(menuitem), "activate",
 			 G_CALLBACK(import_format_menu_cb), NULL);
 	MENUITEM_ADD(menu, menuitem, _("eml (folder)"), IMPORT_EML_FOLDER);
+	g_signal_connect(G_OBJECT(menuitem), "activate",
+			 G_CALLBACK(import_format_menu_cb), NULL);
+	MENUITEM_ADD(menu, menuitem, _("Outlook Express (dbx)"), IMPORT_DBX);
 	g_signal_connect(G_OBJECT(menuitem), "activate",
 			 G_CALLBACK(import_format_menu_cb), NULL);
 
@@ -478,4 +767,17 @@ static gboolean key_pressed(GtkWidget *widget, GdkEventKey *event, gpointer data
 	if (event && event->keyval == GDK_Escape)
 		import_cancel_cb(NULL, NULL);
 	return FALSE;
+}
+
+static void import_progress_cancel_cb(GtkWidget *widget, gpointer data)
+{
+	debug_print("import cancelled\n");
+	import_progress_cancelled = TRUE;
+}
+
+static gint import_progress_delete_event(GtkWidget *widget, GdkEventAny *event,
+					 gpointer data)
+{
+	import_progress_cancel_cb(NULL, NULL);
+	return TRUE;
 }

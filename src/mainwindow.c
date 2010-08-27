@@ -426,6 +426,9 @@ static void attract_by_subject_cb(MainWindow	*mainwin,
 static void delete_duplicated_cb (MainWindow	*mainwin,
 				  guint		 action,
 				  GtkWidget	*widget);
+static void concat_partial_cb	 (MainWindow	*mainwin,
+				  guint		 action,
+				  GtkWidget	*widget);
 static void filter_cb		 (MainWindow	*mainwin,
 				  guint		 action,
 				  GtkWidget	*widget);
@@ -854,6 +857,8 @@ static GtkItemFactoryEntry mainwin_entries[] =
 #endif
 	{N_("/_Tools/Delete du_plicated messages"),
 						NULL, delete_duplicated_cb,   0, NULL},
+	{N_("/_Tools/C_oncatenate separated messages"),
+						NULL, concat_partial_cb, 0, NULL},
 	{N_("/_Tools/---"),			NULL, NULL, 0, "<Separator>"},
 	{N_("/_Tools/E_xecute marked process"),	"X", execute_summary_cb, 0, NULL},
 	{N_("/_Tools/---"),			NULL, NULL, 0, "<Separator>"},
@@ -1401,6 +1406,16 @@ static void main_window_show_cur_account(MainWindow *mainwin)
 	gtk_widget_queue_resize(mainwin->ac_button);
 
 	g_free(ac_name);
+}
+
+void main_window_change_cur_account(void)
+{
+	MainWindow *mainwin;
+
+	mainwin = main_window_get();
+	main_window_show_cur_account(mainwin);
+	main_window_set_menu_sensitive(mainwin);
+	main_window_set_toolbar_sensitive(mainwin);
 }
 
 MainWindow *main_window_get(void)
@@ -2154,6 +2169,8 @@ void main_window_set_menu_sensitive(MainWindow *mainwin)
 #endif
 		{"/Tools/Execute marked process"       , M_MSG_EXIST|M_EXEC},
 		{"/Tools/Delete duplicated messages"   , M_MSG_EXIST|M_ALLOW_DELETE},
+		{"/Tools/Concatenate separated messages"
+						       , M_TARGET_EXIST|M_UNLOCKED|M_ALLOW_DELETE},
 
 		{"/Configuration/Common preferences...", M_UNLOCKED},
 		{"/Configuration/Filter settings...", M_UNLOCKED},
@@ -2330,8 +2347,9 @@ static void main_window_set_widgets(MainWindow *mainwin, LayoutType layout,
 				       "folder_view", "Sylpheed");
 		gtk_window_set_policy(GTK_WINDOW(folderwin),
 				      TRUE, TRUE, FALSE);
-		gtk_widget_set_uposition(folderwin, prefs_common.folderwin_x,
-					 prefs_common.folderwin_y);
+		gtkut_window_move(GTK_WINDOW(folderwin),
+				  prefs_common.folderwin_x,
+				  prefs_common.folderwin_y);
 		gtk_container_set_border_width(GTK_CONTAINER(folderwin), 0);
 		g_signal_connect(G_OBJECT(folderwin), "delete_event",
 				 G_CALLBACK(folder_window_close_cb), mainwin);
@@ -2349,8 +2367,9 @@ static void main_window_set_widgets(MainWindow *mainwin, LayoutType layout,
 				       "message_view", "Sylpheed");
 		gtk_window_set_policy(GTK_WINDOW(messagewin),
 				      TRUE, TRUE, FALSE);
-		gtk_widget_set_uposition(messagewin, prefs_common.main_msgwin_x,
-					 prefs_common.main_msgwin_y);
+		gtkut_window_move(GTK_WINDOW(messagewin),
+				  prefs_common.main_msgwin_x,
+				  prefs_common.main_msgwin_y);
 		gtk_container_set_border_width(GTK_CONTAINER(messagewin), 0);
 		g_signal_connect(G_OBJECT(messagewin), "delete_event",
 				 G_CALLBACK(message_window_close_cb), mainwin);
@@ -2479,9 +2498,8 @@ static void main_window_set_widgets(MainWindow *mainwin, LayoutType layout,
 			      use_vlayout ? GTK_ARROW_LEFT : GTK_ARROW_UP,
 			      GTK_SHADOW_OUT);
 
-	gtk_widget_set_uposition(mainwin->window,
-				 prefs_common.mainwin_x,
-				 prefs_common.mainwin_y);
+	gtkut_window_move(GTK_WINDOW(mainwin->window), 
+			  prefs_common.mainwin_x, prefs_common.mainwin_y);
 
 	gtk_widget_queue_resize(vbox_body);
 	gtk_widget_queue_resize(mainwin->vbox);
@@ -3712,6 +3730,36 @@ static void delete_duplicated_cb(MainWindow *mainwin, guint action,
 	summary_delete_duplicated(mainwin->summaryview);
 }
 
+static void concat_partial_cb(MainWindow *mainwin, guint action,
+			      GtkWidget *widget)
+{
+	GSList *mlist;
+	gchar *file;
+	FolderItem *item;
+
+	if (summary_is_locked(mainwin->summaryview))
+		return;
+
+	item = mainwin->summaryview->folder_item;
+	if (!item)
+		return;
+	mlist = summary_get_selected_msg_list(mainwin->summaryview);
+	if (!mlist)
+		return;
+
+	file = get_tmp_file();
+	if (procmsg_concat_partial_messages(mlist, file) == 0) {
+		folder_item_add_msg(item, file, NULL, TRUE);
+		summary_show_queued_msgs(mainwin->summaryview);
+	} else {
+		alertpanel_error
+			(_("The selected messages could not be combined."));
+	}
+	g_free(file);
+
+	g_slist_free(mlist);
+}
+
 static void filter_cb(MainWindow *mainwin, guint action, GtkWidget *widget)
 {
 	summary_filter(mainwin->summaryview, (gboolean)action);
@@ -3747,6 +3795,7 @@ static void prev_cb(MainWindow *mainwin, guint action, GtkWidget *widget)
 		return;
 
 	summary_step(mainwin->summaryview, GTK_SCROLL_STEP_BACKWARD);
+	summary_mark_displayed_read(mainwin->summaryview, NULL);
 }
 
 static void next_cb(MainWindow *mainwin, guint action, GtkWidget *widget)
@@ -3759,6 +3808,7 @@ static void next_cb(MainWindow *mainwin, guint action, GtkWidget *widget)
 		return;
 
 	summary_step(mainwin->summaryview, GTK_SCROLL_STEP_FORWARD);
+	summary_mark_displayed_read(mainwin->summaryview, NULL);
 }
 
 static void prev_unread_cb(MainWindow *mainwin, guint action,
@@ -3917,12 +3967,8 @@ static void new_account_cb(MainWindow *mainwin, guint action,
 
 static void account_selector_menu_cb(GtkMenuItem *menuitem, gpointer data)
 {
-	MainWindow *mainwin = main_window_get();
-
 	cur_account = (PrefsAccount *)data;
-	main_window_show_cur_account(mainwin);
-	main_window_set_menu_sensitive(mainwin);
-	main_window_set_toolbar_sensitive(mainwin);
+	main_window_change_cur_account();
 }
 
 static void account_receive_menu_cb(GtkMenuItem *menuitem, gpointer data)

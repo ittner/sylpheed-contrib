@@ -1,3 +1,266 @@
+2010-08-19
+
+	* src/addressbook.[ch]
+	  src/setup.c: win32: implemented automatic import of Windows Address
+	  Book (WAB) file.
+
+2010-08-18
+
+	* version 3.1.0beta3
+
+2010-08-17
+
+	* src/importldif.[ch]: addressbook_imp_ldif_file(): new function to
+	  import LDIF file automatically.
+	* src/ldif.[ch]: supported "nickname" tag. Ignore null-string
+	  fld->userName. Skip duplicated "mail" tags. Fixed a memory leak.
+	* src/setup.c: setup_import_data(): don't create duplicate folders.
+
+2010-08-10
+
+	* libsylph/imap.c: imap_parse_envelope(): fixed for response:
+	  (... RFC822.SIZE 0 RFC822.HEADER "" ...)
+
+2010-08-10
+
+	* plugin/attachment_tool/attachment_tool.c: skip multipart messages
+	  without attachments.
+
+2010-08-09
+
+	* faq/en/*: updated Sylpheed FAQ to 2.2 (thanks to Petr Kovar).
+
+2010-08-09
+
+	* src/main.c
+	  src/setup.c
+	  src/import.c: enabled cancellation of eml/dbx import.
+
+2010-08-06
+
+	* src/main.c
+	  src/setup.[ch]
+	  src/import.[ch]: win32: implemented automatic import of Outlook
+	  Express mail stores on first run.
+
+2010-08-05
+
+	* src/import.c: implemented the import feature of Outlook Express
+	  mailboxes (dbx).
+
+2010-08-04
+
+	* plugin/attachment_tool/Makefile.am: fixed.
+
+2010-08-04
+
+	* configure.in
+	  plugin/Makefile.am
+	  plugin/attachment_tool/*: added new plug-in 'Attachment Tool
+	  Plug-in'. This plug-in is distributed under the GNU LGPL.
+
+2010-08-04
+
+	* src/plugin.[ch]
+	  src/main.c
+	  src/summaryview.[ch]: added/fixed SummaryView and alert panel
+	  plug-in APIs.
+
+2010-08-02
+
+	* src/summaryview.c: summary_save_as(): added extension .eml for
+	  default file name.
+
+2010-08-02
+
+	* src/inc.[ch]: made the progress of receive dialog display only
+	  number/size in current session, not including already received ones.
+
+2010-07-30
+
+	* libsylph/prefs_common.[ch]
+	  src/prefs_common_dialog.c
+	  src/folderview.c
+	  src/mainwindow.[ch]: added new global option 'Change current account
+	  on folder open'.
+	  Made 'mark_as_read_on_new_window' a hidden option.
+
+2010-07-30
+
+	* src/inc.c: added 'Cancel all' button to the incorporation dialog.
+
+2010-07-30
+
+	* src/summaryview.c: summary_mark_displayed_read(): made
+	  mark_as_read_on_new_window setting work.
+
+2010-07-30
+
+	* libsylph/folder.c: folder_destroy(): remove private data after
+	  folder_tree_destroy() to prevent warnings.
+	* libsylph/prefs_account.[ch]
+	  src/compose.c
+	  src/prefs_account_dialog.c: added new account option 'Put signature
+	  before quote (not recommended)'.
+
+2010-07-30
+
+	* src/summaryview.c: summary_selection_changed(): don't clear message
+	  view on multiple selection and always_show_msg mode.
+	* libsylph/prefs_common.c: made always_show_message_when_selected
+	  enable by default.
+
+2010-07-29
+
+	* src/prefs_common_dialog.c: modified description of Junk mail folder.
+
+2010-07-29
+
+	* libsylph/procmsg.c
+	  src/folderview.c: added 'Empty junk' context menu to Junk folder.
+
+2010-07-29
+
+	* libsylph/prefs_common.c
+	  src/main.c
+	  src/summaryview.c: use default Junk folder when
+	  prefs_common.junk_folder is not set.
+
+2010-07-29
+
+	* libsylph/mh.c
+	  libsylph/folder.[ch]
+	  libsylph/defs.h
+	  src/icons/stock_spam_16.png
+	  src/icons/Makefile.am
+	  src/foldersel.c
+	  src/prefs_folder_item.c
+	  src/stock_pixmap.[ch]
+	  src/folderview.c: added 'Junk' special folder and automatically
+	  create it when not exist.
+
+2010-07-28
+
+	* src/folderview.c: folderview_menu_popup(): show/hide needless items
+	  depending on context.
+
+2010-07-28
+
+	* src/summaryview.[ch]
+	  src/mainwindow.c: improved the always-show-msg-on-summary-select
+	  mode (don't mark as read on automatic selection).
+
+2010-07-27
+
+	* libsylph/sylmain.c
+	  src/main.c: moved ssl_init()/ssl_done() from
+	  syl_init()/syl_cleanup() to src/main. Fixes accepted SSL certs
+	  not loaded when using alternative config dir.
+
+2010-07-23
+
+	* libsylph/virtual.c
+	  src/folderview.c: enabled moving of virtual folders.
+
+2010-07-22
+
+	* src/addressbook.c: implemeted drag and drop of addresses.
+
+2010-07-21
+
+	* src/prefs_template.c: notify on OK button press if not saved.
+
+2010-07-21
+
+	* src/prefs_template.c: confirm on cancel if templates are modified.
+	  Added Up/Down button to reorder template list.
+
+2010-07-20
+
+	* src/importcsv.c: added 'Alias' attribute.
+
+2010-07-16
+
+	* version 3.1.0beta2
+
+2010-07-16
+
+	* manual/*/Makefile.am: disabled install of sylpheed.sgml.
+
+2010-07-16
+
+	* libsylph/utils.c
+	  libsylph/procmsg.c: removed redundant debug print.
+
+2010-07-16
+
+	* libsylph/libsylph-0.def: updated.
+	* src/libsylpheed-plugin-0.def: updated.
+
+2010-07-16
+
+	* libsylph/filter.c: filter_cond_new(): fixed a bug that the value of
+	  <account-id> tag was not parsed correctly.
+
+2010-07-16
+
+	* manual/GFDL-1.2
+	  manual/en/sylpheed.sgml
+	  manual/en/*.html: updated to sylpheeddoc_manual_en_09032003.tar.gz.
+	  Added missing SGML source file. Also included GFDL-1.2 text file.
+
+2010-07-14
+
+	* src/plugin.[ch]
+	  src/main.c: added syl_plugin_summary_show_queued_msgs() and cleanup
+	  the code.
+
+2010-07-14
+
+	* src/gtkutils.[ch]
+	  src/addressbook.c
+	  src/compose.c
+	  src/mainwindow.c: always display fixed-positioned windows on screen
+	  (prevent windows displayed outside of screen between multi and
+	  single monitor switching).
+	* src/compose.c: always display compose window at the same location
+	  even if overlapped.
+
+2010-07-13
+
+	* src/summaryview.c: summary_show_queued_msgs(): scroll summary view
+	  to make added messages are visible.
+
+2010-07-13
+
+	* src/mainwindow.c: show error dialog on failure.
+
+2010-07-13
+
+	* libsylph/procmsg.c: procmsg_concat_partial_messages(): fully
+	  implemented RFC 2046.
+
+2010-07-13
+
+	* libsylph/procmsg.c
+	  libsylph/procmime.c: allow Content-Type without total parameter.
+
+2010-07-12
+
+	* libsylph/utils.[ch]
+	  libsylph/procmsg.[ch]
+	  libsylph/procmime.[ch]
+	  src/mainwindow.c: implemented concatenation of partial messages
+	  (RFC 2046). The header concatenation is still incomplete.
+
+2010-07-08
+
+	* faq/GFDL-1.2
+	  faq/Makefile.am
+	  faq/en/*.xml
+	  faq/en/Makefile.am: added missing source files of English FAQ.
+	  Also included GFDL-1.2 text file.
+
 2010-07-07
 
 	* src/prefs_common_dialog.c: changed the upper limit of auto check

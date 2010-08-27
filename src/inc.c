@@ -1,6 +1,6 @@
 /*
  * Sylpheed -- a GTK+ based, lightweight, and fast e-mail client
- * Copyright (C) 1999-2009 Hiroyuki Yamamoto
+ * Copyright (C) 1999-2010 Hiroyuki Yamamoto
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,6 +29,7 @@
 #include <gtk/gtkwindow.h>
 #include <gtk/gtksignal.h>
 #include <gtk/gtkprogressbar.h>
+#include <gtk/gtkdialog.h>
 #include <gtk/gtkstock.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -124,6 +125,8 @@ static void inc_put_error		(IncState	 istate,
 					 const gchar	*msg);
 
 static void inc_cancel_cb		(GtkWidget	*widget,
+					 gpointer	 data);
+static void inc_cancel_all_cb		(GtkWidget	*widget,
 					 gpointer	 data);
 static gint inc_dialog_delete_cb	(GtkWidget	*widget,
 					 GdkEventAny	*event,
@@ -499,14 +502,20 @@ static IncProgressDialog *inc_progress_dialog_create(gboolean autocheck)
 {
 	IncProgressDialog *dialog;
 	ProgressDialog *progress;
+	GtkWidget *cancel_all_btn;
 
 	dialog = g_new0(IncProgressDialog, 1);
 
 	progress = progress_dialog_create();
 	gtk_window_set_title(GTK_WINDOW(progress->window),
 			     _("Retrieving new messages"));
+	cancel_all_btn = gtk_dialog_add_button(GTK_DIALOG(progress->window),
+					       _("Cancel _all"),
+					       GTK_RESPONSE_NONE);
 	g_signal_connect(G_OBJECT(progress->cancel_btn), "clicked",
 			 G_CALLBACK(inc_cancel_cb), dialog);
+	g_signal_connect(G_OBJECT(cancel_all_btn), "clicked",
+			 G_CALLBACK(inc_cancel_all_cb), dialog);
 	g_signal_connect(G_OBJECT(progress->window), "delete_event",
 			 G_CALLBACK(inc_dialog_delete_cb), dialog);
 	/* manage_window_set_transient(GTK_WINDOW(progress->window)); */
@@ -603,6 +612,11 @@ static IncSession *inc_session_new(PrefsAccount *account)
 
 	session->cur_total_bytes = 0;
 	session->new_msgs = 0;
+
+	session->start_num = 0;
+	session->start_recv_bytes = 0;
+
+	session->retr_count = 0;
 
 	return session;
 }
@@ -988,34 +1002,48 @@ static void inc_progress_dialog_set_progress(IncProgressDialog *inc_dialog,
 	gchar *total_size_str;
 	gint64 cur_total;
 	gint64 total;
+	gint cur_num;
+	gint total_num_to_recv;
 
 	if (!pop3_session->new_msg_exist) return;
 
-	cur_total = inc_session->cur_total_bytes;
-	total = pop3_session->total_bytes;
-	if (pop3_session->state == POP3_RETR ||
-	    pop3_session->state == POP3_RETR_RECV ||
-	    pop3_session->state == POP3_DELETE) {
+	if (inc_session->retr_count == 0) {
+		cur_num = total_num_to_recv = 0;
+		cur_total = total = 0;
+	} else {
+		cur_num = pop3_session->cur_msg - inc_session->start_num + 1;
+		total_num_to_recv = pop3_session->count - inc_session->start_num + 1;
+		cur_total = inc_session->cur_total_bytes - inc_session->start_recv_bytes;
+		total = pop3_session->total_bytes - inc_session->start_recv_bytes;
+	}
+
+	if ((pop3_session->state == POP3_RETR ||
+	     pop3_session->state == POP3_RETR_RECV ||
+	     pop3_session->state == POP3_DELETE) && total_num_to_recv > 0) {
 		Xstrdup_a(total_size_str, to_human_readable(total), return);
 		g_snprintf(buf, sizeof(buf),
 			   _("Retrieving message (%d / %d) (%s / %s)"),
-			   pop3_session->cur_msg, pop3_session->count,
+			   cur_num, total_num_to_recv,
 			   to_human_readable(cur_total), total_size_str);
 		progress_dialog_set_label(inc_dialog->dialog, buf);
 	}
 
-	progress_dialog_set_percentage
-		(inc_dialog->dialog,(gfloat)cur_total / (gfloat)total);
+	if (total > 0)
+		progress_dialog_set_percentage
+			(inc_dialog->dialog, (gfloat)cur_total / (gfloat)total);
 
 	gtk_progress_set_show_text
 		(GTK_PROGRESS(inc_dialog->mainwin->progressbar), TRUE);
-	g_snprintf(buf, sizeof(buf), "%d / %d",
-		   pop3_session->cur_msg, pop3_session->count);
+	if (total_num_to_recv > 0)
+		g_snprintf(buf, sizeof(buf), "%d / %d", cur_num, total_num_to_recv);
+	else
+		buf[0] = '\0';
 	gtk_progress_set_format_string
 		(GTK_PROGRESS(inc_dialog->mainwin->progressbar), buf);
-	gtk_progress_bar_update
-		(GTK_PROGRESS_BAR(inc_dialog->mainwin->progressbar),
-		 (gfloat)cur_total / (gfloat)total);
+	if (total > 0)
+		gtk_progress_bar_update
+			(GTK_PROGRESS_BAR(inc_dialog->mainwin->progressbar),
+			 (gfloat)cur_total / (gfloat)total);
 
 	if (pop3_session->cur_total_num > 0) {
 		g_snprintf(buf, sizeof(buf),
@@ -1155,6 +1183,7 @@ static gint inc_recv_message(Session *session, const gchar *msg, gpointer data)
 {
 	IncSession *inc_session = (IncSession *)data;
 	IncProgressDialog *inc_dialog;
+	Pop3Session *pop3_session = POP3_SESSION(session);
 
 	g_return_val_if_fail(inc_session != NULL, -1);
 
@@ -1172,8 +1201,24 @@ static gint inc_recv_message(Session *session, const gchar *msg, gpointer data)
 		inc_progress_dialog_update(inc_dialog, inc_session);
 		gdk_threads_leave();
 		break;
-	case POP3_RETR:
-		inc_recv_data_progressive(session, 0, 0, inc_session);
+	case POP3_RETR_RECV:
+		if (inc_session->retr_count == 0) {
+			inc_session->start_num = pop3_session->cur_msg;
+			inc_session->start_recv_bytes = pop3_session->cur_total_bytes;
+			inc_session->cur_total_bytes = pop3_session->cur_total_bytes;
+#if 0
+			g_print("total_bytes_to_recv = %lld total_num_to_recv = %d\n", pop3_session->total_bytes - inc_session->start_recv_bytes, pop3_session->count - inc_session->start_num + 1);
+			g_print("pop: total_bytes = %lld cur_total_bytes = %lld\n", pop3_session->total_bytes, pop3_session->cur_total_bytes);
+			g_print("pop: count = %d cur_msg = %d\n", pop3_session->count, pop3_session->cur_msg);
+#endif
+			inc_session->retr_count++;
+			gdk_threads_enter();
+			inc_progress_dialog_update(inc_dialog, inc_session);
+			gdk_threads_leave();
+		} else {
+			inc_session->retr_count++;
+			inc_recv_data_progressive(session, 0, 0, inc_session);
+		}
 		break;
 	case POP3_LOGOUT:
 		gdk_threads_enter();
@@ -1460,6 +1505,11 @@ static void inc_cancel_cb(GtkWidget *widget, gpointer data)
 	inc_cancel((IncProgressDialog *)data, FALSE);
 }
 
+static void inc_cancel_all_cb(GtkWidget *widget, gpointer data)
+{
+	inc_cancel((IncProgressDialog *)data, TRUE);
+}
+
 static gint inc_dialog_delete_cb(GtkWidget *widget, GdkEventAny *event,
 				 gpointer data)
 {
@@ -1467,6 +1517,8 @@ static gint inc_dialog_delete_cb(GtkWidget *widget, GdkEventAny *event,
 
 	if (dialog->queue_list == NULL)
 		inc_progress_dialog_destroy(dialog);
+	else
+		inc_cancel(dialog, TRUE);
 
 	return TRUE;
 }

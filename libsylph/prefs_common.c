@@ -398,7 +398,7 @@ static PrefParam param[] = {
 	{"separate_folder", "FALSE", &prefs_common.sep_folder, P_BOOL},
 	{"separate_message", "FALSE", &prefs_common.sep_msg, P_BOOL},
 
-	{"always_show_message_when_selected", "FALSE",
+	{"always_show_message_when_selected", "TRUE",
 	 &prefs_common.always_show_msg, P_BOOL},
 	{"open_unread_on_enter", "FALSE", &prefs_common.open_unread_on_enter,
 	 P_BOOL},
@@ -409,6 +409,8 @@ static PrefParam param[] = {
 	{"open_inbox_on_inc", "FALSE", &prefs_common.open_inbox_on_inc, P_BOOL},
 	{"open_inbox_on_startup", "FALSE", &prefs_common.open_inbox_on_startup,
 	 P_BOOL},
+	{"change_account_on_folder_selection", "TRUE",
+	 &prefs_common.change_account_on_folder_sel, P_BOOL},
 	{"immediate_execution", "TRUE", &prefs_common.immediate_exec, P_BOOL},
 
 #ifdef G_OS_WIN32
@@ -514,8 +516,6 @@ void prefs_common_read_config(void)
 
 	prefs_common.online_mode = TRUE;
 
-	prefs_common_junk_filter_list_set();
-
 	path = g_strconcat(get_rc_dir(), G_DIR_SEPARATOR_S, COMMAND_HISTORY,
 			   NULL);
 	if ((fp = g_fopen(path, "rb")) == NULL) {
@@ -568,19 +568,33 @@ static FilterRule *prefs_common_junk_filter_rule_create(gboolean is_manual)
 	FilterCond *cond;
 	FilterAction *action;
 	GSList *cond_list = NULL, *action_list = NULL;
+	gchar *junk_id;
+
+	if (prefs_common.junk_folder)
+		junk_id = g_strdup(prefs_common.junk_folder);
+	else {
+		FolderItem *item;
+		item = folder_get_default_junk();
+		if (!item)
+			return NULL;
+		junk_id = folder_item_get_identifier(item);
+		if (!junk_id)
+			return NULL;
+	}
+
+	debug_print("prefs_common_junk_filter_rule_create: junk folder: %s\n",
+		    junk_id);
 
 	cond = filter_cond_new(FLT_COND_CMD_TEST, 0, 0, NULL,
 			       prefs_common.junk_classify_cmd);
 	cond_list = g_slist_append(NULL, cond);
 	if (prefs_common.delete_junk_on_recv && !is_manual) {
-		action = filter_action_new(FLT_ACTION_COPY,
-					   prefs_common.junk_folder);
+		action = filter_action_new(FLT_ACTION_COPY, junk_id);
 		action_list = g_slist_append(NULL, action);
 		action = filter_action_new(FLT_ACTION_DELETE, NULL);
 		action_list = g_slist_append(action_list, action);
 	} else {
-		action = filter_action_new(FLT_ACTION_MOVE,
-					   prefs_common.junk_folder);
+		action = filter_action_new(FLT_ACTION_MOVE, junk_id);
 		action_list = g_slist_append(NULL, action);
 	}
 
@@ -596,12 +610,16 @@ static FilterRule *prefs_common_junk_filter_rule_create(gboolean is_manual)
 		rule = filter_rule_new(_("Junk mail filter"), FLT_OR,
 				       cond_list, action_list);
 
+	g_free(junk_id);
+
 	return rule;
 }
 
 void prefs_common_junk_filter_list_set(void)
 {
 	FilterRule *rule;
+
+	debug_print("prefs_common_junk_filter_list_set\n");
 
 	if (prefs_common.junk_fltlist) {
 		filter_rule_list_free(prefs_common.junk_fltlist);
@@ -612,13 +630,17 @@ void prefs_common_junk_filter_list_set(void)
 		prefs_common.manual_junk_fltlist = NULL;
 	}
 
-	if (!prefs_common.junk_classify_cmd || !prefs_common.junk_folder)
+	if (!prefs_common.junk_classify_cmd)
 		return;
 
 	rule = prefs_common_junk_filter_rule_create(FALSE);
+	if (!rule)
+		return;
 	prefs_common.junk_fltlist = g_slist_append(NULL, rule);
 
 	rule = prefs_common_junk_filter_rule_create(TRUE);
+	if (!rule)
+		return;
 	prefs_common.manual_junk_fltlist = g_slist_append(NULL, rule);
 }
 
