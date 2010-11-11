@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: sylpheed\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-05 17:43+0900\n"
-"PO-Revision-Date: 2010-08-27 00:20-0300\n"
+"PO-Revision-Date: 2010-11-11 00:26-0200\n"
 "Last-Translator: Alexandre Erwin Ittner <alexandre@ittner.com.br>\n"
 "Language-Team: Portuguese/Brazil <(none)>\n"
 "MIME-Version: 1.0\n"
@@ -3853,9 +3853,8 @@ msgid "/_Help/_Update check..."
 msgstr "/A_juda/Verificar por _atualizações..."
 
 #: src/mainwindow.c:907
-#, fuzzy
 msgid "/_Help/Update check of _plug-ins..."
-msgstr "/A_juda/Verificar por _atualizações..."
+msgstr "/A_juda/Verificar por _atualizações dos plugins..."
 
 #: src/mainwindow.c:954
 msgid "Creating main window...\n"
@@ -4283,7 +4282,7 @@ msgstr "Gerenciador de plug-ins"
 
 #: src/plugin_manager.c:140
 msgid "Check for _update"
-msgstr ""
+msgstr "Procurar at_ualizações"
 
 #: src/plugin_manager.c:190
 msgid "Plug-in information"
@@ -7049,19 +7048,18 @@ msgid "Failed to import the mail data."
 msgstr "Falha ao importar dados das mensagens"
 
 #: src/setup.c:1238
-#, fuzzy
 msgid "Importing address book"
-msgstr "No catálogo de endereços"
+msgstr "Importando catálogo de endereços"
 
 #: src/setup.c:1238
 msgid ""
 "The Windows address book was found. Do you want to import the address book?"
 msgstr ""
+"O catálogo de endereços do Windows foi encontrado. Você desejam importá-lo?"
 
 #: src/setup.c:1275
-#, fuzzy
 msgid "Failed to import the address book."
-msgstr "Falha ao importar dados das mensagens"
+msgstr "Falha ao importar o catálogo de endereços"
 
 #: src/sigstatus.c:116
 msgid "Signature check result"
@@ -7716,23 +7714,20 @@ msgid "Couldn't get the version information."
 msgstr "Não foi possível obter a informações de versão."
 
 #: src/update_check.c:599
-#, fuzzy
 msgid ""
 "Newer version of plug-ins have been found.\n"
 "Upgrade now?\n"
 msgstr ""
-"Uma nova versão do Sylpheed foi localizada.\n"
-"Você deseja atualizar agora?"
+"Novas versões dos plugins foram encontradas.\n"
+"Você deseja atualizar agora?\n"
 
 #: src/update_check.c:659
-#, fuzzy
 msgid "All Sylpheed plug-ins are already the latest version."
-msgstr "Sylpheed está devidamente atualizado."
+msgstr "Todos os plugins do Sylpheed já estão atualizados."
 
 #: src/update_check.c:662
-#, fuzzy
 msgid "Couldn't get the version information of plug-ins."
-msgstr "Não foi possível obter a informações de versão."
+msgstr "Não foi possível obter a informações de versão dos plugins."
 
 #~ msgid "Reply button invokes mailing list reply"
 #~ msgstr "Botão de responder chama resposta para a lista"
