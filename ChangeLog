@@ -1,3 +1,56 @@
+2010-11-09
+
+	* src/rpop3.c: rpop3_account(): clear temporary password if
+	  authentication fails.
+
+2010-11-05
+
+	* src/update_check.c
+	  src/mainwindow.c: modified strings about plug-ins.
+
+2010-11-05
+
+	* src/main.c
+	  src/update_check.c: convert argv[0] to UTF-8 (fixes restart of
+	  process on Win32 when installed on non-ascii path).
+
+2010-11-02
+
+	* libsylph/sylmain.c
+	  libsylph/defs.h
+	  src/update_check.[ch]
+	  src/plugin_manager.c
+	  src/plugin.[ch]
+	  src/main.[ch]
+	  src/libsylpheed-plugin-0.def
+	  src/mainwindow.[ch]
+	  plugin/test/test.c
+	  configure.in: merged plug-in update check and automatic update patch.
+
+2010-10-25
+
+	* libsylph/procmime.[ch]: added procmime_get_part_fp_fp().
+
+2010-10-21
+
+	* src/plugin.[ch]
+	  src/main.c: added new functions for sending messages.
+
+2010-10-21
+
+	* src/summaryview.c: modified always_show_msg flag handling.
+
+2010-08-31
+
+	* libsylph/prefs_account.c: leave messages on POP3 server for 7 days
+	  by default.
+
+2010-08-30
+
+	* src/main.c: remote_command_exec(): fixed the bug that default
+	  account's inbox was not properly selected when 'Open inbox on
+	  startup' was enabled.
+
 2010-08-19
 
 	* src/addressbook.[ch]

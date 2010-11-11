@@ -132,6 +132,8 @@ static struct RemoteCmd {
 	gchar *open_msg;
 	gboolean configdir;
 	gboolean exit;
+	gboolean restart;
+	gchar *argv0;
 #ifdef G_OS_WIN32
 	gushort ipcport;
 #endif
@@ -615,6 +617,10 @@ static void parse_cmd_opt(int argc, char *argv[])
 		cmd.compose = TRUE;
 		cmd.compose_mailto = NULL;
 	}
+
+	cmd.argv0 = g_locale_to_utf8(argv[0], -1, NULL, NULL, NULL);
+	if (!cmd.argv0)
+		cmd.argv0 = g_strdup(argv[0]);
 }
 
 static gint get_queued_message_num(void)
@@ -758,6 +764,50 @@ static void setup_rc_dir(void)
 	syl_setup_rc_dir();
 }
 
+static void app_restart(void)
+{
+	gchar *cmdline;
+	GError *error = NULL;
+#ifdef G_OS_WIN32
+	if (cmd.configdir) {
+		cmdline = g_strdup_printf("\"%s\"%s --configdir \"%s\" --ipcport %d",
+					  cmd.argv0,
+					  get_debug_mode() ? " --debug" : "",
+					  get_rc_dir(),
+					  cmd.ipcport);
+	} else {
+		cmdline = g_strdup_printf("\"%s\"%s --ipcport %d",
+					  cmd.argv0,
+					  get_debug_mode() ? " --debug" : "",
+					  cmd.ipcport);
+	}
+#else
+	if (cmd.configdir) {
+		cmdline = g_strdup_printf("\"%s\"%s --configdir \"%s\"",
+					  cmd.argv0,
+					  get_debug_mode() ? " --debug" : "",
+					  get_rc_dir());
+	} else {
+		cmdline = g_strdup_printf("\"%s\"%s",
+					  cmd.argv0,
+					  get_debug_mode() ? " --debug" : "");
+	}
+#endif
+	if (!g_spawn_command_line_async(cmdline, &error)) {
+		alertpanel_error("restart failed\n'%s'\n%s", cmdline, error->message);
+		g_error_free(error);
+	}
+	g_free(cmdline);
+}
+
+void app_will_restart(gboolean force)
+{
+	cmd.restart = TRUE;
+	app_will_exit(force);
+	/* canceled */
+	cmd.restart = FALSE;
+}
+
 void app_will_exit(gboolean force)
 {
 	MainWindow *mainwin;
@@ -794,6 +844,8 @@ void app_will_exit(gboolean force)
 		manage_window_focus_in(mainwin->window, NULL, NULL);
 	}
 
+	if (force)
+		g_signal_emit_by_name(syl_app_get(), "app-force-exit");
 	g_signal_emit_by_name(syl_app_get(), "app-exit");
 
 	inc_autocheck_timer_remove();
@@ -831,10 +883,22 @@ void app_will_exit(gboolean force)
 	syl_cleanup();
 	lock_socket_remove();
 
+#ifdef USE_UPDATE_CHECK_PLUGIN
+#ifdef G_OS_WIN32
+	cur = gtk_window_list_toplevels();
+	g_list_foreach(cur, (GFunc)gtk_widget_hide, NULL);
+	g_list_free(cur);
+	update_check_spawn_plugin_updater();
+#endif
+#endif
+
 	cleanup_console();
 
 	if (gtk_main_level() > 0)
 		gtk_main_quit();
+
+	if (cmd.restart)
+		app_restart();
 
 	exit(0);
 }
@@ -1223,14 +1287,27 @@ static void plugin_init(void)
 	ADD_SYM(update_check);
 	ADD_SYM(update_check_set_check_url);
 	ADD_SYM(update_check_get_check_url);
+	ADD_SYM(update_check_set_download_url);
+	ADD_SYM(update_check_get_download_url);
 	ADD_SYM(update_check_set_jump_url);
 	ADD_SYM(update_check_get_jump_url);
+#ifdef USE_UPDATE_CHECK_PLUGIN
+	ADD_SYM(update_check_set_check_plugin_url);
+	ADD_SYM(update_check_get_check_plugin_url);
+	ADD_SYM(update_check_set_jump_plugin_url);
+	ADD_SYM(update_check_get_jump_plugin_url);
+#endif /* USE_UPDATE_CHECK_PLUGIN */
 #endif
 
 	ADD_SYM(alertpanel_full);
 	ADD_SYM(alertpanel);
 	ADD_SYM(alertpanel_message);
 	ADD_SYM(alertpanel_message_with_disable);
+
+	ADD_SYM(send_message);
+	ADD_SYM(send_message_queue_all);
+	ADD_SYM(send_message_set_reply_flag);
+	ADD_SYM(send_message_set_forward_flags);
 
 	syl_plugin_signal_connect("plugin-load", G_CALLBACK(load_cb), NULL);
 
@@ -1542,8 +1619,13 @@ static void remote_command_exec(void)
 
 	if (prefs_common.open_inbox_on_startup) {
 		FolderItem *item;
-		item = cur_account && cur_account->inbox
-			? folder_find_item_from_identifier(cur_account->inbox)
+		PrefsAccount *ac;
+
+		ac = account_get_default();
+		if (!ac)
+			ac = cur_account;
+		item = ac && ac->inbox
+			? folder_find_item_from_identifier(ac->inbox)
 			: folder_get_default_inbox();
 		folderview_select(mainwin->folderview, item);
 	}

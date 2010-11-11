@@ -1080,6 +1080,22 @@ const gchar *syl_plugin_update_check_get_check_url(void)
 	return SAFE_CALL_RET(func);
 }
 
+void syl_plugin_update_check_set_download_url(const gchar *url)
+{
+	void (*func)(const gchar *);
+
+	func = syl_plugin_lookup_symbol("update_check_set_download_url");
+	SAFE_CALL_ARG1(func, url);
+}
+
+const gchar *syl_plugin_update_check_get_download_url(void)
+{
+	const gchar * (*func)(void);
+
+	func = syl_plugin_lookup_symbol("update_check_get_download_url");
+	return SAFE_CALL_RET(func);
+}
+
 void syl_plugin_update_check_set_jump_url(const gchar *url)
 {
 	void (*func)(const gchar *);
@@ -1093,6 +1109,38 @@ const gchar *syl_plugin_update_check_get_jump_url(void)
 	const gchar * (*func)(void);
 
 	func = syl_plugin_lookup_symbol("update_check_get_jump_url");
+	return SAFE_CALL_RET(func);
+}
+
+void syl_plugin_update_check_set_check_plugin_url(const gchar *url)
+{
+	void (*func)(const gchar *);
+
+	func = syl_plugin_lookup_symbol("update_check_set_check_plugin_url");
+	SAFE_CALL_ARG1(func, url);
+}
+
+const gchar *syl_plugin_update_check_get_check_plugin_url(void)
+{
+	const gchar * (*func)(void);
+
+	func = syl_plugin_lookup_symbol("update_check_get_check_plugin_url");
+	return SAFE_CALL_RET(func);
+}
+
+void syl_plugin_update_check_set_jump_plugin_url(const gchar *url)
+{
+	void (*func)(const gchar *);
+
+	func = syl_plugin_lookup_symbol("update_check_set_jump_plugin_url");
+	SAFE_CALL_ARG1(func, url);
+}
+
+const gchar *syl_plugin_update_check_get_jump_plugin_url(void)
+{
+	const gchar * (*func)(void);
+
+	func = syl_plugin_lookup_symbol("update_check_get_jump_plugin_url");
 	return SAFE_CALL_RET(func);
 }
 
@@ -1141,4 +1189,39 @@ gint syl_plugin_alertpanel_message_with_disable(const gchar *title,
 
 	GETFUNC("alertpanel_message_with_disable");
 	return SAFE_CALL_ARG3_RET_VAL(func, title, message, type, 0);
+}
+
+gint syl_plugin_send_message(const gchar *file, PrefsAccount *ac,
+			     GSList *to_list)
+{
+	gint (*func)(const gchar *, PrefsAccount *, GSList *);
+
+	GETFUNC("send_message");
+	return SAFE_CALL_ARG3_RET_VAL(func, file, ac, to_list, -1);
+}
+
+gint syl_plugin_send_message_queue_all(FolderItem *queue, gboolean save_msgs,
+				       gboolean filter_msgs)
+{
+	gint (*func)(FolderItem *, gboolean, gboolean);
+
+	GETFUNC("send_message_queue_all");
+	return SAFE_CALL_ARG3_RET_VAL(func, queue, save_msgs, filter_msgs, -1);
+}
+
+gint syl_plugin_send_message_set_reply_flag(const gchar *reply_target,
+					    const gchar *msgid)
+{
+	gint (*func)(const gchar *, const gchar *);
+
+	GETFUNC("send_message_set_reply_flag");
+	return SAFE_CALL_ARG2_RET_VAL(func, reply_target, msgid, -1);
+}
+
+gint syl_plugin_send_message_set_forward_flags(const gchar *forward_targets)
+{
+	gint (*func)(const gchar *);
+
+	GETFUNC("send_message_set_forward_flags");
+	return SAFE_CALL_ARG1_RET_VAL(func, forward_targets, -1);
 }

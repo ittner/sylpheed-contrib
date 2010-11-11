@@ -246,8 +246,14 @@ void syl_plugin_inc_unlock			(void);
 void syl_plugin_update_check			(gboolean show_dialog_always);
 void syl_plugin_update_check_set_check_url		(const gchar *url);
 const gchar *syl_plugin_update_check_get_check_url	(void);
+void syl_plugin_update_check_set_download_url		(const gchar *url);
+const gchar *syl_plugin_update_check_get_download_url	(void);
 void syl_plugin_update_check_set_jump_url		(const gchar *url);
 const gchar *syl_plugin_update_check_get_jump_url	(void);
+void syl_plugin_update_check_set_check_plugin_url	(const gchar *url);
+const gchar *syl_plugin_update_check_get_check_plugin_url(void);
+void syl_plugin_update_check_set_jump_plugin_url	(const gchar *url);
+const gchar *syl_plugin_update_check_get_jump_plugin_url(void);
 
 /* type corresponds to AlertType
  * default_value and return value corresponds to AlertValue */
@@ -270,5 +276,16 @@ void syl_plugin_alertpanel_message		(const gchar *title,
 gint syl_plugin_alertpanel_message_with_disable	(const gchar *title,
 						 const gchar *message,
 						 gint type);
+
+/* Send message */
+gint syl_plugin_send_message			(const gchar	*file,
+						 PrefsAccount	*ac,
+						 GSList		*to_list);
+gint syl_plugin_send_message_queue_all		(FolderItem	*queue,
+						 gboolean	 save_msgs,
+						 gboolean	 filter_msgs);
+gint syl_plugin_send_message_set_reply_flag	(const gchar	*reply_target,
+						 const gchar	*msgid);
+gint syl_plugin__send_message_set_forward_flags	(const gchar	*forward_targets);
 
 #endif /* __PLUGIN_H__ */
