@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sylpheed 3.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-05 17:43+0900\n"
+"POT-Creation-Date: 2010-12-24 14:31+0900\n"
 "PO-Revision-Date: 2010-02-22 15:22+0300\n"
 "Last-Translator: Mikalai Udodau <crom-a@tut.by>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -16,234 +16,242 @@ msgstr ""
 msgid "Reading all config for each account...\n"
 msgstr "Чытанне ўсіх канфігурацый для кожнага акаунта...\n"
 
-#: libsylph/imap.c:534
+#: libsylph/filter.c:1545
+msgid "Junk mail filter (manual)"
+msgstr "Фільтр непажаданай пошты (ручны)"
+
+#: libsylph/filter.c:1548
+msgid "Junk mail filter"
+msgstr "Фільтр непажаданай пошты"
+
+#: libsylph/imap.c:537
 #, c-format
 msgid "IMAP4 connection to %s has been disconnected. Reconnecting...\n"
 msgstr "Злучэнне IMAP4 з %s было разарвана. Перазлучэнне...\n"
 
-#: libsylph/imap.c:591 libsylph/imap.c:597
+#: libsylph/imap.c:594 libsylph/imap.c:600
 msgid "IMAP4 server disables LOGIN.\n"
 msgstr "Сервер IMAP4 не дазваляе LOGIN.\n"
 
-#: libsylph/imap.c:656
+#: libsylph/imap.c:659
 msgid "Could not establish IMAP connection.\n"
 msgstr "Немагчыма устанавіць злучэнне IMAP4.\n"
 
-#: libsylph/imap.c:674
+#: libsylph/imap.c:678
 #, c-format
 msgid "creating IMAP4 connection to %s:%d ...\n"
 msgstr "стварэнне злучэнне IMAP4 з %s:%d ...\n"
 
-#: libsylph/imap.c:718
+#: libsylph/imap.c:731
 msgid "Can't start TLS session.\n"
 msgstr "Нельга пачаць сеанс TLS.\n"
 
-#: libsylph/imap.c:865
+#: libsylph/imap.c:878
 msgid "(retrieving FLAGS...)"
 msgstr "(атрыманне FLAGS...)"
 
-#: libsylph/imap.c:1256
+#: libsylph/imap.c:1269
 #, c-format
 msgid "Getting message %u"
 msgstr "Атрыманне паведамлення %u"
 
-#: libsylph/imap.c:1378
+#: libsylph/imap.c:1391
 #, c-format
 msgid "Appending messages to %s (%d / %d)"
 msgstr "Далучэнне паведамлення да %s (%d / %d)"
 
-#: libsylph/imap.c:1501
+#: libsylph/imap.c:1514
 #, c-format
 msgid "Moving messages %s to %s ..."
 msgstr "Перанос паведамленняў %s у %s ..."
 
-#: libsylph/imap.c:1506
+#: libsylph/imap.c:1519
 #, c-format
 msgid "Copying messages %s to %s ..."
 msgstr "Капіраванне паведамленняў %s у %s ..."
 
-#: libsylph/imap.c:1644
+#: libsylph/imap.c:1657
 #, c-format
 msgid "Removing messages %s"
 msgstr "Сціранне паведамленняў %s"
 
-#: libsylph/imap.c:1650
+#: libsylph/imap.c:1663
 #, c-format
 msgid "can't set deleted flags: %s\n"
 msgstr "нельга ўстанавіць флагі сцірання: %s\n"
 
-#: libsylph/imap.c:1658 libsylph/imap.c:1757
+#: libsylph/imap.c:1671 libsylph/imap.c:1770
 msgid "can't expunge\n"
 msgstr "нельга выкрасліць\n"
 
-#: libsylph/imap.c:1741
+#: libsylph/imap.c:1754
 #, c-format
 msgid "Removing all messages in %s"
 msgstr "Сціранне ўсіх паведамленняў з %s..."
 
-#: libsylph/imap.c:1746 libsylph/imap.c:1751
+#: libsylph/imap.c:1759 libsylph/imap.c:1764
 msgid "can't set deleted flags: 1:*\n"
 msgstr "нельга ўстанавіць флагі сцірання: 1:*\n"
 
-#: libsylph/imap.c:1799
+#: libsylph/imap.c:1812
 msgid "can't close folder\n"
 msgstr "нельга закрыць каталог\n"
 
-#: libsylph/imap.c:1878
+#: libsylph/imap.c:1891
 #, c-format
 msgid "root folder %s not exist\n"
 msgstr "каталог кораню %s не існуе\n"
 
-#: libsylph/imap.c:2078 libsylph/imap.c:2086
+#: libsylph/imap.c:2091 libsylph/imap.c:2099
 msgid "error occurred while getting LIST.\n"
 msgstr "памылка здарылася падчас атрымання LIST.\n"
 
-#: libsylph/imap.c:2318
+#: libsylph/imap.c:2331
 #, c-format
 msgid "Can't create '%s'\n"
 msgstr "Нельга стварыць `%s'\n"
 
-#: libsylph/imap.c:2323
+#: libsylph/imap.c:2336
 #, c-format
 msgid "Can't create '%s' under INBOX\n"
 msgstr "Нельга стварыць '%s' у INBOX\n"
 
-#: libsylph/imap.c:2385
+#: libsylph/imap.c:2398
 msgid "can't create mailbox: LIST failed\n"
 msgstr "нельга стварыць скрынку: LIST схібіў\n"
 
-#: libsylph/imap.c:2408
+#: libsylph/imap.c:2421
 msgid "can't create mailbox\n"
 msgstr "нельга стварыць скрынку\n"
 
-#: libsylph/imap.c:2536
+#: libsylph/imap.c:2549
 #, c-format
 msgid "can't rename mailbox: %s to %s\n"
 msgstr "нельга перайменаваць скрынку: %s у %s\n"
 
-#: libsylph/imap.c:2616
+#: libsylph/imap.c:2629
 msgid "can't delete mailbox\n"
 msgstr "нельга сцерці скрынку\n"
 
-#: libsylph/imap.c:2643
+#: libsylph/imap.c:2656
 #, c-format
 msgid "Getting message headers (%d / %d)"
 msgstr "Атрыманне загалоўкаў паведамлення (%d / %d)"
 
-#: libsylph/imap.c:2695
+#: libsylph/imap.c:2708
 msgid "error occurred while getting envelope.\n"
 msgstr "памылка здарылася падчас атрымання агібаючай.\n"
 
-#: libsylph/imap.c:2716
+#: libsylph/imap.c:2729
 #, c-format
 msgid "can't parse envelope: %s\n"
 msgstr "немагчыма разабраць агібаючую: %s\n"
 
-#: libsylph/imap.c:2773
+#: libsylph/imap.c:2786
 msgid "can't get envelope\n"
 msgstr "нельга атрымаць агібаючую\n"
 
-#: libsylph/imap.c:2880 libsylph/imap.c:2886
+#: libsylph/imap.c:2905 libsylph/imap.c:2911
 #, c-format
 msgid "Can't connect to IMAP4 server: %s:%d\n"
 msgstr "Немагчыма злучыцца з серверам IMAP4: %s:%d\n"
 
-#: libsylph/imap.c:2894
+#: libsylph/imap.c:2927
 #, c-format
 msgid "Can't establish IMAP4 session with: %s:%d\n"
 msgstr "Немагчыма устанавіць сеанс IMAP4 з: %s:%d\n"
 
-#: libsylph/imap.c:2969
+#: libsylph/imap.c:3002
 msgid "can't get namespace\n"
 msgstr "нельга атрымаць прастору імён\n"
 
-#: libsylph/imap.c:3593
+#: libsylph/imap.c:3626
 #, c-format
 msgid "can't select folder: %s\n"
 msgstr "нельга выбраць каталог: %s\n"
 
-#: libsylph/imap.c:3631
+#: libsylph/imap.c:3664
 msgid "error on imap command: STATUS\n"
 msgstr "памылка пры выкананні загаду imap: STATUS\n"
 
-#: libsylph/imap.c:3755 libsylph/imap.c:3790
+#: libsylph/imap.c:3788 libsylph/imap.c:3823
 msgid "IMAP4 authentication failed.\n"
 msgstr "Аўтэнтыфікацыя IMAP4 схібіла.\n"
 
-#: libsylph/imap.c:3843
+#: libsylph/imap.c:3876
 msgid "IMAP4 login failed.\n"
 msgstr "Уваход на сервер IMAP4 схібіў.\n"
 
-#: libsylph/imap.c:4247 libsylph/imap.c:4254
+#: libsylph/imap.c:4280 libsylph/imap.c:4287
 #, c-format
 msgid "can't append %s to %s\n"
 msgstr "нельга далучыць %s да %s\n"
 
-#: libsylph/imap.c:4261
+#: libsylph/imap.c:4294
 msgid "(sending file...)"
 msgstr "(адпраўленне файла...)"
 
-#: libsylph/imap.c:4290
+#: libsylph/imap.c:4323
 #, c-format
 msgid "can't append message to %s\n"
 msgstr "нельга далучыць паведамленне да %s\n"
 
-#: libsylph/imap.c:4322
+#: libsylph/imap.c:4355
 #, c-format
 msgid "can't copy %s to %s\n"
 msgstr "нельга скапіраваць %s у %s\n"
 
-#: libsylph/imap.c:4345
+#: libsylph/imap.c:4378
 #, c-format
 msgid "error while imap command: STORE %s %s\n"
 msgstr "памылка пры выкананні загаду imap: STORE %s %s\n"
 
-#: libsylph/imap.c:4361
+#: libsylph/imap.c:4394
 msgid "error while imap command: EXPUNGE\n"
 msgstr "памылка пры выкананні загаду imap: EXPUNGE\n"
 
-#: libsylph/imap.c:4376
+#: libsylph/imap.c:4409
 msgid "error while imap command: CLOSE\n"
 msgstr "памылка пры выкананні загаду imap: CLOSE\n"
 
-#: libsylph/imap.c:4697
+#: libsylph/imap.c:4730
 #, c-format
 msgid "iconv cannot convert UTF-7 to %s\n"
 msgstr "iconv не можа канвертаваць UTF-7 у %s\n"
 
-#: libsylph/imap.c:4727
+#: libsylph/imap.c:4760
 #, c-format
 msgid "iconv cannot convert %s to UTF-7\n"
 msgstr "iconv не можа канвертаваць %s у UTF-7\n"
 
-#: libsylph/mbox.c:49 libsylph/mbox.c:216
+#: libsylph/mbox.c:49 libsylph/mbox.c:226
 msgid "can't write to temporary file\n"
 msgstr "нельга запісаць у часовы файл\n"
 
-#: libsylph/mbox.c:81
+#: libsylph/mbox.c:84
 #, c-format
 msgid "Getting messages from %s into %s...\n"
 msgstr "Атрыманне паведамленняў з %s у %s...\n"
 
-#: libsylph/mbox.c:93
+#: libsylph/mbox.c:96
 msgid "can't read mbox file.\n"
 msgstr "нельга прачытаць файл mbox.\n"
 
-#: libsylph/mbox.c:100
+#: libsylph/mbox.c:103
 #, c-format
 msgid "invalid mbox format: %s\n"
 msgstr "няправільны фармат mbox: %s\n"
 
-#: libsylph/mbox.c:107
+#: libsylph/mbox.c:110
 #, c-format
 msgid "malformed mbox: %s\n"
 msgstr "пашкоджаная скрынка: %s\n"
 
-#: libsylph/mbox.c:130
+#: libsylph/mbox.c:139
 msgid "can't open temporary file\n"
 msgstr "нельга адкрыць часовы файл\n"
 
-#: libsylph/mbox.c:181
+#: libsylph/mbox.c:191
 #, c-format
 msgid ""
 "unescaped From found:\n"
@@ -252,43 +260,43 @@ msgstr ""
 "знойдзены 'unescaped' From:\n"
 "%s"
 
-#: libsylph/mbox.c:324
+#: libsylph/mbox.c:338
 #, c-format
 msgid "can't create lock file %s\n"
 msgstr "нельга стварыць файл блакіроўкі %s\n"
 
-#: libsylph/mbox.c:325
+#: libsylph/mbox.c:339
 msgid "use 'flock' instead of 'file' if possible.\n"
 msgstr "калі магчыма, ўжывайце 'flock' замест 'file'.\n"
 
-#: libsylph/mbox.c:337
+#: libsylph/mbox.c:351
 #, c-format
 msgid "can't create %s\n"
 msgstr "нельга стварыць %s\n"
 
-#: libsylph/mbox.c:343
+#: libsylph/mbox.c:357
 msgid "mailbox is owned by another process, waiting...\n"
 msgstr "скрынка кантралюецца другім працэсам, чаканне...\n"
 
-#: libsylph/mbox.c:372
+#: libsylph/mbox.c:386
 #, c-format
 msgid "can't lock %s\n"
 msgstr "нельга блакіраваць %s\n"
 
-#: libsylph/mbox.c:379 libsylph/mbox.c:429
+#: libsylph/mbox.c:393 libsylph/mbox.c:443
 msgid "invalid lock type\n"
 msgstr "няправільны тып блакіроўкі\n"
 
-#: libsylph/mbox.c:415
+#: libsylph/mbox.c:429
 #, c-format
 msgid "can't unlock %s\n"
 msgstr "нельга разблакіраваць %s\n"
 
-#: libsylph/mbox.c:450
+#: libsylph/mbox.c:464
 msgid "can't truncate mailbox to zero.\n"
 msgstr "нельга ўкараціць скрынку да нуля.\n"
 
-#: libsylph/mbox.c:475
+#: libsylph/mbox.c:489
 #, c-format
 msgid "Exporting messages from %s into %s...\n"
 msgstr "Экспартаванне паведамленняў з %s у %s...\n"
@@ -307,7 +315,7 @@ msgstr "крынічны каталог ідэнтычны з прызначэн
 msgid "Copying message %s/%d to %s ...\n"
 msgstr "Капіраванне паведамленняў %s/%d у %s ...\n"
 
-#: libsylph/mh.c:1195 libsylph/mh.c:1208 src/main.c:187
+#: libsylph/mh.c:1195 libsylph/mh.c:1208 src/main.c:191
 #, c-format
 msgid ""
 "File `%s' already exists.\n"
@@ -487,7 +495,7 @@ msgid "error occurred on POP3 session\n"
 msgstr "памылка здарылася падчас сеансу POP3\n"
 
 #: libsylph/prefs.c:209 libsylph/prefs.c:237 libsylph/prefs.c:282
-#: libsylph/prefs_account.c:222 libsylph/prefs_account.c:236
+#: libsylph/prefs_account.c:233 libsylph/prefs_account.c:247
 #: src/prefs_display_header.c:415 src/prefs_display_header.c:440
 msgid "failed to write configuration to file\n"
 msgstr "не атрымалася запісаць канфігурацыю ў файл\n"
@@ -500,14 +508,6 @@ msgstr "Знайдзена: %s\n"
 #: libsylph/prefs.c:285
 msgid "Configuration is saved.\n"
 msgstr "Канфігурацыя запісаная.\n"
-
-#: libsylph/prefs_common.c:607
-msgid "Junk mail filter (manual)"
-msgstr "Фільтр непажаданай пошты (ручны)"
-
-#: libsylph/prefs_common.c:610
-msgid "Junk mail filter"
-msgstr "Фільтр непажаданай пошты"
 
 #: libsylph/procmime.c:1293
 msgid "procmime_get_text_content(): Code conversion failed.\n"
@@ -649,7 +649,7 @@ msgstr ""
 "гэтай праграмай; калі гэтага не адбылося, напішыце ў Free Software "
 "Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA."
 
-#: src/account_dialog.c:139 src/mainwindow.c:3972
+#: src/account_dialog.c:139 src/mainwindow.c:3973
 msgid ""
 "Some composing windows are open.\n"
 "Please close all the composing windows before editing the accounts."
@@ -685,15 +685,15 @@ msgstr ""
 "Новыя паведамленні будуць правераны ў гэтым парадку. Пазначце\n"
 "ў слупку `G' акаунты, якія задзейнічаюць атрыманне лістоў праз `Атр. усе'"
 
-#: src/account_dialog.c:375 src/addressadd.c:178 src/addressbook.c:749
-#: src/compose.c:5315 src/editaddress.c:777 src/editaddress.c:826
+#: src/account_dialog.c:375 src/addressadd.c:178 src/addressbook.c:766
+#: src/compose.c:5329 src/editaddress.c:777 src/editaddress.c:826
 #: src/editbook.c:198 src/editgroup.c:266 src/editjpilot.c:270
 #: src/editldap.c:307 src/editvcard.c:183 src/mimeview.c:226
 #: src/prefs_filter.c:257 src/prefs_folder_item.c:171 src/select-keys.c:311
 msgid "Name"
 msgstr "Назва"
 
-#: src/account_dialog.c:380 src/prefs_account_dialog.c:696
+#: src/account_dialog.c:380 src/prefs_account_dialog.c:732
 msgid "Protocol"
 msgstr "Пратакол"
 
@@ -821,12 +821,12 @@ msgstr "Карыстальніцкі аргумент дзеяння"
 msgid "Add Address to Book"
 msgstr "Дадаць Адрас у Кнігу"
 
-#: src/addressadd.c:188 src/compose.c:3342 src/prefs_toolbar.c:89
+#: src/addressadd.c:188 src/compose.c:3346 src/prefs_toolbar.c:89
 #: src/select-keys.c:312
 msgid "Address"
 msgstr "Адрас"
 
-#: src/addressadd.c:198 src/addressbook.c:792 src/editaddress.c:629
+#: src/addressadd.c:198 src/addressbook.c:809 src/editaddress.c:629
 #: src/editaddress.c:695 src/editgroup.c:268 src/importcsv.c:126
 msgid "Remarks"
 msgstr "Заўвагі"
@@ -835,32 +835,32 @@ msgstr "Заўвагі"
 msgid "Select Address Book Folder"
 msgstr "Выберыце каталог Адраснай кнігі"
 
-#: src/addressadd.c:311 src/addressbook.c:1028 src/addressbook.c:3447
+#: src/addressadd.c:311 src/addressbook.c:1045 src/addressbook.c:3489
 msgid "Auto-registered address"
 msgstr "Аўта-рэгістраваныя адрасы"
 
-#: src/addressbook.c:395 src/compose.c:578 src/mainwindow.c:550
+#: src/addressbook.c:398 src/compose.c:578 src/mainwindow.c:550
 #: src/messageview.c:149
 msgid "/_File"
 msgstr "/Ф_айл"
 
-#: src/addressbook.c:396
+#: src/addressbook.c:399
 msgid "/_File/New _Book"
 msgstr "/Ф_айл/Новая Кн_іга"
 
-#: src/addressbook.c:397
+#: src/addressbook.c:400
 msgid "/_File/New _vCard"
 msgstr "/Ф_айл/Новы _vCard"
 
-#: src/addressbook.c:399
+#: src/addressbook.c:402
 msgid "/_File/New _JPilot"
 msgstr "/Ф_айл/Новы _J-Pilot"
 
-#: src/addressbook.c:402
+#: src/addressbook.c:405
 msgid "/_File/New _LDAP Server"
 msgstr "/Ф_айл/Новы сервер _LDAP"
 
-#: src/addressbook.c:404 src/addressbook.c:407 src/compose.c:583
+#: src/addressbook.c:407 src/addressbook.c:410 src/compose.c:583
 #: src/compose.c:588 src/compose.c:591 src/compose.c:594 src/mainwindow.c:568
 #: src/mainwindow.c:571 src/mainwindow.c:573 src/mainwindow.c:575
 #: src/mainwindow.c:580 src/mainwindow.c:582 src/messageview.c:151
@@ -868,190 +868,217 @@ msgstr "/Ф_айл/Новы сервер _LDAP"
 msgid "/_File/---"
 msgstr "/Ф_айл/---"
 
-#: src/addressbook.c:405
+#: src/addressbook.c:408
 msgid "/_File/_Edit"
 msgstr "/Ф_айл/_Рэдагаваць"
 
-#: src/addressbook.c:406
+#: src/addressbook.c:409
 msgid "/_File/_Delete"
 msgstr "/Ф_айл/_Сцерці"
 
-#: src/addressbook.c:408
+#: src/addressbook.c:411
 msgid "/_File/_Save"
 msgstr "/Ф_айл/За_пісаць"
 
-#: src/addressbook.c:409 src/compose.c:595 src/messageview.c:157
+#: src/addressbook.c:412 src/compose.c:595 src/messageview.c:157
 msgid "/_File/_Close"
 msgstr "/Ф_айл/Закры_ць"
 
-#: src/addressbook.c:411 src/addressbook.c:451 src/addressbook.c:461
+#: src/addressbook.c:414 src/addressbook.c:461 src/addressbook.c:478
 #: src/compose.c:597 src/mainwindow.c:586 src/messageview.c:159
 msgid "/_Edit"
 msgstr "/_Праца"
 
-#: src/addressbook.c:412 src/compose.c:602 src/mainwindow.c:587
+#: src/addressbook.c:415 src/compose.c:602 src/mainwindow.c:587
 #: src/messageview.c:160
 msgid "/_Edit/_Copy"
 msgstr "/_Праца/Капірава_ць"
 
-#: src/addressbook.c:413 src/compose.c:603
+#: src/addressbook.c:416 src/compose.c:603
 msgid "/_Edit/_Paste"
 msgstr "/_Праца/_Ўставіць"
 
-#: src/addressbook.c:415
+#: src/addressbook.c:418
 msgid "/_Address"
 msgstr "/_Адрас"
 
-#: src/addressbook.c:416
+#: src/addressbook.c:419
 msgid "/_Address/New _Address"
 msgstr "/_Адрас/_Новы Адрас"
 
-#: src/addressbook.c:417
+#: src/addressbook.c:420
 msgid "/_Address/New _Group"
 msgstr "/_Адрас/Новая Гру_па"
 
-#: src/addressbook.c:418
+#: src/addressbook.c:421
 msgid "/_Address/New _Folder"
 msgstr "/_Адрас/Новы К_аталог"
 
-#: src/addressbook.c:419
+#: src/addressbook.c:422 src/addressbook.c:429
 msgid "/_Address/---"
 msgstr "/_Адрас/---"
 
-#: src/addressbook.c:420
+#: src/addressbook.c:423
+#, fuzzy
+msgid "/_Address/Add _to recipient"
+msgstr "/_Адрас/Сц_ерці"
+
+#: src/addressbook.c:425
+#, fuzzy
+msgid "/_Address/Add to _Cc"
+msgstr "/_Адрас/_Рэдагаваць"
+
+#: src/addressbook.c:427
+#, fuzzy
+msgid "/_Address/_Add to _Bcc"
+msgstr "/_Адрас/_Рэдагаваць"
+
+#: src/addressbook.c:430
 msgid "/_Address/_Edit"
 msgstr "/_Адрас/_Рэдагаваць"
 
-#: src/addressbook.c:421
+#: src/addressbook.c:431
 msgid "/_Address/_Delete"
 msgstr "/_Адрас/Сц_ерці"
 
-#: src/addressbook.c:423 src/compose.c:713 src/mainwindow.c:834
+#: src/addressbook.c:433 src/compose.c:713 src/mainwindow.c:834
 #: src/messageview.c:282
 msgid "/_Tools"
 msgstr "/_Прылады"
 
-#: src/addressbook.c:424
+#: src/addressbook.c:434
 msgid "/_Tools/Import _LDIF file"
 msgstr "/_Прылады/Імпартаваць файл _LDIF"
 
-#: src/addressbook.c:425
+#: src/addressbook.c:435
 msgid "/_Tools/Import _CSV file"
 msgstr "/_Прылады/Імпартаваць файл _CSV"
 
-#: src/addressbook.c:427 src/compose.c:737 src/mainwindow.c:892
+#: src/addressbook.c:437 src/compose.c:737 src/mainwindow.c:892
 #: src/messageview.c:302
 msgid "/_Help"
 msgstr "/_Даведка"
 
-#: src/addressbook.c:428 src/compose.c:738 src/mainwindow.c:912
+#: src/addressbook.c:438 src/compose.c:738 src/mainwindow.c:912
 #: src/messageview.c:303
 msgid "/_Help/_About"
 msgstr "/_Даведка/_Аб праграме"
 
-#: src/addressbook.c:447 src/addressbook.c:457
+#: src/addressbook.c:457 src/addressbook.c:467
 msgid "/New _Address"
 msgstr "/_Новы адрас"
 
-#: src/addressbook.c:448 src/addressbook.c:458
+#: src/addressbook.c:458 src/addressbook.c:468
 msgid "/New _Group"
 msgstr "/Новая гру_па"
 
-#: src/addressbook.c:449 src/addressbook.c:459
+#: src/addressbook.c:459 src/addressbook.c:469
 msgid "/New _Folder"
 msgstr "/Новы к_аталог"
 
-#: src/addressbook.c:450 src/addressbook.c:460 src/addressbook.c:463
-#: src/compose.c:569 src/compose.c:572 src/folderview.c:258
-#: src/folderview.c:261 src/folderview.c:266 src/folderview.c:269
-#: src/folderview.c:282 src/folderview.c:285 src/folderview.c:287
-#: src/folderview.c:292 src/folderview.c:295 src/folderview.c:309
-#: src/folderview.c:311 src/folderview.c:315 src/folderview.c:317
-#: src/mimeview.c:141 src/mimeview.c:151 src/summaryview.c:432
-#: src/summaryview.c:436 src/summaryview.c:439 src/summaryview.c:451
-#: src/summaryview.c:453 src/summaryview.c:456 src/summaryview.c:458
-#: src/summaryview.c:470 src/summaryview.c:476
+#: src/addressbook.c:460 src/addressbook.c:470 src/addressbook.c:477
+#: src/addressbook.c:480 src/compose.c:569 src/compose.c:572
+#: src/folderview.c:258 src/folderview.c:261 src/folderview.c:266
+#: src/folderview.c:269 src/folderview.c:282 src/folderview.c:285
+#: src/folderview.c:287 src/folderview.c:292 src/folderview.c:295
+#: src/folderview.c:309 src/folderview.c:311 src/folderview.c:315
+#: src/folderview.c:317 src/mimeview.c:141 src/mimeview.c:151
+#: src/summaryview.c:432 src/summaryview.c:436 src/summaryview.c:439
+#: src/summaryview.c:451 src/summaryview.c:453 src/summaryview.c:456
+#: src/summaryview.c:458 src/summaryview.c:470 src/summaryview.c:476
 msgid "/---"
 msgstr "/---"
 
-#: src/addressbook.c:452 src/addressbook.c:462 src/summaryview.c:452
+#: src/addressbook.c:462 src/addressbook.c:479 src/summaryview.c:452
 msgid "/_Delete"
 msgstr "/Сц_ерці"
 
-#: src/addressbook.c:464
+#: src/addressbook.c:471
+msgid "/Add _to recipient"
+msgstr ""
+
+#: src/addressbook.c:473
+msgid "/Add t_o Cc"
+msgstr ""
+
+#: src/addressbook.c:475
+msgid "/Add to _Bcc"
+msgstr ""
+
+#: src/addressbook.c:481
 msgid "/_Copy"
 msgstr "/_Капіраваць"
 
-#: src/addressbook.c:465
+#: src/addressbook.c:482
 msgid "/_Paste"
 msgstr "/_Ўставіць"
 
-#: src/addressbook.c:590 src/prefs_common_dialog.c:2564 src/prefs_toolbar.c:90
+#: src/addressbook.c:607 src/prefs_common_dialog.c:2581 src/prefs_toolbar.c:90
 msgid "Address book"
 msgstr "Адрасная кніга"
 
 #. special folder setting (maybe these options are redundant)
-#: src/addressbook.c:664 src/addressbook.c:4150 src/folderview.c:395
-#: src/prefs_account_dialog.c:1844 src/query_search.c:400
+#: src/addressbook.c:681 src/addressbook.c:4192 src/folderview.c:395
+#: src/prefs_account_dialog.c:1989 src/query_search.c:400
 msgid "Folder"
 msgstr "Каталог"
 
-#: src/addressbook.c:778
+#: src/addressbook.c:795
 msgid "E-Mail address"
 msgstr "Адрас эл.пошты"
 
-#: src/addressbook.c:829 src/quick_search.c:128
+#: src/addressbook.c:846 src/quick_search.c:128
 msgid "Search:"
 msgstr "Пошук:"
 
-#: src/addressbook.c:867 src/compose.c:3287 src/headerview.c:55
+#: src/addressbook.c:884 src/compose.c:3291 src/headerview.c:55
 #: src/prefs_folder_item.c:340 src/prefs_template.c:197
 msgid "To:"
 msgstr "Каму:"
 
-#: src/addressbook.c:871 src/compose.c:3304 src/headerview.c:56
+#: src/addressbook.c:888 src/compose.c:3308 src/headerview.c:56
 #: src/prefs_folder_item.c:357 src/prefs_template.c:199
 msgid "Cc:"
 msgstr "Копія:"
 
-#: src/addressbook.c:875 src/compose.c:3321 src/prefs_folder_item.c:368
+#: src/addressbook.c:892 src/compose.c:3325 src/prefs_folder_item.c:368
 #: src/prefs_template.c:201
 msgid "Bcc:"
 msgstr "Скрытая копія:"
 
 #. Buttons
-#: src/addressbook.c:896 src/addressbook.c:2236 src/editaddress.c:719
+#: src/addressbook.c:913 src/addressbook.c:2273 src/editaddress.c:719
 #: src/editaddress.c:853 src/prefs_actions.c:266
 #: src/prefs_display_header.c:280 src/prefs_display_header.c:336
 #: src/prefs_template.c:260 src/prefs_toolbar.c:65
 msgid "Delete"
 msgstr "Сцерці"
 
-#: src/addressbook.c:899 src/editaddress.c:725 src/editaddress.c:859
+#: src/addressbook.c:916 src/editaddress.c:725 src/editaddress.c:859
 #: src/prefs_actions.c:254 src/prefs_customheader.c:232
 #: src/prefs_display_header.c:274 src/prefs_display_header.c:330
 #: src/prefs_filter_edit.c:1603
 msgid "Add"
 msgstr "Дадаць"
 
-#: src/addressbook.c:902 src/prefs_toolbar.c:80
+#: src/addressbook.c:919 src/prefs_toolbar.c:80
 msgid "Search"
 msgstr "Пошук"
 
-#: src/addressbook.c:905
+#: src/addressbook.c:922
 msgid "_Close"
 msgstr "Закры_ць"
 
 #. Confirm deletion
-#: src/addressbook.c:1101
+#: src/addressbook.c:1118
 msgid "Delete address(es)"
 msgstr "Сцерці адрас(ы)"
 
-#: src/addressbook.c:1102
+#: src/addressbook.c:1119
 msgid "Really delete the address(es)?"
 msgstr "Сапраўды сцерці гэты адрас(ы)?"
 
-#: src/addressbook.c:2227
+#: src/addressbook.c:2264
 #, c-format
 msgid ""
 "Do you want to delete the folder AND all addresses in `%s' ?\n"
@@ -1060,36 +1087,36 @@ msgstr ""
 "Ці сапраўды жадаеце сцерці каталог І ўсе адрасы ў `%s' ?\n"
 "Пры сціранні толькі каталога, адрасы будуць перанесены ў каталог-продак."
 
-#: src/addressbook.c:2230 src/folderview.c:2686
+#: src/addressbook.c:2267 src/folderview.c:2686
 msgid "Delete folder"
 msgstr "Сцерці каталог"
 
-#: src/addressbook.c:2230
+#: src/addressbook.c:2267
 msgid "_Folder only"
 msgstr "Толькі К_аталог"
 
-#: src/addressbook.c:2230
+#: src/addressbook.c:2267
 msgid "Folder and _addresses"
 msgstr "Каталог _і адрас(ы)"
 
-#: src/addressbook.c:2235
+#: src/addressbook.c:2272
 #, c-format
 msgid "Really delete `%s' ?"
 msgstr "Сапраўды сцерці `%s' ?"
 
-#: src/addressbook.c:3193 src/addressbook.c:3331
+#: src/addressbook.c:3235 src/addressbook.c:3373
 msgid "New user, could not save index file."
 msgstr "Новы карыстальнік, немагчыма запісаць індэксны файл."
 
-#: src/addressbook.c:3197 src/addressbook.c:3335
+#: src/addressbook.c:3239 src/addressbook.c:3377
 msgid "New user, could not save address book files."
 msgstr "Новы карыстальнік, немагчыма запісаць файлы адраснай кнігі."
 
-#: src/addressbook.c:3207 src/addressbook.c:3345
+#: src/addressbook.c:3249 src/addressbook.c:3387
 msgid "Old address book converted successfully."
 msgstr "Старая адрасная кніга паспяхова сканвертаваная."
 
-#: src/addressbook.c:3212
+#: src/addressbook.c:3254
 msgid ""
 "Old address book converted,\n"
 "could not save new address index file"
@@ -1097,7 +1124,7 @@ msgstr ""
 "Старая адрасная кніга сканвертаваная,\n"
 "немагчыма запісаць новы індэксны файл адрасоў."
 
-#: src/addressbook.c:3225
+#: src/addressbook.c:3267
 msgid ""
 "Could not convert address book,\n"
 "but created empty new address book files."
@@ -1105,7 +1132,7 @@ msgstr ""
 "Немагчыма сканвертаваць адрасную кнігу,\n"
 "створаны пусты файл новай адраснай кнігі."
 
-#: src/addressbook.c:3231
+#: src/addressbook.c:3273
 msgid ""
 "Could not convert address book,\n"
 "could not create new address book files."
@@ -1113,7 +1140,7 @@ msgstr ""
 "Немагчыма сканвертаваць адрасную кнігу,\n"
 "немагчыма стварыць файлы новай адраснай кнігі."
 
-#: src/addressbook.c:3236
+#: src/addressbook.c:3278
 msgid ""
 "Could not convert address book\n"
 "and could not create new address book files."
@@ -1121,15 +1148,15 @@ msgstr ""
 "Немагчыма сканвертаваць адрасную кнігу\n"
 "і нельга стварыць файлы новай адраснай кнігі."
 
-#: src/addressbook.c:3243
+#: src/addressbook.c:3285
 msgid "Address book conversion error"
 msgstr "Памылка канверсіі адраснай кнігі"
 
-#: src/addressbook.c:3247
+#: src/addressbook.c:3289
 msgid "Address book conversion"
 msgstr "Канверсія адраснай кнігі"
 
-#: src/addressbook.c:3286
+#: src/addressbook.c:3328
 #, c-format
 msgid ""
 "Could not read address index:\n"
@@ -1140,76 +1167,76 @@ msgstr ""
 "\n"
 "%s%c%s"
 
-#: src/addressbook.c:3289
+#: src/addressbook.c:3331
 msgid "Address Book Error"
 msgstr "Памылка адраснай кнігі"
 
-#: src/addressbook.c:3350
+#: src/addressbook.c:3392
 msgid "Old address book converted, could not save new address index file"
 msgstr ""
 "Старая адрасная кніга сканвертаваная, але нельга запісаць новы файл індэксу "
 "адрасоў."
 
-#: src/addressbook.c:3364
+#: src/addressbook.c:3406
 msgid ""
 "Could not convert address book, but created empty new address book files."
 msgstr ""
 "Немагчыма сканвертаваць адрасную кнігу, створаны файлы новай адраснай кнігі."
 
-#: src/addressbook.c:3370
+#: src/addressbook.c:3412
 msgid ""
 "Could not convert address book, could not create new address book files."
 msgstr ""
 "Немагчыма сканвертаваць адрасную кнігу, немагчыма стварыць файлы новай "
 "адраснай кнігі."
 
-#: src/addressbook.c:3376
+#: src/addressbook.c:3418
 msgid ""
 "Could not convert address book and could not create new address book files."
 msgstr ""
 "Немагчыма сканвертаваць адрасную кнігу і стварыць файлы новай адраснай кнігі."
 
-#: src/addressbook.c:3388
+#: src/addressbook.c:3430
 msgid "Could not read address index"
 msgstr "Немагчыма прачытаць індэкс адрасу"
 
-#: src/addressbook.c:3394
+#: src/addressbook.c:3436
 msgid "Address Book Conversion Error"
 msgstr "Памылка канверсіі Адраснай кнігі"
 
-#: src/addressbook.c:3400
+#: src/addressbook.c:3442
 msgid "Address Book Conversion"
 msgstr "Канверсія Адраснай кнігі"
 
-#: src/addressbook.c:4080 src/prefs_common_dialog.c:2372
+#: src/addressbook.c:4122 src/prefs_common_dialog.c:2379
 msgid "Interface"
 msgstr "Інтэрфейс"
 
-#: src/addressbook.c:4094 src/importcsv.c:676 src/importldif.c:478
+#: src/addressbook.c:4136 src/importcsv.c:676 src/importldif.c:478
 msgid "Address Book"
 msgstr "Адрасная Кніга"
 
-#: src/addressbook.c:4108
+#: src/addressbook.c:4150
 msgid "Person"
 msgstr "Асоба"
 
-#: src/addressbook.c:4122
+#: src/addressbook.c:4164
 msgid "EMail Address"
 msgstr "Адрас эл.пошты"
 
-#: src/addressbook.c:4136
+#: src/addressbook.c:4178
 msgid "Group"
 msgstr "Група"
 
-#: src/addressbook.c:4164
+#: src/addressbook.c:4206
 msgid "vCard"
 msgstr "vCard"
 
-#: src/addressbook.c:4178 src/addressbook.c:4192
+#: src/addressbook.c:4220 src/addressbook.c:4234
 msgid "JPilot"
 msgstr "JPilot"
 
-#: src/addressbook.c:4206
+#: src/addressbook.c:4248
 msgid "LDAP Server"
 msgstr "Сервер LDAP"
 
@@ -1221,15 +1248,15 @@ msgstr "Супольны адрас"
 msgid "Personal address"
 msgstr "Асабовы адрас"
 
-#: src/alertpanel.c:142 src/compose.c:6729 src/main.c:825
+#: src/alertpanel.c:142 src/compose.c:6746 src/main.c:841
 msgid "Notice"
 msgstr "Заўвага"
 
-#: src/alertpanel.c:155 src/main.c:962
+#: src/alertpanel.c:155 src/main.c:978
 msgid "Warning"
 msgstr "Папярэджанне"
 
-#: src/alertpanel.c:168 src/inc.c:751
+#: src/alertpanel.c:168 src/inc.c:768
 msgid "Error"
 msgstr "Памылка"
 
@@ -1272,7 +1299,7 @@ msgstr "Карычневы"
 #. create sub items. for the menu item activation callback we pass the
 #. * color flag value as data parameter. Also we attach a data pointer
 #. * so we can always get back the SummaryView pointer.
-#: src/colorlabel.c:300 src/prefs_folder_item.c:317 src/summaryview.c:5123
+#: src/colorlabel.c:300 src/prefs_folder_item.c:317 src/summaryview.c:5145
 msgid "None"
 msgstr "Няма"
 
@@ -1565,107 +1592,107 @@ msgstr "/_Прылады/Правяраць правапі_с"
 msgid "/_Tools/_Set spell language"
 msgstr "/_Прылады/_Наставіць мову правапісу"
 
-#: src/compose.c:1019
+#: src/compose.c:1021
 #, c-format
 msgid "%s: file not exist\n"
 msgstr "%s: файл не існуе\n"
 
-#: src/compose.c:1125 src/compose.c:1202
+#: src/compose.c:1128 src/compose.c:1205
 msgid "Can't get text part\n"
 msgstr "Нельга атрымаць частку тэкста\n"
 
-#: src/compose.c:1747
+#: src/compose.c:1751
 msgid "Quote mark format error."
 msgstr "Памылка фармату пазнакі цытаты."
 
-#: src/compose.c:1759
+#: src/compose.c:1763
 msgid "Message reply/forward format error."
 msgstr "Памылка фармату адказу/перасылкі паведамлення."
 
-#: src/compose.c:2269
+#: src/compose.c:2273
 #, c-format
 msgid "File %s doesn't exist\n"
 msgstr "Файл %s не існуе\n"
 
-#: src/compose.c:2273
+#: src/compose.c:2277
 #, c-format
 msgid "Can't get file size of %s\n"
 msgstr "Нельга атрымаць памер файла %s\n"
 
-#: src/compose.c:2277 src/compose.c:4391
+#: src/compose.c:2281 src/compose.c:4405
 #, c-format
 msgid "File %s is empty."
 msgstr "Файл %s пусты."
 
-#: src/compose.c:2281
+#: src/compose.c:2285
 #, c-format
 msgid "Can't read %s."
 msgstr "Нельга прачытаць %s."
 
-#: src/compose.c:2314
+#: src/compose.c:2318
 #, c-format
 msgid "Message: %s"
 msgstr "Паведамленне: %s"
 
-#: src/compose.c:2374 src/mimeview.c:586
+#: src/compose.c:2378 src/mimeview.c:586
 msgid "Can't get the part of multipart message."
 msgstr "Нельга атрымаць частку складанага паведамлення."
 
-#: src/compose.c:2864 src/headerview.c:233 src/query_search.c:790
-#: src/rpop3.c:667 src/summaryview.c:2411
+#: src/compose.c:2868 src/headerview.c:233 src/query_search.c:790
+#: src/rpop3.c:675 src/summaryview.c:2416
 msgid "(No Subject)"
 msgstr "(Без Тэмы)"
 
-#: src/compose.c:2867
+#: src/compose.c:2871
 #, c-format
 msgid "%s - Compose%s"
 msgstr "%s - Напісанне%s"
 
-#: src/compose.c:2982
+#: src/compose.c:2986
 msgid "Recipient is not specified."
 msgstr "Не указаны атрымальнік."
 
-#: src/compose.c:2990
+#: src/compose.c:2994
 msgid "Empty subject"
 msgstr "Пустая тэма"
 
-#: src/compose.c:2991
+#: src/compose.c:2995
 msgid "Subject is empty. Send it anyway?"
 msgstr "Тэма не азначаная. Выслаць як ёсць?"
 
-#: src/compose.c:3055
+#: src/compose.c:3059
 msgid "Attachment is missing"
 msgstr "Адсутнічаюць дадаткі"
 
-#: src/compose.c:3056
+#: src/compose.c:3060
 msgid "There is no attachment. Send it without attachments?"
 msgstr "Ліст не мае дадаткаў. Выслаць яго без дадаткаў?"
 
-#: src/compose.c:3173 src/compose.c:3199
+#: src/compose.c:3177 src/compose.c:3203
 msgid "Check recipients"
 msgstr "Праверыць атрымальнікаў"
 
-#: src/compose.c:3219
+#: src/compose.c:3223
 msgid "Really send this mail to the following addresses?"
 msgstr "Насамрэч даслаць гэты ліст на наступныя адрасы?"
 
-#: src/compose.c:3232 src/compose.c:5181 src/headerview.c:54
+#: src/compose.c:3236 src/compose.c:5195 src/headerview.c:54
 msgid "From:"
 msgstr "Адпраўнік:"
 
-#: src/compose.c:3254 src/headerview.c:58 src/prefs_template.c:205
+#: src/compose.c:3258 src/headerview.c:58 src/prefs_template.c:205
 msgid "Subject:"
 msgstr "Тэма:"
 
-#: src/compose.c:3347
+#: src/compose.c:3351
 msgid "_Send"
 msgstr "Адпра_віць"
 
-#: src/compose.c:3475
+#: src/compose.c:3489
 msgid "can't get recipient list."
 msgstr "нельга атрымаць спіс рэспандэнтаў."
 
-#: src/compose.c:3495
+#: src/compose.c:3509
 msgid ""
 "Account for sending mail is not specified.\n"
 "Please select a mail account before sending."
@@ -1673,38 +1700,38 @@ msgstr ""
 "Не указаны уліковы рахунак для адпраўкі пошты.\n"
 "Калі ласка, выберыце акаунт перад адпраўленнем."
 
-#: src/compose.c:3509 src/send_message.c:315
+#: src/compose.c:3523 src/send_message.c:316
 #, c-format
 msgid "Error occurred while posting the message to %s ."
 msgstr "Памылка пад час адпраўкі паведамлення да %s."
 
-#: src/compose.c:3559
+#: src/compose.c:3573
 msgid "Can't save the message to outbox."
 msgstr "Нельга запісаць паведамленне ў `Дасланыя'."
 
-#: src/compose.c:3602
+#: src/compose.c:3616
 #, c-format
 msgid "Could not find any key associated with currently selected key id `%s'."
 msgstr ""
 "Не знойдзена ніводнага ключа, асацыяванага з выбраным ідэнтыфікатарам `%s'."
 
-#: src/compose.c:3629 src/compose.c:4014
+#: src/compose.c:3643 src/compose.c:4028
 msgid "Can't sign the message."
 msgstr "Нельга падпісаць паведамленне."
 
-#: src/compose.c:3656 src/compose.c:4057
+#: src/compose.c:3670 src/compose.c:4071
 msgid "Can't encrypt the message."
 msgstr "Нельга зашыфраваць паведамленне."
 
-#: src/compose.c:3691 src/compose.c:4052
+#: src/compose.c:3705 src/compose.c:4066
 msgid "Can't encrypt or sign the message."
 msgstr "Нельга зашыфраваць ці падпісаць паведамленне."
 
-#: src/compose.c:3737 src/compose.c:4085 src/compose.c:4148 src/compose.c:4268
+#: src/compose.c:3751 src/compose.c:4099 src/compose.c:4162 src/compose.c:4282
 msgid "can't change file mode\n"
 msgstr "нельга змяніць рэжым файла\n"
 
-#: src/compose.c:3770
+#: src/compose.c:3784
 #, c-format
 msgid ""
 "Can't convert the character encoding of the message body from %s to %s.\n"
@@ -1715,11 +1742,11 @@ msgstr ""
 "\n"
 "Выслаць у %s, як ёсць?"
 
-#: src/compose.c:3776
+#: src/compose.c:3790
 msgid "Code conversion error"
 msgstr "Памылка канверсіі коду"
 
-#: src/compose.c:3862
+#: src/compose.c:3876
 #, c-format
 msgid ""
 "Line %d exceeds the line length limit (998 bytes).\n"
@@ -1732,15 +1759,15 @@ msgstr ""
 "\n"
 "Усё роўна выслаць?"
 
-#: src/compose.c:3866
+#: src/compose.c:3880
 msgid "Line length limit"
 msgstr "Ліміт даўжыні радка"
 
-#: src/compose.c:4032
+#: src/compose.c:4046
 msgid "Encrypting with Bcc"
 msgstr "Шыфраваць з `Bcc'"
 
-#: src/compose.c:4033
+#: src/compose.c:4047
 msgid ""
 "This message has Bcc recipients. If this message is encrypted, all Bcc "
 "recipients will be visible by examing the encryption key list, leading to "
@@ -1754,96 +1781,101 @@ msgstr ""
 "\n"
 "Усё роўна выслаць?"
 
-#: src/compose.c:4228
+#: src/compose.c:4242
 msgid "can't remove the old message\n"
 msgstr "нельга сцерці старое паведамленне\n"
 
-#: src/compose.c:4246
+#: src/compose.c:4260
 msgid "queueing message...\n"
 msgstr "даданне паведамлення ў чаргу...\n"
 
-#: src/compose.c:4334
+#: src/compose.c:4348
 msgid "can't find queue folder\n"
 msgstr "не знойдзены каталог чаргі\n"
 
-#: src/compose.c:4341
+#: src/compose.c:4355
 msgid "can't queue the message\n"
 msgstr "нельга змясціць паведамленне ў чаргу\n"
 
-#: src/compose.c:4386
+#: src/compose.c:4400
 #, c-format
 msgid "File %s doesn't exist."
 msgstr "Файл %s не існуе."
 
-#: src/compose.c:4395
+#: src/compose.c:4409
 #, c-format
 msgid "Can't open file %s."
 msgstr "Нельга адкрыць файл %s."
 
-#: src/compose.c:5015
+#: src/compose.c:5029
 #, c-format
 msgid "generated Message-ID: %s\n"
 msgstr "сгенераваны Message-ID: %s\n"
 
-#: src/compose.c:5130
+#: src/compose.c:5144
 msgid "Creating compose window...\n"
 msgstr "Стварэнне вакна напісання...\n"
 
-#: src/compose.c:5255
+#: src/compose.c:5269
 msgid "PGP Sign"
 msgstr "Подпіс PGP"
 
-#: src/compose.c:5258
+#: src/compose.c:5272
 msgid "PGP Encrypt"
 msgstr "Шыфр PGP"
 
-#: src/compose.c:5296 src/compose.c:6496
-msgid "MIME type"
-msgstr "тып MIME"
+#: src/compose.c:5310 src/mimeview.c:209
+#, fuzzy
+msgid "Data type"
+msgstr "Дата"
 
 #. S_COL_DATE
-#: src/compose.c:5305 src/mimeview.c:217 src/prefs_filter_edit.c:507
-#: src/prefs_summary_column.c:72 src/rpop3.c:418 src/select-keys.c:309
-#: src/summaryview.c:5272
+#: src/compose.c:5319 src/mimeview.c:217 src/prefs_filter_edit.c:507
+#: src/prefs_summary_column.c:72 src/rpop3.c:425 src/select-keys.c:309
+#: src/summaryview.c:5294
 msgid "Size"
 msgstr "Памер"
 
-#: src/compose.c:6391
+#: src/compose.c:6408
 msgid "Invalid MIME type."
 msgstr "Няправільны тып MIME."
 
-#: src/compose.c:6409
+#: src/compose.c:6426
 msgid "File doesn't exist or is empty."
 msgstr "Файл не існуе ці пусты."
 
-#: src/compose.c:6478
+#: src/compose.c:6495
 msgid "Properties"
 msgstr "Уласцівасці"
 
+#: src/compose.c:6513
+msgid "MIME type"
+msgstr "тып MIME"
+
 #. Encoding
-#: src/compose.c:6498 src/prefs_common_dialog.c:1023
-#: src/prefs_common_dialog.c:1684
+#: src/compose.c:6515 src/prefs_common_dialog.c:1029
+#: src/prefs_common_dialog.c:1690
 msgid "Encoding"
 msgstr "Кадаванне"
 
-#: src/compose.c:6521 src/prefs_folder_item.c:202
+#: src/compose.c:6538 src/prefs_folder_item.c:202
 msgid "Path"
 msgstr "Шлях"
 
-#: src/compose.c:6522
+#: src/compose.c:6539
 msgid "File name"
 msgstr "Назва файла"
 
-#: src/compose.c:6611
+#: src/compose.c:6628
 #, fuzzy
 msgid "File not exist."
 msgstr "%s: файл не існуе\n"
 
-#: src/compose.c:6621 src/mimeview.c:1220
+#: src/compose.c:6638 src/mimeview.c:1220
 msgid "Opening executable file"
 msgstr "Адкрыццё выканальнага файла"
 
-#: src/compose.c:6622 src/mimeview.c:1221
+#: src/compose.c:6639 src/mimeview.c:1221
 msgid ""
 "This is an executable file. Opening executable file is restricted for "
 "security.\n"
@@ -1854,12 +1886,12 @@ msgstr ""
 "Калі вы жадаеце запусціць яго, запішыце дзе-небудзь, і ўпэўніцеся, што гэта "
 "не вірус ці нешта кшталту шкодных праграм."
 
-#: src/compose.c:6664
+#: src/compose.c:6681
 #, c-format
 msgid "External editor command line is invalid: `%s'\n"
 msgstr "Няправільны радок загаду для вонкавага рэдактара: `%s'\n"
 
-#: src/compose.c:6726
+#: src/compose.c:6743
 #, c-format
 msgid ""
 "The external editor is still working.\n"
@@ -1868,48 +1900,48 @@ msgstr ""
 "Вонкавы рэдактар яшчэ працуе.\n"
 "Скончыць працэс гвалтоўна (pid: %d)?\n"
 
-#: src/compose.c:7063 src/mainwindow.c:3059
+#: src/compose.c:7080 src/mainwindow.c:3059
 msgid "_Customize toolbar..."
 msgstr "На_ставіць стужку прылад..."
 
-#: src/compose.c:7197 src/compose.c:7202 src/compose.c:7208
+#: src/compose.c:7214 src/compose.c:7219 src/compose.c:7225
 msgid "Can't queue the message."
 msgstr "Нельга змясціць паведамленне ў чаргу."
 
-#: src/compose.c:7307
+#: src/compose.c:7324
 msgid "Select files"
 msgstr "Выбраць файлы"
 
-#: src/compose.c:7330 src/inputdialog.c:372
+#: src/compose.c:7347 src/inputdialog.c:372
 msgid "Select file"
 msgstr "Выбраць файл"
 
-#: src/compose.c:7381
+#: src/compose.c:7398
 msgid "Save message"
 msgstr "Запісаць паведамленне"
 
-#: src/compose.c:7382
+#: src/compose.c:7399
 msgid "This message has been modified. Save it to draft folder?"
 msgstr "Гэта паведамленне было зменена. Запісаць у каталог чарнавікоў?"
 
-#: src/compose.c:7384 src/compose.c:7388
+#: src/compose.c:7401 src/compose.c:7405
 msgid "Close _without saving"
 msgstr "Закры_ць без запісу"
 
-#: src/compose.c:7435
+#: src/compose.c:7452
 #, c-format
 msgid "Do you want to apply the template `%s' ?"
 msgstr "Жадаеце ужыць шаблон `%s'?"
 
-#: src/compose.c:7437
+#: src/compose.c:7454
 msgid "Apply template"
 msgstr "Ужыць шаблон"
 
-#: src/compose.c:7438
+#: src/compose.c:7455
 msgid "_Replace"
 msgstr "_Замяніць"
 
-#: src/compose.c:7438
+#: src/compose.c:7455
 msgid "_Insert"
 msgstr "_Уставіць"
 
@@ -2008,7 +2040,7 @@ msgid " Check File "
 msgstr " Праверыць файл"
 
 #: src/editbook.c:210 src/editjpilot.c:282 src/editvcard.c:195
-#: src/prefs_account_dialog.c:1288
+#: src/prefs_account_dialog.c:1324
 msgid "File"
 msgstr "Файл"
 
@@ -2088,8 +2120,8 @@ msgid "Edit JPilot Entry"
 msgstr "Змяніць запіс JPilot"
 
 #: src/editjpilot.c:289 src/editldap.c:349 src/editvcard.c:202
-#: src/importcsv.c:696 src/importldif.c:498 src/prefs_account_dialog.c:1872
-#: src/prefs_common_dialog.c:2170
+#: src/importcsv.c:696 src/importldif.c:498 src/prefs_account_dialog.c:2017
+#: src/prefs_common_dialog.c:2176
 msgid " ... "
 msgstr " ... "
 
@@ -2153,7 +2185,7 @@ msgstr "Таймаут (сек)"
 msgid "Maximum Entries"
 msgstr "Максімум запісаў"
 
-#: src/editldap.c:471 src/prefs_account_dialog.c:555
+#: src/editldap.c:471 src/prefs_account_dialog.c:589
 msgid "Basic"
 msgstr "Базавыя"
 
@@ -2239,7 +2271,7 @@ msgid "MH (number only)"
 msgstr "MH (толькі нумар)"
 
 #: src/export.c:381 src/export.c:387 src/import.c:661 src/import.c:667
-#: src/prefs_account_dialog.c:958
+#: src/prefs_account_dialog.c:994
 msgid " Select... "
 msgstr " Выбраць... "
 
@@ -2291,7 +2323,7 @@ msgstr "Смецце"
 msgid "Drafts"
 msgstr "Чарнавікі"
 
-#: src/foldersel.c:422 src/folderview.c:1276 src/prefs_common_dialog.c:2114
+#: src/foldersel.c:422 src/folderview.c:1276 src/prefs_common_dialog.c:2120
 #: src/prefs_folder_item.c:240 src/prefs_toolbar.c:68
 msgid "Junk"
 msgstr "Спам"
@@ -2386,18 +2418,18 @@ msgstr "/Сцерці групу навін"
 msgid "Creating folder view...\n"
 msgstr "Стварэнне прагляду каталогу...\n"
 
-#: src/folderview.c:425 src/prefs_common_dialog.c:1598
+#: src/folderview.c:425 src/prefs_common_dialog.c:1604
 msgid "New"
 msgstr "Новы"
 
 #. S_COL_MARK
-#: src/folderview.c:441 src/prefs_common_dialog.c:1599
+#: src/folderview.c:441 src/prefs_common_dialog.c:1605
 #: src/prefs_filter_edit.c:511 src/prefs_summary_column.c:67
 #: src/quick_search.c:110
 msgid "Unread"
 msgstr "Нечытаны"
 
-#: src/folderview.c:457 src/prefs_common_dialog.c:1600
+#: src/folderview.c:457 src/prefs_common_dialog.c:1606
 msgid "Total"
 msgstr "Агулам"
 
@@ -2409,12 +2441,12 @@ msgstr "Устанаўленне інфармацыі па каталогу...\n
 msgid "Setting folder info..."
 msgstr "Устанаўленне інфармацыі па каталогу..."
 
-#: src/folderview.c:911 src/mainwindow.c:4175 src/setup.c:305
+#: src/folderview.c:911 src/mainwindow.c:4176 src/setup.c:305
 #, c-format
 msgid "Scanning folder %s%c%s ..."
 msgstr "Прагляд каталога %s%c%s ..."
 
-#: src/folderview.c:915 src/mainwindow.c:4180 src/setup.c:310
+#: src/folderview.c:915 src/mainwindow.c:4181 src/setup.c:310
 #, c-format
 msgid "Scanning folder %s ..."
 msgstr "Сканаванне каталога %s ..."
@@ -2589,8 +2621,8 @@ msgstr "Групы навін:"
 msgid "Creating header view...\n"
 msgstr "Стварэнне прагляду загалоўкаў...\n"
 
-#: src/headerview.c:212 src/query_search.c:791 src/rpop3.c:668
-#: src/summaryview.c:2414
+#: src/headerview.c:212 src/query_search.c:791 src/rpop3.c:676
+#: src/summaryview.c:2419
 msgid "(No From)"
 msgstr "(Без Адпраўніка)"
 
@@ -2821,146 +2853,146 @@ msgstr "Імпарт файла LDIF у адрасную кнігу"
 msgid "Attributes"
 msgstr "Атрыбуты"
 
-#: src/inc.c:163
+#: src/inc.c:164
 #, c-format
 msgid "Sylpheed: %d new messages"
 msgstr "Сілфід: %d новых паведамленняў"
 
-#: src/inc.c:484
+#: src/inc.c:492
 msgid "Authenticating with POP3"
 msgstr "Аўтэнтыфікацыя POP3"
 
-#: src/inc.c:511
+#: src/inc.c:519
 msgid "Retrieving new messages"
 msgstr "Атрыманне новых паведамленняў"
 
-#: src/inc.c:513
+#: src/inc.c:521
 #, fuzzy
 msgid "Cancel _all"
 msgstr "Скасавана"
 
-#: src/inc.c:559
+#: src/inc.c:567
 msgid "Standby"
 msgstr "Чаканне"
 
-#: src/inc.c:707 src/inc.c:757
+#: src/inc.c:724 src/inc.c:774
 msgid "Cancelled"
 msgstr "Скасавана"
 
-#: src/inc.c:718
+#: src/inc.c:735
 msgid "Retrieving"
 msgstr "Атрыманне"
 
-#: src/inc.c:727 src/inc.c:1050
+#: src/inc.c:744 src/inc.c:1073
 #, c-format
 msgid "%d message(s) (%s) received"
 msgstr "%d паведамленне(яў) (%s) атрымана"
 
-#: src/inc.c:731
+#: src/inc.c:748
 #, c-format
 msgid "no new messages"
 msgstr "няма новых паведамленняў"
 
-#: src/inc.c:732
+#: src/inc.c:749
 msgid "Done"
 msgstr "Зроблена"
 
-#: src/inc.c:737
+#: src/inc.c:754
 msgid "Connection failed"
 msgstr "Злучэнне не атрымалася"
 
-#: src/inc.c:740
+#: src/inc.c:757
 msgid "Auth failed"
 msgstr "Аўтарызацыя схібіла"
 
-#: src/inc.c:744
+#: src/inc.c:761
 msgid "Locked"
 msgstr "Замкнута"
 
-#: src/inc.c:754
+#: src/inc.c:771
 msgid "Timeout"
 msgstr "Таймаут"
 
-#: src/inc.c:801
+#: src/inc.c:818
 #, c-format
 msgid "Finished (%d new message(s))"
 msgstr "Завершана (%d новы(х) ліст(оў))"
 
-#: src/inc.c:804
+#: src/inc.c:821
 #, c-format
 msgid "Finished (no new messages)"
 msgstr "Завершана (няма новых паведамленняў)"
 
-#: src/inc.c:813
+#: src/inc.c:830
 msgid "Some errors occurred while getting mail."
 msgstr "Здарыліся памылкі пад час атрымання пошты."
 
-#: src/inc.c:847
+#: src/inc.c:866
 #, c-format
 msgid "getting new messages of account %s...\n"
 msgstr "атрыманне новых паведамленняў акаунта %s ...\n"
 
-#: src/inc.c:851
+#: src/inc.c:870
 #, c-format
 msgid "%s: Authenticating with POP3"
 msgstr "%s: Аўтэнтыфікацыя POP3"
 
-#: src/inc.c:854
+#: src/inc.c:873
 #, c-format
 msgid "%s: Retrieving new messages"
 msgstr "%s: Атрыманне новых паведамленняў"
 
-#: src/inc.c:859
+#: src/inc.c:878
 #, c-format
 msgid "Connecting to POP3 server: %s..."
 msgstr "Злучэнне з POP3 серверам: %s..."
 
-#: src/inc.c:873
+#: src/inc.c:896
 #, c-format
 msgid "Can't connect to POP3 server: %s:%d\n"
 msgstr "Нельга злучыцца з серверам POP3: %s:%d\n"
 
-#: src/inc.c:955 src/rpop3.c:827 src/send_message.c:817
+#: src/inc.c:978 src/rpop3.c:835 src/send_message.c:833
 #, c-format
 msgid "Authenticating..."
 msgstr "Аўтэнтыфікацыя..."
 
-#: src/inc.c:956
+#: src/inc.c:979
 #, c-format
 msgid "Retrieving messages from %s..."
 msgstr "Атрыманне паведамленняў з %s..."
 
-#: src/inc.c:961
+#: src/inc.c:984
 msgid "Getting the number of new messages (STAT)..."
 msgstr "Атрыманне колькасці новых паведамленняў (STAT)..."
 
-#: src/inc.c:965
+#: src/inc.c:988
 msgid "Getting the number of new messages (LAST)..."
 msgstr "Атрыманне колькасці новых паведамленняў (LAST)..."
 
-#: src/inc.c:969
+#: src/inc.c:992
 msgid "Getting the number of new messages (UIDL)..."
 msgstr "Атрыманне колькасці новых паведамленняў (UIDL)"
 
-#: src/inc.c:973
+#: src/inc.c:996
 msgid "Getting the size of messages (LIST)..."
 msgstr "Атрыманне памеру паведамленняў (LIST)..."
 
-#: src/inc.c:983
+#: src/inc.c:1006
 #, c-format
 msgid "Deleting message %d"
 msgstr "Сціранне паведамлення %d"
 
-#: src/inc.c:990 src/send_message.c:835
+#: src/inc.c:1013 src/send_message.c:851
 msgid "Quitting"
 msgstr "Адлучэнне"
 
-#: src/inc.c:1025
+#: src/inc.c:1048
 #, c-format
 msgid "Retrieving message (%d / %d) (%s / %s)"
 msgstr "Атрыманне ліста (%d / %d) (%s / %s)"
 
-#: src/inc.c:1286 src/inc.c:1309 src/summaryview.c:4650
+#: src/inc.c:1310 src/inc.c:1334 src/summaryview.c:4656
 msgid ""
 "Execution of the junk filter command failed.\n"
 "Please check the junk mail control setting."
@@ -2968,15 +3000,15 @@ msgstr ""
 "Выкананне загаду фільтравання спаму схібіла.\n"
 "Калі ласка, праверце настаўленні кантролю спаму."
 
-#: src/inc.c:1368
+#: src/inc.c:1393
 msgid "Connection failed."
 msgstr "Злучэнне не атрымалася."
 
-#: src/inc.c:1374
+#: src/inc.c:1399
 msgid "Error occurred while processing mail."
 msgstr "Памылка здарылася пад час апрацоўкі пошты."
 
-#: src/inc.c:1379
+#: src/inc.c:1404
 #, c-format
 msgid ""
 "Error occurred while processing mail:\n"
@@ -2985,29 +3017,29 @@ msgstr ""
 "Здарылася памылка пад час апрацоўкі пошты:\n"
 "%s"
 
-#: src/inc.c:1385
+#: src/inc.c:1410
 msgid "No disk space left."
 msgstr "Не засталося месца на дыску."
 
-#: src/inc.c:1390
+#: src/inc.c:1415
 msgid "Can't write file."
 msgstr "Нельга запісаць файл."
 
-#: src/inc.c:1395
+#: src/inc.c:1420
 msgid "Socket error."
 msgstr "Памылка сокета."
 
 #. consider EOF right after QUIT successful
-#: src/inc.c:1401 src/rpop3.c:544 src/rpop3.c:545 src/send_message.c:761
-#: src/send_message.c:978
+#: src/inc.c:1426 src/rpop3.c:551 src/rpop3.c:552 src/send_message.c:777
+#: src/send_message.c:994
 msgid "Connection closed by the remote host."
 msgstr "Злучэнне закрытае аддаленым серверам."
 
-#: src/inc.c:1407
+#: src/inc.c:1432
 msgid "Mailbox is locked."
 msgstr "Скрынка замкнутая."
 
-#: src/inc.c:1411
+#: src/inc.c:1436
 #, c-format
 msgid ""
 "Mailbox is locked:\n"
@@ -3016,11 +3048,11 @@ msgstr ""
 "Паштовая скрынка замкнутая:\n"
 "%s"
 
-#: src/inc.c:1417 src/rpop3.c:519 src/rpop3.c:524 src/send_message.c:958
+#: src/inc.c:1442 src/rpop3.c:526 src/rpop3.c:531 src/send_message.c:974
 msgid "Authentication failed."
 msgstr "Аўтэнтыфікацыя схібіла."
 
-#: src/inc.c:1422 src/rpop3.c:521 src/send_message.c:961
+#: src/inc.c:1447 src/rpop3.c:528 src/send_message.c:977
 #, c-format
 msgid ""
 "Authentication failed:\n"
@@ -3029,15 +3061,15 @@ msgstr ""
 "Аўтэнтыфікацыя схібіла:\n"
 "%s"
 
-#: src/inc.c:1427 src/rpop3.c:549 src/rpop3.c:550 src/send_message.c:982
+#: src/inc.c:1452 src/rpop3.c:556 src/rpop3.c:557 src/send_message.c:998
 msgid "Session timed out."
 msgstr "Таймаут сеансу."
 
-#: src/inc.c:1468
+#: src/inc.c:1493
 msgid "Incorporation cancelled\n"
 msgstr "Атрыманне скасавана\n"
 
-#: src/inc.c:1577
+#: src/inc.c:1602
 #, c-format
 msgid "Getting new messages from %s into %s...\n"
 msgstr "Атрыманне новых паведамленняў з %s у %s...\n"
@@ -3055,16 +3087,16 @@ msgstr "Увядзіце пароль"
 msgid "Protocol log"
 msgstr "Журнал пратакола"
 
-#: src/main.c:582
+#: src/main.c:598
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Ужыванне: %s [ОПЦЫЯ]...\n"
 
-#: src/main.c:585
+#: src/main.c:601
 msgid "  --compose [address]    open composition window"
 msgstr "  --compose [адрас]      адкрыць акно напісання паведамлення"
 
-#: src/main.c:586
+#: src/main.c:602
 msgid ""
 "  --attach file1 [file2]...\n"
 "                         open composition window with specified files\n"
@@ -3074,23 +3106,23 @@ msgstr ""
 "                         адкрыць акно напісання паведамлення з далучаным\n"
 "                         дадаткам з азначанага файла (файлаў)"
 
-#: src/main.c:589
+#: src/main.c:605
 msgid "  --receive              receive new messages"
 msgstr "  --receive              атрымаць новую пошту"
 
-#: src/main.c:590
+#: src/main.c:606
 msgid "  --receive-all          receive new messages of all accounts"
 msgstr "  --receive-all          атрымаць новую пошту для ўсіх акаунтаў"
 
-#: src/main.c:591
+#: src/main.c:607
 msgid "  --send                 send all queued messages"
 msgstr "  --send                 выслаць усе паведамленні з чаргі"
 
-#: src/main.c:592
+#: src/main.c:608
 msgid "  --status [folder]...   show the total number of messages"
 msgstr "  --status [каталог]...  паказаць агульную колькасць паведамленняў"
 
-#: src/main.c:593
+#: src/main.c:609
 msgid ""
 "  --status-full [folder]...\n"
 "                         show the status of each folder"
@@ -3098,45 +3130,45 @@ msgstr ""
 "  --status-full [каталог]...\n"
 "                         паказаць статус кожнага каталога"
 
-#: src/main.c:595
+#: src/main.c:611
 msgid "  --open folderid/msgnum open message in new window"
 msgstr "  --open id_каталога/нум_ліста адкрыць паведамленне ў новым акне"
 
-#: src/main.c:596
+#: src/main.c:612
 msgid ""
 "  --configdir dirname    specify directory which stores configuration files"
 msgstr "  --configdir dirname    задаць каталог з файламі канфігурацыі"
 
-#: src/main.c:598
+#: src/main.c:614
 msgid "  --ipcport portnum      specify port for IPC remote commands"
 msgstr "  --ipcport нум_порта    задаць порт для аддаленых загадаў IPC"
 
-#: src/main.c:600
+#: src/main.c:616
 msgid "  --exit                 exit Sylpheed"
 msgstr "  --exit                 выйсці з Сілфіда"
 
-#: src/main.c:601
+#: src/main.c:617
 msgid "  --debug                debug mode"
 msgstr "  --debug                рэжым адладкі"
 
-#: src/main.c:602
+#: src/main.c:618
 msgid "  --help                 display this help and exit"
 msgstr "  --help                 паказаць гэту даведку і выйсці"
 
-#: src/main.c:603
+#: src/main.c:619
 msgid "  --version              output version information and exit"
 msgstr "  --version              паказаць звесткі пра версію і выйсці"
 
-#: src/main.c:607
+#: src/main.c:623
 #, c-format
 msgid "Press any key..."
 msgstr "Націсніце любую клавішу..."
 
-#: src/main.c:742
+#: src/main.c:758
 msgid "Filename encoding"
 msgstr "Кадаванне імён файлаў"
 
-#: src/main.c:743
+#: src/main.c:759
 msgid ""
 "The locale encoding is not UTF-8, but the environmental variable "
 "G_FILENAME_ENCODING is not set.\n"
@@ -3160,19 +3192,19 @@ msgstr ""
 "\n"
 "Працягваць?"
 
-#: src/main.c:826
+#: src/main.c:842
 msgid "Composing message exists. Really quit?"
 msgstr "Паведамленне ў працэсе напісання. Сапраўды выйсці?"
 
-#: src/main.c:837
+#: src/main.c:853
 msgid "Queued messages"
 msgstr "Лісты ў чарзе"
 
-#: src/main.c:838
+#: src/main.c:854
 msgid "Some unsent messages are queued. Exit now?"
 msgstr "У чарзе засталіся недасланыя паведамленні. Выйсці зараз?"
 
-#: src/main.c:963
+#: src/main.c:979
 msgid ""
 "GnuPG is not installed properly, or its version is too old.\n"
 "OpenPGP support disabled."
@@ -3180,20 +3212,20 @@ msgstr ""
 "Праграма GnuPG не устаноўлена як след, ці яе версія надта старая.\n"
 "Падтрымка OpenPGP адключаная."
 
-#: src/main.c:1196
+#: src/main.c:1212
 msgid "Loading plug-ins..."
 msgstr "Загрузка плагінаў..."
 
 #. remote command mode
-#: src/main.c:1392
+#: src/main.c:1408
 msgid "another Sylpheed is already running.\n"
 msgstr "другі экземпляр Сілфіда ужо выконваецца.\n"
 
-#: src/main.c:1679
+#: src/main.c:1695
 msgid "Migration of configuration"
 msgstr "Міграцыя канфігурацыі"
 
-#: src/main.c:1680
+#: src/main.c:1696
 msgid ""
 "The previous version of configuration found.\n"
 "Do you want to migrate it?"
@@ -3847,8 +3879,8 @@ msgstr "Стварэнне галоўнага вакна...\n"
 msgid "MainWindow: color allocation %d failed\n"
 msgstr "MainWindow: размяшчэнне колеру %d схібіла\n"
 
-#: src/mainwindow.c:1219 src/summaryview.c:2563 src/summaryview.c:2650
-#: src/summaryview.c:4215 src/summaryview.c:4344 src/summaryview.c:4732
+#: src/mainwindow.c:1219 src/summaryview.c:2568 src/summaryview.c:2655
+#: src/summaryview.c:4222 src/summaryview.c:4351 src/summaryview.c:4738
 msgid "done.\n"
 msgstr "зроблена.\n"
 
@@ -3968,35 +4000,35 @@ msgstr "Нічога"
 msgid "You are offline. Click the icon to go online."
 msgstr "Вы не злучаныя. Клікніце іконку, каб злучыцца."
 
-#: src/mainwindow.c:3098
+#: src/mainwindow.c:3099
 msgid "You are online. Click the icon to go offline."
 msgstr "Вы ў злучэнні. Клікніце іконку, каб адлучыцца."
 
-#: src/mainwindow.c:3372
+#: src/mainwindow.c:3373
 msgid "Exit"
 msgstr "Выхад"
 
-#: src/mainwindow.c:3372
+#: src/mainwindow.c:3373
 msgid "Exit this program?"
 msgstr "Выйсці з праграмы?"
 
-#: src/mainwindow.c:3775
+#: src/mainwindow.c:3776
 msgid "The selected messages could not be combined."
 msgstr ""
 
-#: src/mainwindow.c:3885
+#: src/mainwindow.c:3886
 msgid "Select folder to open"
 msgstr "Выберыце каталог"
 
-#: src/mainwindow.c:4055
+#: src/mainwindow.c:4056
 msgid "Command line options"
 msgstr "Опцыі загаднага радка"
 
-#: src/mainwindow.c:4068
+#: src/mainwindow.c:4069
 msgid "Usage: sylpheed [OPTION]..."
 msgstr "Ужыванне: sylpheed [ОПЦЫЯ]..."
 
-#: src/mainwindow.c:4076
+#: src/mainwindow.c:4077
 msgid ""
 "--compose [address]\n"
 "--attach file1 [file2]...\n"
@@ -4026,7 +4058,7 @@ msgstr ""
 "--help\n"
 "--version"
 
-#: src/mainwindow.c:4093
+#: src/mainwindow.c:4094
 msgid ""
 "open composition window\n"
 "open composition window with specified files attached\n"
@@ -4056,15 +4088,15 @@ msgstr ""
 "паказаць гэту даведку і выйсці\n"
 "паказаць звесткі пра версію і выйсці"
 
-#: src/mainwindow.c:4111
+#: src/mainwindow.c:4112
 msgid "Windows-only option:"
 msgstr ""
 
-#: src/mainwindow.c:4119
+#: src/mainwindow.c:4120
 msgid "--ipcport portnum"
 msgstr ""
 
-#: src/mainwindow.c:4124
+#: src/mainwindow.c:4125
 #, fuzzy
 msgid "specify port for IPC remote commands"
 msgstr "  --ipcport нум_порта    задаць порт для аддаленых загадаў IPC"
@@ -4122,7 +4154,7 @@ msgstr "Дадаткі"
 msgid "Message View - Sylpheed"
 msgstr "Прагляд паведамлення - Сілфід"
 
-#: src/messageview.c:765 src/summaryview.c:3770
+#: src/messageview.c:765 src/summaryview.c:3777
 #, c-format
 msgid "Can't save the file `%s'."
 msgstr "Нельга запісаць файл `%s'."
@@ -4170,10 +4202,6 @@ msgstr "/Праверыць подпі_с"
 #: src/mimeview.c:180
 msgid "Creating MIME view...\n"
 msgstr "Стварэнне прагляду MIME...\n"
-
-#: src/mimeview.c:209
-msgid "MIME Type"
-msgstr "Тып MIME "
 
 #: src/mimeview.c:332
 msgid "Select \"Check signature\" to check"
@@ -4266,252 +4294,256 @@ msgstr "Распараднік плагінаў"
 msgid "Check for _update"
 msgstr ""
 
-#: src/plugin_manager.c:190
+#: src/plugin_manager.c:191
 msgid "Plug-in information"
 msgstr "Звесткі пра плагін"
 
-#: src/plugin_manager.c:217 src/plugin_manager.c:219 src/plugin_manager.c:220
+#: src/plugin_manager.c:218 src/plugin_manager.c:220 src/plugin_manager.c:221
 msgid "(Unknown)"
 msgstr "(Невядома)"
 
-#: src/plugin_manager.c:219
+#: src/plugin_manager.c:220
 msgid "Author: "
 msgstr "Аўтар: "
 
-#: src/plugin_manager.c:220
+#: src/plugin_manager.c:221
 msgid "File: "
 msgstr "Файл: "
 
-#: src/plugin_manager.c:222
+#: src/plugin_manager.c:223
 msgid "Description: "
 msgstr "Апісанне: "
 
-#: src/prefs_account_dialog.c:444
+#: src/prefs_account_dialog.c:478
 msgid "Opening account preferences window...\n"
 msgstr "Адкрыццё вакна пераважанняў акаунта...\n"
 
-#: src/prefs_account_dialog.c:484
+#: src/prefs_account_dialog.c:518
 #, c-format
 msgid "Account%d"
 msgstr "Акаунт%d"
 
-#: src/prefs_account_dialog.c:505
+#: src/prefs_account_dialog.c:539
 msgid "Preferences for new account"
 msgstr "Настаўленні новага акаунта"
 
-#: src/prefs_account_dialog.c:514 src/prefs_toolbar.c:99
+#: src/prefs_account_dialog.c:548 src/prefs_toolbar.c:99
 msgid "Account preferences"
 msgstr "Настаўленні акаунта"
 
-#: src/prefs_account_dialog.c:537
+#: src/prefs_account_dialog.c:571
 msgid "Creating account preferences window...\n"
 msgstr "Стварэнне вакна пераважанняў акаунта...\n"
 
-#: src/prefs_account_dialog.c:557 src/prefs_common_dialog.c:762
+#: src/prefs_account_dialog.c:591 src/prefs_common_dialog.c:768
 msgid "Receive"
 msgstr "Атрыманне"
 
-#: src/prefs_account_dialog.c:559 src/prefs_common_dialog.c:764
+#: src/prefs_account_dialog.c:593 src/prefs_common_dialog.c:770
 #: src/prefs_toolbar.c:50 src/prefs_toolbar.c:102
 msgid "Send"
 msgstr "Адпраўка"
 
-#: src/prefs_account_dialog.c:561 src/prefs_common_dialog.c:766
+#: src/prefs_account_dialog.c:595 src/prefs_common_dialog.c:772
 #: src/prefs_folder_item.c:140 src/prefs_toolbar.c:53
 msgid "Compose"
 msgstr "Напісанне"
 
-#: src/prefs_account_dialog.c:564 src/prefs_common_dialog.c:773
+#: src/prefs_account_dialog.c:598 src/prefs_common_dialog.c:779
 msgid "Privacy"
 msgstr "Прыватнасць"
 
-#: src/prefs_account_dialog.c:568
+#: src/prefs_account_dialog.c:602
 msgid "SSL"
 msgstr "SSL"
 
-#: src/prefs_account_dialog.c:571 src/prefs_common_dialog.c:2473
+#: src/prefs_account_dialog.c:605
+msgid "Proxy"
+msgstr ""
+
+#: src/prefs_account_dialog.c:607 src/prefs_common_dialog.c:2488
 msgid "Advanced"
 msgstr "Адмысловыя"
 
-#: src/prefs_account_dialog.c:627
+#: src/prefs_account_dialog.c:663
 msgid "Name of this account"
 msgstr "Назва гэтага акаунта"
 
-#: src/prefs_account_dialog.c:636
+#: src/prefs_account_dialog.c:672
 msgid "Set as default"
 msgstr "Пазначыць тыповым"
 
-#: src/prefs_account_dialog.c:640
+#: src/prefs_account_dialog.c:676
 msgid "Personal information"
 msgstr "Асабовая інфармацыя"
 
-#: src/prefs_account_dialog.c:649
+#: src/prefs_account_dialog.c:685
 msgid "Full name"
 msgstr "Поўнае імя"
 
-#: src/prefs_account_dialog.c:655
+#: src/prefs_account_dialog.c:691
 msgid "Mail address"
 msgstr "Паштовы адрас"
 
-#: src/prefs_account_dialog.c:661
+#: src/prefs_account_dialog.c:697
 msgid "Organization"
 msgstr "Арганізацыя"
 
-#: src/prefs_account_dialog.c:685
+#: src/prefs_account_dialog.c:721
 msgid "Server information"
 msgstr "Інфармацыя аб серверы"
 
-#: src/prefs_account_dialog.c:706 src/prefs_account_dialog.c:863
-#: src/prefs_account_dialog.c:1605
+#: src/prefs_account_dialog.c:742 src/prefs_account_dialog.c:899
+#: src/prefs_account_dialog.c:1640
 msgid "POP3"
 msgstr "POP3"
 
-#: src/prefs_account_dialog.c:708 src/prefs_account_dialog.c:971
-#: src/prefs_account_dialog.c:1625 src/prefs_account_dialog.c:1816
+#: src/prefs_account_dialog.c:744 src/prefs_account_dialog.c:1007
+#: src/prefs_account_dialog.c:1660 src/prefs_account_dialog.c:1961
 msgid "IMAP4"
 msgstr "IMAP4"
 
-#: src/prefs_account_dialog.c:710
+#: src/prefs_account_dialog.c:746
 msgid "News (NNTP)"
 msgstr "Навіны (NNTP)"
 
-#: src/prefs_account_dialog.c:712
+#: src/prefs_account_dialog.c:748
 msgid "None (local)"
 msgstr "Няма (лакальны)"
 
-#: src/prefs_account_dialog.c:725
+#: src/prefs_account_dialog.c:761
 msgid "This server requires authentication"
 msgstr "Гэты сервер патрабуе аўтэнтыфікацыю"
 
-#: src/prefs_account_dialog.c:764
+#: src/prefs_account_dialog.c:800
 msgid "News server"
 msgstr "Сервер навін"
 
-#: src/prefs_account_dialog.c:770
+#: src/prefs_account_dialog.c:806
 msgid "Server for receiving"
 msgstr "Сервер для атрымання"
 
-#: src/prefs_account_dialog.c:776
+#: src/prefs_account_dialog.c:812
 msgid "SMTP server (send)"
 msgstr "SMTP-сервер (адпраўка)"
 
-#: src/prefs_account_dialog.c:783 src/prefs_account_dialog.c:1171
+#: src/prefs_account_dialog.c:819 src/prefs_account_dialog.c:1207
 msgid "User ID"
 msgstr "ID карыстальніка"
 
-#: src/prefs_account_dialog.c:789 src/prefs_account_dialog.c:1180
+#: src/prefs_account_dialog.c:825 src/prefs_account_dialog.c:1216
 msgid "Password"
 msgstr "Пароль"
 
-#: src/prefs_account_dialog.c:871
+#: src/prefs_account_dialog.c:907
 msgid "Use secure authentication (APOP)"
 msgstr "Ужываць бяспечную аўтэнтыфікацыю (APOP)"
 
-#: src/prefs_account_dialog.c:874
+#: src/prefs_account_dialog.c:910
 msgid "Remove messages on server when received"
 msgstr "Сціраць лісты з сервера па атрыманні"
 
-#: src/prefs_account_dialog.c:885
+#: src/prefs_account_dialog.c:921
 msgid "Remove after"
 msgstr "Сціраць пасля"
 
-#: src/prefs_account_dialog.c:894
+#: src/prefs_account_dialog.c:930
 msgid "days"
 msgstr "дзён"
 
-#: src/prefs_account_dialog.c:911
+#: src/prefs_account_dialog.c:947
 msgid "0 days: remove immediately"
 msgstr "(0 дзён: сціраць неадкладна)"
 
-#: src/prefs_account_dialog.c:921
+#: src/prefs_account_dialog.c:957
 msgid "Download all messages (including already received) on server"
 msgstr "Загружаць усе паведамленні (таксама ўжо атрыманыя) з сервера"
 
-#: src/prefs_account_dialog.c:927
+#: src/prefs_account_dialog.c:963
 msgid "Receive size limit"
 msgstr "Ліміт памеру атрымання"
 
-#: src/prefs_account_dialog.c:934 src/prefs_filter_edit.c:592
+#: src/prefs_account_dialog.c:970 src/prefs_filter_edit.c:592
 #: src/prefs_filter_edit.c:1053
 msgid "KB"
 msgstr "КБ"
 
-#: src/prefs_account_dialog.c:941
+#: src/prefs_account_dialog.c:977
 msgid "Filter messages on receiving"
 msgstr "Фільтраваць лісты падчас атрымання"
 
-#: src/prefs_account_dialog.c:949
+#: src/prefs_account_dialog.c:985
 msgid "Default inbox"
 msgstr "Тыповы inbox"
 
-#: src/prefs_account_dialog.c:969
+#: src/prefs_account_dialog.c:1005
 msgid "Unfiltered messages will be stored in this folder."
 msgstr "Неадфільтраваныя лісты застануцца ў гэтым каталогу."
 
-#: src/prefs_account_dialog.c:982 src/prefs_account_dialog.c:1141
+#: src/prefs_account_dialog.c:1018 src/prefs_account_dialog.c:1177
 msgid "Authentication method"
 msgstr "Метад аўтэнтыфікацыі"
 
-#: src/prefs_account_dialog.c:992 src/prefs_account_dialog.c:1151
-#: src/prefs_common_dialog.c:1043 src/prefs_common_dialog.c:2595
-#: src/prefs_common_dialog.c:2960
+#: src/prefs_account_dialog.c:1028 src/prefs_account_dialog.c:1187
+#: src/prefs_common_dialog.c:1049 src/prefs_common_dialog.c:2616
+#: src/prefs_common_dialog.c:2982
 msgid "Automatic"
 msgstr "Аўтаматычна"
 
-#: src/prefs_account_dialog.c:1000
+#: src/prefs_account_dialog.c:1036
 msgid "Only check INBOX on receiving"
 msgstr "Правяраць толькі INBOX падчас атрымання"
 
-#: src/prefs_account_dialog.c:1002
+#: src/prefs_account_dialog.c:1038
 msgid "Filter new messages in INBOX on receiving"
 msgstr "Фільтраваць новыя лісты ў INBOX падчас атрымання"
 
-#: src/prefs_account_dialog.c:1004
+#: src/prefs_account_dialog.c:1040
 msgid "News"
 msgstr "Навіны"
 
-#: src/prefs_account_dialog.c:1016
+#: src/prefs_account_dialog.c:1052
 msgid "Maximum number of articles to download"
 msgstr "Максімум артыкулаў для загрузкі"
 
-#: src/prefs_account_dialog.c:1033
+#: src/prefs_account_dialog.c:1069
 msgid "No limit if 0 is specified."
 msgstr "Без абмежавання, калі указаны 0."
 
-#: src/prefs_account_dialog.c:1037
+#: src/prefs_account_dialog.c:1073
 msgid "`Get all' checks for new messages on this account"
 msgstr "`Атр.усе' правярае новыя паведамленні для гэтага акаунта"
 
-#: src/prefs_account_dialog.c:1091 src/prefs_customheader.c:186
+#: src/prefs_account_dialog.c:1127 src/prefs_customheader.c:186
 msgid "Header"
 msgstr "Загаловак"
 
-#: src/prefs_account_dialog.c:1098
+#: src/prefs_account_dialog.c:1134
 msgid "Add Date header field"
 msgstr "Дадаць поле Дата да загалоўка"
 
-#: src/prefs_account_dialog.c:1099
+#: src/prefs_account_dialog.c:1135
 msgid "Generate Message-ID"
 msgstr "Генераваць Message-ID"
 
-#: src/prefs_account_dialog.c:1106
+#: src/prefs_account_dialog.c:1142
 msgid "Add user-defined header"
 msgstr "Дадаць загаловак, зададзены карыстальнікам"
 
-#: src/prefs_account_dialog.c:1108 src/prefs_common_dialog.c:1792
-#: src/prefs_common_dialog.c:1819
+#: src/prefs_account_dialog.c:1144 src/prefs_common_dialog.c:1798
+#: src/prefs_common_dialog.c:1825
 msgid " Edit... "
 msgstr " Рэдагаваць..."
 
-#: src/prefs_account_dialog.c:1118
+#: src/prefs_account_dialog.c:1154
 msgid "Authentication"
 msgstr "Аўтэнтыфікацыя"
 
-#: src/prefs_account_dialog.c:1126
+#: src/prefs_account_dialog.c:1162
 msgid "SMTP Authentication (SMTP AUTH)"
 msgstr "Аўтэнтыфікацыя SMTP (SMTP AUTH)"
 
-#: src/prefs_account_dialog.c:1202
+#: src/prefs_account_dialog.c:1238
 msgid ""
 "If you leave these entries empty, the same user ID and password as receiving "
 "will be used."
@@ -4519,207 +4551,242 @@ msgstr ""
 "Калі вы пакінеце гэтыя палі пустымі, будуць ужытыя тыя ж ID карыстальніка і "
 "пароль, што і для атрымання."
 
-#: src/prefs_account_dialog.c:1215
+#: src/prefs_account_dialog.c:1251
 msgid "Authenticate with POP3 before sending"
 msgstr "Аўтэнтыфікацыя POP3 перад адпраўленнем"
 
 #. signature
-#: src/prefs_account_dialog.c:1254 src/prefs_common_dialog.c:1160
+#: src/prefs_account_dialog.c:1290 src/prefs_common_dialog.c:1166
 #: src/prefs_toolbar.c:117
 msgid "Signature"
 msgstr "Подпіс"
 
-#: src/prefs_account_dialog.c:1262
+#: src/prefs_account_dialog.c:1298
 msgid "Direct input"
 msgstr "Непасрэдны ўвод"
 
-#: src/prefs_account_dialog.c:1296
+#: src/prefs_account_dialog.c:1332
 msgid "Command output"
 msgstr "Вывад загада"
 
-#: src/prefs_account_dialog.c:1308
+#: src/prefs_account_dialog.c:1344
 msgid "Put signature before quote (not recommended)"
 msgstr ""
 
-#: src/prefs_account_dialog.c:1320 src/prefs_folder_item.c:332
+#: src/prefs_account_dialog.c:1356 src/prefs_folder_item.c:332
 msgid "Automatically set the following addresses"
 msgstr "Аўтаматычна ўпісваць наступныя адрасы"
 
-#: src/prefs_account_dialog.c:1329
+#: src/prefs_account_dialog.c:1365
 msgid "Cc"
 msgstr "Копія"
 
-#: src/prefs_account_dialog.c:1342
+#: src/prefs_account_dialog.c:1378
 msgid "Bcc"
 msgstr "Скрытая копія"
 
-#: src/prefs_account_dialog.c:1355
+#: src/prefs_account_dialog.c:1391
 msgid "Reply-To"
 msgstr "Зваротны адрас"
 
-#: src/prefs_account_dialog.c:1412
+#: src/prefs_account_dialog.c:1448
 msgid "PGP sign message by default"
 msgstr "Тыпова падпісваць паведамленні PGP"
 
-#: src/prefs_account_dialog.c:1414
+#: src/prefs_account_dialog.c:1450
 msgid "PGP encrypt message by default"
 msgstr "Тыпова шыфраваць паведамленні PGP"
 
-#: src/prefs_account_dialog.c:1416
+#: src/prefs_account_dialog.c:1452
 msgid "Encrypt when replying to encrypted message"
 msgstr "Шыфраваць пры адказе на шыфраванае паведамленне"
 
-#: src/prefs_account_dialog.c:1418
+#: src/prefs_account_dialog.c:1454
 msgid "Use ASCII-armored format for encryption"
 msgstr "Ужываць фармат ASCII-armored для шыфравання"
 
-#: src/prefs_account_dialog.c:1420
+#: src/prefs_account_dialog.c:1456
 msgid "Use clear text signature"
 msgstr "Устаўляць подпіс чыстым тэкстам"
 
-#: src/prefs_account_dialog.c:1425
+#: src/prefs_account_dialog.c:1461
 msgid "Sign key"
 msgstr "Ключ подпісу"
 
-#: src/prefs_account_dialog.c:1433
+#: src/prefs_account_dialog.c:1469
 msgid "Use default GnuPG key"
 msgstr "Ужываць тыповы ключ GnuPG"
 
-#: src/prefs_account_dialog.c:1442
+#: src/prefs_account_dialog.c:1478
 msgid "Select key by your email address"
 msgstr "Выбар ключа праз свой адрас эл.пошты"
 
-#: src/prefs_account_dialog.c:1451
+#: src/prefs_account_dialog.c:1487
 msgid "Specify key manually"
 msgstr "Задаць ключ самастойна"
 
-#: src/prefs_account_dialog.c:1467
+#: src/prefs_account_dialog.c:1503
 msgid "User or key ID:"
 msgstr "ID карыстальніка ці ключа:"
 
-#: src/prefs_account_dialog.c:1613 src/prefs_account_dialog.c:1633
-#: src/prefs_account_dialog.c:1652 src/prefs_account_dialog.c:1673
+#: src/prefs_account_dialog.c:1648 src/prefs_account_dialog.c:1668
+#: src/prefs_account_dialog.c:1687 src/prefs_account_dialog.c:1708
 msgid "Don't use SSL"
 msgstr "Не ўжываць SSL"
 
-#: src/prefs_account_dialog.c:1616
+#: src/prefs_account_dialog.c:1651
 msgid "Use SSL for POP3 connection"
 msgstr "Ужываць SSL для злучэння POP3"
 
-#: src/prefs_account_dialog.c:1619 src/prefs_account_dialog.c:1639
-#: src/prefs_account_dialog.c:1679
+#: src/prefs_account_dialog.c:1654 src/prefs_account_dialog.c:1674
+#: src/prefs_account_dialog.c:1714
 msgid "Use STARTTLS command to start SSL session"
 msgstr "Ужываць загад STARTTLS, каб пачаць сеанс SSL"
 
-#: src/prefs_account_dialog.c:1636
+#: src/prefs_account_dialog.c:1671
 msgid "Use SSL for IMAP4 connection"
 msgstr "Ужываць SSL для злучэння IMAP4"
 
-#: src/prefs_account_dialog.c:1645
+#: src/prefs_account_dialog.c:1680
 msgid "NNTP"
 msgstr "NNTP"
 
-#: src/prefs_account_dialog.c:1660
+#: src/prefs_account_dialog.c:1695
 msgid "Use SSL for NNTP connection"
 msgstr "Ужываць SSL для злучэння NNTP"
 
-#: src/prefs_account_dialog.c:1665
+#: src/prefs_account_dialog.c:1700
 msgid "Send (SMTP)"
 msgstr "Адпраўка (SMTP)"
 
-#: src/prefs_account_dialog.c:1676
+#: src/prefs_account_dialog.c:1711
 msgid "Use SSL for SMTP connection"
 msgstr "Ужываць SSL для злучэння SMTP"
 
-#: src/prefs_account_dialog.c:1690
+#: src/prefs_account_dialog.c:1725
 msgid "Use non-blocking SSL"
 msgstr "Ужываць не-блакавальны SSL"
 
-#: src/prefs_account_dialog.c:1693
+#: src/prefs_account_dialog.c:1728
 msgid "Turn this off if you have problems in SSL connection."
 msgstr "Выключце гэта, калі маеце праблемы з SSL злучэннем."
 
-#: src/prefs_account_dialog.c:1783
+#: src/prefs_account_dialog.c:1778
+#, fuzzy
+msgid "Use SOCKS proxy"
+msgstr "Ужываць HTTP proxy"
+
+#: src/prefs_account_dialog.c:1802
+#, fuzzy
+msgid "Hostname:"
+msgstr "Назва хосту"
+
+#: src/prefs_account_dialog.c:1811
+#, fuzzy
+msgid "Port:"
+msgstr "Порт"
+
+#: src/prefs_account_dialog.c:1824
+#, fuzzy
+msgid "Use authentication"
+msgstr "Ужываць SMTP-аўтэнтыфікацыю"
+
+#: src/prefs_account_dialog.c:1830 src/prefs_filter_edit.c:253
+#: src/prefs_search_folder.c:187
+msgid "Name:"
+msgstr "Назва:"
+
+#: src/prefs_account_dialog.c:1839
+#, fuzzy
+msgid "Password:"
+msgstr "Пароль"
+
+#: src/prefs_account_dialog.c:1850
+#, fuzzy
+msgid "Use SOCKS proxy on sending"
+msgstr "Ужываць вонкавую праграму для адпраўкі"
+
+#: src/prefs_account_dialog.c:1928
 msgid "Specify SMTP port"
 msgstr "Задаць порт SMTP"
 
-#: src/prefs_account_dialog.c:1789
+#: src/prefs_account_dialog.c:1934
 msgid "Specify POP3 port"
 msgstr "Задаць порт POP3"
 
-#: src/prefs_account_dialog.c:1795
+#: src/prefs_account_dialog.c:1940
 msgid "Specify IMAP4 port"
 msgstr "Задаць порт IMAP4"
 
-#: src/prefs_account_dialog.c:1801
+#: src/prefs_account_dialog.c:1946
 msgid "Specify NNTP port"
 msgstr "Задаць порт NNTP"
 
-#: src/prefs_account_dialog.c:1806
+#: src/prefs_account_dialog.c:1951
 msgid "Specify domain name"
 msgstr "Задаць даменнае імя"
 
-#: src/prefs_account_dialog.c:1827
+#: src/prefs_account_dialog.c:1972
 msgid "IMAP server directory"
 msgstr "Каталог сервера IMAP4."
 
-#: src/prefs_account_dialog.c:1837
+#: src/prefs_account_dialog.c:1982
 msgid "Only the subfolders of this directory will be displayed."
 msgstr "Толькі падкаталогі гэтага каталога будуць паказаны."
 
-#: src/prefs_account_dialog.c:1840
+#: src/prefs_account_dialog.c:1985
 msgid "Clear all message caches on exit"
 msgstr "Ачышчаць усе кэшы паведамленняў пры выхадзе"
 
-#: src/prefs_account_dialog.c:1885
+#: src/prefs_account_dialog.c:2030
 msgid "Put sent messages in"
 msgstr "Змяшчаць дасланыя лісты ў"
 
-#: src/prefs_account_dialog.c:1887
+#: src/prefs_account_dialog.c:2032
 msgid "Put draft messages in"
 msgstr "Змяшчаць чарнавікі ў"
 
-#: src/prefs_account_dialog.c:1889
+#: src/prefs_account_dialog.c:2034
 msgid "Put queued messages in"
 msgstr "Змяшчаць чаргу ў"
 
-#: src/prefs_account_dialog.c:1891
+#: src/prefs_account_dialog.c:2036
 msgid "Put deleted messages in"
 msgstr "Змяшчаць сцёртыя лісты ў"
 
-#: src/prefs_account_dialog.c:1960
+#: src/prefs_account_dialog.c:2105
 msgid "Account name is not entered."
 msgstr "Не ўведзена назва акаунта."
 
-#: src/prefs_account_dialog.c:1964
+#: src/prefs_account_dialog.c:2109
 msgid "Mail address is not entered."
 msgstr "Не ўведзены адрас эл.пошты."
 
-#: src/prefs_account_dialog.c:1969
+#: src/prefs_account_dialog.c:2114
 msgid "SMTP server is not entered."
 msgstr "Не ўведзены сервер SMTP."
 
-#: src/prefs_account_dialog.c:1974
+#: src/prefs_account_dialog.c:2119
 msgid "User ID is not entered."
 msgstr "Не ўведзены ID карыстальніка."
 
-#: src/prefs_account_dialog.c:1979
+#: src/prefs_account_dialog.c:2124
 msgid "POP3 server is not entered."
 msgstr "Не ўказаны сервер POP3."
 
-#: src/prefs_account_dialog.c:1984
+#: src/prefs_account_dialog.c:2129
 msgid "IMAP4 server is not entered."
 msgstr "Не ўказаны сервер IMAP4."
 
-#: src/prefs_account_dialog.c:1989
+#: src/prefs_account_dialog.c:2134
 msgid "NNTP server is not entered."
 msgstr "Не ўказаны сервер NNTP."
 
-#: src/prefs_account_dialog.c:2015
+#: src/prefs_account_dialog.c:2160
 msgid "Specified folder is not a queue folder."
 msgstr "Указаны каталог не з'яўляецца каталогам чаргі."
 
-#: src/prefs_account_dialog.c:2125
+#: src/prefs_account_dialog.c:2270
 msgid ""
 "It's not recommended to use the old style ASCII-armored\n"
 "mode for encrypted messages. It doesn't comply with the\n"
@@ -4836,90 +4903,90 @@ msgstr "Сцерці дзеянне"
 msgid "Do you really want to delete this action?"
 msgstr "Сапраўды жадаеце сцерці гэтае дзеянне?"
 
-#: src/prefs_common_dialog.c:742
+#: src/prefs_common_dialog.c:748
 msgid "Creating common preferences window...\n"
 msgstr "Стварэнне вакна агульных настаўленняў...\n"
 
-#: src/prefs_common_dialog.c:746
+#: src/prefs_common_dialog.c:752
 msgid "Common Preferences"
 msgstr "Агульныя настаўленні"
 
-#: src/prefs_common_dialog.c:768
+#: src/prefs_common_dialog.c:774
 msgid "Display"
 msgstr "Выгляд"
 
-#: src/prefs_common_dialog.c:770
+#: src/prefs_common_dialog.c:776
 msgid "Junk mail"
 msgstr "Спам"
 
-#: src/prefs_common_dialog.c:776
+#: src/prefs_common_dialog.c:782
 msgid "Details"
 msgstr "Дэталі"
 
-#: src/prefs_common_dialog.c:826
+#: src/prefs_common_dialog.c:832
 msgid "Auto-check new mail"
 msgstr "Аўта-праверка новай пошты"
 
-#: src/prefs_common_dialog.c:828 src/prefs_common_dialog.c:1278
+#: src/prefs_common_dialog.c:834 src/prefs_common_dialog.c:1284
 msgid "every"
 msgstr "кожныя"
 
-#: src/prefs_common_dialog.c:840 src/prefs_common_dialog.c:1292
+#: src/prefs_common_dialog.c:846 src/prefs_common_dialog.c:1298
 msgid "minute(s)"
 msgstr "мінут(а)"
 
-#: src/prefs_common_dialog.c:849
+#: src/prefs_common_dialog.c:855
 msgid "Check new mail on startup"
 msgstr "Правяраць новую пошту пры запуску"
 
-#: src/prefs_common_dialog.c:851
+#: src/prefs_common_dialog.c:857
 msgid "Update all local folders after incorporation"
 msgstr "Абнаўляць усе лакальныя каталогі пасля атрымання"
 
-#: src/prefs_common_dialog.c:856
+#: src/prefs_common_dialog.c:862
 msgid "Execute command when new messages arrived"
 msgstr "Выконваць загад, калі атрыманыя новыя паведамленні"
 
-#: src/prefs_common_dialog.c:868 src/prefs_common_dialog.c:2767
-#: src/prefs_common_dialog.c:2789 src/prefs_common_dialog.c:2811
+#: src/prefs_common_dialog.c:874 src/prefs_common_dialog.c:2789
+#: src/prefs_common_dialog.c:2811 src/prefs_common_dialog.c:2833
 msgid "Command"
 msgstr "Загад"
 
-#: src/prefs_common_dialog.c:879
+#: src/prefs_common_dialog.c:885
 #, c-format
 msgid "`%d' will be replaced with the number of new messages."
 msgstr "`%d' будзе заменена на колькасць новых паведамленняў."
 
-#: src/prefs_common_dialog.c:883
+#: src/prefs_common_dialog.c:889
 msgid "Incorporate from local spool"
 msgstr "Атрымліваць з лакальнага сховішча"
 
-#: src/prefs_common_dialog.c:896
+#: src/prefs_common_dialog.c:902
 msgid "Filter on incorporation"
 msgstr "Фільтраваць падчас атрымання"
 
-#: src/prefs_common_dialog.c:902
+#: src/prefs_common_dialog.c:908
 msgid "Spool path"
 msgstr "Шлях да сховішча"
 
-#: src/prefs_common_dialog.c:963 src/prefs_common_dialog.c:1156
-#: src/prefs_common_dialog.c:1553 src/prefs_folder_item.c:139
+#: src/prefs_common_dialog.c:969 src/prefs_common_dialog.c:1162
+#: src/prefs_common_dialog.c:1559 src/prefs_folder_item.c:139
 msgid "General"
 msgstr "Агульныя"
 
-#: src/prefs_common_dialog.c:970
+#: src/prefs_common_dialog.c:976
 msgid "Save sent messages to outbox"
 msgstr "Захоўваць копіі адпраўленых лістоў у Дасланых"
 
-#: src/prefs_common_dialog.c:972
+#: src/prefs_common_dialog.c:978
 msgid "Apply filter rules to sent messages"
 msgstr "Ужываць правілы фільтра да дасланых лістоў"
 
-#: src/prefs_common_dialog.c:975
+#: src/prefs_common_dialog.c:981
 msgid "Automatically add recipients to address book"
 msgstr "Аўтаматычна запісваць адрасатаў у адрасную кнігу"
 
-#: src/prefs_common_dialog.c:982
+#: src/prefs_common_dialog.c:988
 msgid ""
 "Notify for missing attachments when the following strings (comma-separated) "
 "are found in the message body"
@@ -4927,23 +4994,23 @@ msgstr ""
 "Нагадваць пра адсутнасць дадаткаў, калі наступныя радкі (раздзяляць коскай) "
 "знойдуцца ў целе паведамлення"
 
-#: src/prefs_common_dialog.c:993
+#: src/prefs_common_dialog.c:999
 msgid "(Ex: attach)"
 msgstr "(Напр: дадатак)"
 
-#: src/prefs_common_dialog.c:1004
+#: src/prefs_common_dialog.c:1010
 msgid "Confirm recipients before sending"
 msgstr "Пацвярджаць атрымальнікаў перад адпраўкай"
 
-#: src/prefs_common_dialog.c:1010
+#: src/prefs_common_dialog.c:1016
 msgid "Excluded addresses/domains (comma-separated):"
 msgstr "Выняткі, адрасы/дамены (раздзяляць коскай):"
 
-#: src/prefs_common_dialog.c:1029
+#: src/prefs_common_dialog.c:1035
 msgid "Transfer encoding"
 msgstr "Кадаванне перадачы"
 
-#: src/prefs_common_dialog.c:1052
+#: src/prefs_common_dialog.c:1058
 msgid ""
 "Specify Content-Transfer-Encoding used when message body contains non-ASCII "
 "characters."
@@ -4951,15 +5018,15 @@ msgstr ""
 "Выберыце кадаванне перадачы зместу (Content-Transfer-Encoding), якое "
 "ўжываецца, калі цела паведамлення утрымлівае не-ASCII сімвалы."
 
-#: src/prefs_common_dialog.c:1059
+#: src/prefs_common_dialog.c:1065
 msgid "MIME filename encoding"
 msgstr "Кадаванне імён файлаў MIME"
 
-#: src/prefs_common_dialog.c:1070
+#: src/prefs_common_dialog.c:1076
 msgid "MIME header"
 msgstr "MIME header"
 
-#: src/prefs_common_dialog.c:1080
+#: src/prefs_common_dialog.c:1086
 msgid ""
 "Specify encoding method for MIME filename with non-ASCII characters.\n"
 "MIME header: most popular, but violates RFC 2047\n"
@@ -4969,174 +5036,174 @@ msgstr ""
 "MIME header: найбольш папулярны, але парушае RFC 2047\n"
 "RFC 2231: адпавядае стандарту, але не папулярны"
 
-#: src/prefs_common_dialog.c:1171
+#: src/prefs_common_dialog.c:1177
 msgid "Signature separator"
 msgstr "Аддзельнік подпісу"
 
-#: src/prefs_common_dialog.c:1180
+#: src/prefs_common_dialog.c:1186
 msgid "Insert automatically"
 msgstr "Устаўляць аўтаматычна"
 
-#: src/prefs_common_dialog.c:1182 src/prefs_toolbar.c:56
+#: src/prefs_common_dialog.c:1188 src/prefs_toolbar.c:56
 msgid "Reply"
 msgstr "Адказаць"
 
-#: src/prefs_common_dialog.c:1190
+#: src/prefs_common_dialog.c:1196
 msgid "Automatically select account for replies"
 msgstr "Аўтаматычны выбар акаунта для адказаў"
 
-#: src/prefs_common_dialog.c:1192
+#: src/prefs_common_dialog.c:1198
 msgid "Quote message when replying"
 msgstr "Цытаваць паведамленне пры адказе"
 
-#: src/prefs_common_dialog.c:1194
+#: src/prefs_common_dialog.c:1200
 msgid "Reply to mailing list by Reply button"
 msgstr "Адказваць у спіс рассылкі пры націсканні кнопкі Адказаць"
 
-#: src/prefs_common_dialog.c:1196
+#: src/prefs_common_dialog.c:1202
 msgid "Inherit recipients on reply to self messages"
 msgstr "Захоўваць папярэднія адрасы пры адказе на свае паведамленні"
 
-#: src/prefs_common_dialog.c:1198
+#: src/prefs_common_dialog.c:1204
 msgid "Set only mail address of recipients when replying"
 msgstr "Упісваць толькі паштовыя адрасы атрымальнікаў пры адказе"
 
 #. editor
-#: src/prefs_common_dialog.c:1202 src/prefs_common_dialog.c:2730
+#: src/prefs_common_dialog.c:1208 src/prefs_common_dialog.c:2752
 #: src/prefs_toolbar.c:120
 msgid "Editor"
 msgstr "Рэдактар"
 
-#: src/prefs_common_dialog.c:1209
+#: src/prefs_common_dialog.c:1215
 msgid "Automatically launch the external editor"
 msgstr "Аўтаматычна запускаць вонкавы рэдактар"
 
-#: src/prefs_common_dialog.c:1219
+#: src/prefs_common_dialog.c:1225
 msgid "Undo level"
 msgstr "Глыбіня гісторыі зменаў"
 
-#: src/prefs_common_dialog.c:1239
+#: src/prefs_common_dialog.c:1245
 msgid "Wrap messages at"
 msgstr "Заварочваць лісты па"
 
-#: src/prefs_common_dialog.c:1251
+#: src/prefs_common_dialog.c:1257
 msgid "characters"
 msgstr "сімвалаў"
 
-#: src/prefs_common_dialog.c:1261
+#: src/prefs_common_dialog.c:1267
 msgid "Wrap quotation"
 msgstr "Пераносіць цытаты"
 
-#: src/prefs_common_dialog.c:1267
+#: src/prefs_common_dialog.c:1273
 msgid "Wrap on input"
 msgstr "Пераносіць пры ўводзе"
 
-#: src/prefs_common_dialog.c:1276
+#: src/prefs_common_dialog.c:1282
 msgid "Auto-save to draft"
 msgstr "Аўта-запіс у чарнавікі"
 
-#: src/prefs_common_dialog.c:1301
+#: src/prefs_common_dialog.c:1307
 msgid "Format"
 msgstr "Фармат"
 
-#: src/prefs_common_dialog.c:1306
+#: src/prefs_common_dialog.c:1312
 msgid "Spell checking"
 msgstr "Праверка правапісу"
 
 #. reply
-#: src/prefs_common_dialog.c:1359
+#: src/prefs_common_dialog.c:1365
 msgid "Reply format"
 msgstr "Фармат адказу"
 
-#: src/prefs_common_dialog.c:1374 src/prefs_common_dialog.c:1416
+#: src/prefs_common_dialog.c:1380 src/prefs_common_dialog.c:1422
 msgid "Quotation mark"
 msgstr "Знак цытаты"
 
 #. forward
-#: src/prefs_common_dialog.c:1401
+#: src/prefs_common_dialog.c:1407
 msgid "Forward format"
 msgstr "Фармат перасылкі"
 
-#: src/prefs_common_dialog.c:1448
+#: src/prefs_common_dialog.c:1454
 msgid " Description of symbols "
 msgstr " Апісанне сімвалаў "
 
-#: src/prefs_common_dialog.c:1477
+#: src/prefs_common_dialog.c:1483
 msgid "Enable Spell checking"
 msgstr "Ужываць Праверку правапісу"
 
-#: src/prefs_common_dialog.c:1489
+#: src/prefs_common_dialog.c:1495
 msgid "Default language:"
 msgstr "Прадвызначаная мова:"
 
-#: src/prefs_common_dialog.c:1561
+#: src/prefs_common_dialog.c:1567
 msgid "Text font"
 msgstr "Шрыфт тэксту"
 
 #. ---- Folder View ----
-#: src/prefs_common_dialog.c:1573
+#: src/prefs_common_dialog.c:1579
 msgid "Folder View"
 msgstr "Прагляд каталогаў"
 
-#: src/prefs_common_dialog.c:1581
+#: src/prefs_common_dialog.c:1587
 msgid "Display unread number next to folder name"
 msgstr "Паказваць колькасць нечытаных лістоў побач з назвай каталога"
 
-#: src/prefs_common_dialog.c:1585
+#: src/prefs_common_dialog.c:1591
 msgid "Displaying message number columns in the folder view:"
 msgstr "Паказваць у слупок колькасць лістоў у праглядзе каталогаў:"
 
-#: src/prefs_common_dialog.c:1609
+#: src/prefs_common_dialog.c:1615
 msgid "Abbreviate newsgroups longer than"
 msgstr "Скарачаць назвы груп даўжэй за "
 
-#: src/prefs_common_dialog.c:1624
+#: src/prefs_common_dialog.c:1630
 msgid "letters"
 msgstr "літар"
 
 #. ---- Summary ----
-#: src/prefs_common_dialog.c:1630
+#: src/prefs_common_dialog.c:1636
 msgid "Summary View"
 msgstr "Выгляд Зводкі"
 
-#: src/prefs_common_dialog.c:1639
+#: src/prefs_common_dialog.c:1645
 msgid "Display recipient on `From' column if sender is yourself"
 msgstr "Паказваць адрасатаў ў слупку `Ад', калі адпраўнік - вы"
 
-#: src/prefs_common_dialog.c:1641
+#: src/prefs_common_dialog.c:1647
 msgid "Expand threads"
 msgstr "Разгортваць ніткі"
 
-#: src/prefs_common_dialog.c:1649 src/prefs_common_dialog.c:3203
-#: src/prefs_common_dialog.c:3241
+#: src/prefs_common_dialog.c:1655 src/prefs_common_dialog.c:3225
+#: src/prefs_common_dialog.c:3263
 msgid "Date format"
 msgstr "Фармат даты"
 
-#: src/prefs_common_dialog.c:1670
+#: src/prefs_common_dialog.c:1676
 msgid " Set display item of summary... "
 msgstr " Наставіць від запісаў зводкі... "
 
-#: src/prefs_common_dialog.c:1676
+#: src/prefs_common_dialog.c:1682
 msgid "Message"
 msgstr "Паведамленне"
 
-#: src/prefs_common_dialog.c:1680
+#: src/prefs_common_dialog.c:1686
 msgid "Color label"
 msgstr "Каляровая метка"
 
-#: src/prefs_common_dialog.c:1690
+#: src/prefs_common_dialog.c:1696
 msgid "Default character encoding"
 msgstr "Тыповы знаказбор"
 
-#: src/prefs_common_dialog.c:1704
+#: src/prefs_common_dialog.c:1710
 msgid "This is used when displaying messages with missing character encoding."
 msgstr "Ужываецца пры паказе паведамленняў, у якіх не пазначаны знаказбор."
 
-#: src/prefs_common_dialog.c:1710
+#: src/prefs_common_dialog.c:1716
 msgid "Outgoing character encoding"
 msgstr "Выходны знаказбор"
 
-#: src/prefs_common_dialog.c:1724
+#: src/prefs_common_dialog.c:1730
 msgid ""
 "If `Automatic' is selected, the optimal encoding for the current locale will "
 "be used."
@@ -5144,11 +5211,11 @@ msgstr ""
 "Калі выбрана `Аўтаматычна', аптымальнае для бягучай лакалі кадаванне будзе "
 "ужыта."
 
-#: src/prefs_common_dialog.c:1788
+#: src/prefs_common_dialog.c:1794
 msgid "Enable coloration of message"
 msgstr "Дазволіць афарбоўку паведамлення"
 
-#: src/prefs_common_dialog.c:1803
+#: src/prefs_common_dialog.c:1809
 msgid ""
 "Display multi-byte alphabet and numeric as\n"
 "ASCII character (Japanese only)"
@@ -5156,87 +5223,87 @@ msgstr ""
 "Паказваць шматбайтны алфавіт і лічбы\n"
 "як сімвалы ASCII (толькі японскія)"
 
-#: src/prefs_common_dialog.c:1810
+#: src/prefs_common_dialog.c:1816
 msgid "Display header pane above message view"
 msgstr "Паказваць стужку загалоўкаў па-над праглядам паведамлення"
 
-#: src/prefs_common_dialog.c:1817
+#: src/prefs_common_dialog.c:1823
 msgid "Display short headers on message view"
 msgstr "Паказваць кароткія загалоўкі ў праглядзе ліста"
 
-#: src/prefs_common_dialog.c:1829
+#: src/prefs_common_dialog.c:1835
 msgid "Render HTML messages as text"
 msgstr "Адлюстроўваць HTML-паведамленні як тэкст"
 
-#: src/prefs_common_dialog.c:1831
+#: src/prefs_common_dialog.c:1837
 msgid "Treat HTML only messages as attachment"
 msgstr "Трактаваць паведамленні з аднаго HTML як дадатак"
 
-#: src/prefs_common_dialog.c:1835
+#: src/prefs_common_dialog.c:1841
 msgid "Display cursor in message view"
 msgstr "Паказваць курсор у праглядзе паведамлення"
 
-#: src/prefs_common_dialog.c:1848
+#: src/prefs_common_dialog.c:1854
 msgid "Line space"
 msgstr "Прастора між радкоў"
 
-#: src/prefs_common_dialog.c:1862 src/prefs_common_dialog.c:1900
+#: src/prefs_common_dialog.c:1868 src/prefs_common_dialog.c:1906
 msgid "pixel(s)"
 msgstr "піксел(аў)"
 
-#: src/prefs_common_dialog.c:1867
+#: src/prefs_common_dialog.c:1873
 msgid "Scroll"
 msgstr "Пракрутка"
 
-#: src/prefs_common_dialog.c:1874
+#: src/prefs_common_dialog.c:1880
 msgid "Half page"
 msgstr "Палова старонкі"
 
-#: src/prefs_common_dialog.c:1880
+#: src/prefs_common_dialog.c:1886
 msgid "Smooth scroll"
 msgstr "Гладкая пракрутка"
 
-#: src/prefs_common_dialog.c:1886
+#: src/prefs_common_dialog.c:1892
 msgid "Step"
 msgstr "Крок"
 
-#: src/prefs_common_dialog.c:1906
+#: src/prefs_common_dialog.c:1912
 msgid "Images"
 msgstr "Рысункі"
 
-#: src/prefs_common_dialog.c:1914
+#: src/prefs_common_dialog.c:1920
 msgid "Resize attached large images to fit in the window"
 msgstr "Падганяць памер вялікіх далучаных рысункаў да памеру вакна"
 
-#: src/prefs_common_dialog.c:1916
+#: src/prefs_common_dialog.c:1922
 msgid "Display images as inline"
 msgstr "Паказваць рысункі побач з тэкстам"
 
-#: src/prefs_common_dialog.c:1955
+#: src/prefs_common_dialog.c:1961
 msgid "You can specify label names for each color (Work, TODO etc.)."
 msgstr ""
 
-#: src/prefs_common_dialog.c:2080
+#: src/prefs_common_dialog.c:2086
 msgid "Enable Junk mail control"
 msgstr "Задзейнічаць кіраванне СПАМам"
 
-#: src/prefs_common_dialog.c:2092
+#: src/prefs_common_dialog.c:2098
 msgid "Learning command:"
 msgstr "Загад вучэння:"
 
-#: src/prefs_common_dialog.c:2101
+#: src/prefs_common_dialog.c:2107
 msgid "(Select preset)"
 msgstr "(Выберыце набор)"
 
-#: src/prefs_common_dialog.c:2126
+#: src/prefs_common_dialog.c:2132
 msgid "Not Junk"
 msgstr "Не-Спам"
 
-#: src/prefs_common_dialog.c:2141
+#: src/prefs_common_dialog.c:2147
 msgid "Classifying command"
 msgstr "Загад класіфікацыі"
 
-#: src/prefs_common_dialog.c:2152
+#: src/prefs_common_dialog.c:2158
 msgid ""
 "To classify junk mails automatically, both junk and not junk mails must be "
 "learned manually to a certain extent."
@@ -5244,246 +5311,256 @@ msgstr ""
 "Каб класіфікаваць спам аўтаматычна, і Спам і не-Спам лісты павінны быць "
 "вывучаны самастойна да пэўнага моманту."
 
-#: src/prefs_common_dialog.c:2162
+#: src/prefs_common_dialog.c:2168
 msgid "Junk folder"
 msgstr "Каталог Спаму"
 
-#: src/prefs_common_dialog.c:2180
+#: src/prefs_common_dialog.c:2186
 #, fuzzy
 msgid ""
 "The messages which are set as junk mail will be moved to this folder. If "
 "empty, the default junk folder will be used."
 msgstr "Паведамленні, пазначаныя як Спам, будуць перанесены ў гэты каталог."
 
-#: src/prefs_common_dialog.c:2192
+#: src/prefs_common_dialog.c:2198
 msgid "Filter messages classified as junk on receiving"
 msgstr "Фільтраваць лісты, класіфікаваныя як Спам, падчас атрымання"
 
-#: src/prefs_common_dialog.c:2195
+#: src/prefs_common_dialog.c:2201
 msgid "Filter junk mails before normal filtering"
 msgstr "Фільтраваць Спам перад звычайным фільтрам"
 
-#: src/prefs_common_dialog.c:2198
+#: src/prefs_common_dialog.c:2204
 msgid "Delete junk mails from server on receiving"
 msgstr "Сціраць Спам з сервера пад час атрымання"
 
-#: src/prefs_common_dialog.c:2203
+#: src/prefs_common_dialog.c:2209
 msgid "Mark filtered junk mails as read"
 msgstr "Пазначаць лісты, класіфікаваныя як Спам, прачытанымі"
 
-#: src/prefs_common_dialog.c:2245
+#: src/prefs_common_dialog.c:2251
 msgid "Automatically check signatures"
 msgstr "Аўтаматычна правяраць подпісы"
 
-#: src/prefs_common_dialog.c:2248
+#: src/prefs_common_dialog.c:2254
 msgid "Show signature check result in a popup window"
 msgstr "Паказваць вынік праверкі подпісу ва ўсплыўным акне"
 
-#: src/prefs_common_dialog.c:2251
+#: src/prefs_common_dialog.c:2257
 msgid "Store passphrase in memory temporarily"
 msgstr "Часова захоўваць парафразу ў памяці"
 
-#: src/prefs_common_dialog.c:2266
+#: src/prefs_common_dialog.c:2272
 msgid "Expired after"
 msgstr "Спыніць дзеянне пасля"
 
-#: src/prefs_common_dialog.c:2279
+#: src/prefs_common_dialog.c:2285
 msgid "minute(s) "
 msgstr "мінут(а) "
 
-#: src/prefs_common_dialog.c:2293
+#: src/prefs_common_dialog.c:2299
 msgid "Setting to '0' will store the passphrase for the whole session."
 msgstr "Выстаўленне ў '0' мусіць захоўваць парафразу ўвесь сеанс."
 
-#: src/prefs_common_dialog.c:2302
+#: src/prefs_common_dialog.c:2308
 msgid "Grab input while entering a passphrase"
 msgstr "Захопліваць увод пад час упісвання парафразы"
 
-#: src/prefs_common_dialog.c:2307
+#: src/prefs_common_dialog.c:2313
 msgid "Display warning on startup if GnuPG doesn't work"
 msgstr "Паказваць папярэджанне пры старце, калі GnuPG не працуе"
 
-#: src/prefs_common_dialog.c:2380
+#: src/prefs_common_dialog.c:2387
 msgid "Always open messages in summary when selected"
 msgstr "Заўжды адкрываць паведамленні ў зводцы па выбары"
 
-#: src/prefs_common_dialog.c:2384
+#: src/prefs_common_dialog.c:2391
+#, fuzzy
+msgid "Always mark as read when a message is opened"
+msgstr "Пазначаць паведамленне чытаным толькі пры адкрыцці ў новым акне"
+
+#: src/prefs_common_dialog.c:2397
 msgid "Open first unread message when a folder is opened"
 msgstr "Адкрываць першае нечытанае паведамленне па адкрыцці каталога"
 
-#: src/prefs_common_dialog.c:2391
+#: src/prefs_common_dialog.c:2403
 msgid "Remember last selected message"
 msgstr "Памятаваць апошняе вылучанае паведамленне"
 
-#: src/prefs_common_dialog.c:2396
+#: src/prefs_common_dialog.c:2408
 msgid "Only mark message as read when opened in new window"
 msgstr "Пазначаць паведамленне чытаным толькі пры адкрыцці ў новым акне"
 
-#: src/prefs_common_dialog.c:2401
+#: src/prefs_common_dialog.c:2416
 msgid "Open inbox after receiving new mail"
 msgstr "Адкрываць Атрыманыя пасля атрымання новай пошты"
 
-#: src/prefs_common_dialog.c:2403
+#: src/prefs_common_dialog.c:2418
 msgid "Open inbox on startup"
 msgstr "Адкрываць Атрыманыя пры запуску"
 
-#: src/prefs_common_dialog.c:2407
+#: src/prefs_common_dialog.c:2422
 msgid "Change current account on folder open"
 msgstr ""
 
-#: src/prefs_common_dialog.c:2415
+#: src/prefs_common_dialog.c:2430
 msgid "Execute immediately when moving or deleting messages"
 msgstr "Неадкладнае выкананне пераносу або сцірання паведамлення"
 
-#: src/prefs_common_dialog.c:2427
+#: src/prefs_common_dialog.c:2442
 msgid "Messages will be marked until execution if this is turned off."
 msgstr ""
 "Калі гэта опцыя выключаная, паведамлення застаецца пазначаным да выканання."
 
-#: src/prefs_common_dialog.c:2436
+#: src/prefs_common_dialog.c:2451
 msgid "Make the order of buttons comply with GNOME HIG"
 msgstr "Зрабіць парадак кнопак у адпаведнасці з GNOME HIG"
 
-#: src/prefs_common_dialog.c:2439
+#: src/prefs_common_dialog.c:2454
 msgid "Display tray icon"
 msgstr "Паказваць іконку ў трэі"
 
-#: src/prefs_common_dialog.c:2441
+#: src/prefs_common_dialog.c:2456
 msgid "Minimize to tray icon"
 msgstr "Мінімізаваць у іконку ў трэі"
 
-#: src/prefs_common_dialog.c:2443
+#: src/prefs_common_dialog.c:2458
 msgid "Toggle window on trayicon click"
 msgstr "Пераключаць акно па кліку на іконцы ў трэі"
 
-#: src/prefs_common_dialog.c:2453
+#: src/prefs_common_dialog.c:2468
 msgid " Set key bindings... "
 msgstr " Наставіць спалучэнні клавіш... "
 
-#: src/prefs_common_dialog.c:2459 src/select-keys.c:337
+#: src/prefs_common_dialog.c:2474 src/select-keys.c:337
 msgid "Other"
 msgstr "Іншае"
 
-#: src/prefs_common_dialog.c:2463
+#: src/prefs_common_dialog.c:2478
 msgid "External commands"
 msgstr "Вонкавыя загады"
 
-#: src/prefs_common_dialog.c:2468
+#: src/prefs_common_dialog.c:2483
 msgid "Update"
 msgstr "Абнаўленне"
 
-#: src/prefs_common_dialog.c:2531
+#: src/prefs_common_dialog.c:2548
 msgid "Receive dialog"
 msgstr "Дыялог атрымання"
 
-#: src/prefs_common_dialog.c:2541
+#: src/prefs_common_dialog.c:2558
 msgid "Show receive dialog"
 msgstr "Паказваць дыялог атрымання"
 
-#: src/prefs_common_dialog.c:2551
+#: src/prefs_common_dialog.c:2568
 msgid "Always"
 msgstr "Заўсёды"
 
-#: src/prefs_common_dialog.c:2552
+#: src/prefs_common_dialog.c:2569
 msgid "Only on manual receiving"
 msgstr "Толькі пры ручным запуску"
 
-#: src/prefs_common_dialog.c:2554
+#: src/prefs_common_dialog.c:2571
 msgid "Never"
 msgstr "Ніколі"
 
-#: src/prefs_common_dialog.c:2559
+#: src/prefs_common_dialog.c:2576
 msgid "Don't popup error dialog on receive error"
 msgstr "Не паказваць акно памылкі атрымання"
 
-#: src/prefs_common_dialog.c:2562
+#: src/prefs_common_dialog.c:2579
 msgid "Close receive dialog when finished"
 msgstr "Закрываць дыялог атрымання па заканчэнні"
 
-#: src/prefs_common_dialog.c:2573
+#: src/prefs_common_dialog.c:2590
 msgid "Add address to destination when double-clicked"
 msgstr "Дадаць адрас да прызначэння па двайным кліку"
 
-#: src/prefs_common_dialog.c:2581
+#: src/prefs_common_dialog.c:2594
+#, fuzzy
+msgid "Set only mail address when entering recipient from address book"
+msgstr "Аўтаматычна запісваць адрасатаў у адрасную кнігу"
+
+#: src/prefs_common_dialog.c:2602
 #, fuzzy
 msgid "Address auto-completion:"
 msgstr "Задзейнічаць аўта-дапісванне адрасоў"
 
-#: src/prefs_common_dialog.c:2603
+#: src/prefs_common_dialog.c:2624
 msgid "Start with Tab"
 msgstr ""
 
-#: src/prefs_common_dialog.c:2611
+#: src/prefs_common_dialog.c:2632
 msgid "Disable"
 msgstr ""
 
-#: src/prefs_common_dialog.c:2618
+#: src/prefs_common_dialog.c:2639
 msgid "On exit"
 msgstr "Пры выхадзе"
 
-#: src/prefs_common_dialog.c:2626
+#: src/prefs_common_dialog.c:2647
 msgid "Confirm on exit"
 msgstr "Пацвердзіць выхад"
 
-#: src/prefs_common_dialog.c:2633
+#: src/prefs_common_dialog.c:2654
 msgid "Empty trash on exit"
 msgstr "Чысціць сметніцы пры выхадзе"
 
-#: src/prefs_common_dialog.c:2635
+#: src/prefs_common_dialog.c:2656
 msgid "Ask before emptying"
 msgstr "Спытаць перад ачысткай"
 
-#: src/prefs_common_dialog.c:2639
+#: src/prefs_common_dialog.c:2660
 msgid "Warn if there are queued messages"
 msgstr "Папярэджваць, калі есць паведамленні ў чарзе"
 
-#: src/prefs_common_dialog.c:2695
+#: src/prefs_common_dialog.c:2717
 #, c-format
 msgid "External commands (%s will be replaced with file name / URI)"
 msgstr "Вонкавыя загады  (%s будзе заменена назвай файла / URI)"
 
-#: src/prefs_common_dialog.c:2704
+#: src/prefs_common_dialog.c:2726
 msgid "Web browser"
 msgstr "Веб-браўзер"
 
-#: src/prefs_common_dialog.c:2716 src/prefs_common_dialog.c:4216
-#: src/prefs_common_dialog.c:4237
+#: src/prefs_common_dialog.c:2738 src/prefs_common_dialog.c:4238
+#: src/prefs_common_dialog.c:4259
 msgid "(Default browser)"
 msgstr "(Тыповы браўзер)"
 
-#: src/prefs_common_dialog.c:2755
+#: src/prefs_common_dialog.c:2777
 msgid "Use external program for printing"
 msgstr "Ужываць вонкавую праграму для друку"
 
-#: src/prefs_common_dialog.c:2777
+#: src/prefs_common_dialog.c:2799
 msgid "Use external program for incorporation"
 msgstr "Ужываць вонкавую праграму для атрымання пошты"
 
-#: src/prefs_common_dialog.c:2799
+#: src/prefs_common_dialog.c:2821
 msgid "Use external program for sending"
 msgstr "Ужываць вонкавую праграму для адпраўкі"
 
-#: src/prefs_common_dialog.c:2851
+#: src/prefs_common_dialog.c:2873
 msgid "Update check requires 'curl' command."
 msgstr "Спраўджанне абнаўленняў патрабуе загаду 'curl'."
 
-#: src/prefs_common_dialog.c:2862
+#: src/prefs_common_dialog.c:2884
 msgid "Enable auto update check"
 msgstr "Задзейнічаць аўтаматычнае спраўджанне абнаўлення"
 
-#: src/prefs_common_dialog.c:2864
+#: src/prefs_common_dialog.c:2886
 msgid "Use HTTP proxy"
 msgstr "Ужываць HTTP proxy"
 
-#: src/prefs_common_dialog.c:2866
+#: src/prefs_common_dialog.c:2888
 msgid "HTTP proxy host (hostname:port):"
 msgstr "Адрас HTTP proxy (hostname:port):"
 
-#: src/prefs_common_dialog.c:2907
+#: src/prefs_common_dialog.c:2929
 msgid "Enable strict checking of the integrity of summary caches"
 msgstr "Уключыць строгі кантроль цэласнасці кэшу зводкі"
 
-#: src/prefs_common_dialog.c:2910
+#: src/prefs_common_dialog.c:2932
 msgid ""
 "Enable this if the contents of folders have the possibility of modification "
 "by other applications.\n"
@@ -5493,275 +5570,275 @@ msgstr ""
 "праграмамі.\n"
 "Гэта опцыя зніжае хуткасць адлюстравання зводкі."
 
-#: src/prefs_common_dialog.c:2917
+#: src/prefs_common_dialog.c:2939
 msgid "Socket I/O timeout:"
 msgstr "Таймаут сокета I/O:"
 
-#: src/prefs_common_dialog.c:2930
+#: src/prefs_common_dialog.c:2952
 msgid "second(s)"
 msgstr "секунд(ы)"
 
-#: src/prefs_common_dialog.c:2958
+#: src/prefs_common_dialog.c:2980
 msgid "Automatic (Recommended)"
 msgstr "Аўтавыбар (Рэкамендавана)"
 
-#: src/prefs_common_dialog.c:2963
+#: src/prefs_common_dialog.c:2985
 msgid "7bit ascii (US-ASCII)"
 msgstr "7-бітны ascii (US-ASCII)"
 
-#: src/prefs_common_dialog.c:2965
+#: src/prefs_common_dialog.c:2987
 msgid "Unicode (UTF-8)"
 msgstr "Юнікод (UTF-8)"
 
-#: src/prefs_common_dialog.c:2967
+#: src/prefs_common_dialog.c:2989
 msgid "Western European (ISO-8859-1)"
 msgstr "Заходнееўрапейскі (ISO-8859-1)"
 
-#: src/prefs_common_dialog.c:2968
+#: src/prefs_common_dialog.c:2990
 msgid "Western European (ISO-8859-15)"
 msgstr "Заходнееўрапейскі (ISO-8859-15)"
 
-#: src/prefs_common_dialog.c:2970
+#: src/prefs_common_dialog.c:2992
 msgid "Western European (Windows-1252)"
 msgstr "Заходнееўрапейскі (Windows-1252)"
 
-#: src/prefs_common_dialog.c:2974
+#: src/prefs_common_dialog.c:2996
 msgid "Central European (ISO-8859-2)"
 msgstr "Цэнтральнаеўрапейскі (ISO-8859-2)"
 
-#: src/prefs_common_dialog.c:2976
+#: src/prefs_common_dialog.c:2998
 msgid "Baltic (ISO-8859-13)"
 msgstr "Балтыйскі (ISO-8859-13)"
 
-#: src/prefs_common_dialog.c:2977
+#: src/prefs_common_dialog.c:2999
 msgid "Baltic (ISO-8859-4)"
 msgstr "Балтыйскі (ISO-8859-4)"
 
-#: src/prefs_common_dialog.c:2978
+#: src/prefs_common_dialog.c:3000
 msgid "Baltic (Windows-1257)"
 msgstr "Балтыйскі (Windows-1257)"
 
-#: src/prefs_common_dialog.c:2980
+#: src/prefs_common_dialog.c:3002
 msgid "Greek (ISO-8859-7)"
 msgstr "Грэцкі (ISO-8859-7)"
 
-#: src/prefs_common_dialog.c:2982
+#: src/prefs_common_dialog.c:3004
 msgid "Arabic (ISO-8859-6)"
 msgstr "Арабскі (ISO-8859-6)"
 
-#: src/prefs_common_dialog.c:2983
+#: src/prefs_common_dialog.c:3005
 msgid "Arabic (Windows-1256)"
 msgstr "Арабскі (Windows-1256)"
 
-#: src/prefs_common_dialog.c:2985
+#: src/prefs_common_dialog.c:3007
 msgid "Hebrew (ISO-8859-8)"
 msgstr "Яўрэйскі (ISO-8859-8)"
 
-#: src/prefs_common_dialog.c:2986
+#: src/prefs_common_dialog.c:3008
 msgid "Hebrew (Windows-1255)"
 msgstr "Яўрэйскі (Windows-1255)"
 
-#: src/prefs_common_dialog.c:2988
+#: src/prefs_common_dialog.c:3010
 msgid "Turkish (ISO-8859-9)"
 msgstr "Турэцкі (ISO-8859-9)"
 
-#: src/prefs_common_dialog.c:2990
+#: src/prefs_common_dialog.c:3012
 msgid "Cyrillic (ISO-8859-5)"
 msgstr "Кірыліца (ISO-8859-5)"
 
-#: src/prefs_common_dialog.c:2991
+#: src/prefs_common_dialog.c:3013
 msgid "Cyrillic (KOI8-R)"
 msgstr "Кірыліца (KOI8-R)"
 
-#: src/prefs_common_dialog.c:2992
+#: src/prefs_common_dialog.c:3014
 msgid "Cyrillic (KOI8-U)"
 msgstr "Кірыліца (KOI8-U)"
 
-#: src/prefs_common_dialog.c:2993
+#: src/prefs_common_dialog.c:3015
 msgid "Cyrillic (Windows-1251)"
 msgstr "Кірыліца (Windows-1251)"
 
-#: src/prefs_common_dialog.c:2995
+#: src/prefs_common_dialog.c:3017
 msgid "Japanese (ISO-2022-JP)"
 msgstr "Японскі (ISO-2022-JP)"
 
-#: src/prefs_common_dialog.c:2997
+#: src/prefs_common_dialog.c:3019
 msgid "Japanese (EUC-JP)"
 msgstr "Японскі (EUC-JP)"
 
-#: src/prefs_common_dialog.c:2998
+#: src/prefs_common_dialog.c:3020
 msgid "Japanese (Shift_JIS)"
 msgstr "Японскі (Shift_JIS)"
 
-#: src/prefs_common_dialog.c:3001
+#: src/prefs_common_dialog.c:3023
 msgid "Simplified Chinese (GB2312)"
 msgstr "Спрошчаны кітайскі (GB2312)"
 
-#: src/prefs_common_dialog.c:3002
+#: src/prefs_common_dialog.c:3024
 msgid "Simplified Chinese (GBK)"
 msgstr "Спрошчаны кітайскі (GBK)"
 
-#: src/prefs_common_dialog.c:3003
+#: src/prefs_common_dialog.c:3025
 msgid "Traditional Chinese (Big5)"
 msgstr "Традыцыйны кітайскі (Big5)"
 
-#: src/prefs_common_dialog.c:3005
+#: src/prefs_common_dialog.c:3027
 msgid "Traditional Chinese (EUC-TW)"
 msgstr "Традыцыйны кітайскі (EUC-TW)"
 
-#: src/prefs_common_dialog.c:3006
+#: src/prefs_common_dialog.c:3028
 msgid "Chinese (ISO-2022-CN)"
 msgstr "Кітайскі (ISO-2022-CN)"
 
-#: src/prefs_common_dialog.c:3009
+#: src/prefs_common_dialog.c:3031
 msgid "Korean (EUC-KR)"
 msgstr "Карэйскі (EUC-KR)"
 
-#: src/prefs_common_dialog.c:3011
+#: src/prefs_common_dialog.c:3033
 msgid "Thai (TIS-620)"
 msgstr "Тайскі (TIS-620)"
 
-#: src/prefs_common_dialog.c:3012
+#: src/prefs_common_dialog.c:3034
 msgid "Thai (Windows-874)"
 msgstr "Тайскі (Windows-874)"
 
-#: src/prefs_common_dialog.c:3179
+#: src/prefs_common_dialog.c:3201
 msgid "the full abbreviated weekday name"
 msgstr "скарочаная поўная назва дня тыдня"
 
-#: src/prefs_common_dialog.c:3180
+#: src/prefs_common_dialog.c:3202
 msgid "the full weekday name"
 msgstr "поўная назва дня тыдня"
 
-#: src/prefs_common_dialog.c:3181
+#: src/prefs_common_dialog.c:3203
 msgid "the abbreviated month name"
 msgstr "скарочаная назва месяца"
 
-#: src/prefs_common_dialog.c:3182
+#: src/prefs_common_dialog.c:3204
 msgid "the full month name"
 msgstr "поўная назва месяца"
 
-#: src/prefs_common_dialog.c:3183
+#: src/prefs_common_dialog.c:3205
 msgid "the preferred date and time for the current locale"
 msgstr "пераважныя дата i час для бягучай лакалі"
 
-#: src/prefs_common_dialog.c:3184
+#: src/prefs_common_dialog.c:3206
 msgid "the century number (year/100)"
 msgstr "нумар веку (год/100)"
 
-#: src/prefs_common_dialog.c:3185
+#: src/prefs_common_dialog.c:3207
 msgid "the day of the month as a decimal number"
 msgstr "дзень месяца як лічба дзесятковая"
 
-#: src/prefs_common_dialog.c:3186
+#: src/prefs_common_dialog.c:3208
 msgid "the hour as a decimal number using a 24-hour clock"
 msgstr "гадзіна як лічба дзесятковая, ужываючы 24-гадзінны фармат"
 
-#: src/prefs_common_dialog.c:3187
+#: src/prefs_common_dialog.c:3209
 msgid "the hour as a decimal number using a 12-hour clock"
 msgstr "гадзіна як лічба дзесятковая, ужываючы 12-гадзінны фармат"
 
-#: src/prefs_common_dialog.c:3188
+#: src/prefs_common_dialog.c:3210
 msgid "the day of the year as a decimal number"
 msgstr "дзень году як лічба дзесятковая"
 
-#: src/prefs_common_dialog.c:3189
+#: src/prefs_common_dialog.c:3211
 msgid "the month as a decimal number"
 msgstr "месяц як лічба дзесятковая"
 
-#: src/prefs_common_dialog.c:3190
+#: src/prefs_common_dialog.c:3212
 msgid "the minute as a decimal number"
 msgstr "мінута як лічба дзесятковая"
 
-#: src/prefs_common_dialog.c:3191
+#: src/prefs_common_dialog.c:3213
 msgid "either AM or PM"
 msgstr "альбо AM альбо PM"
 
-#: src/prefs_common_dialog.c:3192
+#: src/prefs_common_dialog.c:3214
 msgid "the second as a decimal number"
 msgstr "секунда як лічба дзесятковая"
 
-#: src/prefs_common_dialog.c:3193
+#: src/prefs_common_dialog.c:3215
 msgid "the day of the week as a decimal number"
 msgstr "дзень тыдня як лічба дзесятковая"
 
-#: src/prefs_common_dialog.c:3194
+#: src/prefs_common_dialog.c:3216
 msgid "the preferred date for the current locale"
 msgstr "пераважная дата для бягучай лакалі"
 
-#: src/prefs_common_dialog.c:3195
+#: src/prefs_common_dialog.c:3217
 msgid "the last two digits of a year"
 msgstr "апошнія дзве лічбы году"
 
-#: src/prefs_common_dialog.c:3196
+#: src/prefs_common_dialog.c:3218
 msgid "the year as a decimal number"
 msgstr "год як лічба дзесятковая"
 
-#: src/prefs_common_dialog.c:3197
+#: src/prefs_common_dialog.c:3219
 msgid "the time zone or name or abbreviation"
 msgstr "часавы пояс - назва ці скарот"
 
-#: src/prefs_common_dialog.c:3218
+#: src/prefs_common_dialog.c:3240
 msgid "Specifier"
 msgstr "Вызначальнік"
 
-#: src/prefs_common_dialog.c:3219
+#: src/prefs_common_dialog.c:3241
 msgid "Description"
 msgstr "Апісанне"
 
-#: src/prefs_common_dialog.c:3259
+#: src/prefs_common_dialog.c:3281
 msgid "Example"
 msgstr "Прыклад"
 
-#: src/prefs_common_dialog.c:3340
+#: src/prefs_common_dialog.c:3362
 msgid "Set message colors"
 msgstr "Наставіць колеры паведамлення"
 
-#: src/prefs_common_dialog.c:3348
+#: src/prefs_common_dialog.c:3370
 msgid "Colors"
 msgstr "Колеры"
 
-#: src/prefs_common_dialog.c:3382
+#: src/prefs_common_dialog.c:3404
 msgid "Quoted Text - First Level"
 msgstr "Цытаваны тэкст - узровень першы"
 
-#: src/prefs_common_dialog.c:3388
+#: src/prefs_common_dialog.c:3410
 msgid "Quoted Text - Second Level"
 msgstr "Цытаваны тэкст - узровень другі"
 
-#: src/prefs_common_dialog.c:3394
+#: src/prefs_common_dialog.c:3416
 msgid "Quoted Text - Third Level"
 msgstr "Цытаваны тэкст - узровень трэці"
 
-#: src/prefs_common_dialog.c:3400
+#: src/prefs_common_dialog.c:3422
 msgid "URI link"
 msgstr "Спасылка URI"
 
-#: src/prefs_common_dialog.c:3407
+#: src/prefs_common_dialog.c:3429
 msgid "Recycle quote colors"
 msgstr "Паўтор колераў цытавання"
 
-#: src/prefs_common_dialog.c:3474
+#: src/prefs_common_dialog.c:3496
 msgid "Pick color for quotation level 1"
 msgstr "Выберыце колер для першага ўзроўню цытавання"
 
-#: src/prefs_common_dialog.c:3477
+#: src/prefs_common_dialog.c:3499
 msgid "Pick color for quotation level 2"
 msgstr "Выберыце колер для другога ўзроўню цытавання"
 
-#: src/prefs_common_dialog.c:3480
+#: src/prefs_common_dialog.c:3502
 msgid "Pick color for quotation level 3"
 msgstr "Выберыце колер для трэцяга ўзроўню цытавання"
 
-#: src/prefs_common_dialog.c:3483
+#: src/prefs_common_dialog.c:3505
 msgid "Pick color for URI"
 msgstr "Выберыце колер для URI"
 
-#: src/prefs_common_dialog.c:3623
+#: src/prefs_common_dialog.c:3645
 msgid "Description of symbols"
 msgstr "Апісанне сімвалаў"
 
-#: src/prefs_common_dialog.c:3679
+#: src/prefs_common_dialog.c:3701
 msgid ""
 "Date\n"
 "From\n"
@@ -5785,11 +5862,11 @@ msgstr ""
 "Групы навін\n"
 "Message-ID"
 
-#: src/prefs_common_dialog.c:3692
+#: src/prefs_common_dialog.c:3714
 msgid "If x is set, displays expr"
 msgstr "Паказваць expr калі заданы x"
 
-#: src/prefs_common_dialog.c:3696
+#: src/prefs_common_dialog.c:3718
 msgid ""
 "Message body\n"
 "Quoted message body\n"
@@ -5803,7 +5880,7 @@ msgstr ""
 "Цела цытаванага паведамлення без подпісу\n"
 "Літэрал %"
 
-#: src/prefs_common_dialog.c:3704
+#: src/prefs_common_dialog.c:3726
 msgid ""
 "Literal backslash\n"
 "Literal question mark\n"
@@ -5815,19 +5892,19 @@ msgstr ""
 "Літарал дужка фігурная адкрывальная\n"
 "Літарал дужка фігурная закрывальная"
 
-#: src/prefs_common_dialog.c:3758
+#: src/prefs_common_dialog.c:3780
 msgid "Key bindings"
 msgstr "Спалучэнні клавіш"
 
-#: src/prefs_common_dialog.c:3771
+#: src/prefs_common_dialog.c:3793
 msgid "Select the preset of key bindings."
 msgstr "Выберыце набор спалучэнняў клавіш."
 
-#: src/prefs_common_dialog.c:3781 src/prefs_common_dialog.c:4105
+#: src/prefs_common_dialog.c:3803 src/prefs_common_dialog.c:4127
 msgid "Default"
 msgstr "Тыповыя"
 
-#: src/prefs_common_dialog.c:3784 src/prefs_common_dialog.c:4114
+#: src/prefs_common_dialog.c:3806 src/prefs_common_dialog.c:4136
 msgid "Old Sylpheed"
 msgstr "Стары Сілфід"
 
@@ -5927,10 +6004,6 @@ msgstr "Сцерці правіла"
 #: src/prefs_filter_edit.c:238
 msgid "Filter rule"
 msgstr "Правіла фільтра"
-
-#: src/prefs_filter_edit.c:253 src/prefs_search_folder.c:187
-msgid "Name:"
-msgstr "Назва:"
 
 #: src/prefs_filter_edit.c:272
 msgid "If any of the following condition matches"
@@ -6209,20 +6282,20 @@ msgid "Attachment"
 msgstr "Дадатак"
 
 #. S_COL_MIME
-#: src/prefs_summary_column.c:69 src/query_search.c:401 src/rpop3.c:415
-#: src/summaryview.c:5265
+#: src/prefs_summary_column.c:69 src/query_search.c:401 src/rpop3.c:422
+#: src/summaryview.c:5287
 msgid "Subject"
 msgstr "Тэма"
 
 #. S_COL_SUBJECT
-#: src/prefs_summary_column.c:70 src/query_search.c:402 src/rpop3.c:416
-#: src/summaryview.c:5268
+#: src/prefs_summary_column.c:70 src/query_search.c:402 src/rpop3.c:423
+#: src/summaryview.c:5290
 msgid "From"
 msgstr "Адпраўнік"
 
 #. S_COL_FROM
-#: src/prefs_summary_column.c:71 src/query_search.c:403 src/rpop3.c:417
-#: src/summaryview.c:5270
+#: src/prefs_summary_column.c:71 src/query_search.c:403 src/rpop3.c:424
+#: src/summaryview.c:5292
 msgid "Date"
 msgstr "Дата"
 
@@ -6232,7 +6305,7 @@ msgid "Number"
 msgstr "Нумар"
 
 #. S_COL_NUMBER
-#: src/prefs_summary_column.c:74 src/summaryview.c:5276
+#: src/prefs_summary_column.c:74 src/summaryview.c:5298
 msgid "To"
 msgstr "Каму"
 
@@ -6540,7 +6613,7 @@ msgstr "Пошук %s (%d / %d)..."
 msgid "Searching %s ..."
 msgstr "Пошук %s ..."
 
-#: src/query_search.c:799 src/rpop3.c:676 src/summaryview.c:2335
+#: src/query_search.c:799 src/rpop3.c:684 src/summaryview.c:2340
 msgid "(No Date)"
 msgstr "(Без Даты)"
 
@@ -6620,7 +6693,7 @@ msgstr "Памылка праверкі подпісу"
 msgid "_File"
 msgstr "Ф_айл"
 
-#: src/rpop3.c:243 src/rpop3.c:436
+#: src/rpop3.c:243 src/rpop3.c:443
 msgid "_Get"
 msgstr "Ат_рымаць"
 
@@ -6632,30 +6705,30 @@ msgstr "_Даведка"
 msgid "_About"
 msgstr "_Аб праграме"
 
-#: src/rpop3.c:338
+#: src/rpop3.c:345
 #, c-format
 msgid "%s - POP3 Remote mailbox"
 msgstr "%s - Адлеглая скрынка POP3"
 
-#: src/rpop3.c:414 src/summaryview.c:5274
+#: src/rpop3.c:421 src/summaryview.c:5296
 msgid "No."
 msgstr "Нум."
 
-#: src/rpop3.c:497
+#: src/rpop3.c:504
 #, c-format
 msgid "Connecting to %s:%d ..."
 msgstr "Злучэнне з %s:%d ..."
 
-#: src/rpop3.c:502 src/rpop3.c:556 src/rpop3.c:559
+#: src/rpop3.c:509 src/rpop3.c:563 src/rpop3.c:566
 #, c-format
 msgid "Can't connect to POP3 server: %s:%d"
 msgstr "Нельга злучыцца з серверам POP3: %s:%d"
 
-#: src/rpop3.c:530 src/rpop3.c:536 src/rpop3.c:563 src/rpop3.c:565
+#: src/rpop3.c:537 src/rpop3.c:543 src/rpop3.c:570 src/rpop3.c:572
 msgid "Error occurred during POP3 session."
 msgstr "памылка здарылася пад час сеансу POP3."
 
-#: src/rpop3.c:533
+#: src/rpop3.c:540
 #, c-format
 msgid ""
 "Error occurred during POP3 session:\n"
@@ -6664,55 +6737,55 @@ msgstr ""
 "Памылка здарылася пад час сеансу POP3:\n"
 "%s"
 
-#: src/rpop3.c:690
+#: src/rpop3.c:698
 #, c-format
 msgid "Retrieving message headers (%d / %d) ..."
 msgstr "Атрыманне загалоўкаў паведамлення (%d / %d) ..."
 
-#: src/rpop3.c:853
+#: src/rpop3.c:861
 msgid "Getting the number of messages..."
 msgstr "Атрыманне колькасці паведамленняў ..."
 
-#: src/rpop3.c:862 src/rpop3.c:875
+#: src/rpop3.c:870 src/rpop3.c:883
 msgid "No message"
 msgstr "Няма паведамленняў"
 
-#: src/rpop3.c:908
+#: src/rpop3.c:916
 #, c-format
 msgid "Deleted %d messages"
 msgstr "Сцёрта %d паведамленняў"
 
-#: src/rpop3.c:951 src/rpop3.c:963 src/rpop3.c:1021 src/rpop3.c:1219
-#: src/send_message.c:834
+#: src/rpop3.c:959 src/rpop3.c:971 src/rpop3.c:1029 src/rpop3.c:1227
+#: src/send_message.c:850
 #, c-format
 msgid "Quitting..."
 msgstr "Адлучэнне..."
 
-#: src/rpop3.c:1006
+#: src/rpop3.c:1014
 #, c-format
 msgid "Retrieved %d messages"
 msgstr "Атрымана %d паведамленняў"
 
-#: src/rpop3.c:1013
+#: src/rpop3.c:1021
 #, c-format
 msgid "Opened message %d"
 msgstr "Адкрыта паведамленне %d"
 
-#: src/rpop3.c:1029
+#: src/rpop3.c:1037
 #, c-format
 msgid "Retrieved %d message headers"
 msgstr "Атрымана %d загалоўкаў паведамленняў"
 
-#: src/rpop3.c:1145
+#: src/rpop3.c:1153
 #, c-format
 msgid "Retrieving message %d ..."
 msgstr "Атрыманне паведамлення %d..."
 
-#: src/rpop3.c:1171
+#: src/rpop3.c:1179
 msgid "Delete messages"
 msgstr "Сцерці паведамленні"
 
-#: src/rpop3.c:1172
+#: src/rpop3.c:1180
 msgid ""
 "Really delete selected messages from server?\n"
 "This operation cannot be reverted."
@@ -6766,95 +6839,95 @@ msgstr ""
 "не будзеце ведаць напэўна, што яно пойдзе да асобыы, якую вы\n"
 "мелі на ўвазе. Вы давяраеце ключу дастаткова, каб ужываць яго?"
 
-#: src/send_message.c:197
+#: src/send_message.c:198
 msgid "Queued message header is broken.\n"
 msgstr "Загаловак ліста ў чарзе пашкоджаны.\n"
 
-#: src/send_message.c:559
+#: src/send_message.c:560
 #, c-format
 msgid "Sending message using command: %s\n"
 msgstr "Адпраўленне паведамлення, ўжываючы загад: %s\n"
 
-#: src/send_message.c:568
+#: src/send_message.c:569
 #, c-format
 msgid "Can't execute command: %s"
 msgstr "Немагчыма выканаць загад: %s"
 
-#: src/send_message.c:603
+#: src/send_message.c:604
 #, c-format
 msgid "Error occurred while executing command: %s"
 msgstr "Памылка пад час выканання загаду: %s"
 
-#: src/send_message.c:720
+#: src/send_message.c:722
 msgid "Connecting"
 msgstr "Злучэнне"
 
-#: src/send_message.c:722
+#: src/send_message.c:724
 #, c-format
 msgid "Connecting to SMTP server: %s ..."
 msgstr "Злучэнне з SMTP серверам: %s ..."
 
 #. ignore errors right after QUIT
-#: src/send_message.c:766
+#: src/send_message.c:782
 msgid "Error occurred after QUIT command (ignored)"
 msgstr "Памылка здарылася пасля загаду QUIT (ігнараваная)"
 
-#: src/send_message.c:807
+#: src/send_message.c:823
 #, c-format
 msgid "Sending HELO..."
 msgstr "Адпраўленне HELO..."
 
-#: src/send_message.c:808 src/send_message.c:813 src/send_message.c:818
+#: src/send_message.c:824 src/send_message.c:829 src/send_message.c:834
 msgid "Authenticating"
 msgstr "Аўтэнтыфікацыя"
 
-#: src/send_message.c:809 src/send_message.c:814
+#: src/send_message.c:825 src/send_message.c:830
 msgid "Sending message..."
 msgstr "Адпраўленне паведамлення..."
 
-#: src/send_message.c:812
+#: src/send_message.c:828
 #, c-format
 msgid "Sending EHLO..."
 msgstr "Адпраўленне EHLO..."
 
-#: src/send_message.c:821
+#: src/send_message.c:837
 #, c-format
 msgid "Sending MAIL FROM..."
 msgstr "Адпраўленне MAIL FROM..."
 
-#: src/send_message.c:822 src/send_message.c:826 src/send_message.c:831
+#: src/send_message.c:838 src/send_message.c:842 src/send_message.c:847
 msgid "Sending"
 msgstr "Адпраўленне"
 
-#: src/send_message.c:825
+#: src/send_message.c:841
 #, c-format
 msgid "Sending RCPT TO..."
 msgstr "Адпраўленне RCPT TO..."
 
-#: src/send_message.c:830
+#: src/send_message.c:846
 #, c-format
 msgid "Sending DATA..."
 msgstr "Адпраўленне DATA..."
 
-#: src/send_message.c:868
+#: src/send_message.c:884
 #, c-format
 msgid "Sending message (%d / %d bytes)"
 msgstr "Адпраўленне паведамлення (%d / %d байт)"
 
-#: src/send_message.c:873
+#: src/send_message.c:889
 #, c-format
 msgid "%d / %d bytes"
 msgstr "%d / %d байтаў"
 
-#: src/send_message.c:904
+#: src/send_message.c:920
 msgid "Sending message"
 msgstr "Адпраўленне паведамлення"
 
-#: src/send_message.c:949 src/send_message.c:973
+#: src/send_message.c:965 src/send_message.c:989
 msgid "Error occurred while sending the message."
 msgstr "Памылка пад час адпраўкі паведамлення."
 
-#: src/send_message.c:952
+#: src/send_message.c:968
 #, c-format
 msgid ""
 "Error occurred while sending the message:\n"
@@ -6863,11 +6936,11 @@ msgstr ""
 "Памылка пад час адпраўкі паведамлення:\n"
 ".%s"
 
-#: src/send_message.c:969
+#: src/send_message.c:985
 msgid "Can't connect to SMTP server."
 msgstr "Нельга злучыцца з серверам SMTP."
 
-#: src/send_message.c:971
+#: src/send_message.c:987
 #, c-format
 msgid "Can't connect to SMTP server: %s:%d"
 msgstr "Нельга злучыцца з серверам SMTP: %s:%d"
@@ -7235,7 +7308,7 @@ msgstr "Атрыманне спісу груп навін..."
 msgid "Can't retrieve newsgroup list."
 msgstr "Немагчыма атрымаць спіс груп навін."
 
-#: src/subscribedialog.c:526 src/summaryview.c:925
+#: src/subscribedialog.c:526 src/summaryview.c:930
 msgid "Done."
 msgstr "Зроблена."
 
@@ -7364,240 +7437,240 @@ msgstr "Некаторыя пазначанні засталіся. Апраца
 msgid "Scanning folder (%s)..."
 msgstr "Сканаванне каталога (%s)..."
 
-#: src/summaryview.c:932
+#: src/summaryview.c:937
 #, fuzzy
 msgid "Could not establish a connection to the server."
 msgstr "Немагчыма устанавіць злучэнне IMAP4.\n"
 
-#: src/summaryview.c:1529
+#: src/summaryview.c:1534
 msgid "_Search again"
 msgstr "Шукаць яшчэ"
 
-#: src/summaryview.c:1551 src/summaryview.c:1560
+#: src/summaryview.c:1556 src/summaryview.c:1565
 msgid "No more unread messages"
 msgstr "Нечытаных лістоў больш няма"
 
-#: src/summaryview.c:1552
+#: src/summaryview.c:1557
 msgid "No unread message found. Search from the end?"
 msgstr ""
 "Нечытаных паведамленняў не знойдзена.\n"
 "Шукаць ад канца?"
 
-#: src/summaryview.c:1554
+#: src/summaryview.c:1559
 msgid "No unread messages."
 msgstr "Няма нечытаных паведамленняў."
 
-#: src/summaryview.c:1561
+#: src/summaryview.c:1566
 #, fuzzy
 msgid "No unread message found. Go to next unread folder?"
 msgstr ""
 "Нечытаных паведамленняў не знойдзена.\n"
 "Перайсці да наступнага каталога?"
 
-#: src/summaryview.c:1569 src/summaryview.c:1578
+#: src/summaryview.c:1574 src/summaryview.c:1583
 msgid "No more new messages"
 msgstr "Новых паведамленняў больш няма"
 
-#: src/summaryview.c:1570
+#: src/summaryview.c:1575
 msgid "No new message found. Search from the end?"
 msgstr ""
 "Новых паведамленняў не знойдзена.\n"
 "Шукаць ад канца?"
 
-#: src/summaryview.c:1572
+#: src/summaryview.c:1577
 msgid "No new messages."
 msgstr "Няма новых паведамленняў."
 
-#: src/summaryview.c:1579
+#: src/summaryview.c:1584
 #, fuzzy
 msgid "No new message found. Go to next folder which has new messages?"
 msgstr ""
 "Новых паведамленняў не знойдзена.\n"
 "Перайсці ў наступны каталог?"
 
-#: src/summaryview.c:1587 src/summaryview.c:1596
+#: src/summaryview.c:1592 src/summaryview.c:1601
 msgid "No more marked messages"
 msgstr "Няма болей маркіраваных паведамленняў"
 
-#: src/summaryview.c:1588
+#: src/summaryview.c:1593
 msgid "No marked message found. Search from the end?"
 msgstr ""
 "Не знойдзена маркіраваных паведамленняў.\n"
 "Паўтарыць пошук ад канца?"
 
-#: src/summaryview.c:1590 src/summaryview.c:1599
+#: src/summaryview.c:1595 src/summaryview.c:1604
 msgid "No marked messages."
 msgstr "Няма маркіраваных паведамленняў."
 
-#: src/summaryview.c:1597
+#: src/summaryview.c:1602
 msgid "No marked message found. Search from the beginning?"
 msgstr ""
 "Не знойдзена маркіраваных паведамленняў.\n"
 "Паўтарыць пошук ад пачатку?"
 
-#: src/summaryview.c:1605 src/summaryview.c:1614
+#: src/summaryview.c:1610 src/summaryview.c:1619
 msgid "No more labeled messages"
 msgstr "Няма болей памечаных паведамленняў"
 
-#: src/summaryview.c:1606
+#: src/summaryview.c:1611
 msgid "No labeled message found. Search from the end?"
 msgstr ""
 "Не знойдзена памечаных паведамленняў.\n"
 "Паўтарыць пошук ад канца?"
 
-#: src/summaryview.c:1608 src/summaryview.c:1617
+#: src/summaryview.c:1613 src/summaryview.c:1622
 msgid "No labeled messages."
 msgstr "Няма памечаных паведамленняў."
 
-#: src/summaryview.c:1615
+#: src/summaryview.c:1620
 msgid "No labeled message found. Search from the beginning?"
 msgstr ""
 "Не знойдзена памечаных паведамленняў.\n"
 "Паўтарыць пошук ад пачатку?"
 
-#: src/summaryview.c:1962
+#: src/summaryview.c:1967
 msgid "Attracting messages by subject..."
 msgstr "Сцягванне паведамленняў па тэме..."
 
-#: src/summaryview.c:2156
+#: src/summaryview.c:2161
 #, c-format
 msgid "%d deleted"
 msgstr "%d сцёрта"
 
-#: src/summaryview.c:2160
+#: src/summaryview.c:2165
 #, c-format
 msgid "%s%d moved"
 msgstr "%s%d перанесена"
 
-#: src/summaryview.c:2161 src/summaryview.c:2166
+#: src/summaryview.c:2166 src/summaryview.c:2171
 msgid ", "
 msgstr ", "
 
-#: src/summaryview.c:2165
+#: src/summaryview.c:2170
 #, c-format
 msgid "%s%d copied"
 msgstr "%s%d скапіравана"
 
-#: src/summaryview.c:2180
+#: src/summaryview.c:2185
 msgid " item(s) selected"
 msgstr " элемент(ы) вылучаны"
 
-#: src/summaryview.c:2202
+#: src/summaryview.c:2207
 #, c-format
 msgid "%d new, %d unread, %d total (%s)"
 msgstr "%d новых, %d нечытаных, агулам %d (%s)"
 
-#: src/summaryview.c:2206
+#: src/summaryview.c:2211
 #, c-format
 msgid "%d new, %d unread, %d total"
 msgstr "%d новых, %d нечытаных, %d агулам"
 
-#: src/summaryview.c:2242
+#: src/summaryview.c:2247
 msgid "Sorting summary..."
 msgstr "Упарадкаванне зводкі..."
 
-#: src/summaryview.c:2498
+#: src/summaryview.c:2503
 msgid "\tSetting summary from message data..."
 msgstr "\tВызначэнне зводкі з дадзеных паведамленняў..."
 
-#: src/summaryview.c:2500
+#: src/summaryview.c:2505
 msgid "Setting summary from message data..."
 msgstr "Вызначэнне зводкі з дадзеных паведамлення..."
 
-#: src/summaryview.c:2607
+#: src/summaryview.c:2612
 #, c-format
 msgid "Writing summary cache (%s)..."
 msgstr "Запісанне кэшу зводкі (%s)..."
 
-#: src/summaryview.c:2940
+#: src/summaryview.c:2947
 #, c-format
 msgid "Message %d is marked\n"
 msgstr "Паведамленне %d маркіраванае\n"
 
-#: src/summaryview.c:3012
+#: src/summaryview.c:3019
 #, c-format
 msgid "Message %d is marked as being read\n"
 msgstr "Паведамленне %d маркіраванае як чытанае\n"
 
-#: src/summaryview.c:3225
+#: src/summaryview.c:3232
 #, c-format
 msgid "Message %d is marked as unread\n"
 msgstr "Паведамленне %d маркіраванае як нечытанае\n"
 
-#: src/summaryview.c:3290
+#: src/summaryview.c:3297
 #, c-format
 msgid "Message %s/%d is set to delete\n"
 msgstr "Паведамленне %s/%d пазначанае да сцірання\n"
 
-#: src/summaryview.c:3318
+#: src/summaryview.c:3325
 msgid "Delete message(s)"
 msgstr "Сцерці паведамленне(і)"
 
-#: src/summaryview.c:3319
+#: src/summaryview.c:3326
 msgid "Do you really want to delete message(s) from the trash?"
 msgstr "Сапраўды жадаеце сцерці паведамленне(і) са сметніцы?"
 
-#: src/summaryview.c:3395
+#: src/summaryview.c:3402
 msgid "Deleting duplicated messages..."
 msgstr "Сціранне падвоеных паведамленняў..."
 
-#: src/summaryview.c:3433
+#: src/summaryview.c:3440
 #, c-format
 msgid "Message %s/%d is unmarked\n"
 msgstr "Паведамленне %s/%d размаркіраванае\n"
 
-#: src/summaryview.c:3497
+#: src/summaryview.c:3504
 #, c-format
 msgid "Message %d is set to move to %s\n"
 msgstr "Паведамленне %d пазначанае да пераносу ў %s\n"
 
-#: src/summaryview.c:3529
+#: src/summaryview.c:3536
 msgid "Destination is same as current folder."
 msgstr "Каталог прызначэння супадае з бягучым."
 
-#: src/summaryview.c:3566
+#: src/summaryview.c:3573
 msgid "Select folder to move"
 msgstr "Выберыце каталог для пераносу"
 
-#: src/summaryview.c:3596
+#: src/summaryview.c:3603
 #, c-format
 msgid "Message %d is set to copy to %s\n"
 msgstr "Паведамленне %d пазначанае да капіравання ў %s\n"
 
-#: src/summaryview.c:3627
+#: src/summaryview.c:3634
 msgid "Destination for copy is same as current folder."
 msgstr "Каталог прызначэння копіі супадае з бягучым."
 
-#: src/summaryview.c:3663
+#: src/summaryview.c:3670
 msgid "Select folder to copy"
 msgstr "Выберыце каталог для капіравання"
 
-#: src/summaryview.c:3813
+#: src/summaryview.c:3820
 msgid "Error occurred while processing messages."
 msgstr "Памылка падчас апрацоўкі паведамленняў."
 
-#: src/summaryview.c:4122 src/summaryview.c:4123
+#: src/summaryview.c:4129 src/summaryview.c:4130
 msgid "Building threads..."
 msgstr "Зборка нітак..."
 
-#: src/summaryview.c:4273 src/summaryview.c:4274
+#: src/summaryview.c:4280 src/summaryview.c:4281
 msgid "Unthreading..."
 msgstr "Разгрупаванне..."
 
-#: src/summaryview.c:4567 src/summaryview.c:4628
+#: src/summaryview.c:4574 src/summaryview.c:4635
 #, c-format
 msgid "Filtering (%d / %d)..."
 msgstr "Фільтраванне (%d / %d)..."
 
-#: src/summaryview.c:4693
+#: src/summaryview.c:4699
 msgid "filtering..."
 msgstr "фільтраванне..."
 
-#: src/summaryview.c:4694
+#: src/summaryview.c:4700
 msgid "Filtering..."
 msgstr "Фільтраванне..."
 
-#: src/summaryview.c:4739
+#: src/summaryview.c:4745
 #, c-format
 msgid "%d message(s) have been filtered."
 msgstr "%d ліст(ы) прафільтраваны."
@@ -7735,3 +7808,6 @@ msgstr "Сілфід ужо найноўшай версіі."
 #, fuzzy
 msgid "Couldn't get the version information of plug-ins."
 msgstr "Немагчыма атрымаць інфармацыю аб версіі."
+
+#~ msgid "MIME Type"
+#~ msgstr "Тып MIME "

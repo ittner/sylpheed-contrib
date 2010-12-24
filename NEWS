@@ -1,5 +1,58 @@
 Changes of Sylpheed
 
+* 3.1.0beta6 (development)
+
+    * A new option 'Set only mail address when entering recipient from address
+      book' was added.
+    * The menu items 'Add to recipient/Cc/Bcc' were added to the address book.
+    * On junk mail filtering, appropriate Junk folder for accounts will be
+      selected.
+    * When going offline, all current network sessions will be disconnected.
+    * Low priority will be used for long timeout interval.
+    * The behavior on opening folders and mark-read timing was modified again.
+    * The HTML parser was fixed to handle 'a' tag correctly.
+    * Win32: The text font setting will be checked always on startup
+      (Japanese locale only).
+    * The Japanese manual was updated.
+
+* 3.1.0beta5 (development)
+
+    * Win32: The crash on update check was fixed.
+    * The bug that temporary password was not cleared when authentication
+      failed on SMTP AUTH.
+    * Plug-in update check will be also disabled if --disable-updatecheck is
+      specified on configure.
+
+* 3.1.0beta4 (development)
+
+    * New features
+
+      * SOCKS4/SOCKS5 proxy support was added (per-account option).
+      * Win32: The automatic import of Windows Address Book (WAB) file on
+        initial startup was added.
+      * Win32: Automatic update of program and plug-ins was implemented.
+
+    * Improvements
+
+      * Messages on POP3 server will be left for 7 days by default.
+      * New plug-in APIs for sending messages were added.
+      * The option 'Always mark as read when a message is opened' was added.
+        This will bring back the previous behavior.
+      * Win32: The installer now allows users to choose plug-ins to be
+        installed.
+      * Win32: The installer now remembers the previous install settings
+        on update.
+
+    * Bugfixes
+
+      * The bug that temporary password was not cleared when authentication
+        failed with remote POP3 mailbox.
+
+    * Other changes
+
+      * The Japanese manual was updated.
+      * NSIS installer script files are included in the distribution.
+
 * 3.1.0beta3 (development)
 
     * New features

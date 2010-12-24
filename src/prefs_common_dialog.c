@@ -198,6 +198,7 @@ static struct Privacy {
 
 static struct Interface {
 	GtkWidget *checkbtn_always_show_msg;
+	GtkWidget *checkbtn_always_mark_read;
 	GtkWidget *checkbtn_openunread;
 	GtkWidget *checkbtn_remember_lastsel;
 	/* GtkWidget *checkbtn_mark_as_read_on_newwin; */
@@ -219,6 +220,7 @@ static struct Other {
 	GtkWidget *checkbtn_close_recv_dialog;
 
 	GtkWidget *checkbtn_addaddrbyclick;
+	GtkWidget *checkbtn_add_address_only;
 	GtkWidget *radiobtn_addr_compl;
 
 	GtkWidget *checkbtn_confonexit;
@@ -502,6 +504,8 @@ static PrefsUIData ui_data[] = {
 	{"always_show_message_when_selected",
 	 &interface.checkbtn_always_show_msg,
 	 prefs_set_data_from_toggle, prefs_set_toggle},
+	{"always_mark_read_on_show_msg", &interface.checkbtn_always_mark_read,
+	 prefs_set_data_from_toggle, prefs_set_toggle},
 	{"open_unread_on_enter", &interface.checkbtn_openunread,
 	 prefs_set_data_from_toggle, prefs_set_toggle},
 	{"remember_last_selected", &interface.checkbtn_remember_lastsel,
@@ -542,6 +546,8 @@ static PrefsUIData ui_data[] = {
 	 prefs_set_data_from_toggle, prefs_set_toggle},
 
 	{"add_address_by_click", &other.checkbtn_addaddrbyclick,
+	 prefs_set_data_from_toggle, prefs_set_toggle},
+	{"always_add_address_only", &other.checkbtn_add_address_only,
 	 prefs_set_data_from_toggle, prefs_set_toggle},
 	{"enable_address_completion", &other.radiobtn_addr_compl,
 	 prefs_common_addr_compl_set_data_from_radiobtn,
@@ -2334,6 +2340,7 @@ static void prefs_details_create(void)
 	GtkWidget *vbox2;
 	GtkWidget *vbox3;
 	GtkWidget *checkbtn_always_show_msg;
+	GtkWidget *checkbtn_always_mark_read;
 	GtkWidget *checkbtn_openunread;
 	GtkWidget *checkbtn_remember_lastsel;
 	/* GtkWidget *checkbtn_mark_as_read_on_newwin; */
@@ -2380,9 +2387,14 @@ static void prefs_details_create(void)
 		 _("Always open messages in summary when selected"));
 
 	PACK_CHECK_BUTTON
+		(vbox2, checkbtn_always_mark_read,
+		 _("Always mark as read when a message is opened"));
+	SET_TOGGLE_SENSITIVITY
+		(checkbtn_always_show_msg, checkbtn_always_mark_read);
+
+	PACK_CHECK_BUTTON
 		(vbox2, checkbtn_openunread,
 		 _("Open first unread message when a folder is opened"));
-
 	SET_TOGGLE_SENSITIVITY_REV
 		(checkbtn_always_show_msg, checkbtn_openunread);
 
@@ -2396,11 +2408,14 @@ static void prefs_details_create(void)
 		 _("Only mark message as read when opened in new window"));
 #endif
 
+	hbox1 = gtk_hbox_new (FALSE, 8);
+	gtk_widget_show (hbox1);
+	gtk_box_pack_start (GTK_BOX (vbox2), hbox1, FALSE, FALSE, 0);
 	PACK_CHECK_BUTTON
-		(vbox2, checkbtn_openinbox,
+		(hbox1, checkbtn_openinbox,
 		 _("Open inbox after receiving new mail"));
 	PACK_CHECK_BUTTON
-		(vbox2, checkbtn_openinbox_startup, _("Open inbox on startup"));
+		(hbox1, checkbtn_openinbox_startup, _("Open inbox on startup"));
 
 	PACK_CHECK_BUTTON
 		(vbox2, checkbtn_change_account_on_folder_sel,
@@ -2475,6 +2490,7 @@ static void prefs_details_create(void)
 	gtk_box_pack_start(GTK_BOX(vbox_tab), advanced_wid, FALSE, FALSE, 0);
 
 	interface.checkbtn_always_show_msg   = checkbtn_always_show_msg;
+	interface.checkbtn_always_mark_read  = checkbtn_always_mark_read;
 	interface.checkbtn_openunread        = checkbtn_openunread;
 	interface.checkbtn_remember_lastsel  = checkbtn_remember_lastsel;
 #if 0
@@ -2512,6 +2528,7 @@ static GtkWidget *prefs_other_create(void)
 	GtkWidget *frame_addr;
 	GtkWidget *vbox_addr;
 	GtkWidget *checkbtn_addaddrbyclick;
+	GtkWidget *checkbtn_add_address_only;
 	GtkWidget *vbox_spc;
 	GtkWidget *hbox_spc;
 	GtkWidget *radiobtn_addr_compl;
@@ -2571,6 +2588,10 @@ static GtkWidget *prefs_other_create(void)
 	PACK_CHECK_BUTTON
 		(vbox_addr, checkbtn_addaddrbyclick,
 		 _("Add address to destination when double-clicked"));
+
+	PACK_CHECK_BUTTON
+		(vbox_addr, checkbtn_add_address_only,
+		 _("Set only mail address when entering recipient from address book"));
 
 	PACK_VSPACER (vbox_addr, vbox_spc, VSPACING_NARROW_2);
 
@@ -2643,7 +2664,8 @@ static GtkWidget *prefs_other_create(void)
 	other.checkbtn_close_recv_dialog = checkbtn_close_recv_dialog;
 
 	other.checkbtn_addaddrbyclick    = checkbtn_addaddrbyclick;
-	other.radiobtn_addr_compl = radiobtn_addr_compl;
+	other.checkbtn_add_address_only  = checkbtn_add_address_only;
+	other.radiobtn_addr_compl        = radiobtn_addr_compl;
 
 	other.checkbtn_confonexit  = checkbtn_confonexit;
 	other.checkbtn_cleanonexit = checkbtn_cleanonexit;
@@ -4360,7 +4382,6 @@ static void prefs_common_ok(void)
 static void prefs_common_apply(void)
 {
 	prefs_set_data_from_dialog(prefs_common_get_params());
-	prefs_common_junk_filter_list_set();
 	gtkut_stock_button_set_set_reverse(!prefs_common.comply_gnome_hig);
 	main_window_reflect_prefs_all();
 	compose_reflect_prefs_all();

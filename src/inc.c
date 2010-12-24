@@ -45,6 +45,7 @@
 #include "account.h"
 #include "procmsg.h"
 #include "socket.h"
+#include "socks.h"
 #include "pop.h"
 #include "recv.h"
 #include "mbox.h"
@@ -252,11 +253,17 @@ static gint inc_remote_account_mail(MainWindow *mainwin, PrefsAccount *account)
 		FolderItem *inbox = FOLDER(account->folder)->inbox;
 		GSList *mlist, *cur;
 		FilterInfo *fltinfo;
+		GSList junk_fltlist = {NULL, NULL};
+		FilterRule *junk_rule;
 		gint n_filtered = 0;
 
 		debug_print("inc_remote_account_mail(): filtering IMAP4 INBOX\n");
 		mlist = folder_item_get_uncached_msg_list(inbox);
 		debug_print("inc_remote_account_mail(): uncached messages: %d\n", g_slist_length(mlist));
+
+		junk_rule = filter_junk_rule_create(account, NULL, TRUE);
+		if (junk_rule)
+			junk_fltlist.data = junk_rule;
 
 		for (cur = mlist; cur != NULL; cur = cur->next) {
 			MsgInfo *msginfo = (MsgInfo *)cur->data;
@@ -267,10 +274,9 @@ static gint inc_remote_account_mail(MainWindow *mainwin, PrefsAccount *account)
 
 			if (prefs_common.enable_junk &&
 			    prefs_common.filter_junk_on_recv &&
-			    prefs_common.filter_junk_before) {
+			    prefs_common.filter_junk_before && junk_rule) {
 				filter_apply_msginfo
-					(prefs_common.manual_junk_fltlist,
-					 msginfo, fltinfo);
+					(&junk_fltlist, msginfo, fltinfo);
 			}
 
 			if (!fltinfo->drop_done) {
@@ -281,10 +287,9 @@ static gint inc_remote_account_mail(MainWindow *mainwin, PrefsAccount *account)
 			if (!fltinfo->drop_done &&
 			    prefs_common.enable_junk &&
 			    prefs_common.filter_junk_on_recv &&
-			    !prefs_common.filter_junk_before) {
+			    !prefs_common.filter_junk_before && junk_rule) {
 				filter_apply_msginfo
-					(prefs_common.manual_junk_fltlist,
-					 msginfo, fltinfo);
+					(&junk_fltlist, msginfo, fltinfo);
 			}
 
 			if (msginfo->flags.perm_flags !=
@@ -321,6 +326,9 @@ static gint inc_remote_account_mail(MainWindow *mainwin, PrefsAccount *account)
 
 			filter_info_free(fltinfo);
 		}
+
+		if (junk_rule)
+			filter_rule_free(junk_rule);
 
 		procmsg_msg_list_free(mlist);
 
@@ -584,6 +592,7 @@ static void inc_progress_dialog_destroy(IncProgressDialog *inc_dialog)
 static IncSession *inc_session_new(PrefsAccount *account)
 {
 	IncSession *session;
+	FilterRule *rule;
 
 	g_return_val_if_fail(account != NULL, NULL);
 
@@ -610,6 +619,12 @@ static IncSession *inc_session_new(PrefsAccount *account)
 	session->folder_table = g_hash_table_new(NULL, NULL);
 	session->tmp_folder_table = g_hash_table_new(NULL, NULL);
 
+	rule = filter_junk_rule_create(account, NULL, FALSE);
+	if (rule)
+		session->junk_fltlist = g_slist_append(NULL, rule);
+	else
+		session->junk_fltlist = NULL;
+
 	session->cur_total_bytes = 0;
 	session->new_msgs = 0;
 
@@ -628,6 +643,8 @@ static void inc_session_destroy(IncSession *session)
 	session_destroy(session->session);
 	g_hash_table_destroy(session->folder_table);
 	g_hash_table_destroy(session->tmp_folder_table);
+	if (session->junk_fltlist)
+		filter_rule_list_free(session->junk_fltlist);
 	g_free(session);
 }
 
@@ -842,22 +859,24 @@ static IncState inc_pop3_session_do(IncSession *session)
 {
 	Pop3Session *pop3_session = POP3_SESSION(session->session);
 	IncProgressDialog *inc_dialog = (IncProgressDialog *)session->data;
+	PrefsAccount *ac = pop3_session->ac_prefs;
+	SocksInfo *socks_info = NULL;
 	gchar *buf;
 
 	debug_print(_("getting new messages of account %s...\n"),
-		    pop3_session->ac_prefs->account_name);
+		    ac->account_name);
 
 	if (pop3_session->auth_only)
 		buf = g_strdup_printf(_("%s: Authenticating with POP3"),
-				      pop3_session->ac_prefs->recv_server);
+				      ac->recv_server);
 	else
 		buf = g_strdup_printf(_("%s: Retrieving new messages"),
-				      pop3_session->ac_prefs->recv_server);
+				      ac->recv_server);
 	gtk_window_set_title(GTK_WINDOW(inc_dialog->dialog->window), buf);
 	g_free(buf);
 
 	buf = g_strdup_printf(_("Connecting to POP3 server: %s..."),
-			      pop3_session->ac_prefs->recv_server);
+			      ac->recv_server);
 	log_message("%s\n", buf);
 	progress_dialog_set_label(inc_dialog->dialog, buf);
 	g_free(buf);
@@ -865,11 +884,15 @@ static IncState inc_pop3_session_do(IncSession *session)
 	session_set_timeout(SESSION(pop3_session),
 			    prefs_common.io_timeout_secs * 1000);
 
+	if (ac->use_socks && ac->use_socks_for_recv) {
+		socks_info = socks_info_new(ac->socks_type, ac->proxy_host, ac->proxy_port, ac->use_proxy_auth ? ac->proxy_name : NULL, ac->use_proxy_auth ? ac->proxy_pass : NULL);
+	}
+
 	GTK_EVENTS_FLUSH();
 
-	if (session_connect(SESSION(pop3_session),
-			    SESSION(pop3_session)->server,
-			    SESSION(pop3_session)->port) < 0) {
+	if (session_connect_full(SESSION(pop3_session),
+				 SESSION(pop3_session)->server,
+				 SESSION(pop3_session)->port, socks_info) < 0) {
 		log_warning(_("Can't connect to POP3 server: %s:%d\n"),
 			    SESSION(pop3_session)->server,
 			    SESSION(pop3_session)->port);
@@ -1276,8 +1299,9 @@ static gint inc_drop_message(Pop3Session *session, const gchar *file)
 
 	if (prefs_common.enable_junk &&
 	    prefs_common.filter_junk_on_recv &&
-	    prefs_common.filter_junk_before) {
-		filter_apply_msginfo(prefs_common.junk_fltlist, msginfo,
+	    prefs_common.filter_junk_before &&
+	    inc_session->junk_fltlist) {
+		filter_apply_msginfo(inc_session->junk_fltlist, msginfo,
 				     fltinfo);
 		if (fltinfo->drop_done)
 			is_junk = TRUE;
@@ -1299,8 +1323,9 @@ static gint inc_drop_message(Pop3Session *session, const gchar *file)
 	if (!fltinfo->drop_done) {
 		if (prefs_common.enable_junk &&
 		    prefs_common.filter_junk_on_recv &&
-		    !prefs_common.filter_junk_before) {
-			filter_apply_msginfo(prefs_common.junk_fltlist,
+		    !prefs_common.filter_junk_before &&
+		    inc_session->junk_fltlist) {
+			filter_apply_msginfo(inc_session->junk_fltlist,
 					     msginfo, fltinfo);
 			if (fltinfo->drop_done)
 				is_junk = TRUE;
@@ -1622,8 +1647,9 @@ static void inc_autocheck_timer_set_interval(guint interval)
 	inc_autocheck_timer_remove();
 
 	if (prefs_common.autochk_newmail && autocheck_data) {
-		autocheck_timer = gtk_timeout_add
-			(interval, inc_autocheck_func, autocheck_data);
+		autocheck_timer = g_timeout_add_full
+			(G_PRIORITY_LOW, interval, inc_autocheck_func,
+			 autocheck_data, NULL);
 		debug_print("added timer = %d\n", autocheck_timer);
 	}
 }
@@ -1637,7 +1663,7 @@ void inc_autocheck_timer_remove(void)
 {
 	if (autocheck_timer) {
 		debug_print("removed timer = %d\n", autocheck_timer);
-		gtk_timeout_remove(autocheck_timer);
+		g_source_remove(autocheck_timer);
 		autocheck_timer = 0;
 	}
 }

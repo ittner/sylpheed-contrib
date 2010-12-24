@@ -1,3 +1,153 @@
+2010-12-24
+
+	* version 3.1.0beta6
+
+2010-12-24
+
+	* src/main.c: win32: always check if text font is loadable on startup.
+
+2010-12-24
+
+	* manual/ja/sylpheed.sgml: updated Japanese manual.
+
+2010-12-22
+
+	* libsylph/filter.[ch]
+	  libsylph/prefs_common.[ch]
+	  libsylph/mbox.c
+	  src/inc.[ch]
+	  src/main.c
+	  src/summaryview.[ch]
+	  src/prefs_common_dialog.c: refactored junk filter rule management.
+	  Create junk filter rule on demand.
+	  Deprecated prefs_common_junk_filter_list_set().
+	  Automatically select appropriate Junk folder on filtering.
+
+2010-12-22
+
+	* src/addressbook.c: added menu 'Add to recipient/Cc/Bcc'.
+
+2010-12-21
+
+	* libsylph/session.c
+	  src/rpop3.c
+	  src/compose.c
+	  src/inc.c
+	  src/passphrase.c
+	  src/sigstatus.c: changed deprecated gtk_timeout_add() to
+	  g_timeout_add(_full)(). Use G_PRIORITY_LOW for long timeout
+	  interval (may fix slow receiving problem?).
+
+2010-12-20
+
+	* libsylph/prefs_common.[ch]
+	  src/compose.[ch]
+	  src/addressbook.c
+	  src/addr_compl.c
+	  src/prefs_common_dialog.c: added new option: "Set only mail address
+	  when composing from address book".
+	  Don't add modified flag when opening composition window from
+	  address book.
+	* src/importldif.c: fixed uninitialized variable.
+
+2010-12-17
+
+	* src/compose.c
+	  src/mimeview.c: changed the label 'MIME type' to 'Data type' for
+	  understandability.
+
+2010-12-17
+
+	* libsylph/html.c: html_parse_tag(): look at every attribute in 'a'
+	  tag for 'href' (thanks to Rich Coe).
+
+2010-12-15
+
+	* src/summaryview.c: summary_toggle_view(): mark as read when message
+	  view is toggled on.
+
+2010-12-14
+
+	* libsylph/folder.[ch]
+	  src/mainwindow.c: disconnect all current sessions of remote folders
+	  when going offline.
+
+2010-12-14
+
+	* src/summaryview.c: reverted the behavior when 'Always open messages
+	  in summary when selected' is off (don't display a message when
+	  opening a folder).
+
+2010-12-09
+
+	* version 3.1.0beta5
+
+2010-12-09
+
+	* src/send_message.c: send_message_smtp(): fixed a bug that
+	  temporary password was not cleared on auth failure.
+
+2010-12-09
+
+	* src/plugin.h: fixed typo.
+	* src/update_check.c: update_check(): win32: fixed crash on update
+	  check.
+	* configure.in: enable updatecheckplugin only if updatecheck is
+	  enabled.
+
+2010-12-08
+
+	* version 3.1.0beta4
+
+2010-12-08
+
+	* libsylph/socks.c: win32: fixed compilation error.
+
+2010-12-07
+
+	* libsylph/prefs_account.[ch]
+	  src/prefs_account_dialog.c: added UI for SOCKS settings.
+	* libsylph/session.c: session_connect_full(): check if
+	  socks_info->proxy_host is set.
+	* libsylph/imap.c: added SOCKS proxy support.
+	* manual/ja/sylpheed.sgml: added SOCKS proxy description.
+
+2010-12-07
+
+	* libsylph/prefs_account.[ch]
+	  libsylph/socks.[ch]
+	  libsylph/session.[ch]
+	  src/inc.c
+	  src/send_message.c: added SOCKS4/5 proxy support.
+
+2010-12-03
+
+	* nsis/*: added NSIS installer script files.
+
+2010-12-01
+
+	* libsylph/prefs_common.[ch]
+	  src/summaryview.c
+	  src/prefs_common_dialog.c: added an option 'Always mark as read when
+	  a message is opened'. This will bring back the previous behavior.
+
+2010-11-25
+
+	* src/main.c
+	  src/setup.h: win32: added missing code for WAB file import.
+
+2010-11-18
+
+	* manual/ja/sylpheed.sgml: updated to 3.1.
+
+2010-11-16
+
+	* libsylph/xml.[ch]: xml_escape_str(): added.
+
+2010-11-12
+
+	* src/plugin_manager.c: fixed button order.
+
 2010-11-09
 
 	* src/rpop3.c: rpop3_account(): clear temporary password if

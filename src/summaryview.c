@@ -894,14 +894,19 @@ gboolean summary_show(SummaryView *summaryview, FolderItem *item,
 		/* select first unread message */
 		if (summary_find_next_flagged_msg(summaryview, &iter, NULL,
 						  MSG_UNREAD, FALSE)) {
-			summary_unlock(summaryview);
-			summary_select_row(summaryview, &iter, TRUE, TRUE);
-			summary_lock(summaryview);
+			if (prefs_common.open_unread_on_enter ||
+			    prefs_common.always_show_msg) {
+				summary_unlock(summaryview);
+				summary_select_row(summaryview, &iter,
+						   TRUE, TRUE);
+				summary_lock(summaryview);
+			} else
+				summary_select_row(summaryview, &iter,
+						   FALSE, TRUE);
 		} else {
 			summary_unlock(summaryview);
 			if (item->sort_type == SORT_ASCENDING &&
 			    SUMMARY_DISPLAY_TOTAL_NUM(item) > 1) {
-				summaryview->display_msg = TRUE;
 				g_signal_emit_by_name
 					(treeview, "move-cursor",
 					 GTK_MOVEMENT_BUFFER_ENDS, 1, &moved);
@@ -909,7 +914,7 @@ gboolean summary_show(SummaryView *summaryview, FolderItem *item,
 					(GTK_TREE_MODEL(summaryview->store),
 					 &iter)) {
 				summary_select_row(summaryview, &iter,
-						   TRUE, TRUE);
+						   FALSE, TRUE);
 			}
 			summary_lock(summaryview);
 			GTK_EVENTS_FLUSH();
@@ -2735,7 +2740,8 @@ static void summary_display_msg_full(SummaryView *summaryview,
 			gtk_widget_grab_focus(summaryview->treeview);
 	}
 
-	if (val == 0 && new_window) {
+	if (val == 0 &&
+	    (new_window || prefs_common.always_mark_read_on_show_msg)) {
 		if (MSG_IS_NEW(msginfo->flags) ||
 		    MSG_IS_UNREAD(msginfo->flags)) {
 			summary_mark_row_as_read(summaryview, iter);
@@ -2887,9 +2893,10 @@ gboolean summary_step(SummaryView *summaryview, GtkScrollType type)
 void summary_toggle_view(SummaryView *summaryview)
 {
 	if (!messageview_is_visible(summaryview->messageview) &&
-	    summaryview->selected)
+	    summaryview->selected) {
 		summary_display_msg_selected(summaryview, FALSE, FALSE);
-	else
+		summary_mark_displayed_read(summaryview, NULL);
+	} else
 		main_window_toggle_message_view(summaryview->mainwin);
 }
 
@@ -4636,8 +4643,7 @@ static gboolean summary_filter_junk_func(GtkTreeModel *model, GtkTreePath *path,
 
 	fltinfo = filter_info_new();
 	fltinfo->flags = msginfo->flags;
-	filter_apply_msginfo(prefs_common.manual_junk_fltlist,
-			     msginfo, fltinfo);
+	filter_apply_msginfo(summaryview->junk_fltlist, msginfo, fltinfo);
 
 	if (fltinfo->actions[FLT_ACTION_MOVE] ||
 	    fltinfo->actions[FLT_ACTION_COPY] ||
@@ -4754,9 +4760,25 @@ void summary_filter(SummaryView *summaryview, gboolean selected_only)
 
 void summary_filter_junk(SummaryView *summaryview, gboolean selected_only)
 {
-	if (prefs_common.manual_junk_fltlist)
+	FilterRule *rule;
+	GSList junk_fltlist = {NULL, NULL};
+	FolderItem *item = summaryview->folder_item;
+	FolderItem *junk = NULL;
+
+	if (!item)
+		return;
+
+	if (item->folder)
+		junk = folder_get_junk(item->folder);
+	rule = filter_junk_rule_create(NULL, junk, TRUE);
+	if (rule) {
+		junk_fltlist.data = rule;
+		summaryview->junk_fltlist = &junk_fltlist;
 		summary_filter_real(summaryview, summary_filter_junk_func,
 				    selected_only);
+		summaryview->junk_fltlist = NULL;
+		filter_rule_free(rule);
+	}
 }
 
 void summary_filter_open(SummaryView *summaryview, FilterCreateType type)

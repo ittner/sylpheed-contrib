@@ -300,6 +300,8 @@ struct _PrefsCommon
 
 	/* Filtering */
 	GSList *fltlist;
+
+	/* deprecated: do not use */
 	GSList *junk_fltlist;
 	GSList *manual_junk_fltlist;
 
@@ -319,6 +321,9 @@ struct _PrefsCommon
 	gchar *user_agent_str;
 
 	gboolean change_account_on_folder_sel; /* Interface */
+	gboolean always_mark_read_on_show_msg; /* Interface */
+
+	gboolean always_add_address_only;    /* Compose */
 };
 
 extern PrefsCommon prefs_common;
@@ -330,7 +335,9 @@ PrefParam *prefs_common_get_params	(void);
 void prefs_common_read_config		(void);
 void prefs_common_write_config		(void);
 
+/* deprecated */
 void prefs_common_junk_filter_list_set		(void);
+
 void prefs_common_junk_folder_rename_path	(const gchar	*old_path,
 						 const gchar	*new_path);
 
