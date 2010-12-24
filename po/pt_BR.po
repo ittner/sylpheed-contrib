@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: sylpheed\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-12-24 14:31+0900\n"
-"PO-Revision-Date: 2010-11-11 00:26-0200\n"
+"PO-Revision-Date: 2010-12-24 13:14-0200\n"
 "Last-Translator: Alexandre Erwin Ittner <alexandre@ittner.com.br>\n"
 "Language-Team: Portuguese/Brazil <(none)>\n"
 "MIME-Version: 1.0\n"
@@ -932,19 +932,16 @@ msgid "/_Address/---"
 msgstr "/_Endereço/---"
 
 #: src/addressbook.c:423
-#, fuzzy
 msgid "/_Address/Add _to recipient"
-msgstr "/_Endereço/E_xcluir"
+msgstr "/_Endereço/Adicionar ao destina_tário"
 
 #: src/addressbook.c:425
-#, fuzzy
 msgid "/_Address/Add to _Cc"
-msgstr "/_Endereço/E_ditar"
+msgstr "/_Endereço/Adicionar ao \"com _cópia\""
 
 #: src/addressbook.c:427
-#, fuzzy
 msgid "/_Address/_Add to _Bcc"
-msgstr "/_Endereço/E_ditar"
+msgstr "/_Endereço/_Adicionar ao \"com cópia oculta\""
 
 #: src/addressbook.c:430
 msgid "/_Address/_Edit"
@@ -1008,15 +1005,15 @@ msgstr "/E_xcluir"
 
 #: src/addressbook.c:471
 msgid "/Add _to recipient"
-msgstr ""
+msgstr "/Adicionar ao des_tinatário"
 
 #: src/addressbook.c:473
 msgid "/Add t_o Cc"
-msgstr ""
+msgstr "/Adici_onar ao \"com cópia\""
 
 #: src/addressbook.c:475
 msgid "/Add to _Bcc"
-msgstr ""
+msgstr "/Adicionar ao \"com cópia ocul_ta\""
 
 #: src/addressbook.c:481
 msgid "/_Copy"
@@ -1843,9 +1840,8 @@ msgid "PGP Encrypt"
 msgstr "Criptografar com PGP"
 
 #: src/compose.c:5310 src/mimeview.c:209
-#, fuzzy
 msgid "Data type"
-msgstr "Data"
+msgstr "Tipo de dados"
 
 #. S_COL_DATE
 #: src/compose.c:5319 src/mimeview.c:217 src/prefs_filter_edit.c:507
@@ -4377,7 +4373,7 @@ msgstr "SSL"
 
 #: src/prefs_account_dialog.c:605
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 #: src/prefs_account_dialog.c:607 src/prefs_common_dialog.c:2488
 msgid "Advanced"
@@ -4690,24 +4686,20 @@ msgid "Turn this off if you have problems in SSL connection."
 msgstr "Desabilite isso se você tiver problemas na conexão SSL"
 
 #: src/prefs_account_dialog.c:1778
-#, fuzzy
 msgid "Use SOCKS proxy"
-msgstr "Usar proxy HTTP"
+msgstr "Usar proxy SOCKS"
 
 #: src/prefs_account_dialog.c:1802
-#, fuzzy
 msgid "Hostname:"
-msgstr "Endereço do servidor"
+msgstr "Endereço do servidor:"
 
 #: src/prefs_account_dialog.c:1811
-#, fuzzy
 msgid "Port:"
-msgstr "Porta"
+msgstr "Porta:"
 
 #: src/prefs_account_dialog.c:1824
-#, fuzzy
 msgid "Use authentication"
-msgstr "Usar autenticação SMTP"
+msgstr "Usar autenticação"
 
 #: src/prefs_account_dialog.c:1830 src/prefs_filter_edit.c:253
 #: src/prefs_search_folder.c:187
@@ -4715,14 +4707,12 @@ msgid "Name:"
 msgstr "Nome:"
 
 #: src/prefs_account_dialog.c:1839
-#, fuzzy
 msgid "Password:"
-msgstr "Senha"
+msgstr "Senha:"
 
 #: src/prefs_account_dialog.c:1850
-#, fuzzy
 msgid "Use SOCKS proxy on sending"
-msgstr "Usar programa externo para enviar"
+msgstr "Usar proxy SOCKS ao enviar"
 
 #: src/prefs_account_dialog.c:1928
 msgid "Specify SMTP port"
@@ -5396,9 +5386,8 @@ msgid "Always open messages in summary when selected"
 msgstr "Sempre abrir mensagens no sumário, quando selecionado"
 
 #: src/prefs_common_dialog.c:2391
-#, fuzzy
 msgid "Always mark as read when a message is opened"
-msgstr "Somente marcar a mensagem como lida quando aberta em uma nova janela"
+msgstr "Sempre marcar mensagens abertas como lidas"
 
 #: src/prefs_common_dialog.c:2397
 msgid "Open first unread message when a folder is opened"
@@ -5499,9 +5488,10 @@ msgid "Add address to destination when double-clicked"
 msgstr "Adicionar endereço para o destinatário com duplo-clique"
 
 #: src/prefs_common_dialog.c:2594
-#, fuzzy
 msgid "Set only mail address when entering recipient from address book"
-msgstr "Adicionar destinatários ao catálogo de endereços"
+msgstr ""
+"Usar somente o endereço de email ao selecionar destinatários do catálogo de "
+"endereços"
 
 #: src/prefs_common_dialog.c:2602
 msgid "Address auto-completion:"
