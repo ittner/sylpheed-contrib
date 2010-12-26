@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: sylpheed\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-12-24 14:31+0900\n"
-"PO-Revision-Date: 2010-12-24 13:14-0200\n"
+"PO-Revision-Date: 2010-12-25 22:26-0200\n"
 "Last-Translator: Alexandre Erwin Ittner <alexandre@ittner.com.br>\n"
 "Language-Team: Portuguese/Brazil <(none)>\n"
 "MIME-Version: 1.0\n"
@@ -695,7 +695,7 @@ msgid ""
 "New messages will be checked in this order. Check the boxes\n"
 "on the `G' column to enable message retrieval by `Get all'."
 msgstr ""
-"Mensagens novas serão baixadas nessa ordem. Marque as caixas\n"
+"Mensagens novas serão baixadas nesta ordem. Marque as caixas\n"
 "na coluna \"G\" para habilitar essa caixa no comando \"Receber todas\"."
 
 #: src/account_dialog.c:375 src/addressadd.c:178 src/addressbook.c:766
@@ -4126,7 +4126,7 @@ msgstr "Procurar texto:"
 #: src/message_search.c:153 src/prefs_search_folder.c:253
 #: src/query_search.c:345
 msgid "Case sensitive"
-msgstr "Maiús./minús."
+msgstr "Sensível a maiúsculas/minúsculas"
 
 #: src/message_search.c:211
 msgid "Search failed"
@@ -4526,7 +4526,7 @@ msgstr "Sem limite se 0 for especificado."
 
 #: src/prefs_account_dialog.c:1073
 msgid "`Get all' checks for new messages on this account"
-msgstr "\"Receber todas\" verifica novas mensagens nessa conta"
+msgstr "\"Receber todas\" verifica novas mensagens nesta conta"
 
 #: src/prefs_account_dialog.c:1127 src/prefs_customheader.c:186
 msgid "Header"
@@ -4683,7 +4683,7 @@ msgstr "Usar SSL não-bloqueante"
 
 #: src/prefs_account_dialog.c:1728
 msgid "Turn this off if you have problems in SSL connection."
-msgstr "Desabilite isso se você tiver problemas na conexão SSL"
+msgstr "Desabilite isto se você tiver problemas na conexão SSL"
 
 #: src/prefs_account_dialog.c:1778
 msgid "Use SOCKS proxy"
@@ -5072,7 +5072,7 @@ msgstr "Responder para a lista pelo botão \"Responder\""
 
 #: src/prefs_common_dialog.c:1202
 msgid "Inherit recipients on reply to self messages"
-msgstr "Herdar destinatários ao responder mensagens próprias"
+msgstr "Herdar destinatários ao responder suas próprias mensagens"
 
 #: src/prefs_common_dialog.c:1204
 msgid "Set only mail address of recipients when replying"
@@ -5383,7 +5383,7 @@ msgstr "Exibir um aviso de inicialização caso o GnuPG não estiver funcionando
 
 #: src/prefs_common_dialog.c:2387
 msgid "Always open messages in summary when selected"
-msgstr "Sempre abrir mensagens no sumário, quando selecionado"
+msgstr "Quando uma mensagem for selecionada, abri-la no sumário"
 
 #: src/prefs_common_dialog.c:2391
 msgid "Always mark as read when a message is opened"
@@ -5411,7 +5411,7 @@ msgstr "Abrir caixa de entrada ao iniciar"
 
 #: src/prefs_common_dialog.c:2422
 msgid "Change current account on folder open"
-msgstr "Alterar conta atual na pasta aberta"
+msgstr "Selecionar a conta automaticamente conforme a pasta aberta"
 
 #: src/prefs_common_dialog.c:2430
 msgid "Execute immediately when moving or deleting messages"
@@ -5579,7 +5579,7 @@ msgid ""
 msgstr ""
 "Habilite isto se existe a possibilidade de o conteúdo das pastas ser "
 "modificado por outras aplicações.\n"
-"Esta opção reduzirá o desempenho de exibição do sumário."
+"Esta opção prejudicará o desempenho da exibição do sumário."
 
 # tradução boa para socket?
 #: src/prefs_common_dialog.c:2939
@@ -6020,11 +6020,11 @@ msgstr "Regra de filtragem"
 
 #: src/prefs_filter_edit.c:272
 msgid "If any of the following condition matches"
-msgstr "Se alguma das seguintes condições casar"
+msgstr "Se qualquer condição coincidir"
 
 #: src/prefs_filter_edit.c:274
 msgid "If all of the following conditions match"
-msgstr "Se todas as seguintes condições casarem"
+msgstr "Se todas as condições coincidirem"
 
 #: src/prefs_filter_edit.c:295
 msgid "Perform the following actions:"
@@ -6271,11 +6271,11 @@ msgstr "%s - Editar a condição de busca"
 
 #: src/prefs_search_folder.c:209 src/query_search.c:276
 msgid "Match any of the following"
-msgstr "Casar qualquer um dos seguintes"
+msgstr "Qualquer uma das condições a seguir"
 
 #: src/prefs_search_folder.c:211 src/query_search.c:278
 msgid "Match all of the following"
-msgstr "Casar todos os seguintes"
+msgstr "Todas as condições a seguir"
 
 #: src/prefs_search_folder.c:231 src/query_search.c:322
 msgid "Folder:"
