@@ -80,6 +80,7 @@ static struct Send {
 	GtkWidget *checkbtn_savemsg;
 	GtkWidget *checkbtn_filter_sent;
 	GtkWidget *checkbtn_recipients_autoreg;
+	GtkWidget *checkbtn_show_send_dialog;
 
 	GtkWidget *optmenu_encoding_method;
 	GtkWidget *optmenu_mime_fencoding_method;
@@ -317,6 +318,8 @@ static PrefsUIData ui_data[] = {
 	{"filter_sent_message", &p_send.checkbtn_filter_sent,
 	 prefs_set_data_from_toggle, prefs_set_toggle},
 	{"recipients_autoreg", &p_send.checkbtn_recipients_autoreg,
+	 prefs_set_data_from_toggle, prefs_set_toggle},
+	{"show_send_dialog", &p_send.checkbtn_show_send_dialog,
 	 prefs_set_data_from_toggle, prefs_set_toggle},
 
 	{"encoding_method", &p_send.optmenu_encoding_method,
@@ -942,6 +945,8 @@ static void prefs_send_create(void)
 	GtkWidget *checkbtn_savemsg;
 	GtkWidget *checkbtn_filter_sent;
 	GtkWidget *checkbtn_recipients_autoreg;
+	GtkWidget *vbox3;
+	GtkWidget *checkbtn_show_send_dialog;
 	GtkWidget *label;
 	GtkWidget *checkbtn_check_attach;
 	GtkWidget *entry_check_attach_str;
@@ -979,6 +984,9 @@ static void prefs_send_create(void)
 	SET_TOGGLE_SENSITIVITY (checkbtn_savemsg, checkbtn_filter_sent);
 	PACK_CHECK_BUTTON (vbox2, checkbtn_recipients_autoreg,
 			   _("Automatically add recipients to address book"));
+
+	PACK_CHECK_BUTTON (vbox2, checkbtn_show_send_dialog,
+			   _("Display send dialog"));
 
 	vbox2 = gtk_vbox_new (FALSE, VSPACING_NARROW);
 	gtk_widget_show (vbox2);
@@ -1092,6 +1100,7 @@ static void prefs_send_create(void)
 	p_send.checkbtn_savemsg = checkbtn_savemsg;
 	p_send.checkbtn_filter_sent = checkbtn_filter_sent;
 	p_send.checkbtn_recipients_autoreg = checkbtn_recipients_autoreg;
+	p_send.checkbtn_show_send_dialog = checkbtn_show_send_dialog;
 
 	p_send.optmenu_encoding_method = optmenu_trencoding;
 	p_send.optmenu_mime_fencoding_method = optmenu_fencoding;
@@ -2530,7 +2539,6 @@ static GtkWidget *prefs_other_create(void)
 	GtkWidget *checkbtn_addaddrbyclick;
 	GtkWidget *checkbtn_add_address_only;
 	GtkWidget *vbox_spc;
-	GtkWidget *hbox_spc;
 	GtkWidget *radiobtn_addr_compl;
 	GtkWidget *radiobtn_compl_tab;
 	GtkWidget *radiobtn_no_compl;
@@ -2599,18 +2607,9 @@ static GtkWidget *prefs_other_create(void)
 	gtk_widget_show (hbox1);
 	gtk_box_pack_start (GTK_BOX (vbox_addr), hbox1, FALSE, FALSE, 0);
 
-	label = gtk_label_new (_("Address auto-completion:"));
+	label = gtk_label_new (_("Auto-completion:"));
 	gtk_widget_show (label);
 	gtk_box_pack_start (GTK_BOX (hbox1), label, FALSE, FALSE, 0);
-
-	hbox1 = gtk_hbox_new (FALSE, 8);
-	gtk_widget_show (hbox1);
-	gtk_box_pack_start (GTK_BOX (vbox_addr), hbox1, FALSE, FALSE, 0);
-
-	hbox_spc = gtk_hbox_new (FALSE, 0);
-	gtk_widget_show (hbox_spc);
-	gtk_box_pack_start (GTK_BOX (hbox1), hbox_spc, FALSE, FALSE, 0);
-	gtk_widget_set_size_request (hbox_spc, 12, -1);
 
 	radiobtn_addr_compl = gtk_radio_button_new_with_label
 		(NULL, _("Automatic"));

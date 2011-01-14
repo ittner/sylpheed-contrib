@@ -1,6 +1,6 @@
 /*
  * Sylpheed -- a GTK+ based, lightweight, and fast e-mail client
- * Copyright (C) 1999-2009 Hiroyuki Yamamoto
+ * Copyright (C) 1999-2010 Hiroyuki Yamamoto
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -70,6 +70,7 @@ struct _SendProgressDialog
 {
 	ProgressDialog *dialog;
 	Session *session;
+	gboolean show_dialog;
 	gboolean cancelled;
 };
 
@@ -213,7 +214,7 @@ QueueInfo *send_get_queue_info(const gchar *file)
 	return qinfo;
 }
 
-gint send_get_queue_contents(QueueInfo *qinfo, const gchar *dest)
+static gint send_get_queue_contents(QueueInfo *qinfo, const gchar *dest)
 {
 	FILE *fp;
 	glong pos;
@@ -240,6 +241,42 @@ gint send_get_queue_contents(QueueInfo *qinfo, const gchar *dest)
 	}
 
 	fseek(qinfo->fp, pos, SEEK_SET);
+
+	return 0;
+}
+
+static gint send_save_queued_message(QueueInfo *qinfo, gboolean filter_msgs)
+{
+	FolderItem *outbox;
+	gboolean drop_done = FALSE;
+	gchar tmp[MAXPATHLEN + 1];
+
+	g_snprintf(tmp, sizeof(tmp), "%s%ctmpmsg.out.%08x",
+		   get_rc_dir(), G_DIR_SEPARATOR, g_random_int());
+
+	if (send_get_queue_contents(qinfo, tmp) < 0)
+		return -1;
+
+	if (filter_msgs) {
+		FilterInfo *fltinfo;
+
+		fltinfo = filter_info_new();
+		fltinfo->account = qinfo->ac;
+		fltinfo->flags.perm_flags = 0;
+		fltinfo->flags.tmp_flags = MSG_RECEIVED;
+
+		filter_apply(prefs_common.fltlist, tmp, fltinfo);
+
+		drop_done = fltinfo->drop_done;
+		filter_info_free(fltinfo);
+	}
+
+	if (!drop_done) {
+		outbox = account_get_special_folder(qinfo->ac, F_OUTBOX);
+		procmsg_save_to_outbox(outbox, tmp);
+	}
+
+	g_unlink(tmp);
 
 	return 0;
 }
@@ -341,7 +378,6 @@ gint send_message_queue_all(FolderItem *queue, gboolean save_msgs,
 		gchar *file;
 		MsgInfo *msginfo = (MsgInfo *)cur->data;
 		QueueInfo *qinfo;
-		gchar tmp[MAXPATHLEN + 1];
 
 		file = procmsg_get_message_file(msginfo);
 		if (!file)
@@ -362,37 +398,8 @@ gint send_message_queue_all(FolderItem *queue, gboolean save_msgs,
 		else if (qinfo->forward_targets)
 			send_message_set_forward_flags(qinfo->forward_targets);
 
-		g_snprintf(tmp, sizeof(tmp), "%s%ctmpmsg.out.%08x",
-			   get_rc_dir(), G_DIR_SEPARATOR, g_random_int());
-
-		if (send_get_queue_contents(qinfo, tmp) == 0) {
-			if (save_msgs) {
-				FolderItem *outbox;
-				gboolean drop_done = FALSE;
-
-				if (filter_msgs) {
-					FilterInfo *fltinfo;
-
-					fltinfo = filter_info_new();
-					fltinfo->account = qinfo->ac;
-					fltinfo->flags.perm_flags = 0;
-					fltinfo->flags.tmp_flags = MSG_RECEIVED;
-
-					filter_apply(prefs_common.fltlist, tmp,
-						     fltinfo);
-
-					drop_done = fltinfo->drop_done;
-					filter_info_free(fltinfo);
-				}
-
-				if (!drop_done) {
-					outbox = account_get_special_folder
-						(qinfo->ac, F_OUTBOX);
-					procmsg_save_to_outbox(outbox, tmp);
-				}
-			}
-			g_unlink(tmp);
-		}
+		if (save_msgs)
+			send_save_queued_message(qinfo, filter_msgs);
 
 		send_queue_info_free(qinfo);
 		g_free(file);
@@ -747,9 +754,11 @@ static gint send_message_smtp(PrefsAccount *ac_prefs, GSList *to_list, FILE *fp)
 
 	if (session_connect_full(session, ac_prefs->smtp_server, port,
 				 socks_info) < 0) {
-		manage_window_focus_in(dialog->dialog->window, NULL, NULL);
+		if (dialog->show_dialog)
+			manage_window_focus_in(dialog->dialog->window, NULL, NULL);
 		send_put_error(session);
-		manage_window_focus_out(dialog->dialog->window, NULL, NULL);
+		if (dialog->show_dialog)
+			manage_window_focus_out(dialog->dialog->window, NULL, NULL);
 		session_destroy(session);
 		send_progress_dialog_destroy(dialog);
 		inc_unlock();
@@ -791,9 +800,11 @@ static gint send_message_smtp(PrefsAccount *ac_prefs, GSList *to_list, FILE *fp)
 		ret = -1;
 
 	if (ret == -1) {
-		manage_window_focus_in(dialog->dialog->window, NULL, NULL);
+		if (dialog->show_dialog)
+			manage_window_focus_in(dialog->dialog->window, NULL, NULL);
 		send_put_error(session);
-		manage_window_focus_out(dialog->dialog->window, NULL, NULL);
+		if (dialog->show_dialog)
+			manage_window_focus_out(dialog->dialog->window, NULL, NULL);
 	}
 
 	session_destroy(session);
@@ -822,12 +833,14 @@ static gint send_recv_message(Session *session, const gchar *msg, gpointer data)
 	case SMTP_HELO:
 		g_snprintf(buf, sizeof(buf), _("Sending HELO..."));
 		state_str = _("Authenticating");
-		statusbar_print_all(_("Sending message..."));
+		statusbar_print_all(_("Sending message via %s:%d..."),
+				    session->server, session->port);
 		break;
 	case SMTP_EHLO:
 		g_snprintf(buf, sizeof(buf), _("Sending EHLO..."));
 		state_str = _("Authenticating");
-		statusbar_print_all(_("Sending message..."));
+		statusbar_print_all(_("Sending message via %s:%d..."),
+				    session->server, session->port);
 		break;
 	case SMTP_AUTH:
 		g_snprintf(buf, sizeof(buf), _("Authenticating..."));
@@ -927,7 +940,10 @@ static SendProgressDialog *send_progress_dialog_create(void)
 
 	progress_dialog_set_value(progress, 0.0);
 
-	gtk_widget_show_now(progress->window);
+	if (prefs_common.show_send_dialog) {
+		dialog->show_dialog = TRUE;
+		gtk_widget_show_now(progress->window);
+	}
 
 	dialog->dialog = progress;
 
