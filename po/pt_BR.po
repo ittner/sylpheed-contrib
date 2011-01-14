@@ -2,7 +2,7 @@
 # Copyright (C) 2000 Free Software Foundation, Inc.
 # André Casteliano <digitalcoder@users.sourceforge.net>, 2000.
 # Ricardo Nabinger Sanchez <rnsanchez@gmail.com>, 2005, 2006, 2007, 2008, 2009.
-# Alexandre Erwin Ittner <alexandre@ittner.com.br>, 2010.
+# Alexandre Erwin Ittner <alexandre@ittner.com.br>, 2010, 2011.
 # Former translators:
 # André Casteliano <digitalcoder@users.sourceforge.net>
 # Isaías V. Prestes <isix@uol.com.br>
@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: sylpheed\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-13 14:02+0900\n"
-"PO-Revision-Date: 2010-12-25 22:26-0200\n"
+"PO-Revision-Date: 2011-01-14 20:40-0200\n"
 "Last-Translator: Alexandre Erwin Ittner <alexandre@ittner.com.br>\n"
 "Language-Team: Portuguese/Brazil <(none)>\n"
 "MIME-Version: 1.0\n"
@@ -4996,9 +4996,8 @@ msgid "Automatically add recipients to address book"
 msgstr "Adicionar destinatários ao catálogo de endereços"
 
 #: src/prefs_common_dialog.c:989
-#, fuzzy
 msgid "Display send dialog"
-msgstr "Itens exibidos"
+msgstr "Exibir diálogo de envio"
 
 #: src/prefs_common_dialog.c:996
 msgid ""
@@ -5499,9 +5498,8 @@ msgstr ""
 "endereços"
 
 #: src/prefs_common_dialog.c:2610
-#, fuzzy
 msgid "Auto-completion:"
-msgstr "Completar endereços automaticamente:"
+msgstr "Completar automaticamente:"
 
 #: src/prefs_common_dialog.c:2623
 msgid "Start with Tab"
@@ -6899,9 +6897,9 @@ msgid "Authenticating"
 msgstr "Autenticando"
 
 #: src/send_message.c:836 src/send_message.c:842
-#, fuzzy, c-format
+#, c-format
 msgid "Sending message via %s:%d..."
-msgstr "Enviando mensagem..."
+msgstr "Enviando mensagem através de %s:%d..."
 
 #: src/send_message.c:840
 #, c-format
@@ -7703,9 +7701,8 @@ msgid "Compose _new message"
 msgstr "Escrever _nova mensagem"
 
 #: src/textview.c:2029
-#, fuzzy
 msgid "R_eply to this address"
-msgstr "Copiar este _endereço"
+msgstr "R_esponder para este endereço"
 
 #: src/textview.c:2032
 msgid "Add to address _book..."
