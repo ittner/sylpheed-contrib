@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sylpheed 3.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-07 15:42+0900\n"
+"POT-Creation-Date: 2011-01-21 17:16+0900\n"
 "PO-Revision-Date: 2010-02-22 15:22+0300\n"
 "Last-Translator: Mikalai Udodau <crom-a@tut.by>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -16,11 +16,11 @@ msgstr ""
 msgid "Reading all config for each account...\n"
 msgstr "Чытанне ўсіх канфігурацый для кожнага акаунта...\n"
 
-#: libsylph/filter.c:1591
+#: libsylph/filter.c:1608
 msgid "Junk mail filter (manual)"
 msgstr "Фільтр непажаданай пошты (ручны)"
 
-#: libsylph/filter.c:1594
+#: libsylph/filter.c:1611
 msgid "Junk mail filter"
 msgstr "Фільтр непажаданай пошты"
 
@@ -604,7 +604,7 @@ msgstr "запіс у %s схібіў.\n"
 msgid "About"
 msgstr "Аб праграме"
 
-#: src/about.c:226
+#: src/about.c:227
 msgid ""
 "GPGME is copyright 2001 by Werner Koch <dd9jn@gnu.org>\n"
 "\n"
@@ -612,7 +612,7 @@ msgstr ""
 "Аўтарскае права на GPGME (c) 2001 належыць Werner Koch <dd9jn@gnu.org>\n"
 "\n"
 
-#: src/about.c:230
+#: src/about.c:231
 msgid ""
 "This program is free software; you can redistribute it and/or modify it "
 "under the terms of the GNU General Public License as published by the Free "
@@ -626,7 +626,7 @@ msgstr ""
 "выбар) якой заўгодна пазнейшай версіі.\n"
 "\n"
 
-#: src/about.c:236
+#: src/about.c:237
 msgid ""
 "This program is distributed in the hope that it will be useful, but WITHOUT "
 "ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
@@ -639,7 +639,7 @@ msgstr ""
 "МЭТЫ. Гл. Агульную Грамадскую Ліцэнзію GNU за падрабязнасцямі. \n"
 "\n"
 
-#: src/about.c:242
+#: src/about.c:243
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "this program; if not, write to the Free Software Foundation, Inc., 59 Temple "
@@ -835,7 +835,7 @@ msgstr "Заўвагі"
 msgid "Select Address Book Folder"
 msgstr "Выберыце каталог Адраснай кнігі"
 
-#: src/addressadd.c:311 src/addressbook.c:1045 src/addressbook.c:3489
+#: src/addressadd.c:313 src/addressbook.c:1045 src/addressbook.c:3489
 msgid "Auto-registered address"
 msgstr "Аўта-рэгістраваныя адрасы"
 
@@ -930,7 +930,7 @@ msgstr "/_Адрас/_Рэдагаваць"
 
 #: src/addressbook.c:427
 #, fuzzy
-msgid "/_Address/_Add to _Bcc"
+msgid "/_Address/Add to _Bcc"
 msgstr "/_Адрас/_Рэдагаваць"
 
 #: src/addressbook.c:430
@@ -983,13 +983,13 @@ msgstr "/Новы к_аталог"
 #: src/folderview.c:287 src/folderview.c:292 src/folderview.c:295
 #: src/folderview.c:309 src/folderview.c:311 src/folderview.c:315
 #: src/folderview.c:317 src/mimeview.c:141 src/mimeview.c:151
-#: src/summaryview.c:432 src/summaryview.c:436 src/summaryview.c:439
-#: src/summaryview.c:451 src/summaryview.c:453 src/summaryview.c:456
-#: src/summaryview.c:458 src/summaryview.c:470 src/summaryview.c:476
+#: src/summaryview.c:437 src/summaryview.c:441 src/summaryview.c:444
+#: src/summaryview.c:456 src/summaryview.c:458 src/summaryview.c:461
+#: src/summaryview.c:463 src/summaryview.c:475 src/summaryview.c:481
 msgid "/---"
 msgstr "/---"
 
-#: src/addressbook.c:462 src/addressbook.c:479 src/summaryview.c:452
+#: src/addressbook.c:462 src/addressbook.c:479 src/summaryview.c:457
 msgid "/_Delete"
 msgstr "/Сц_ерці"
 
@@ -1087,7 +1087,7 @@ msgstr ""
 "Ці сапраўды жадаеце сцерці каталог І ўсе адрасы ў `%s' ?\n"
 "Пры сціранні толькі каталога, адрасы будуць перанесены ў каталог-продак."
 
-#: src/addressbook.c:2267 src/folderview.c:2687
+#: src/addressbook.c:2267 src/folderview.c:2695
 msgid "Delete folder"
 msgstr "Сцерці каталог"
 
@@ -1256,7 +1256,7 @@ msgstr "Заўвага"
 msgid "Warning"
 msgstr "Папярэджанне"
 
-#: src/alertpanel.c:168 src/inc.c:767
+#: src/alertpanel.c:168 src/inc.c:775
 msgid "Error"
 msgstr "Памылка"
 
@@ -1299,7 +1299,7 @@ msgstr "Карычневы"
 #. create sub items. for the menu item activation callback we pass the
 #. * color flag value as data parameter. Also we attach a data pointer
 #. * so we can always get back the SummaryView pointer.
-#: src/colorlabel.c:300 src/prefs_folder_item.c:317 src/summaryview.c:5145
+#: src/colorlabel.c:300 src/prefs_folder_item.c:317 src/summaryview.c:5248
 msgid "None"
 msgstr "Няма"
 
@@ -1390,7 +1390,7 @@ msgid "/_Edit/Aut_o wrapping"
 msgstr "/_Праца/А_ўтаперанос"
 
 #: src/compose.c:613 src/mainwindow.c:596 src/messageview.c:166
-#: src/summaryview.c:471
+#: src/summaryview.c:476
 msgid "/_View"
 msgstr "/Выгляд"
 
@@ -1639,7 +1639,7 @@ msgid "Can't get the part of multipart message."
 msgstr "Нельга атрымаць частку складанага паведамлення."
 
 #: src/compose.c:2868 src/headerview.c:233 src/query_search.c:791
-#: src/rpop3.c:675 src/summaryview.c:2416
+#: src/rpop3.c:675 src/summaryview.c:2491
 msgid "(No Subject)"
 msgstr "(Без Тэмы)"
 
@@ -1832,7 +1832,7 @@ msgstr "Дата"
 #. S_COL_DATE
 #: src/compose.c:5319 src/mimeview.c:217 src/prefs_filter_edit.c:508
 #: src/prefs_summary_column.c:72 src/rpop3.c:425 src/select-keys.c:309
-#: src/summaryview.c:5294
+#: src/summaryview.c:5397
 msgid "Size"
 msgstr "Памер"
 
@@ -2098,12 +2098,12 @@ msgstr "Рэдагаваць каталог"
 msgid "Input the new name of folder:"
 msgstr "Ўвядзіце новую назву каталога:"
 
-#: src/editgroup.c:540 src/foldersel.c:601 src/folderview.c:2419
-#: src/folderview.c:2425
+#: src/editgroup.c:540 src/foldersel.c:601 src/folderview.c:2427
+#: src/folderview.c:2433
 msgid "New folder"
 msgstr "Новы каталог"
 
-#: src/editgroup.c:541 src/foldersel.c:602 src/folderview.c:2426
+#: src/editgroup.c:541 src/foldersel.c:602 src/folderview.c:2434
 msgid "Input the name of new folder:"
 msgstr "Ўвядзіце назву новага каталога:"
 
@@ -2303,48 +2303,48 @@ msgstr "Гэты файл ужо існуе. Жадаеце замяніць я�
 msgid "Select folder"
 msgstr "Выберыце каталог"
 
-#: src/foldersel.c:402 src/folderview.c:1246 src/prefs_folder_item.c:235
+#: src/foldersel.c:402 src/folderview.c:1250 src/prefs_folder_item.c:235
 msgid "Inbox"
 msgstr "Атрыманыя"
 
-#: src/foldersel.c:406 src/folderview.c:1252 src/prefs_folder_item.c:236
+#: src/foldersel.c:406 src/folderview.c:1256 src/prefs_folder_item.c:236
 msgid "Sent"
 msgstr "Дасланыя"
 
-#: src/foldersel.c:410 src/folderview.c:1258 src/prefs_folder_item.c:238
+#: src/foldersel.c:410 src/folderview.c:1262 src/prefs_folder_item.c:238
 msgid "Queue"
 msgstr "Чарга"
 
-#: src/foldersel.c:414 src/folderview.c:1264 src/prefs_folder_item.c:239
+#: src/foldersel.c:414 src/folderview.c:1268 src/prefs_folder_item.c:239
 msgid "Trash"
 msgstr "Смецце"
 
-#: src/foldersel.c:418 src/folderview.c:1270 src/prefs_folder_item.c:237
+#: src/foldersel.c:418 src/folderview.c:1274 src/prefs_folder_item.c:237
 msgid "Drafts"
 msgstr "Чарнавікі"
 
-#: src/foldersel.c:422 src/folderview.c:1276 src/prefs_common_dialog.c:2129
+#: src/foldersel.c:422 src/folderview.c:1280 src/prefs_common_dialog.c:2129
 #: src/prefs_folder_item.c:240 src/prefs_toolbar.c:68
 msgid "Junk"
 msgstr "Спам"
 
-#: src/foldersel.c:603 src/folderview.c:2423 src/folderview.c:2427
+#: src/foldersel.c:603 src/folderview.c:2431 src/folderview.c:2435
 msgid "NewFolder"
 msgstr "НовыКаталог"
 
-#: src/foldersel.c:611 src/folderview.c:2437 src/folderview.c:2445
-#: src/folderview.c:2507
+#: src/foldersel.c:611 src/folderview.c:2445 src/folderview.c:2453
+#: src/folderview.c:2515
 #, c-format
 msgid "`%c' can't be included in folder name."
 msgstr "`%c' не можа быць уключана ў назву каталога."
 
-#: src/foldersel.c:621 src/folderview.c:2456 src/folderview.c:2515
+#: src/foldersel.c:621 src/folderview.c:2464 src/folderview.c:2523
 #: src/query_search.c:1157
 #, c-format
 msgid "The folder `%s' already exists."
 msgstr "Каталог `%s' ужо існуе."
 
-#: src/foldersel.c:629 src/folderview.c:2463
+#: src/foldersel.c:629 src/folderview.c:2471
 #, c-format
 msgid "Can't create the folder `%s'."
 msgstr "Нельга стварыць каталог '%s'."
@@ -2467,35 +2467,35 @@ msgstr "Перазборка дрэва каталогаў..."
 msgid "Rebuilding of the folder tree failed."
 msgstr "Перазборка дрэва каталогаў схібіла."
 
-#: src/folderview.c:1110
+#: src/folderview.c:1114
 msgid "Checking for new messages in all folders..."
 msgstr "Праверка новых паведамленняў ва ўсіх каталогах..."
 
-#: src/folderview.c:2066
+#: src/folderview.c:2074
 #, c-format
 msgid "Folder %s is selected\n"
 msgstr "Выбраны каталог %s\n"
 
-#: src/folderview.c:2235
+#: src/folderview.c:2243
 #, c-format
 msgid "Downloading messages in %s ..."
 msgstr "Загрузка паведамленняў з %s..."
 
-#: src/folderview.c:2263
+#: src/folderview.c:2271
 #, c-format
 msgid "Download all messages under '%s' ?"
 msgstr "Загрузіць усе паведамленні з '%s' ?"
 
-#: src/folderview.c:2266
+#: src/folderview.c:2274
 msgid "Download all messages"
 msgstr "Загрузіць усе паведамленні"
 
-#: src/folderview.c:2315
+#: src/folderview.c:2323
 #, c-format
 msgid "Error occurred while downloading messages in `%s'."
 msgstr "Памылка пад час загрузкі паведамлення ў `%s'."
 
-#: src/folderview.c:2420
+#: src/folderview.c:2428
 msgid ""
 "Input the name of new folder:\n"
 "(if you want to create a folder to store subfolders,\n"
@@ -2505,26 +2505,26 @@ msgstr ""
 "(калі жадаеце стварыць каталог з мэтай размяшчэння ў ім\n"
 " падкаталогаў, дадайце `/' на канцы назвы)"
 
-#: src/folderview.c:2495
+#: src/folderview.c:2503
 #, c-format
 msgid "Input new name for `%s':"
 msgstr "Увядзіце новую назву для '%s' :"
 
-#: src/folderview.c:2496
+#: src/folderview.c:2504
 msgid "Rename folder"
 msgstr "Перайменаваць каталог"
 
-#: src/folderview.c:2527 src/folderview.c:2535
+#: src/folderview.c:2535 src/folderview.c:2543
 #, c-format
 msgid "Can't rename the folder '%s'."
 msgstr "Нельга перайменаваць каталог '%s'."
 
-#: src/folderview.c:2608
+#: src/folderview.c:2616
 #, c-format
 msgid "Can't move the folder `%s'."
 msgstr "Нельга перанесці каталог `%s'."
 
-#: src/folderview.c:2677
+#: src/folderview.c:2685
 #, c-format
 msgid ""
 "Delete the search folder '%s' ?\n"
@@ -2533,11 +2533,11 @@ msgstr ""
 "Сцерці каталог пошуку `%s' ?\n"
 "Самі паведамленні не будуць сцёртыя."
 
-#: src/folderview.c:2679
+#: src/folderview.c:2687
 msgid "Delete search folder"
 msgstr "Сцерці каталог пошуку"
 
-#: src/folderview.c:2684
+#: src/folderview.c:2692
 #, c-format
 msgid ""
 "All folders and messages under '%s' will be permanently deleted.\n"
@@ -2550,30 +2550,30 @@ msgstr ""
 "\n"
 "Сапраўды жадаеце сцерці?"
 
-#: src/folderview.c:2716 src/folderview.c:2722
+#: src/folderview.c:2724 src/folderview.c:2730
 #, c-format
 msgid "Can't remove the folder '%s'."
 msgstr "Нельга сцерці каталог '%s'."
 
-#: src/folderview.c:2758
+#: src/folderview.c:2766
 msgid "Empty trash"
 msgstr "Ачысціць сметніцу"
 
-#: src/folderview.c:2759
+#: src/folderview.c:2767
 msgid "Delete all messages in the trash folder?"
 msgstr "Сцерці усе лісты з каталога-сметніцы?"
 
-#: src/folderview.c:2765
+#: src/folderview.c:2773
 #, fuzzy
 msgid "Empty junk"
 msgstr "Не-Спам"
 
-#: src/folderview.c:2766
+#: src/folderview.c:2774
 #, fuzzy
 msgid "Delete all messages in the junk folder?"
 msgstr "Сцерці усе лісты з каталога-сметніцы?"
 
-#: src/folderview.c:2808
+#: src/folderview.c:2816
 #, c-format
 msgid ""
 "Really remove the mailbox `%s' ?\n"
@@ -2582,34 +2582,34 @@ msgstr ""
 "Сапраўды сцерці паштовую скрынку `%s' ?\n"
 "(Паведамленні НЕ будуць сцёртыя з дыска)"
 
-#: src/folderview.c:2810
+#: src/folderview.c:2818
 msgid "Remove mailbox"
 msgstr "Сцерці скрынку"
 
-#: src/folderview.c:2860
+#: src/folderview.c:2868
 #, c-format
 msgid "Really delete IMAP4 account `%s'?"
 msgstr "Сапраўды сцерці IMAP4-акаунт `%s'?"
 
-#: src/folderview.c:2861
+#: src/folderview.c:2869
 msgid "Delete IMAP4 account"
 msgstr "Сцерці IMAP4-акаунт"
 
-#: src/folderview.c:3014
+#: src/folderview.c:3022
 #, c-format
 msgid "Really delete newsgroup `%s'?"
 msgstr "Сапраўды сцерці групу навін `%s'?"
 
-#: src/folderview.c:3015
+#: src/folderview.c:3023
 msgid "Delete newsgroup"
 msgstr "Сцерці групу навін"
 
-#: src/folderview.c:3065
+#: src/folderview.c:3073
 #, c-format
 msgid "Really delete news account `%s'?"
 msgstr "Сапраўды сцерці акаунт навін `%s'?"
 
-#: src/folderview.c:3066
+#: src/folderview.c:3074
 msgid "Delete news account"
 msgstr "Сцерці акаунт навін"
 
@@ -2622,7 +2622,7 @@ msgid "Creating header view...\n"
 msgstr "Стварэнне прагляду загалоўкаў...\n"
 
 #: src/headerview.c:212 src/query_search.c:792 src/rpop3.c:676
-#: src/summaryview.c:2419
+#: src/summaryview.c:2494
 msgid "(No From)"
 msgstr "(Без Адпраўніка)"
 
@@ -2858,141 +2858,142 @@ msgstr "Атрыбуты"
 msgid "Sylpheed: %d new messages"
 msgstr "Сілфід: %d новых паведамленняў"
 
-#: src/inc.c:491
+#: src/inc.c:499
 msgid "Authenticating with POP3"
 msgstr "Аўтэнтыфікацыя POP3"
 
-#: src/inc.c:518
+#: src/inc.c:526
 msgid "Retrieving new messages"
 msgstr "Атрыманне новых паведамленняў"
 
-#: src/inc.c:520
+#: src/inc.c:528
 #, fuzzy
 msgid "Cancel _all"
 msgstr "Скасавана"
 
-#: src/inc.c:566
+#: src/inc.c:574
 msgid "Standby"
 msgstr "Чаканне"
 
-#: src/inc.c:723 src/inc.c:773
+#: src/inc.c:731 src/inc.c:781
 msgid "Cancelled"
 msgstr "Скасавана"
 
-#: src/inc.c:734
+#: src/inc.c:742
 msgid "Retrieving"
 msgstr "Атрыманне"
 
-#: src/inc.c:743 src/inc.c:1072
+#: src/inc.c:751 src/inc.c:1080
 #, c-format
 msgid "%d message(s) (%s) received"
 msgstr "%d паведамленне(яў) (%s) атрымана"
 
-#: src/inc.c:747
+#: src/inc.c:755
 #, c-format
 msgid "no new messages"
 msgstr "няма новых паведамленняў"
 
-#: src/inc.c:748
+#: src/inc.c:756
 msgid "Done"
 msgstr "Зроблена"
 
-#: src/inc.c:753
+#: src/inc.c:761
 msgid "Connection failed"
 msgstr "Злучэнне не атрымалася"
 
-#: src/inc.c:756
+#: src/inc.c:764
 msgid "Auth failed"
 msgstr "Аўтарызацыя схібіла"
 
-#: src/inc.c:760
+#: src/inc.c:768
 msgid "Locked"
 msgstr "Замкнута"
 
-#: src/inc.c:770
+#: src/inc.c:778
 msgid "Timeout"
 msgstr "Таймаут"
 
-#: src/inc.c:817
+#: src/inc.c:825
 #, c-format
 msgid "Finished (%d new message(s))"
 msgstr "Завершана (%d новы(х) ліст(оў))"
 
-#: src/inc.c:820
+#: src/inc.c:828
 #, c-format
 msgid "Finished (no new messages)"
 msgstr "Завершана (няма новых паведамленняў)"
 
-#: src/inc.c:829
+#: src/inc.c:837
 msgid "Some errors occurred while getting mail."
 msgstr "Здарыліся памылкі пад час атрымання пошты."
 
-#: src/inc.c:865
+#: src/inc.c:873
 #, c-format
 msgid "getting new messages of account %s...\n"
 msgstr "атрыманне новых паведамленняў акаунта %s ...\n"
 
-#: src/inc.c:869
+#: src/inc.c:877
 #, c-format
 msgid "%s: Authenticating with POP3"
 msgstr "%s: Аўтэнтыфікацыя POP3"
 
-#: src/inc.c:872
+#: src/inc.c:880
 #, c-format
 msgid "%s: Retrieving new messages"
 msgstr "%s: Атрыманне новых паведамленняў"
 
-#: src/inc.c:877
+#: src/inc.c:885
 #, c-format
 msgid "Connecting to POP3 server: %s..."
 msgstr "Злучэнне з POP3 серверам: %s..."
 
-#: src/inc.c:895
+#: src/inc.c:903
 #, c-format
 msgid "Can't connect to POP3 server: %s:%d\n"
 msgstr "Нельга злучыцца з серверам POP3: %s:%d\n"
 
-#: src/inc.c:977 src/rpop3.c:835 src/send_message.c:846
+#: src/inc.c:985 src/rpop3.c:835 src/send_message.c:846
 #, c-format
 msgid "Authenticating..."
 msgstr "Аўтэнтыфікацыя..."
 
-#: src/inc.c:978
+#: src/inc.c:986
 #, c-format
 msgid "Retrieving messages from %s..."
 msgstr "Атрыманне паведамленняў з %s..."
 
-#: src/inc.c:983
+#: src/inc.c:991
 msgid "Getting the number of new messages (STAT)..."
 msgstr "Атрыманне колькасці новых паведамленняў (STAT)..."
 
-#: src/inc.c:987
+#: src/inc.c:995
 msgid "Getting the number of new messages (LAST)..."
 msgstr "Атрыманне колькасці новых паведамленняў (LAST)..."
 
-#: src/inc.c:991
+#: src/inc.c:999
 msgid "Getting the number of new messages (UIDL)..."
 msgstr "Атрыманне колькасці новых паведамленняў (UIDL)"
 
-#: src/inc.c:995
+#: src/inc.c:1003
 msgid "Getting the size of messages (LIST)..."
 msgstr "Атрыманне памеру паведамленняў (LIST)..."
 
-#: src/inc.c:1005
+#: src/inc.c:1013
 #, c-format
 msgid "Deleting message %d"
 msgstr "Сціранне паведамлення %d"
 
-#: src/inc.c:1012 src/send_message.c:864
+#: src/inc.c:1020 src/send_message.c:864
 msgid "Quitting"
 msgstr "Адлучэнне"
 
-#: src/inc.c:1047
+#: src/inc.c:1055
 #, c-format
 msgid "Retrieving message (%d / %d) (%s / %s)"
 msgstr "Атрыманне ліста (%d / %d) (%s / %s)"
 
-#: src/inc.c:1309 src/inc.c:1333 src/summaryview.c:4656
+#: src/inc.c:1321 src/inc.c:1348 src/summaryview.c:4741 src/summaryview.c:4931
+#: src/summaryview.c:4982
 msgid ""
 "Execution of the junk filter command failed.\n"
 "Please check the junk mail control setting."
@@ -3000,15 +3001,15 @@ msgstr ""
 "Выкананне загаду фільтравання спаму схібіла.\n"
 "Калі ласка, праверце настаўленні кантролю спаму."
 
-#: src/inc.c:1392
+#: src/inc.c:1412
 msgid "Connection failed."
 msgstr "Злучэнне не атрымалася."
 
-#: src/inc.c:1398
+#: src/inc.c:1418
 msgid "Error occurred while processing mail."
 msgstr "Памылка здарылася пад час апрацоўкі пошты."
 
-#: src/inc.c:1403
+#: src/inc.c:1423
 #, c-format
 msgid ""
 "Error occurred while processing mail:\n"
@@ -3017,29 +3018,29 @@ msgstr ""
 "Здарылася памылка пад час апрацоўкі пошты:\n"
 "%s"
 
-#: src/inc.c:1409
+#: src/inc.c:1429
 msgid "No disk space left."
 msgstr "Не засталося месца на дыску."
 
-#: src/inc.c:1414
+#: src/inc.c:1434
 msgid "Can't write file."
 msgstr "Нельга запісаць файл."
 
-#: src/inc.c:1419
+#: src/inc.c:1439
 msgid "Socket error."
 msgstr "Памылка сокета."
 
 #. consider EOF right after QUIT successful
-#: src/inc.c:1425 src/rpop3.c:551 src/rpop3.c:552 src/send_message.c:786
+#: src/inc.c:1445 src/rpop3.c:551 src/rpop3.c:552 src/send_message.c:786
 #: src/send_message.c:1010
 msgid "Connection closed by the remote host."
 msgstr "Злучэнне закрытае аддаленым серверам."
 
-#: src/inc.c:1431
+#: src/inc.c:1451
 msgid "Mailbox is locked."
 msgstr "Скрынка замкнутая."
 
-#: src/inc.c:1435
+#: src/inc.c:1455
 #, c-format
 msgid ""
 "Mailbox is locked:\n"
@@ -3048,11 +3049,11 @@ msgstr ""
 "Паштовая скрынка замкнутая:\n"
 "%s"
 
-#: src/inc.c:1441 src/rpop3.c:526 src/rpop3.c:531 src/send_message.c:990
+#: src/inc.c:1461 src/rpop3.c:526 src/rpop3.c:531 src/send_message.c:990
 msgid "Authentication failed."
 msgstr "Аўтэнтыфікацыя схібіла."
 
-#: src/inc.c:1446 src/rpop3.c:528 src/send_message.c:993
+#: src/inc.c:1466 src/rpop3.c:528 src/send_message.c:993
 #, c-format
 msgid ""
 "Authentication failed:\n"
@@ -3061,15 +3062,15 @@ msgstr ""
 "Аўтэнтыфікацыя схібіла:\n"
 "%s"
 
-#: src/inc.c:1451 src/rpop3.c:556 src/rpop3.c:557 src/send_message.c:1014
+#: src/inc.c:1471 src/rpop3.c:556 src/rpop3.c:557 src/send_message.c:1014
 msgid "Session timed out."
 msgstr "Таймаут сеансу."
 
-#: src/inc.c:1492
+#: src/inc.c:1512
 msgid "Incorporation cancelled\n"
 msgstr "Атрыманне скасавана\n"
 
-#: src/inc.c:1601
+#: src/inc.c:1621
 #, c-format
 msgid "Getting new messages from %s into %s...\n"
 msgstr "Атрыманне новых паведамленняў з %s у %s...\n"
@@ -3567,15 +3568,15 @@ msgstr "/Выгляд/Знаказбор/Кітайскі (ISO-2022-_CN)"
 msgid "/_View/Character _encoding/Korean (ISO-2022-KR)"
 msgstr "/Выгляд/Знаказбор/Карэйскі (ISO-2022-KR)"
 
-#: src/mainwindow.c:780 src/summaryview.c:472
+#: src/mainwindow.c:780 src/summaryview.c:477
 msgid "/_View/Open in new _window"
 msgstr "/Выгляд/Адкры_ць у новым акне"
 
-#: src/mainwindow.c:781 src/messageview.c:259 src/summaryview.c:474
+#: src/mainwindow.c:781 src/messageview.c:259 src/summaryview.c:479
 msgid "/_View/Mess_age source"
 msgstr "/Выгляд/Выточны тэкст паведамлення"
 
-#: src/mainwindow.c:782 src/messageview.c:260 src/summaryview.c:475
+#: src/mainwindow.c:782 src/messageview.c:260 src/summaryview.c:480
 msgid "/_View/All _headers"
 msgstr "/Выгляд/Усе загалоўкі"
 
@@ -3879,8 +3880,8 @@ msgstr "Стварэнне галоўнага вакна...\n"
 msgid "MainWindow: color allocation %d failed\n"
 msgstr "MainWindow: размяшчэнне колеру %d схібіла\n"
 
-#: src/mainwindow.c:1219 src/summaryview.c:2568 src/summaryview.c:2655
-#: src/summaryview.c:4222 src/summaryview.c:4351 src/summaryview.c:4738
+#: src/mainwindow.c:1219 src/summaryview.c:2651 src/summaryview.c:2738
+#: src/summaryview.c:4305 src/summaryview.c:4434 src/summaryview.c:4823
 msgid "done.\n"
 msgstr "зроблена.\n"
 
@@ -3948,7 +3949,7 @@ msgstr "Сілфід - Прагляд Каталогаў"
 msgid "Sylpheed - Message View"
 msgstr "Сілфід - Прагляд Паведамлення"
 
-#: src/mainwindow.c:2580 src/mimeview.c:142 src/summaryview.c:426
+#: src/mainwindow.c:2580 src/mimeview.c:142 src/summaryview.c:431
 msgid "/_Reply"
 msgstr "/Ад_казаць"
 
@@ -3964,15 +3965,15 @@ msgstr "/Адказаць адпраўніку"
 msgid "/Reply to mailing _list"
 msgstr "/А_дказаць у спіс рассылкі"
 
-#: src/mainwindow.c:2588 src/summaryview.c:433
+#: src/mainwindow.c:2588 src/summaryview.c:438
 msgid "/_Forward"
 msgstr "/Пер_аправіць"
 
-#: src/mainwindow.c:2589 src/summaryview.c:434
+#: src/mainwindow.c:2589 src/summaryview.c:439
 msgid "/For_ward as attachment"
 msgstr "/Перасла_ць як дадатак"
 
-#: src/mainwindow.c:2590 src/summaryview.c:435
+#: src/mainwindow.c:2590 src/summaryview.c:440
 msgid "/Redirec_t"
 msgstr "/Перанакіраваць"
 
@@ -4154,7 +4155,7 @@ msgstr "Дадаткі"
 msgid "Message View - Sylpheed"
 msgstr "Прагляд паведамлення - Сілфід"
 
-#: src/messageview.c:765 src/summaryview.c:3777
+#: src/messageview.c:765 src/summaryview.c:3860
 #, c-format
 msgid "Can't save the file `%s'."
 msgstr "Нельга запісаць файл `%s'."
@@ -4175,7 +4176,7 @@ msgstr "/Запісаць як..."
 msgid "/Save _all..."
 msgstr "/Запісаць усе..."
 
-#: src/mimeview.c:140 src/summaryview.c:477
+#: src/mimeview.c:140 src/summaryview.c:482
 msgid "/_Print..."
 msgstr "/_Друкаваць..."
 
@@ -6288,19 +6289,19 @@ msgstr "Дадатак"
 
 #. S_COL_MIME
 #: src/prefs_summary_column.c:69 src/query_search.c:402 src/rpop3.c:422
-#: src/summaryview.c:5287
+#: src/summaryview.c:5390
 msgid "Subject"
 msgstr "Тэма"
 
 #. S_COL_SUBJECT
 #: src/prefs_summary_column.c:70 src/query_search.c:403 src/rpop3.c:423
-#: src/summaryview.c:5290
+#: src/summaryview.c:5393
 msgid "From"
 msgstr "Адпраўнік"
 
 #. S_COL_FROM
 #: src/prefs_summary_column.c:71 src/query_search.c:404 src/rpop3.c:424
-#: src/summaryview.c:5292
+#: src/summaryview.c:5395
 msgid "Date"
 msgstr "Дата"
 
@@ -6310,7 +6311,7 @@ msgid "Number"
 msgstr "Нумар"
 
 #. S_COL_NUMBER
-#: src/prefs_summary_column.c:74 src/summaryview.c:5298
+#: src/prefs_summary_column.c:74 src/summaryview.c:5401
 msgid "To"
 msgstr "Каму"
 
@@ -6618,7 +6619,7 @@ msgstr "Пошук %s (%d / %d)..."
 msgid "Searching %s ..."
 msgstr "Пошук %s ..."
 
-#: src/query_search.c:800 src/rpop3.c:684 src/summaryview.c:2340
+#: src/query_search.c:800 src/rpop3.c:684 src/summaryview.c:2415
 msgid "(No Date)"
 msgstr "(Без Даты)"
 
@@ -6715,7 +6716,7 @@ msgstr "_Аб праграме"
 msgid "%s - POP3 Remote mailbox"
 msgstr "%s - Адлеглая скрынка POP3"
 
-#: src/rpop3.c:421 src/summaryview.c:5296
+#: src/rpop3.c:421 src/summaryview.c:5399
 msgid "No."
 msgstr "Нум."
 
@@ -7144,7 +7145,7 @@ msgstr "Не знойдзены подпіс"
 msgid "Good signature from \"%s\""
 msgstr "Правільны подпіс ад \"%s\""
 
-#: src/sigstatus.c:244 src/textview.c:779
+#: src/sigstatus.c:244 src/textview.c:780
 msgid "Good signature"
 msgstr "Правільны подпіс"
 
@@ -7153,7 +7154,7 @@ msgstr "Правільны подпіс"
 msgid "Valid signature but the key for \"%s\" is not trusted"
 msgstr "Подпіс правільны, але ключ для \"%s\" не давераны"
 
-#: src/sigstatus.c:249 src/textview.c:781
+#: src/sigstatus.c:249 src/textview.c:782
 msgid "Valid signature (untrusted key)"
 msgstr "Правільны подпіс (недавераны ключ)"
 
@@ -7189,7 +7190,7 @@ msgstr "Подпіс правільны, але ключ подпісу быў �
 msgid "BAD signature from \"%s\""
 msgstr "НЕСАПРАЎДНЫ подпіс ад \"%s\""
 
-#: src/sigstatus.c:267 src/textview.c:783
+#: src/sigstatus.c:267 src/textview.c:784
 msgid "BAD signature"
 msgstr "ДРЭННЫ подпіс"
 
@@ -7314,7 +7315,7 @@ msgstr "Атрыманне спісу груп навін..."
 msgid "Can't retrieve newsgroup list."
 msgstr "Немагчыма атрымаць спіс груп навін."
 
-#: src/subscribedialog.c:526 src/summaryview.c:930
+#: src/subscribedialog.c:526 src/summaryview.c:950
 msgid "Done."
 msgstr "Зроблена."
 
@@ -7323,360 +7324,360 @@ msgstr "Зроблена."
 msgid "%d newsgroups received (%s read)"
 msgstr "%d груп навін атрымана (%s прачытана)"
 
-#: src/summaryview.c:427
+#: src/summaryview.c:432
 msgid "/Repl_y to"
 msgstr "/Адказаць"
 
-#: src/summaryview.c:428
+#: src/summaryview.c:433
 msgid "/Repl_y to/_all"
 msgstr "/Адказаць/ўсім"
 
-#: src/summaryview.c:429
+#: src/summaryview.c:434
 msgid "/Repl_y to/_sender"
 msgstr "/Адказаць/адпраўніку"
 
-#: src/summaryview.c:430
+#: src/summaryview.c:435
 msgid "/Repl_y to/mailing _list"
 msgstr "/Адказаць/у спіс рассылкі"
 
-#: src/summaryview.c:437
+#: src/summaryview.c:442
 msgid "/M_ove..."
 msgstr "/Пе_ранесці..."
 
-#: src/summaryview.c:438
+#: src/summaryview.c:443
 msgid "/_Copy..."
 msgstr "/_Капіраваць..."
 
-#: src/summaryview.c:440
+#: src/summaryview.c:445
 msgid "/_Mark"
 msgstr "/_Марка"
 
-#: src/summaryview.c:441
+#: src/summaryview.c:446
 #, fuzzy
 msgid "/_Mark/Set _flag"
 msgstr "/_Марка/_Маркіраваць"
 
-#: src/summaryview.c:442
+#: src/summaryview.c:447
 #, fuzzy
 msgid "/_Mark/_Unset flag"
 msgstr "/_Марка/_Зняць марку"
 
-#: src/summaryview.c:443
+#: src/summaryview.c:448
 msgid "/_Mark/---"
 msgstr "/_Марка/---"
 
-#: src/summaryview.c:444
+#: src/summaryview.c:449
 msgid "/_Mark/Mark as unr_ead"
 msgstr "/_Марка/Пазначыць як нечытаны"
 
-#: src/summaryview.c:445
+#: src/summaryview.c:450
 msgid "/_Mark/Mark as rea_d"
 msgstr "/_Марка/Пазначыць як прачытаны"
 
-#: src/summaryview.c:447
+#: src/summaryview.c:452
 msgid "/_Mark/Mark _thread as read"
 msgstr "/_Марка/Пазначыць нітку як чытаную"
 
-#: src/summaryview.c:449
+#: src/summaryview.c:454
 msgid "/_Mark/Mark all _read"
 msgstr "/_Марка/Пазначыць усе чытанымі"
 
-#: src/summaryview.c:450
+#: src/summaryview.c:455
 msgid "/Color la_bel"
 msgstr "/Каляровая метка"
 
-#: src/summaryview.c:454
+#: src/summaryview.c:459
 msgid "/Set as _junk mail"
 msgstr "/Пазначыць як спам"
 
-#: src/summaryview.c:455
+#: src/summaryview.c:460
 msgid "/Set as not j_unk mail"
 msgstr "/Пазначыць як не-спам"
 
-#: src/summaryview.c:457
+#: src/summaryview.c:462
 msgid "/Re-_edit"
 msgstr "/Пера-рэдагаваць"
 
-#: src/summaryview.c:459
+#: src/summaryview.c:464
 msgid "/Add sender to address boo_k..."
 msgstr "/Дадаць адпраўніка да кнігі адрасоў..."
 
-#: src/summaryview.c:461
+#: src/summaryview.c:466
 msgid "/Create f_ilter rule"
 msgstr "/Стварыць правіла фільтра"
 
-#: src/summaryview.c:462
+#: src/summaryview.c:467
 msgid "/Create f_ilter rule/_Automatically"
 msgstr "/Стварыць правіла фільтра/А_ўтаматычна"
 
-#: src/summaryview.c:464
+#: src/summaryview.c:469
 msgid "/Create f_ilter rule/by _From"
 msgstr "/_Стварыць правіла фільтра/па _Адпраўніку"
 
-#: src/summaryview.c:466
+#: src/summaryview.c:471
 msgid "/Create f_ilter rule/by _To"
 msgstr "/_Стварыць правіла фільтра/па А_драсату"
 
-#: src/summaryview.c:468
+#: src/summaryview.c:473
 msgid "/Create f_ilter rule/by _Subject"
 msgstr "/_Стварыць правіла фільтра/па _Тэме"
 
-#: src/summaryview.c:500
+#: src/summaryview.c:505
 msgid "Creating summary view...\n"
 msgstr "Стварэнне прагляду зводкі...\n"
 
-#: src/summaryview.c:665
+#: src/summaryview.c:670
 #, c-format
 msgid "Scanning folder (%s) (%d)..."
 msgstr "Сканаванне каталога (%s) (%d)..."
 
-#: src/summaryview.c:718
+#: src/summaryview.c:724
 msgid "Process mark"
 msgstr "Апрацаваць пазначанні"
 
-#: src/summaryview.c:719
+#: src/summaryview.c:725
 msgid "Some marks are left. Process it?"
 msgstr "Некаторыя пазначанні засталіся. Апрацаваць?"
 
-#: src/summaryview.c:775
+#: src/summaryview.c:789
 #, c-format
 msgid "Scanning folder (%s)..."
 msgstr "Сканаванне каталога (%s)..."
 
-#: src/summaryview.c:937
+#: src/summaryview.c:957
 #, fuzzy
 msgid "Could not establish a connection to the server."
 msgstr "Немагчыма устанавіць злучэнне IMAP4.\n"
 
-#: src/summaryview.c:1534
+#: src/summaryview.c:1609
 msgid "_Search again"
 msgstr "Шукаць яшчэ"
 
-#: src/summaryview.c:1556 src/summaryview.c:1565
+#: src/summaryview.c:1631 src/summaryview.c:1640
 msgid "No more unread messages"
 msgstr "Нечытаных лістоў больш няма"
 
-#: src/summaryview.c:1557
+#: src/summaryview.c:1632
 msgid "No unread message found. Search from the end?"
 msgstr ""
 "Нечытаных паведамленняў не знойдзена.\n"
 "Шукаць ад канца?"
 
-#: src/summaryview.c:1559
+#: src/summaryview.c:1634
 msgid "No unread messages."
 msgstr "Няма нечытаных паведамленняў."
 
-#: src/summaryview.c:1566
+#: src/summaryview.c:1641
 #, fuzzy
 msgid "No unread message found. Go to next unread folder?"
 msgstr ""
 "Нечытаных паведамленняў не знойдзена.\n"
 "Перайсці да наступнага каталога?"
 
-#: src/summaryview.c:1574 src/summaryview.c:1583
+#: src/summaryview.c:1649 src/summaryview.c:1658
 msgid "No more new messages"
 msgstr "Новых паведамленняў больш няма"
 
-#: src/summaryview.c:1575
+#: src/summaryview.c:1650
 msgid "No new message found. Search from the end?"
 msgstr ""
 "Новых паведамленняў не знойдзена.\n"
 "Шукаць ад канца?"
 
-#: src/summaryview.c:1577
+#: src/summaryview.c:1652
 msgid "No new messages."
 msgstr "Няма новых паведамленняў."
 
-#: src/summaryview.c:1584
+#: src/summaryview.c:1659
 #, fuzzy
 msgid "No new message found. Go to next folder which has new messages?"
 msgstr ""
 "Новых паведамленняў не знойдзена.\n"
 "Перайсці ў наступны каталог?"
 
-#: src/summaryview.c:1592 src/summaryview.c:1601
+#: src/summaryview.c:1667 src/summaryview.c:1676
 msgid "No more marked messages"
 msgstr "Няма болей маркіраваных паведамленняў"
 
-#: src/summaryview.c:1593
+#: src/summaryview.c:1668
 msgid "No marked message found. Search from the end?"
 msgstr ""
 "Не знойдзена маркіраваных паведамленняў.\n"
 "Паўтарыць пошук ад канца?"
 
-#: src/summaryview.c:1595 src/summaryview.c:1604
+#: src/summaryview.c:1670 src/summaryview.c:1679
 msgid "No marked messages."
 msgstr "Няма маркіраваных паведамленняў."
 
-#: src/summaryview.c:1602
+#: src/summaryview.c:1677
 msgid "No marked message found. Search from the beginning?"
 msgstr ""
 "Не знойдзена маркіраваных паведамленняў.\n"
 "Паўтарыць пошук ад пачатку?"
 
-#: src/summaryview.c:1610 src/summaryview.c:1619
+#: src/summaryview.c:1685 src/summaryview.c:1694
 msgid "No more labeled messages"
 msgstr "Няма болей памечаных паведамленняў"
 
-#: src/summaryview.c:1611
+#: src/summaryview.c:1686
 msgid "No labeled message found. Search from the end?"
 msgstr ""
 "Не знойдзена памечаных паведамленняў.\n"
 "Паўтарыць пошук ад канца?"
 
-#: src/summaryview.c:1613 src/summaryview.c:1622
+#: src/summaryview.c:1688 src/summaryview.c:1697
 msgid "No labeled messages."
 msgstr "Няма памечаных паведамленняў."
 
-#: src/summaryview.c:1620
+#: src/summaryview.c:1695
 msgid "No labeled message found. Search from the beginning?"
 msgstr ""
 "Не знойдзена памечаных паведамленняў.\n"
 "Паўтарыць пошук ад пачатку?"
 
-#: src/summaryview.c:1967
+#: src/summaryview.c:2042
 msgid "Attracting messages by subject..."
 msgstr "Сцягванне паведамленняў па тэме..."
 
-#: src/summaryview.c:2161
+#: src/summaryview.c:2236
 #, c-format
 msgid "%d deleted"
 msgstr "%d сцёрта"
 
-#: src/summaryview.c:2165
+#: src/summaryview.c:2240
 #, c-format
 msgid "%s%d moved"
 msgstr "%s%d перанесена"
 
-#: src/summaryview.c:2166 src/summaryview.c:2171
+#: src/summaryview.c:2241 src/summaryview.c:2246
 msgid ", "
 msgstr ", "
 
-#: src/summaryview.c:2170
+#: src/summaryview.c:2245
 #, c-format
 msgid "%s%d copied"
 msgstr "%s%d скапіравана"
 
-#: src/summaryview.c:2185
+#: src/summaryview.c:2260
 msgid " item(s) selected"
 msgstr " элемент(ы) вылучаны"
 
-#: src/summaryview.c:2207
+#: src/summaryview.c:2282
 #, c-format
 msgid "%d new, %d unread, %d total (%s)"
 msgstr "%d новых, %d нечытаных, агулам %d (%s)"
 
-#: src/summaryview.c:2211
+#: src/summaryview.c:2286
 #, c-format
 msgid "%d new, %d unread, %d total"
 msgstr "%d новых, %d нечытаных, %d агулам"
 
-#: src/summaryview.c:2247
+#: src/summaryview.c:2322
 msgid "Sorting summary..."
 msgstr "Упарадкаванне зводкі..."
 
-#: src/summaryview.c:2503
+#: src/summaryview.c:2578
 msgid "\tSetting summary from message data..."
 msgstr "\tВызначэнне зводкі з дадзеных паведамленняў..."
 
-#: src/summaryview.c:2505
+#: src/summaryview.c:2580
 msgid "Setting summary from message data..."
 msgstr "Вызначэнне зводкі з дадзеных паведамлення..."
 
-#: src/summaryview.c:2612
+#: src/summaryview.c:2695
 #, c-format
 msgid "Writing summary cache (%s)..."
 msgstr "Запісанне кэшу зводкі (%s)..."
 
-#: src/summaryview.c:2947
+#: src/summaryview.c:3030
 #, c-format
 msgid "Message %d is marked\n"
 msgstr "Паведамленне %d маркіраванае\n"
 
-#: src/summaryview.c:3019
+#: src/summaryview.c:3102
 #, c-format
 msgid "Message %d is marked as being read\n"
 msgstr "Паведамленне %d маркіраванае як чытанае\n"
 
-#: src/summaryview.c:3232
+#: src/summaryview.c:3315
 #, c-format
 msgid "Message %d is marked as unread\n"
 msgstr "Паведамленне %d маркіраванае як нечытанае\n"
 
-#: src/summaryview.c:3297
+#: src/summaryview.c:3380
 #, c-format
 msgid "Message %s/%d is set to delete\n"
 msgstr "Паведамленне %s/%d пазначанае да сцірання\n"
 
-#: src/summaryview.c:3325
+#: src/summaryview.c:3408
 msgid "Delete message(s)"
 msgstr "Сцерці паведамленне(і)"
 
-#: src/summaryview.c:3326
+#: src/summaryview.c:3409
 msgid "Do you really want to delete message(s) from the trash?"
 msgstr "Сапраўды жадаеце сцерці паведамленне(і) са сметніцы?"
 
-#: src/summaryview.c:3402
+#: src/summaryview.c:3485
 msgid "Deleting duplicated messages..."
 msgstr "Сціранне падвоеных паведамленняў..."
 
-#: src/summaryview.c:3440
+#: src/summaryview.c:3523
 #, c-format
 msgid "Message %s/%d is unmarked\n"
 msgstr "Паведамленне %s/%d размаркіраванае\n"
 
-#: src/summaryview.c:3504
+#: src/summaryview.c:3587
 #, c-format
 msgid "Message %d is set to move to %s\n"
 msgstr "Паведамленне %d пазначанае да пераносу ў %s\n"
 
-#: src/summaryview.c:3536
+#: src/summaryview.c:3619
 msgid "Destination is same as current folder."
 msgstr "Каталог прызначэння супадае з бягучым."
 
-#: src/summaryview.c:3573
+#: src/summaryview.c:3656
 msgid "Select folder to move"
 msgstr "Выберыце каталог для пераносу"
 
-#: src/summaryview.c:3603
+#: src/summaryview.c:3686
 #, c-format
 msgid "Message %d is set to copy to %s\n"
 msgstr "Паведамленне %d пазначанае да капіравання ў %s\n"
 
-#: src/summaryview.c:3634
+#: src/summaryview.c:3717
 msgid "Destination for copy is same as current folder."
 msgstr "Каталог прызначэння копіі супадае з бягучым."
 
-#: src/summaryview.c:3670
+#: src/summaryview.c:3753
 msgid "Select folder to copy"
 msgstr "Выберыце каталог для капіравання"
 
-#: src/summaryview.c:3820
+#: src/summaryview.c:3903
 msgid "Error occurred while processing messages."
 msgstr "Памылка падчас апрацоўкі паведамленняў."
 
-#: src/summaryview.c:4129 src/summaryview.c:4130
+#: src/summaryview.c:4212 src/summaryview.c:4213
 msgid "Building threads..."
 msgstr "Зборка нітак..."
 
-#: src/summaryview.c:4280 src/summaryview.c:4281
+#: src/summaryview.c:4363 src/summaryview.c:4364
 msgid "Unthreading..."
 msgstr "Разгрупаванне..."
 
-#: src/summaryview.c:4574 src/summaryview.c:4635
+#: src/summaryview.c:4657 src/summaryview.c:4718
 #, c-format
 msgid "Filtering (%d / %d)..."
 msgstr "Фільтраванне (%d / %d)..."
 
-#: src/summaryview.c:4699
+#: src/summaryview.c:4784
 msgid "filtering..."
 msgstr "фільтраванне..."
 
-#: src/summaryview.c:4700
+#: src/summaryview.c:4785
 msgid "Filtering..."
 msgstr "Фільтраванне..."
 
-#: src/summaryview.c:4745
+#: src/summaryview.c:4830
 #, c-format
 msgid "%d message(s) have been filtered."
 msgstr "%d ліст(ы) прафільтраваны."
@@ -7686,19 +7687,19 @@ msgstr "%d ліст(ы) прафільтраваны."
 msgid "file %s already exists\n"
 msgstr "файл %s ужо існуе\n"
 
-#: src/textview.c:252
+#: src/textview.c:253
 msgid "Creating text view...\n"
 msgstr "Стварэнне прагляду тэксту...\n"
 
-#: src/textview.c:501
+#: src/textview.c:502
 msgid "This message is encrypted, but its decryption failed.\n"
 msgstr "Паведамленне зашыфраванае, а разшыфраванне не атрымалася.\n"
 
-#: src/textview.c:835
+#: src/textview.c:836
 msgid "This message can't be displayed.\n"
 msgstr "Гэта паведамленне не можа быць паказана.\n"
 
-#: src/textview.c:859
+#: src/textview.c:860
 msgid ""
 "The body text couldn't be displayed because writing to temporary file "
 "failed.\n"
@@ -7706,36 +7707,36 @@ msgstr ""
 "Тэкст цела паведамлення не можа быць паказаны, бо запіс у часовы файл не "
 "атрымаўся.\n"
 
-#: src/textview.c:2011
+#: src/textview.c:2013
 msgid "Sa_ve this image as..."
 msgstr "Запісаць рысунак як..."
 
-#: src/textview.c:2027 src/trayicon.c:158
+#: src/textview.c:2033 src/trayicon.c:158
 msgid "Compose _new message"
 msgstr "Напісаць новае паведамленне"
 
-#: src/textview.c:2029
+#: src/textview.c:2035
 #, fuzzy
 msgid "R_eply to this address"
 msgstr "_Капіраваць адрас"
 
-#: src/textview.c:2032
+#: src/textview.c:2038
 msgid "Add to address _book..."
 msgstr "Дадаць да адраснай кн_ігі..."
 
-#: src/textview.c:2034
+#: src/textview.c:2040
 msgid "Copy this add_ress"
 msgstr "_Капіраваць адрас"
 
-#: src/textview.c:2037
+#: src/textview.c:2043
 msgid "_Open with Web browser"
 msgstr "Адкрыць Веб-бра_ўзерам"
 
-#: src/textview.c:2039
+#: src/textview.c:2045
 msgid "Copy this _link"
 msgstr "Капіраваць спасы_лку"
 
-#: src/textview.c:2235
+#: src/textview.c:2247
 #, c-format
 msgid ""
 "The real URL (%s) is different from\n"
@@ -7748,7 +7749,7 @@ msgstr ""
 "\n"
 "Адкрыць усе роўна?"
 
-#: src/textview.c:2240
+#: src/textview.c:2252
 msgid "Fake URL warning"
 msgstr "Папярэджанне - несапраўдны URL"
 
@@ -7776,7 +7777,7 @@ msgstr "Вы_йсці"
 msgid "Sylpheed"
 msgstr "Сілфід"
 
-#: src/update_check.c:238 src/update_check.c:243 src/update_check.c:248
+#: src/update_check.c:264 src/update_check.c:269 src/update_check.c:274
 #, fuzzy
 msgid ""
 "A newer version of Sylpheed has been found.\n"
@@ -7785,23 +7786,23 @@ msgstr ""
 "Новая версія Сілфіда знойдзена.\n"
 "Абнавіць зараз?"
 
-#: src/update_check.c:251 src/update_check.c:546
+#: src/update_check.c:277 src/update_check.c:572
 msgid "New version found"
 msgstr "Новая версія знойдзена"
 
-#: src/update_check.c:373 src/update_check.c:658
+#: src/update_check.c:399 src/update_check.c:684
 msgid "Information"
 msgstr "Інфармацыя"
 
-#: src/update_check.c:374
+#: src/update_check.c:400
 msgid "Sylpheed is already the latest version."
 msgstr "Сілфід ужо найноўшай версіі."
 
-#: src/update_check.c:377
+#: src/update_check.c:403
 msgid "Couldn't get the version information."
 msgstr "Немагчыма атрымаць інфармацыю аб версіі."
 
-#: src/update_check.c:599
+#: src/update_check.c:625
 #, fuzzy
 msgid ""
 "Newer version of plug-ins have been found.\n"
@@ -7810,12 +7811,12 @@ msgstr ""
 "Новая версія Сілфіда знойдзена.\n"
 "Абнавіць зараз?"
 
-#: src/update_check.c:659
+#: src/update_check.c:685
 #, fuzzy
 msgid "All Sylpheed plug-ins are already the latest version."
 msgstr "Сілфід ужо найноўшай версіі."
 
-#: src/update_check.c:662
+#: src/update_check.c:688
 #, fuzzy
 msgid "Couldn't get the version information of plug-ins."
 msgstr "Немагчыма атрымаць інфармацыю аб версіі."

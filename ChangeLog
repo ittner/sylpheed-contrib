@@ -1,3 +1,78 @@
+2011-01-21
+
+	* src/addressbook.c: fixed double underline in menu label
+	  (thanks to Ricardo Mones).
+
+2011-01-21
+
+	* README
+	  README.ja
+	  LICENSE
+	  nsis/COPYING*.txt
+	  src/about.c: updated copyright year.
+
+2011-01-21
+
+	* src/undo.c: fixed long-standing undo-redo bug:
+	  1. input "a b"
+	  2. delete 3 chars by backspace
+	  3. undo 2 times
+	  4. "a ba" is entered, not "a b"
+
+2011-01-19
+
+	* src/sylpheed-marshal.list
+	  src/textview.c
+	  src/plugin.[ch]
+	  PLUGIN.txt
+	  PLUGIN.ja.txt: added "textview-menu-popup" signal for plug-ins.
+	* plugin/test/test.[ch]: use "textview-menu-popup" signal.
+
+2011-01-19
+
+	* libsylph/filter.[ch]
+	  src/inc.c
+	  src/summaryview.c: check the return value of junk filter command
+	  and show error dialog on failure.
+
+2011-01-18
+
+	* src/inc.c
+	  src/folderview.c: do not count junk-filtered or trashed messages as
+	  new ones.
+	  Do not display new state as red color on Junk folder.
+
+2011-01-18
+
+	* src/addressadd.c: removed warnings about xpm.
+
+2011-01-17
+
+	* src/summaryview.c: summary_qsearch(): fixed crash when folder tree is
+	  empty.
+
+2011-01-17
+
+	* version 3.1.0beta7
+
+2011-01-17
+
+	* manual/ja/sylpheed.sgml: updated Japanese manual.
+
+2011-01-17
+
+	* src/version.h.in
+	  src/about.c: added build revision to the about dialog.
+
+2011-01-17
+
+	* src/summaryview.c: summary_get_tmp_marked_msg_list(): don't use
+	  full copy for saving flags.
+
+2011-01-16
+
+	* src/summaryview.c: summary_restore_tmp_marks(): optimized.
+
 2011-01-14
 
 	* src/summaryview.c: preserve temporary movec/copy marks on refresh.

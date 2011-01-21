@@ -1,6 +1,6 @@
 /*
  * Sylpheed -- a GTK+ based, lightweight, and fast e-mail client
- * Copyright (C) 1999-2010 Hiroyuki Yamamoto
+ * Copyright (C) 1999-2011 Hiroyuki Yamamoto
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -810,7 +810,6 @@ gboolean summary_show(SummaryView *summaryview, FolderItem *item,
 	/* restore temporary move/copy marks */
 	if (save_mark_mlist) {
 		summary_restore_tmp_marks(summaryview, save_mark_mlist);
-		procmsg_msg_list_free(save_mark_mlist);
 		save_mark_mlist = NULL;
 	}
 
@@ -1279,47 +1278,54 @@ GSList *summary_get_flagged_msg_list(SummaryView *summaryview,
 /* return list of copied MsgInfo */
 static GSList *summary_get_tmp_marked_msg_list(SummaryView *summaryview)
 {
-	MsgInfo *msginfo;
+	MsgInfo *msginfo, *markinfo;
 	GSList *mlist = NULL;
 	GSList *cur;
 
 	for (cur = summaryview->all_mlist; cur != NULL; cur = cur->next) {
 		msginfo = (MsgInfo *)cur->data;
-		if (MSG_IS_MOVE(msginfo->flags) || MSG_IS_COPY(msginfo->flags))
-			mlist = g_slist_prepend
-				(mlist, procmsg_msginfo_copy(msginfo));
+		if (MSG_IS_MOVE(msginfo->flags) ||
+		    MSG_IS_COPY(msginfo->flags)) {
+			markinfo = g_new0(MsgInfo, 1);
+			markinfo->msgnum = msginfo->msgnum;
+			markinfo->flags = msginfo->flags;
+			markinfo->folder = msginfo->folder;
+			markinfo->to_folder = msginfo->to_folder;
+			mlist = g_slist_prepend(mlist, markinfo);
+		}
 	}
 
 	return g_slist_reverse(mlist);
 }
 
-static gint msginfo_find_func(gconstpointer a, gconstpointer b)
-{
-	MsgInfo *ma = (MsgInfo *)a;
-	MsgInfo *mb = (MsgInfo *)b;
-
-	if (ma && mb && ma->msgnum == mb->msgnum && ma->folder == mb->folder)
-		return 0;
-
-	return 1;
-}
-
 static void summary_restore_tmp_marks(SummaryView *summaryview,
 				      GSList *save_mark_mlist)
 {
-	GSList *cur, *found;
-	MsgInfo *msginfo, *msginfo2;
+	GSList *cur, *scur;
+	MsgInfo *msginfo, *markinfo;
 
 	debug_print("summary_restore_tmp_marks: restoring temporary marks\n");
 
-	for (cur = save_mark_mlist; cur != NULL; cur = cur->next) {
+	for (cur = summaryview->all_mlist; cur != NULL; cur = cur->next) {
 		msginfo = (MsgInfo *)cur->data;
-		if ((found = g_slist_find_custom(summaryview->all_mlist, msginfo, msginfo_find_func))) {
-			msginfo2 = (MsgInfo *)found->data;
-			msginfo2->flags.tmp_flags |= (msginfo->flags.tmp_flags & (MSG_MOVE|MSG_COPY));
-			msginfo2->to_folder = msginfo->to_folder;
+		for (scur = save_mark_mlist; scur != NULL; scur = scur->next) {
+			markinfo = (MsgInfo *)scur->data;
+			if (msginfo->msgnum == markinfo->msgnum &&
+			    msginfo->folder == markinfo->folder) {
+				msginfo->flags.tmp_flags |= (markinfo->flags.tmp_flags & (MSG_MOVE|MSG_COPY));
+				msginfo->to_folder = markinfo->to_folder;
+				save_mark_mlist = g_slist_remove
+					(save_mark_mlist, markinfo);
+				g_free(markinfo);
+				if (!save_mark_mlist)
+					return;
+				break;
+			}
 		}
 	}
+
+	if (save_mark_mlist)
+		procmsg_msg_list_free(save_mark_mlist);
 }
 
 static void summary_update_msg_list(SummaryView *summaryview)
@@ -4727,8 +4733,10 @@ static gboolean summary_filter_junk_func(GtkTreeModel *model, GtkTreePath *path,
 	    fltinfo->actions[FLT_ACTION_DELETE] ||
 	    fltinfo->actions[FLT_ACTION_MARK_READ])
 		summaryview->filtered++;
-	else if (fltinfo->error == FLT_ERROR_EXEC_FAILED) {
+	else if (fltinfo->error == FLT_ERROR_EXEC_FAILED ||
+		 fltinfo->last_exec_exit_status >= 3) {
 		if (summaryview->flt_count == 1) {
+			g_warning("summary_filter_junk_func: junk filter command returned %d", fltinfo->last_exec_exit_status);
 			alertpanel_error
 				(_("Execution of the junk filter command failed.\n"
 				   "Please check the junk mail control setting."));
@@ -4916,18 +4924,28 @@ static void summary_junk_func(GtkTreeModel *model, GtkTreePath *path,
 
 	ret = filter_action_exec(&rule, msginfo, file, fltinfo);
 
-	if (ret == 0 &&
-	    msginfo->flags.perm_flags != fltinfo->flags.perm_flags) {
-		msginfo->flags = fltinfo->flags;
-		summary_set_row(summaryview, iter, msginfo);
-		if (MSG_IS_IMAP(msginfo->flags)) {
-			if (fltinfo->actions[FLT_ACTION_MARK_READ])
-				imap_msg_unset_perm_flags(msginfo,
-							  MSG_NEW | MSG_UNREAD);
+	if (ret < 0 || fltinfo->last_exec_exit_status != 0) {
+		g_warning("summary_junk_func: junk filter command returned %d",
+			  fltinfo->last_exec_exit_status);
+		alertpanel_error
+			(_("Execution of the junk filter command failed.\n"
+			   "Please check the junk mail control setting."));
+	} else {
+		if (ret == 0 &&
+		    msginfo->flags.perm_flags != fltinfo->flags.perm_flags) {
+			msginfo->flags = fltinfo->flags;
+			summary_set_row(summaryview, iter, msginfo);
+			if (MSG_IS_IMAP(msginfo->flags)) {
+				if (fltinfo->actions[FLT_ACTION_MARK_READ])
+					imap_msg_unset_perm_flags
+						(msginfo, MSG_NEW | MSG_UNREAD);
+			}
 		}
+		if (ret == 0 && fltinfo->actions[FLT_ACTION_MOVE] &&
+		    fltinfo->move_dest)
+			summary_move_row_to(summaryview, iter,
+					    fltinfo->move_dest);
 	}
-	if (ret == 0 && fltinfo->actions[FLT_ACTION_MOVE] && fltinfo->move_dest)
-		summary_move_row_to(summaryview, iter, fltinfo->move_dest);
 
 	filter_info_free(fltinfo);
 	g_slist_free(rule.action_list);
@@ -4956,6 +4974,14 @@ static void summary_not_junk_func(GtkTreeModel *model, GtkTreePath *path,
 	fltinfo = filter_info_new();
 
 	ret = filter_action_exec(&rule, msginfo, file, fltinfo);
+
+	if (ret < 0 || fltinfo->last_exec_exit_status != 0) {
+		g_warning("summary_not_junk_func: junk filter command returned %d",
+			  fltinfo->last_exec_exit_status);
+		alertpanel_error
+			(_("Execution of the junk filter command failed.\n"
+			   "Please check the junk mail control setting."));
+	}
 
 	filter_info_free(fltinfo);
 	g_slist_free(rule.action_list);
@@ -5491,6 +5517,8 @@ void summary_qsearch_reset(SummaryView *summaryview)
 
 	if (!summaryview->on_filter)
 		return;
+	if (!summaryview->folder_item)
+		return;
 
 	g_signal_handlers_block_matched(G_OBJECT(summaryview->treeview),
 					(GSignalMatchType)G_SIGNAL_MATCH_DATA,
@@ -5557,6 +5585,9 @@ void summary_qsearch(SummaryView *summaryview)
 	GSList *flt_mlist;
 	guint selected_msgnum = 0;
 	guint displayed_msgnum = 0;
+
+	if (!summaryview->folder_item)
+		return;
 
 	menuitem = gtk_menu_get_active(GTK_MENU(summaryview->qsearch->menu));
 	type = GPOINTER_TO_INT
