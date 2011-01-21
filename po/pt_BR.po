@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: sylpheed\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-21 17:16+0900\n"
-"PO-Revision-Date: 2011-01-14 20:40-0200\n"
+"PO-Revision-Date: 2011-01-21 07:33-0200\n"
 "Last-Translator: Alexandre Erwin Ittner <alexandre@ittner.com.br>\n"
 "Language-Team: Portuguese/Brazil <(none)>\n"
 "MIME-Version: 1.0\n"
@@ -940,7 +940,6 @@ msgid "/_Address/Add to _Cc"
 msgstr "/_Endereço/Adicionar ao \"com _cópia\""
 
 #: src/addressbook.c:427
-#, fuzzy
 msgid "/_Address/Add to _Bcc"
 msgstr "/_Endereço/_Adicionar ao \"com cópia oculta\""
 
